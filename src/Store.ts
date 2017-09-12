@@ -33,7 +33,7 @@ export default class Store {
     let newCourseIds: number[] = getChildren(semesterDiv).map((courseDiv: HTMLDivElement) => parseInt(courseDiv.id, 10))
     let newSemesterData = newCourseIds.map((id: number) => this.getCourseData(id))
     this.userData.semesters[semesterIndex] = newSemesterData
-    console.log(this.userData.semesters)
+    console.log(this.userData.semesters[semesterIndex])
   }
 
   getCourseData(id: number): CourseData {

@@ -2,15 +2,14 @@
   position: fixed;
   top: 0px;
   left: 0px;
-  line-height: 45px;
   display: flex;
-  height: 45px;
   flex-flow: row wrap;
   width: 100%;
   z-index: 999;
   background: hsl(200, 80%, 85%);
-  justify-content: space-around;
-  text-align: center;
+  /* justify-content: space-around; */
+  /* text-align: center;
+  align-items: center; */
 }
 
 .Toolbar-item {
@@ -18,8 +17,22 @@
   border: 1px solid black;
   padding: 0px;
   flex-grow: 1;
+  height: 43px;
+  position: relative;
+}
+
+.Toolbar-text {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .Toolbar-logo {
-  height: 43px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
 }
