@@ -1,0 +1,75 @@
+{
+  "name": "Hank Hester",
+  "fall5active": false,
+  "spring5active": false,
+  "semesters": [
+    [
+      {
+        "id": 0,
+        "name": "Data Structures",
+        "genEds": ["QR", "EE"],
+        "department": "COMP",
+        "number": "410"
+      },
+      {
+        "id": 1,
+        "name": "Files and Databases",
+        "genEds": ["QR", "EE"],
+        "department": "COMP",
+        "number": "521"
+      }
+    ],
+    [
+      {
+        "id": 2,
+        "name": "Phonology",
+        "genEds": ["QR", "EE"],
+        "department": "LING",
+        "number": "200"
+      }
+    ],
+    [
+      {
+        "id": 3,
+        "name": "Buddhism in Southeast Asia and Sri Lanka",
+        "genEds": ["QR", "EE"],
+        "department": "RELI",
+        "number": "285"
+      }
+    ],
+    [
+      {
+        "id": 5,
+        "name": "Buddhism in Southeast Asia and Sri Lanka",
+        "genEds": ["QR", "EE"],
+        "department": "RELI",
+        "number": "285"
+      },
+      {
+        "id": 6,
+        "name": "Buddhism in Southeast Asia and Sri Lanka",
+        "genEds": ["QR", "EE"],
+        "department": "RELI",
+        "number": "285"
+      }
+    ],
+    [
+
+    ],
+    [
+
+    ],
+    [
+
+    ],
+    [
+
+    ],
+    [
+
+    ],
+    [
+
+    ]
+  ]
+}

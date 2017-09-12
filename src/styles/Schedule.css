@@ -1,0 +1,14 @@
+.Schedule {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+  text-align: center;
+  font-family: Avenir, Lato, 'Helvetica Neue'
+}
+
+.Schedule-row {
+  display: flex;
+  flex-direction: row;
+}

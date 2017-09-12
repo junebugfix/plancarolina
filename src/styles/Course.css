@@ -1,0 +1,7 @@
+.Course {
+  border: 1px solid hsla(0, 0%, 0%, 0.6);
+  box-sizing: border-box;
+  padding: 2px;
+  position: relative;
+  cursor: move;
+}

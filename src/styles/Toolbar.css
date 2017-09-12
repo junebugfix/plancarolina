@@ -1,0 +1,25 @@
+.Toolbar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  line-height: 45px;
+  display: flex;
+  height: 45px;
+  flex-flow: row wrap;
+  width: 100%;
+  z-index: 999;
+  background: hsl(200, 80%, 85%);
+  justify-content: space-around;
+  text-align: center;
+}
+
+.Toolbar-item {
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 0px;
+  flex-grow: 1;
+}
+
+.Toolbar-logo {
+  height: 43px;
+}
