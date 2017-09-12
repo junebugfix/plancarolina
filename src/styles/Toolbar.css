@@ -7,9 +7,6 @@
   width: 100%;
   z-index: 999;
   background: hsl(200, 80%, 85%);
-  /* justify-content: space-around; */
-  /* text-align: center;
-  align-items: center; */
 }
 
 .Toolbar-item {

@@ -5,6 +5,8 @@
   height: 200px;
   border: 3px solid #7BAFD4;
   background: hsla(0, 0%, 100%, 0.9);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .sortable-ghost {

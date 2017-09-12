@@ -5,6 +5,8 @@ import Schedule from './components/Schedule'
 import Semester, { Semesters } from './components/Semester'
 import { getClassElements, getChildren } from './utils'
 
+// tslint:disable:no-any
+
 interface UserData {
   name: string,
   fall5active: boolean,
@@ -16,6 +18,7 @@ export default class Store {
 
   userData: UserData
   schedule: Schedule
+  slipLists: any[] = []
 
   constructor() {
     this.userData = require('./userData.json')
@@ -26,14 +29,14 @@ export default class Store {
   }
 
   updateSemester(semesterDiv: HTMLDivElement) {
-    let semesterIndex = Semesters[semesterDiv.id]
-    console.log(this.userData.semesters[semesterIndex])
-    let allCourses = this.getAllCourses()
-    let oldSemesterData = this.getSemesterData(semesterIndex)
-    let newCourseIds: number[] = getChildren(semesterDiv).map((courseDiv: HTMLDivElement) => parseInt(courseDiv.id, 10))
-    let newSemesterData = newCourseIds.map((id: number) => this.getCourseData(id))
-    this.userData.semesters[semesterIndex] = newSemesterData
-    console.log(this.userData.semesters[semesterIndex])
+    // let semesterIndex = Semesters[semesterDiv.id]
+    // console.log(this.userData.semesters[semesterIndex])
+    // let allCourses = this.getAllCourses()
+    // let oldSemesterData = this.getSemesterData(semesterIndex)
+    // let newCourseIds: number[] = getChildren(semesterDiv).map((courseDiv: HTMLDivElement) => parseInt(courseDiv.id, 10))
+    // let newSemesterData = newCourseIds.map((id: number) => this.getCourseData(id))
+    // this.userData.semesters[semesterIndex] = newSemesterData
+    // console.log(this.userData.semesters[semesterIndex])
   }
 
   getCourseData(id: number): CourseData {
@@ -58,6 +61,14 @@ export default class Store {
       number: '101'
     }
     // this.schedule.addClass(semester, courseData);
+  }
+
+  registerSlipList(newSlipList: any) {
+    this.slipLists.forEach((list: any) => {
+      list.crossLists.push(newSlipList)
+      newSlipList.crossLists.push(list)
+    })
+    this.slipLists.push(newSlipList)
   }
 
   addMajor() {

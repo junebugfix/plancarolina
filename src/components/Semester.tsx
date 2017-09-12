@@ -44,16 +44,41 @@ export default class Semester extends React.Component<SemesterProps, {}> {
   // }
 
   componentDidMount() {
-    const Sortable = require('sortablejs')
-    let sortable = Sortable.create(this.divEl, {
-      animation: 100,
-      scroll: false,
-      group: 'semesters',
-      ghostClass: 'sortable-ghost',
-      onSort: (e: Event) => {
-        store.updateSemester(e.target as HTMLDivElement)
+    // const Sortable = require('sortablejs')
+    // let sortable = Sortable.create(this.divEl, {
+    //   animation: 100,
+    //   scroll: false,
+    //   group: 'semesters',
+    //   ghostClass: 'sortable-ghost',
+    //   onSort: (e: Event) => {
+    //     store.updateSemester(e.target as HTMLDivElement)
+    //   }
+    // })
+
+    const Slip = require('../slip.js')
+    let slipList = new Slip(this.divEl)
+    // tslint:disable:no-any
+    this.divEl.addEventListener('slip:reorder', (e: any) => {
+      console.log(e)
+      // e.detail.origin.container.childNodes[index]
+      if (e.target.classList.contains('Course')) {
+        e.target.parentNode.insertBefore(e.target, e.detail.insertBefore)
+      } else {
+        const toList = e.target
+        const fromList = e.detail.origin.container
+        const fromIndex = e.detail.originalIndex
+        const toIndex = e.detail.spliceIndex
+        console.log(fromList, toList)
+        console.log(fromIndex, toIndex)
+        toList.insertBefore(fromList.childNodes[fromIndex], toList.childNodes[toIndex])
       }
     })
+
+    this.divEl.addEventListener('slip:swipe', (e: Event) => {
+      e.preventDefault()
+    })
+
+    store.registerSlipList(slipList)
   }
 
   render() {
