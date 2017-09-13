@@ -1,6 +1,8 @@
 import * as React from 'react'
+import { observer } from 'mobx-react'
 import '../styles/Header.css'
 
+@observer
 export default class Header extends React.Component {
   render() {
     return (

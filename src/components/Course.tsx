@@ -1,5 +1,6 @@
 import * as React from 'react'
-import Store from '../Store'
+import { observer } from 'mobx-react'
+import { scheduleStore } from '../ScheduleStore'
 import { Departments } from '../departments'
 import '../styles/Course.css'
 
@@ -11,6 +12,7 @@ export type CourseData = {
   number: string
 }
 
+@observer
 export default class Course extends React.Component<{data: CourseData}, {}> {
   render() {
     const data = this.props.data

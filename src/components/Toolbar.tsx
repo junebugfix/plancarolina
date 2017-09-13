@@ -1,9 +1,11 @@
 import * as React from 'react'
-import { store } from '../Store'
+import { observer } from 'mobx-react'
+import { scheduleStore } from '../ScheduleStore'
 import '../styles/Toolbar.css'
 
 const logo = require('../logo.png')
 
+@observer
 export default class Toolbar extends React.Component {
   render() {
     return (
@@ -11,8 +13,8 @@ export default class Toolbar extends React.Component {
         <div className="Toolbar-item">
           <img className="Toolbar-logo" src={logo} />
         </div>
-        <div className="Toolbar-item" onClick={store.addClass}><span className="Toolbar-text">Add Class</span></div>
-        <div className="Toolbar-item" onClick={store.addMajor}><span className="Toolbar-text">Add Major</span></div>
+        <div className="Toolbar-item" onClick={scheduleStore.addClass}><span className="Toolbar-text">Add Class</span></div>
+        <div className="Toolbar-item" onClick={scheduleStore.addMajor}><span className="Toolbar-text">Add Major</span></div>
       </div>
     )
   }

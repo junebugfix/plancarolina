@@ -1,6 +1,5 @@
 import * as React from 'react'
 import '../styles/App.css'
-import { store } from '../Store'
 import Toolbar from './Toolbar'
 import Header from './Header'
 import Schedule from './Schedule'
