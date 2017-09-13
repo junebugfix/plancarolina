@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { observer } from 'mobx-react'
 import { scheduleStore } from '../ScheduleStore'
+import { uiStore } from '../UIStore'
 import { Departments } from '../departments'
 import '../styles/Course.css'
 
@@ -13,12 +14,24 @@ export type CourseData = {
 }
 
 @observer
-export default class Course extends React.Component<{data: CourseData}, {}> {
+export default class Course extends React.Component<{ data: CourseData }, {}> {
+
+  hue: number
+
+  constructor(props: { data: CourseData }) {
+    super(props)
+    let hue = uiStore.departmentHues.get(props.data.department)
+    if (hue === undefined) {
+      hue = uiStore.lastHue += 30
+      uiStore.departmentHues.set(props.data.department, hue)
+    }
+    this.hue = hue
+  }
+
   render() {
     const data = this.props.data
-    let color = (Departments[data.department] + 1) * (360 / (Object.keys(Departments).length / 2)) // Getting length of an enum is weird: https://stackoverflow.com/questions/38034673/determine-the-number-of-enum-elements-typescript?answertab=votes#tab-top
     let style = {
-      backgroundColor: `hsl(${color}, 80%, 80%)`
+      backgroundColor: `hsl(${this.hue}, 80%, 80%)`
     }
     return (
       <div className="Course" id={`${data.id}`} style={style}>{data.department} {data.number}</div>

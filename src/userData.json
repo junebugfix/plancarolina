@@ -17,6 +17,20 @@
         "genEds": ["QR", "EE"],
         "department": "COMP",
         "number": "521"
+      },
+      {
+        "id": 9,
+        "name": "Files and Databases",
+        "genEds": ["QR", "EE"],
+        "department": "BIOL",
+        "number": "283"
+      },
+      {
+        "id": 10,
+        "name": "Files and Databases",
+        "genEds": ["QR", "EE"],
+        "department": "HIST",
+        "number": "202"
       }
     ],
     [
@@ -33,7 +47,7 @@
         "id": 3,
         "name": "Buddhism in Southeast Asia and Sri Lanka",
         "genEds": ["QR", "EE"],
-        "department": "RELI",
+        "department": "PHIL",
         "number": "285"
       }
     ],
@@ -42,7 +56,7 @@
         "id": 5,
         "name": "Buddhism in Southeast Asia and Sri Lanka",
         "genEds": ["QR", "EE"],
-        "department": "RELI",
+        "department": "ECON",
         "number": "285"
       },
       {
