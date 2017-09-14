@@ -790,6 +790,7 @@ window['Slip'] = (function(){
         },
 
         dispatch: function(targetNode, eventName, detail) {
+            if (targetNode === null) { return; }
             var event = document.createEvent('CustomEvent');
             if (event && event.initCustomEvent) {
                 event.initCustomEvent('slip:' + eventName, true, true, detail);
@@ -798,6 +799,7 @@ window['Slip'] = (function(){
                 event.initEvent('slip:' + eventName, true, true);
                 event.detail = detail;
             }
+            
             return targetNode.dispatchEvent(event);
         },
 
