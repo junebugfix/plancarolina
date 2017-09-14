@@ -18,6 +18,12 @@ export default class Schedule extends React.Component {
   render() {
     return (
       <div className="Schedule">
+        <div className="Schedule-row Schedule-year-labels">
+          <div className="Schedule-year-label">Freshman</div>
+          <div className="Schedule-year-label">Sophomore</div>
+          <div className="Schedule-year-label">Junior</div>
+          <div className="Schedule-year-label">Senior</div>
+        </div>
         <div className="Schedule-row">
           <Semester index={Semesters.Fall1} />
           <Semester index={Semesters.Fall2} />

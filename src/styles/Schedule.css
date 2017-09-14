@@ -13,3 +13,8 @@
   display: flex;
   flex-direction: row;
 }
+
+.Schedule-year-label {
+  flex-grow: 1;
+  width: 150px;
+}
