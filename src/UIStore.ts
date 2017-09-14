@@ -1,4 +1,5 @@
 import { observable, action, computed } from 'mobx'
+import { Semesters } from './utils'
 
 class UIStore {
 
@@ -13,6 +14,18 @@ class UIStore {
 
   @observable departmentHues = new Map<string, number>()
   lastHue = 0
+
+  getSemesterLabel(index: Semesters) {
+    if (this.isFallSemester(index)) {
+      return 'Fall'
+    } else {
+      return 'Spring'
+    }
+  }
+
+  private isFallSemester(index: Semesters) {
+    return [Semesters.Fall1, Semesters.Fall2, Semesters.Fall3, Semesters.Fall4, Semesters.Fall5].indexOf(index) !== -1
+  }
 
 }
 
