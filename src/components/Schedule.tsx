@@ -17,7 +17,6 @@ export default class Schedule extends React.Component {
 
   render() {
     return (
-      // <div className="Schedule">{semesterDivs}</div>
       <div className="Schedule">
         <div className="Schedule-row">
           <Semester index={Semesters.Fall1} />

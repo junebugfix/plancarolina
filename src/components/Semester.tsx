@@ -4,8 +4,13 @@ import { scheduleStore } from '../ScheduleStore'
 import Course from './Course'
 import { Departments } from '../departments'
 import { Semesters } from '../utils'
+import { uiStore } from '../UIStore'
 import { CourseData } from './Course'
 import '../styles/Semester.css'
+
+const style = {
+  backgroundColor: uiStore.lightColor
+}
 
 @observer
 export default class Semester extends React.Component<{ index: Semesters }, {}> {
@@ -37,7 +42,7 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
   render() {
     const semesterData = scheduleStore.getSemesterData(this.props.index)
     return (
-      <div ref={(input) => { this.divEl = input as HTMLDivElement; }} className="Semester" id={`${Semesters[this.props.index]}`}>
+      <div ref={(input) => { this.divEl = input as HTMLDivElement; }} className="Semester" id={`${Semesters[this.props.index]}`} style={style}>
         {semesterData.map((data: CourseData) => <Course key={`course=${data.id}`} data={data} />)}
       </div>
     )
