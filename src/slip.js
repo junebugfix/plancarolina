@@ -422,7 +422,6 @@ window['Slip'] = (function(){
                     		if (box.left < this.latestPosition.x && box.right > this.latestPosition.x &&
                     			box.top < this.latestPosition.y && box.bottom > this.latestPosition.y){
                                 foundCross = true;
-                                console.log('found cross')
                     			
                     			if (container !== slip.container){
                     				computeNodeList.call(this, slip.container);
