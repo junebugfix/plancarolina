@@ -4,4 +4,5 @@
   padding: 2px;
   position: relative;
   cursor: move;
+  user-select: none;
 }

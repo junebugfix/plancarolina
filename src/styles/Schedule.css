@@ -5,7 +5,8 @@
   transform: translateX(-50%);
   flex-direction: column;
   text-align: center;
-  font-family: Avenir, Lato, 'Helvetica Neue'
+  padding: 7px;
+  border-radius: 6px;
 }
 
 .Schedule-row {

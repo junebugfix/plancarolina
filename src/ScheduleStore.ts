@@ -64,8 +64,10 @@ class ScheduleStore {
   }
 
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
-    let fromSemesterData = this.findSemesterWithCourse(fromList.children[0].id) as CourseData[]
-    let toSemesterData = this.findSemesterWithCourse(toList.children[0].id) as CourseData[]
+    // let fromSemesterData = this.findSemesterWithCourse(fromList.children[0].id) as CourseData[]
+    // let toSemesterData = this.findSemesterWithCourse(toList.children[0].id) as CourseData[]
+    let fromSemesterData = this.getSemesterData(Semesters[fromList.id])
+    let toSemesterData = this.getSemesterData(Semesters[toList.id])
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
   }
 
