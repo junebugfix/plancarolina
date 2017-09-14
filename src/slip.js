@@ -406,7 +406,11 @@ window['Slip'] = (function(){
                     // 	//first try an early out if its not a cross list transfer
                     // 	computeNodeList.call(this, this.container);
                     // }
-                    if (Math.abs(move.x) > treshold){//start looking for crosslists
+
+                    // be
+
+                    // the check below assumes that moving lists will happen sideways - Hank
+                    // if (Math.abs(move.x) > treshold){//start looking for crosslists
                     	crossReorder = true;
                     	
                         var lookupList = this.crossLists.slice();
@@ -425,7 +429,7 @@ window['Slip'] = (function(){
                     			}
                     		}
                     	}, this);
-					}
+					// }
                     
                     //no destination container
                     if ((!crossReorder || !foundCross) && Math.abs(move.x) > treshold && container != null){
