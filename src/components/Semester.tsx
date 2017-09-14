@@ -17,7 +17,6 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
   divEl: HTMLDivElement; // store the div element of the semester with a 'ref' attribute (see render below) to pass it to slipjs
 
   isReorderWithinList(e: Event): boolean {
-    console.log(e.target)
     return (e.target as HTMLDivElement).classList.contains('Course')
   }
 
@@ -25,11 +24,9 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
     const Slip = require('../slip.js')
     let slipList = new Slip(this.divEl)
     this.divEl.addEventListener('slip:reorder', (e: any) => {
-      console.log(e)
       if (this.isReorderWithinList(e)) {
         scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
       } else { // course was dragged to a different list
-        console.log(e)
         const toList = e.target
         const fromList = e.detail.origin.container
         const toIndex = e.detail.spliceIndex

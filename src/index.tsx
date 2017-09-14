@@ -11,4 +11,4 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 )
 
-autorun(() => console.log(scheduleStore.allSemesters.filter((s: CourseData[]) => true)))
+// autorun(() => console.log(scheduleStore.allSemesters.filter((s: CourseData[]) => true)))
