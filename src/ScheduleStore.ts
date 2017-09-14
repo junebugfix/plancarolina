@@ -30,7 +30,9 @@ class ScheduleStore {
   }
 
   getSemesterData(index: number): CourseData[] {
-    return this.allSemesters[index]
+    console.log(this.allSemesters)
+    let data =  this.allSemesters[index]
+    return data
   }
 
   findSemesterWithCourse(id: number | string): CourseData[] | null {
@@ -44,7 +46,7 @@ class ScheduleStore {
         }
       }
     }
-    return null
+    throw new Error(`Invalid course id: ${id}`)
   }
 
   @computed get allCourses(): CourseData[] {
@@ -66,8 +68,9 @@ class ScheduleStore {
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
     // let fromSemesterData = this.findSemesterWithCourse(fromList.children[0].id) as CourseData[]
     // let toSemesterData = this.findSemesterWithCourse(toList.children[0].id) as CourseData[]
-    let fromSemesterData = this.getSemesterData(Semesters[fromList.id])
-    let toSemesterData = this.getSemesterData(Semesters[toList.id])
+    console.log(toList)
+    let fromSemesterData = this.getSemester(Semesters[fromList.id])
+    let toSemesterData = this.getSemester(Semesters[toList.id])
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
   }
 
@@ -95,7 +98,11 @@ class ScheduleStore {
     console.log('adding major')
   }
 
-  getSemester(id: Semesters) {
+  getSemester(id: number | string) {
+    if (typeof id === 'string') {
+      id = Semesters[id]
+    }
+    console.log('checking course id: ', id)
     switch (id) {
       case Semesters.Fall1:
         return this.fall1

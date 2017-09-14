@@ -17,6 +17,7 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
   divEl: HTMLDivElement; // store the div element of the semester with a 'ref' attribute (see render below) to pass it to slipjs
 
   isReorderWithinList(e: Event): boolean {
+    console.log(e.target)
     return (e.target as HTMLDivElement).classList.contains('Course')
   }
 
