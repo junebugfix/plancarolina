@@ -15,14 +15,31 @@ const style = {
 @observer
 export default class Semester extends React.Component<{ index: Semesters }, {}> {
   divEl: HTMLDivElement; // store the div element of the semester with a 'ref' attribute (see render below) to pass it to slipjs
+  label: string
+
+  constructor(props: { index: Semesters }) {
+    super(props)
+    this.label = uiStore.getSemesterLabel(props.index)
+  }
 
   isReorderWithinList(e: Event): boolean {
     return (e.target as HTMLDivElement).classList.contains('Course')
   }
 
+  shouldReorder(e: Event): boolean {
+    return (e.target as HTMLDivElement).id !== 'course-9'
+  }
+
   componentDidMount() {
     const Slip = require('../slip.js')
     let slipList = new Slip(this.divEl)
+    // this.divEl.addEventListener('slip:beforereorder', (e: any) => {
+    //   console.log(e)
+    //   if (!this.shouldReorder(e)) {
+    //     console.log('stop')
+    //     e.preventDefault()
+    //   }
+    // })
     this.divEl.addEventListener('slip:reorder', (e: any) => {
       if (this.isReorderWithinList(e)) {
         scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
@@ -40,8 +57,11 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
   render() {
     const semesterData = scheduleStore.getSemesterData(this.props.index)
     return (
-      <div ref={(input) => { this.divEl = input as HTMLDivElement; }} className="Semester" id={`${Semesters[this.props.index]}`} style={style}>
-        {semesterData.map((data: CourseData) => <Course key={`course=${data.id}`} data={data} />)}
+      <div className="Semester">
+        <div className="Semster-label">{this.label}</div>
+        <div ref={(input) => { this.divEl = input as HTMLDivElement; }} className="Semester-courses" id={`${Semesters[this.props.index]}`} style={style}>
+          {semesterData.map((data: CourseData) => <Course key={`course=${data.id}`} data={data} />)}
+        </div>
       </div>
     )
   }
