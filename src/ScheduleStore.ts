@@ -36,6 +36,9 @@ class ScheduleStore {
 
   findSemesterWithCourse(id: number | string): CourseData[] | null {
     if (typeof id === "string") {
+      if (id.startsWith('course')) {
+        id = id.substring(7)
+      }
       id = parseInt(id, 10)
     }
     for (let i = 0; i < this.allSemesters.length; i++) {
@@ -65,8 +68,7 @@ class ScheduleStore {
   }
 
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
-    // let fromSemesterData = this.findSemesterWithCourse(fromList.children[0].id) as CourseData[]
-    // let toSemesterData = this.findSemesterWithCourse(toList.children[0].id) as CourseData[]
+    console.log(toList)
     let fromSemesterData = this.getSemester(Semesters[fromList.id])
     let toSemesterData = this.getSemester(Semesters[toList.id])
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])

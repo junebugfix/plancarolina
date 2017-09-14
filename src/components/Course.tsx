@@ -34,7 +34,7 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
       backgroundColor: `hsl(${this.hue}, 80%, 80%)`
     }
     return (
-      <div className="Course" id={`${data.id}`} style={style}>{data.department} {data.number}</div>
+      <div className="Course" id={`course-${data.id}`} style={style}>{data.department} {data.number}</div>
     )
   }
 }

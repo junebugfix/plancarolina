@@ -20,9 +20,20 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
     return (e.target as HTMLDivElement).classList.contains('Course')
   }
 
+  shouldReorder(e: Event): boolean {
+    return (e.target as HTMLDivElement).id !== 'course-9'
+  }
+
   componentDidMount() {
     const Slip = require('../slip.js')
     let slipList = new Slip(this.divEl)
+    // this.divEl.addEventListener('slip:beforereorder', (e: any) => {
+    //   console.log(e)
+    //   if (!this.shouldReorder(e)) {
+    //     console.log('stop')
+    //     e.preventDefault()
+    //   }
+    // })
     this.divEl.addEventListener('slip:reorder', (e: any) => {
       if (this.isReorderWithinList(e)) {
         scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)

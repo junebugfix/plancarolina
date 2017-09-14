@@ -401,14 +401,15 @@ window['Slip'] = (function(){
                     	crossReorder = false,
                     	foundCross = false;
                     
-                    if (Math.abs(move.x) <= treshold && container !== this.container){
-                    	//first try an early out if its not a cross list transfer
-                    	computeNodeList.call(this, this.container);
-                    }
-                    else if (Math.abs(move.x) > treshold){//start looking for crosslists
+                    // commented the below if statemtent out - this is what was causing the dragged element to not recognize the list below as another list - Hank
+                    // if (Math.abs(move.x) <= treshold && container !== this.container){
+                    // 	//first try an early out if its not a cross list transfer
+                    // 	computeNodeList.call(this, this.container);
+                    // }
+                    if (Math.abs(move.x) > treshold){//start looking for crosslists
                     	crossReorder = true;
                     	
-                    	var lookupList = this.crossLists.slice();
+                        var lookupList = this.crossLists.slice();
                     	lookupList.push(this);
                     	
                     	lookupList.forEach(function(slip){
@@ -416,7 +417,8 @@ window['Slip'] = (function(){
                     		
                     		if (box.left < this.latestPosition.x && box.right > this.latestPosition.x &&
                     			box.top < this.latestPosition.y && box.bottom > this.latestPosition.y){
-                    			foundCross = true;
+                                foundCross = true;
+                                console.log('found cross')
                     			
                     			if (container !== slip.container){
                     				computeNodeList.call(this, slip.container);
@@ -433,7 +435,8 @@ window['Slip'] = (function(){
                     	container = null;
                     }
                     
-                    if (!crossReorder) move.x = 0;
+                    // commented this out - it causes the dragging element to snap back to only the original list's x location - Hank
+                    // if (!crossReorder) move.x = 0;
    
                     
                     var	cssTranslate = 'translate(' + move.x + 'px,' + move.y + 'px) ';
@@ -441,6 +444,7 @@ window['Slip'] = (function(){
                     
                     var translateDistance = this.target.height;
                     
+                    // BOOKMARK: This is where the other nodes are being animated when you drag something - Hank
 					otherNodes.forEach(function(o){
 						var off = 0;
 						if (container === this.container){

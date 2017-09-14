@@ -6,3 +6,7 @@
   cursor: move;
   user-select: none;
 }
+
+#course-9 {
+  position: relative;
+}
