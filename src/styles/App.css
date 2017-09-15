@@ -1,6 +1,7 @@
 body {
   background: #7BAFD4; /*carolina blue*/
-  font-family: Avenir, 'Helvetica Neue', sans-serif
+  font-family: Avenir, 'Helvetica Neue', sans-serif;
+  margin: 0;
 }
 
 ul {

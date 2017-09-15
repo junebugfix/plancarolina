@@ -74,18 +74,6 @@ class ScheduleStore {
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
   }
 
-  @action.bound addClass() {
-    let semester: Semesters = Semesters.Fall2
-    let courseData: CourseData = {
-      id: Math.trunc(Math.random() * 1000),
-      name: 'Intro to Anthropology',
-      genEds: ['BN'],
-      department: 'ANTH',
-      number: '101'
-    }
-    this.fall2.push(courseData)
-  }
-
   connectSlipList(newSlipList: any) {
     this.slipLists.forEach((list: any) => {
       list.crossLists.push(newSlipList)
