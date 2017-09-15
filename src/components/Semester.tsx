@@ -9,7 +9,7 @@ import { CourseData } from './Course'
 import '../styles/Semester.css'
 
 const style = {
-  backgroundColor: uiStore.lightColor
+  // backgroundColor: uiStore.lightColor
 }
 
 @observer
@@ -33,13 +33,6 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
   componentDidMount() {
     const Slip = require('../slip.js')
     let slipList = new Slip(this.divEl)
-    // this.divEl.addEventListener('slip:beforereorder', (e: any) => {
-    //   console.log(e)
-    //   if (!this.shouldReorder(e)) {
-    //     console.log('stop')
-    //     e.preventDefault()
-    //   }
-    // })
     this.divEl.addEventListener('slip:reorder', (e: any) => {
       if (this.isReorderWithinList(e)) {
         scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)

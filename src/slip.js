@@ -407,8 +407,6 @@ window['Slip'] = (function(){
                     // 	computeNodeList.call(this, this.container);
                     // }
 
-                    // be
-
                     // the check below assumes that moving lists will happen sideways - Hank
                     // if (Math.abs(move.x) > treshold){//start looking for crosslists
                     	crossReorder = true;
