@@ -25,5 +25,14 @@
     "react-scripts-ts": "^2.6.0",
     "slipjs": "^2.1.0",
     "sortablejs": "^1.6.1"
-  }
+  },
+  "proxy": {
+    "/api": {
+      "target": "https://wwwx.cs.unc.edu/~kateg/plan-carolina-app",
+      "secure": true,
+      "changeOrigin": true,
+      "host": "wwwx.cs.unc.edu"
+    }
+  },
+  "homepage": "https://wwwx.cs.unc.edu/~kateg/plan-carolina-app"
 }
