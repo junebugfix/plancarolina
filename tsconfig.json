@@ -13,7 +13,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
+    // "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "experimentalDecorators": true
   },
