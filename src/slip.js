@@ -795,7 +795,10 @@ window['Slip'] = (function(){
         },
 
         dispatch: function(targetNode, eventName, detail) {
-            if (targetNode === null) { return; }
+            if (targetNode === null) { 
+                detail.origin.container.removeChild(detail.origin.container.childNodes[(detail.originalIndex)]);
+                return; 
+            }
             var event = document.createEvent('CustomEvent');
             if (event && event.initCustomEvent) {
                 event.initCustomEvent('slip:' + eventName, true, true, detail);
