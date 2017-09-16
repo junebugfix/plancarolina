@@ -1,5 +1,5 @@
 .Toolbar {
-  position: fixed;
+  margin: 0;
   top: 0px;
   left: 0px;
   display: flex;
@@ -16,6 +16,7 @@
   flex-grow: 1;
   height: 43px;
   position: relative;
+  user-select: none;
 }
 
 .Toolbar-text {
@@ -26,10 +27,16 @@
   transform: translate(-50%, -50%);
 }
 
+h1.Toolbar-text {
+  margin: 0;
+  font-size: 18px;
+  display: inline-block;
+}
+
 .Toolbar-logo {
-  position: absolute;
-  left: 50%;
+  position: relative;
+  left: 10px;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
   height: 40px;
 }

@@ -18,3 +18,22 @@
   flex-grow: 1;
   width: 150px;
 }
+
+@media (max-width: 1160px) {
+  .Schedule {
+    left: 55%;
+  }
+}
+
+@media (max-width: 960px) {
+  .Schedule {
+    left: 62%;
+  }
+}
+
+@media (max-width: 855px) {
+  .Schedule {
+    left: 50%;
+    margin-top: 10px;
+  }
+}

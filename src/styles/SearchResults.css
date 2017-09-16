@@ -1,0 +1,15 @@
+.SearchResults {
+  position: absolute;
+  background: white;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+.SearchResults-item {
+  padding: 3px 6px;
+  cursor: pointer;
+}
+
+.SearchResults-item.highlighted {
+  background: lightblue;
+}

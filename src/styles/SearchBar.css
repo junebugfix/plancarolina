@@ -1,0 +1,120 @@
+.SearchBar {
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 180px;
+  height: 500px;
+  position: absolute;
+  top: 75px;
+  left: 60px;
+  z-index: 9999;
+}
+
+.SearchBar h2 {
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.SearchBar input {
+  border-radius: 3px;
+  border: 1px solid lightgrey;
+  padding: 5px;
+  font-size: 14px;
+  outline: none;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+
+.SearchBar .tags-input {
+  width: 160px;
+}
+
+.SearchBar input#name-input {
+  width: 155px;
+}
+
+.SearchBar input#department-input {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.SearchBar input#number-input {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.SearchBar-department-results {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 1px;
+  background: white;
+  z-index: 999;
+}
+
+.SearchBar .department-result {
+  text-align: center;
+  padding: 2px 3px;
+}
+
+.SearchBar select {
+  font-size: 18px;
+  outline: none;
+  border: 1px solid lightgrey;
+}
+
+.SearchBar-results {
+  width: calc(100% - 8px);
+  height: 54px;
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  border: 1px dashed black;
+}
+
+@media (max-width: 1160px) {
+  .SearchBar {
+    left: 20px;
+  }
+}
+
+@media (max-width: 855px) {
+  .SearchBar {
+    position: relative;
+    width: 90%;
+    height: 130px;
+    left: 50%;
+    top: 10px;
+    padding-top: 6px;
+    transform: translateX(-50%);
+  }
+
+  .SearchBar > * {
+    position: absolute;
+    display: inline-block;
+  }
+  .SearchBar #department-number-group {
+    top: 32px;
+    width: 200px;
+  }
+  .SearchBar input#name-input {
+    width: 33vw;
+    margin-left: 10px;
+  }
+  .SearchBar .tags-input {
+    margin-left: 171px;
+    width: 28vw;
+  }
+  .SearchBar label[for="gened-input"] {
+    position: absolute;
+    top: 50px;
+  }
+  .SearchBar #name-gened-group {
+    left: 35%;
+    top: 2px;
+  }
+}
