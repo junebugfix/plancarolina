@@ -1,0 +1,269 @@
+[
+  {
+    "department": "AERO",
+    "number": 101,
+    "geneds": [],
+    "requirements": "",
+    "description": "United States Air Force Today. 1 Credit. An introduction to AFROTC and the United States Air Force (USAF); customs and courtesies, officer opportunities, core values, and communications skills. ",
+    "name": "United States Air Force Today"
+  },
+  {
+    "department": "AERO",
+    "number": 102,
+    "geneds": [],
+    "requirements": "",
+    "description": "United States Air Force Today. 1 Credit. An introduction to the United States Air Force organization and mission. ",
+    "name": "United States Air Force Today"
+  },
+  {
+    "department": "AERO",
+    "number": 190,
+    "geneds": [],
+    "requirements": "",
+    "description": "Seminar. 1-3 Credits. Seminar in topics related to the United States Air Force. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. ",
+    "name": "Seminar"
+  },
+  {
+    "department": "AERO",
+    "number": 196,
+    "geneds": [],
+    "requirements": "",
+    "description": "Independent Study. 1-3 Credits. Readings and research of topics regarding the United States Air Force. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. ",
+    "name": "Independent Study"
+  },
+  {
+    "department": "AERO",
+    "number": 101,
+    "geneds": [
+      "SS",
+      "CI"
+    ],
+    "requirements": "Prerequisites, AERO 101, 102, 201, and 202. ",
+    "description": "AERO 102, AERO 201, and AERO 202 prior to attending field training and must be able to complete at least three semesters of college as a full-time student following field training. Interested Students First- and second-year students seeking to learn more about the Air Force and ROTC can take AERO 101, AERO 102, AERO 201, or AERO 202 with no obligation. These courses provide a solid introduction to Air Force operations and culture, providing students with the necessary information to make an informed decision about whether the Air Force interests them.  Advising  All majors and minors have a primary academic advisor in Steele Building. At a minimum, students who join the AFROTC program are required to meet with their advisor every fall term to develop and update their academic plan. The department’s education officer and academic instructors help oversee this process. For information on Air Force officer careers, please visit www.afrotc.com (http://www.afrotc.com).  Special Opportunities in Aerospace Studies Scholarships and Financial Assistance Two- to four-year scholarships are available to students based on merit or specialized major (e.g., foreign language or nursing). In most cases, these scholarships cover tuition and fees, and provide a tax-free allowance ($250 to $400 each month) and a textbook allowance ($600) each semester. Foreign Language/Study Abroad Stipend and Opportunities All contract and scholarship cadets are eligible to earn up to $3,000 per academic year for studying a foreign language or participating in a study abroad program.  Air Force ROTC cadets are uniquely eligible to participate in Department of Defense language grant programs through major universities, often involving study abroad. See www.rotcprojectgo.org (http:// www.rotcprojectgo.org) or contact the unit admissions officer for more information. Extracurricular Activities The AFROTC experience is much more than classroom studies. Cadets participate in a range of activities. These include social functions such as a formal dinner, fundraising events, color guard at home football and basketball games, volunteer work in the community, and field trips to military bases. Recent cadet activities are highlighted on a public Facebook page (http://www.facebook.com/UNC.AFROTC.DET590).  Arnold Air Society (AAS) is a national service organization dedicated to furthering the traditions, purposes, and concepts of the United States Air Force as a military organization and a professional calling. The local AAS chapter is active nationwide, and AFROTC cadets attend the regional and national conventions each year.  \f106         Aerospace Studies Minor  AERO 301. Contemporary Leadership and Management. 3 Credits. Part one of a two-part course concerning contemporary leadership and management. Emphasizes modern-day experiences, successes, and failures, with various theories on motivating people, organizing, and managing. Lectures and discussion focus on application of various principles as an Air Force officer. Class participation, comprehension, and oral communication skills are stressed. ",
+    "name": "AERO 102, AERO 201, and AERO 202 prior to attending field training and must be able to complete at least three semesters of college as a full-time student following field training"
+  },
+  {
+    "department": "AAAD",
+    "number": 101,
+    "geneds": [
+      "BN",
+      "GL"
+    ],
+    "requirements": "",
+    "description": "Introduction to Africa. 3 Credits. Introduction to the study of the African continent, its peoples, history, and contemporary problems of development in a globalized world, including a survey of the African past, society and culture, and contemporary political, economic, and social issues. ",
+    "name": "Introduction to Africa"
+  },
+  {
+    "department": "AAAD",
+    "number": 130,
+    "geneds": [
+      "HS",
+      "US"
+    ],
+    "requirements": "",
+    "description": "Introduction to African American and Diaspora Studies. 3 Credits. The course tracks the contours of life, societies, cultures, and history in the Atlantic African Diaspora from origins in Atlantic Africa to the present. Emphasis on forces that have created African American and African Diaspora peoples in North America, South America, and the Caribbean. ",
+    "name": "Introduction to African American and Diaspora Studies"
+  },
+  {
+    "department": "AAAD",
+    "number": 159,
+    "geneds": [],
+    "requirements": "",
+    "description": "The History of the Black Church and Social Change. 3 Credits. A survey of the historical development of the black church in America, beginning during the antebellum period and continuing to the present day. ",
+    "name": "The History of the Black Church and Social Change"
+  },
+  {
+    "department": "AAAD",
+    "number": 200,
+    "geneds": [
+      "SS",
+      "BN"
+    ],
+    "requirements": "",
+    "description": "Gender and Sexuality in Africa. 3 Credits. Introduction to the study of gender and sexuality in African societies. Theoretical questions relating to the cross-cultural study of gender will be a primary focus. Topics include historical perspectives on the study of kinship and family in Africa and the impact of colonialism and other forms of social change. ",
+    "name": "Gender and Sexuality in Africa"
+  },
+  {
+    "department": "SWAH",
+    "number": 112,
+    "geneds": [
+      "FL"
+    ],
+    "requirements": "",
+    "description": "Intensive Kiswahili 1-2. 6 Credits. The 112 course covers the material in the SWAH 401 and 402 sequence in a single semester. Students may not receive credit for both SWAH 401 and SWAH 402 or SWAH 112 . ",
+    "name": "Intensive Kiswahili 1-2"
+  },
+  {
+    "department": "AMST",
+    "number": 110,
+    "geneds": [
+      "HS",
+      "NA",
+      "US"
+    ],
+    "requirements": "",
+    "description": "Introduction to the Cultures and Histories of Native North America. 3 Credits. An interdisciplinary introduction to Native American history and studies. The course uses history, literature, art, and cultural studies to study the Native American experience. ",
+    "name": "Introduction to the Cultures and Histories of Native North America"
+  },
+  {
+    "department": "SOCI",
+    "number": 123,
+    "geneds": [
+      "SS"
+    ],
+    "requirements": "",
+    "description": "Crime and Delinquency. 3 Credits. The nature and extent of crime and delinquency; emphasis upon contemporary theories of their causation; examination of correctional programs. ",
+    "name": "Crime and Delinquency"
+  },
+  {
+    "department": "SOCI",
+    "number": 124,
+    "geneds": [
+      "SS"
+    ],
+    "requirements": "",
+    "description": "Sex and Gender in Society. 3 Credits. Examination of the social differentiation between men and women. Attention to the extent, causes, and consequences of sexual inequality and to changes in sex roles and their impact on interpersonal relations. ",
+    "name": "Sex and Gender in Society"
+  },
+  {
+    "department": "SOCI",
+    "number": 130,
+    "geneds": [
+      "SS"
+    ],
+    "requirements": "",
+    "description": "Family and Society. 3 Credits. Comparative analysis of kinship systems and family relations. Courtship, marriage, and parent-child relations viewed within a life-cycle framework. Students may not receive credit for both SOCI 130 and SOCI 425. ",
+    "name": "Family and Society"
+  },
+  {
+    "department": "SOCI",
+    "number": 131,
+    "geneds": [],
+    "requirements": "",
+    "description": "Social Relations in the Workplace. 3 Credits. Meaning and content of work in modern industrial society. Preparation for work; autonomy and control; inequality; consequences for health, safety, and family life. ",
+    "name": "Social Relations in the Workplace"
+  },
+  {
+    "department": "SOCI",
+    "number": 133,
+    "geneds": [
+      "SS"
+    ],
+    "requirements": "",
+    "description": "Sociology of Politics. 3 Credits. Patterns of participation in political institutions, public policy, conflict within and between communities and other interest groups, the nature of citizenship in modern society, politics and social change. ",
+    "name": "Sociology of Politics"
+  },
+  {
+    "department": "SOCI",
+    "number": 140,
+    "geneds": [],
+    "requirements": "",
+    "description": "Historical Sociology of Christianity. 3 Credits. Takes an historical sociology approach to the study of Christianity. Examines the social conditions that helped give rise to the early Christian movement, follows Christianity as it influences and is influenced by social forces at key points in its historical development, and considers important contemporary developments around the globe. ",
+    "name": "Historical Sociology of Christianity"
+  },
+  {
+    "department": "SOCI",
+    "number": 165,
+    "geneds": [],
+    "requirements": "",
+    "description": "Introduction to Aging. 1 Credit. This course sensitizes students to the diversity of the aging population and the aging experience, recognizes the capacity of older adults for their contributions to society, and fosters intergenerational communication. ",
+    "name": "Introduction to Aging"
+  },
+  {
+    "department": "STOR",
+    "number": 113,
+    "geneds": [
+      "QR"
+    ],
+    "requirements": "Prerequisite, MATH 110. ",
+    "description": "Decision Models for Business and Economics. 3 Credits. An introduction to multivariable quantitative models in economics. Mathematical techniques for formulating and solving optimization and equilibrium problems will be developed, including elementary models under uncertainty. ",
+    "name": "Decision Models for Business and Economics"
+  },
+  {
+    "department": "STOR",
+    "number": 151,
+    "geneds": [
+      "QR"
+    ],
+    "requirements": "Prerequisite, MATH 110. ",
+    "description": "Introduction to Data Analysis. 3 Credits. Elementary introduction to statistical reasoning, including sampling, elementary probability, statistical inference, and data analysis. STOR 151 may not be taken for credit by students who have credit for ECON 400 or PSYC 210. ",
+    "name": "Introduction to Data Analysis"
+  },
+  {
+    "department": "STOR",
+    "number": 155,
+    "geneds": [
+      "QR"
+    ],
+    "requirements": "Prerequisite, MATH 110. ",
+    "description": "Introduction to Data Models and Inference. 3 Credits. Data analysis; correlation and regression; sampling and experimental design; basic probability (random variables, expected values, normal and binomial distributions); hypothesis testing and confidence intervals for means, proportions, and regression parameters; use of spreadsheet software. ",
+    "name": "Introduction to Data Models and Inference"
+  },
+  {
+    "department": "WMST",
+    "number": 111,
+    "geneds": [
+      "SS",
+      "NA",
+      "US"
+    ],
+    "requirements": "",
+    "description": "Introduction to Sexuality Studies. 3 Credits. This course introduces students to the broad range of disciplinary perspectives used by the field of sexuality studies to study, teach, and create knowledge about human sexuality in various functions and forms. ",
+    "name": "Introduction to Sexuality Studies"
+  },
+  {
+    "department": "WMST",
+    "number": 124,
+    "geneds": [
+      "SS"
+    ],
+    "requirements": "",
+    "description": "Sex and Gender in Society. 3 Credits. Examination of the social differentiation between men and women. Attention to the extent, causes, and consequences of sexual inequality and to changes in sex roles and their impact on interpersonal relations. ",
+    "name": "Sex and Gender in Society"
+  },
+  {
+    "department": "WMST",
+    "number": 140,
+    "geneds": [
+      "LA",
+      "US"
+    ],
+    "requirements": "",
+    "description": "Introduction to Gay and Lesbian Culture and Literature. 3 Credits. Introduces students to concepts in queer theory and recent sexuality studies. Topics include queer lit, AIDS, race and sexuality, representations of gays and lesbians in the media, political activism/literature. ",
+    "name": "Introduction to Gay and Lesbian Culture and Literature"
+  },
+  {
+    "department": "WMST",
+    "number": 144,
+    "geneds": [
+      "HS",
+      "US"
+    ],
+    "requirements": "",
+    "description": "Women in the United States from Settlement to Present. 3 Credits. This course will survey the history of women, gender relations, and notions of sex difference in the United States from the colonial era to present times, with a special emphasis on women's varied experiences and expectations across divisions of class, race, and region. Key themes will include work, politics, citizenship, reproduction, sociability, and sexuality. ",
+    "name": "Women in the United States from Settlement to Present"
+  },
+  {
+    "department": "WMST",
+    "number": 188,
+    "geneds": [
+      "VP",
+      "GL",
+      "NA"
+    ],
+    "requirements": "",
+    "description": "Introduction to Women and Music. 3 Credits. The role of women in performance, composition, patronage, and the music business across a wide range of repertories. ",
+    "name": "Introduction to Women and Music"
+  },
+  {
+    "department": "WMST",
+    "number": 200,
+    "geneds": [
+      "SS",
+      "BN"
+    ],
+    "requirements": "",
+    "description": "Gender and Sexuality in Africa. 3 Credits. Introduction to the study of gender and sexuality in African societies. Theoretical questions relating to the cross-cultural study of gender will be a primary focus. Topics include historical perspectives on the study of kinship and family in Africa and the impact of colonialism and other forms of social change. ",
+    "name": "Gender and Sexuality in Africa"
+  }
+]

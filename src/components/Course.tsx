@@ -16,8 +16,6 @@ export type CourseData = {
 @observer
 export default class Course extends React.Component<{ data: CourseData }, {}> {
 
-  hue: number
-
   constructor(props: { data: CourseData }) {
     super(props)
     let hue = uiStore.departmentHues.get(props.data.department)
@@ -25,13 +23,12 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
       hue = uiStore.lastHue += 30
       uiStore.departmentHues.set(props.data.department, hue)
     }
-    this.hue = hue
   }
 
   render() {
     const data = this.props.data
     let style = {
-      backgroundColor: `hsl(${this.hue}, 80%, 80%)`
+      backgroundColor: `hsl(${uiStore.departmentHues.get(data.department)}, 80%, 80%)`
     }
     return (
       <div className="Course" id={`course-${data.id}`} style={style}>{data.department} {data.number}</div>

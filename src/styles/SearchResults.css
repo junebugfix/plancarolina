@@ -10,6 +10,7 @@
   cursor: pointer;
 }
 
-.SearchResults-item.highlighted {
-  background: lightblue;
+.SearchResults-item.selected {
+  background: #4B9CD3;
+  color: white;
 }

@@ -21,8 +21,7 @@ class ScheduleStore {
   slipLists: any[] = []
 
   constructor() {
-    let userData = require('./userData.json')
-    this.initAllSemesters(userData.semesters)
+    this.initAllSemesters(require('./userData.json').semesters)
   }
 
   getCourseData(id: number): CourseData {
@@ -34,21 +33,15 @@ class ScheduleStore {
     return data
   }
 
-  findSemesterWithCourse(id: number | string): CourseData[] | null {
-    if (typeof id === "string") {
-      if (id.startsWith('course')) {
-        id = id.substring(7)
-      }
-      id = parseInt(id, 10)
-    }
+  findSemesterWithCourse(courseId: number): CourseData[] | null {
     for (let i = 0; i < this.allSemesters.length; i++) {
       for (let j = 0; j < this.allSemesters[i].length; j++) {
-        if (this.allSemesters[i][j].id === id) {
+        if (this.allSemesters[i][j].id === courseId) {
           return this.allSemesters[i]
         }
       }
     }
-    throw new Error(`Invalid course id: ${id}`)
+    throw new Error(`Invalid course id: ${courseId}`)
   }
 
   @computed get allCourses(): CourseData[] {
@@ -63,12 +56,11 @@ class ScheduleStore {
   }
 
   @action.bound reorderInList(el: HTMLElement, startIndex: number, endIndex: number) {
-    let semesterData = this.findSemesterWithCourse(el.id) as CourseData[]
+    let semesterData = this.findSemesterWithCourse(parseInt(el.id.substring(7), 10)) as CourseData[]
     semesterData.splice(endIndex, 0, semesterData.splice(startIndex, 1)[0])
   }
 
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
-    console.log(toList)
     let fromSemesterData = this.getSemester(Semesters[fromList.id])
     let toSemesterData = this.getSemester(Semesters[toList.id])
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
@@ -86,10 +78,7 @@ class ScheduleStore {
     console.log('adding major')
   }
 
-  getSemester(id: number | string) {
-    if (typeof id === 'string') {
-      id = Semesters[id]
-    }
+  getSemester(id: number) {
     switch (id) {
       case Semesters.Fall1:
         return this.fall1

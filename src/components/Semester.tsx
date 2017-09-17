@@ -8,10 +8,6 @@ import { uiStore } from '../UIStore'
 import { CourseData } from './Course'
 import '../styles/Semester.css'
 
-const style = {
-  // backgroundColor: uiStore.lightColor
-}
-
 @observer
 export default class Semester extends React.Component<{ index: Semesters }, {}> {
   divEl: HTMLDivElement; // store the div element of the semester with a 'ref' attribute (see render below) to pass it to slipjs
@@ -24,10 +20,6 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
 
   isReorderWithinList(e: Event): boolean {
     return (e.target as HTMLDivElement).classList.contains('Course')
-  }
-
-  shouldReorder(e: Event): boolean {
-    return (e.target as HTMLDivElement).id !== 'course-9'
   }
 
   componentDidMount() {
@@ -52,8 +44,8 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
     return (
       <div className="Semester">
         <div className="Semster-label">{this.label}</div>
-        <div ref={(input) => { this.divEl = input as HTMLDivElement; }} className="Semester-courses" id={`${Semesters[this.props.index]}`} style={style}>
-          {semesterData.map((data: CourseData) => <Course key={`course=${data.id}`} data={data} />)}
+        <div ref={input => this.divEl = input as HTMLDivElement} className="Semester-courses" id={`${Semesters[this.props.index]}`}>
+          {semesterData.map(data => <Course key={`course-${data.id}`} data={data} />)}
         </div>
       </div>
     )

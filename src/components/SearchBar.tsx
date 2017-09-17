@@ -12,9 +12,9 @@ export default class SearchBar extends React.Component {
     const tagsInput = require('tags-input')
     let genedInput = document.getElementById('gened-input') as HTMLInputElement
     tagsInput(genedInput)
-
     // the input-tags script takes away the onchange handler if you add it in the render function below
     genedInput.onchange = uiStore.handleGenedAdded
+    uiStore.registerDepartmentInput(document.getElementById('department-input') as HTMLInputElement)
   }
 
   render() {
@@ -22,8 +22,8 @@ export default class SearchBar extends React.Component {
       <div className="SearchBar">
         <h2>Search for courses</h2>
         <div id="department-number-group">
-          <input placeholder="COMP" id="department-input" onChange={uiStore.handleSearchingDepartment} />
-          <SearchResults label="dept-res" items={uiStore.departmentResults} />
+          <input placeholder="COMP" id="department-input" onChange={uiStore.handleSearchingDepartmentChange} />
+          {uiStore.isSearchingDepartment && <SearchResults label="dept-res" items={uiStore.departmentResults} />}
           <select onChange={uiStore.handleNumberOperatorChange}>
             <option value="=">=</option>
             <option value=">=">≥</option>
@@ -35,7 +35,7 @@ export default class SearchBar extends React.Component {
           <label htmlFor="name-input">Name/Keywords:</label>
           <input id="name-input" placeholder="Intro to Programming" onChange={uiStore.handleSearchingName} />
           <br />
-          <label htmlFor="gened-input">Gen Ed Requirements:</label>
+          <label htmlFor="gened-input">Gen Eds:</label>
           <input type="tags" placeholder="QR" id="gened-input" />
         </div>
         <div className="SearchBar-results"></div>
