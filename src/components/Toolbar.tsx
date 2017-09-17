@@ -3,6 +3,7 @@ import { observer } from 'mobx-react'
 import { scheduleStore } from '../ScheduleStore'
 import { uiStore } from '../UIStore'
 import AddMajorPopup from './AddMajorPopup'
+import LoginPopup from './LoginPopup'
 import SearchResults from './SearchResults'
 import '../styles/Toolbar.css'
 
@@ -22,7 +23,8 @@ export default class Toolbar extends React.Component {
           {uiStore.addMajorPopupActive && <AddMajorPopup />}
           {uiStore.isSearchingMajor && <SearchResults label="major-res" items={uiStore.majorResults} />}
         </div>
-        <div className="Toolbar-item"><span className="Toolbar-text">Login</span></div>
+        <div className="Toolbar-item" onClick={uiStore.handleLoginPopupClicked}><span className="Toolbar-text">Login</span>
+        </div>
       </div>
     )
   }

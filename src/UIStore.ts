@@ -23,6 +23,7 @@ class UIStore {
   @observable isSearchingName = true
   @observable isSearchingMajor = true
   @observable addMajorPopupActive = true
+  @observable loginPopupActive = false
 
   @observable majorResults: string[] = ["comp bs", "anth"]
   @observable departmentResults: string[] = []
@@ -52,6 +53,12 @@ class UIStore {
   @action.bound handleAddMajorClicked(e: MouseEvent<HTMLDivElement>) {
     if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
       this.addMajorPopupActive = !this.addMajorPopupActive
+    }
+  }
+
+  @action.bound handleLoginPopupClicked(e: MouseEvent<HTMLDivElement>) {
+    if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
+      this.loginPopupActive = true
     }
   }
 
