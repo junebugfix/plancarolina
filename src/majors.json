@@ -1,30 +1,4 @@
 {
-  "GEN_ED": {
-    "name": "General Education",
-    "absolute_courses": [
-      "ENGL 105",
-      "Foreign Language Level 3+",
-      "Quantitative Reasoning (QR)",
-      "LFIT",
-      "Physical and Life Science w/o Lab (PL)",
-      "Physical and Life Science w/ Lab (PX)",
-      "Historical Analysis (HS)",
-      "Historical Analysis / Social Science (HS/SS)",
-      "Historical Analysis / Social Science (HS/SS)",
-      "Visual and Performing Arts (VP)",
-      "Literary Arts (LA)",
-      "Philosophical and Moral Reasoning (PH)",
-      "Beyond the North Atlantic (BN)",
-      "Communication Intensive (CI)",
-      "Experiential Education (EE)",
-      "Global Issues (GI)",
-      "North Atlantic World",
-      "Quantitative Intensive (QI / QR)",
-      "U.S. Diversity (US)",
-      "World Before 1750 (WB)"
-    ]
-  },
-
   "AAAD_BA": {
     "department": "AAAD",
     "degree": "BA",
@@ -135,7 +109,8 @@
     "absolute_courses": ["MATH 231","MATH 232","MATH 233","COMP 401","COMP 410","COMP 411","COMP 455","COMP 550","STOR 435"],
     "choice_courses": {
         "number_required": 1,
-        "choices": [
+        "number_groups": 3,
+        "choice_groups": [
           ["PHYS 116","118"],
           ["COMP 283","MATH 381"],
           ["MATH 547","577"]
