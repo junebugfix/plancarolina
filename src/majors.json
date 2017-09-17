@@ -1,0 +1,274 @@
+{
+  "GEN_ED": {
+    "name": "General Education",
+    "absolute_courses": [
+      "ENGL 105",
+      "Foreign Language Level 3+",
+      "Quantitative Reasoning (QR)",
+      "LFIT",
+      "Physical and Life Science w/o Lab (PL)",
+      "Physical and Life Science w/ Lab (PX)",
+      "Historical Analysis (HS)",
+      "Historical Analysis / Social Science (HS/SS)",
+      "Historical Analysis / Social Science (HS/SS)",
+      "Visual and Performing Arts (VP)",
+      "Literary Arts (LA)",
+      "Philosophical and Moral Reasoning (PH)",
+      "Beyond the North Atlantic (BN)",
+      "Communication Intensive (CI)",
+      "Experiential Education (EE)",
+      "Global Issues (GI)",
+      "North Atlantic World",
+      "Quantitative Intensive (QI / QR)",
+      "U.S. Diversity (US)",
+      "World Before 1750 (WB)"
+    ]
+  },
+
+  "AAAD_BA": {
+    "department": "AAAD",
+    "degree": "BA",
+    "name": "African American and Diaspora Studies BA",
+    "absolute_courses": ["AAAD 101","AAAD 130","AAAD 395","AAAD 487"],
+    "choice_courses": [
+      {
+
+      }
+    ]
+  },
+
+  "BIOL_BS": {
+    "department": "BIOL",
+    "degree": "BS",
+    "name": "Biology BS",
+    "absolute_courses": ["BIOL 101 & Lab","BIOL 201","BIOL 202","BIOL 205","BIOL > 205 & Lab","BIOL > 205 & Lab","BIOL Organic Structure & Diversity",
+    "CHEM 101 & Lab","CHEM 102 & Lab","CHEM 241 & Lab","CHEM 261","CHEM 262 & Lab","ALLIED SCIENCE","ALLIED SCIENCE"],
+    "choice_courses": {
+        "number_required": 1,
+        "choices": [
+            ["MATH 231","MATH 241"],
+            ["PHYS 104","114","116","118"],
+            ["PHYS 105","115","117","119"],
+            ["MATH 232","COMP 110","STOR 115"]
+        ]
+        },
+    "range_courses": [
+        {
+        "department": "BIOL",
+        "range": "> 400",
+        "number_required": 2
+        }
+    ]
+  },
+
+  "BUSI": {
+    "department": "BUSI",
+    "degree": "BSBA",
+    "name": "Business Administration",
+    "absolute_courses": ["ECON 101","ECON 410","BUSI 401","BUSI 403","BUSI 404","BUSI 405","BUSI 406","BUSI 407","BUSI 408","BUSI 410","BUSI 411","BUSI 412","STOR 155"],
+    "choice_courses": {
+        "number_required": 1,
+        "choices": [
+            ["MATH 152","231", "232", "113"],
+            ["BUSI 101", "107"]
+        ]
+        },
+    "range_courses": [
+        {
+        "department": "ANY",
+        "range": "NON-BUSI",
+        "number_required": 5
+        }
+    ],
+    "free_electives": 6
+  },
+
+  "CHEM_BS": {
+    "department": "CHEM",
+    "degree": "BS",
+    "name": "Chemistry BS",
+    "absolute_courses": ["BIOL 101","MATH 232","MATH 233","MATH 383","CHEM 101 & Lab","CHEM 102 & Lab","CHEM 251","CHEM 261","CHEM 262","CHEM 395","CHEM 430","CHEM 441 & Lab","CHEM 450","CHEM 481 & Lab","CHEM 482 & Lab","CHEM 550 Lab"],
+    "choice_courses": {
+        "number_required": 1,
+        "choices": [
+            ["CHEM 241 & Lab","241 & 245 Lab"],
+            ["CHEM 262 Lab","263 Lab"],
+            ["PHYS 116","118"],
+            ["PHYS 117","119"]
+        ]
+        },
+    "range_courses": [
+        {
+        "department": "CHEM",
+        "range": ">= 420",
+        "number_required": 2
+        }
+    ]
+  },
+
+  "COMP_BA": {
+    "department": "COMP",
+    "degree": "BA",
+    "name": "Computer Science BA",
+    "absolute_courses": ["MATH 231", "COMP 401", "COMP 410", "COMP 411"],
+    "choice_courses": {
+      "number_required": 1,
+      "choices": [
+        ["COMP 283","MATH 381"],
+        ["STOR 155","435"]
+      ]
+    },
+    "range_courses": [
+      {
+        "department": "COMP",
+        "range": ">= 426",
+        "number_required": 6
+      }
+    ],
+    "free_electives": 0
+  },
+
+  "COMP_BS": {
+    "department": "COMP",
+    "degree": "BS",
+    "name": "Computer Science BS",
+    "absolute_courses": ["MATH 231","MATH 232","MATH 233","COMP 401","COMP 410","COMP 411","COMP 455","COMP 550","STOR 435"],
+    "choice_courses": {
+        "number_required": 1,
+        "choices": [
+          ["PHYS 116","118"],
+          ["COMP 283","MATH 381"],
+          ["MATH 547","577"]
+        ]
+      },
+    "range_courses": [
+      {
+        "department": "COMP",
+        "range": ">= 426",
+        "number_required": 5
+      }
+    ]
+  },
+
+  "ECON_BA": {
+    "department": "ECON",
+    "degree": "BA",
+    "name": "Economics BA",
+    "absolute_courses": ["STOR 115","ECON 101","ECON 400","ECON 410","ECON 420","ECON >= 500"],
+    "choice_courses": {
+        "number_required": 1,
+        "choices": [
+            ["MATH 152","231"]
+        ]
+        },
+    "range_courses": [
+        {
+        "department": "ECON",
+        "range": ">= 400",
+        "number_required": 5
+        }
+    ]
+  },
+
+"EXSS_BA": {
+    "department": "EXSS",
+    "degree": "BA",
+    "name": "Exercise and Sports Science BA",
+    "absolute_courses": ["MATH 110","BIO 101 & Lab","EXSS 175","EXSS 180","EXSS 181","EXSS 273","EXSS 276","EXSS 288","EXSS 376","EXSS 380","EXSS 385"],
+    "choice_courses": {
+        "number_required": 1,
+        "choices": [
+            ["PHYS 116","118"],
+            ["COMP 283","MATH 381"],
+            ["MATH 547","577"]
+        ]
+        },
+    "range_courses": [
+        {
+        "department": "NON-EXSS",
+        "range": ">= 199",
+        "number_required": 3
+        }
+    ]
+  },
+
+  "LING_BA": {
+    "department": "LING",
+    "degree": "BA",
+    "name": "Linguistics BA",
+    "absolute_courses": [
+      "LING 101"
+    ],
+    "choice_courses": {
+      "number_required": 1,
+      "choices": [
+        ["LING 200","520"],
+        ["LING 201","537"],
+        ["LING 202","541"]
+      ]
+    },
+    "free_electives": 4
+  },
+
+  "MEJO": {
+    "_comment": "MEJO majors vary, but the core does not. Add MEJO and separate major",
+    "department": "MEJO",
+    "degree": "BA",
+    "name": "Various MEJO",
+    "absolute_courses": ["MEJO 121","MEJO 137","MEJO 141","MEJO 153","MEJO 341","MEJO 379"],
+    "choice_courses": {
+        "number_required": 1,
+        "choices": [
+            ["POLI 101","130","150","202","203"],
+            ["EE Credit","MEJO 393"],
+            ["GL Credit","MEJO 446"],
+            ["US Credit","MEJO 441"]
+        ]
+        },
+    "range_courses": [
+        {
+        "department": "MEJO",
+        "range": ">=137, <=692H",
+        "number_required": 2
+        }
+    ],
+    "free_electives": 1
+    },
+
+  "PR": {
+    "department": "MEJO",
+    "degree": "BA",
+    "name": "Public Relations BA",
+    "absolute_courses": ["MEJO 332", "MEJO 531", "MEJO 634"],
+    "range_courses": [
+        {
+        "department": "",
+        "range": "72 hours of NON-MEJO credit",
+        "number_required": 1
+        }
+    ],
+    "free_electives": 1
+  },
+
+  "POLI": {
+    "department": "POLI",
+    "degree": "BA",
+    "name": "Political Science BA",
+    "absolute_courses": ["POLI 100","POLI 150","ECON 101"],
+    "choice_courses": {
+        "number_required": 1,
+        "choices": [
+            ["POLI 130","131","232","235-239","257"],
+            ["POLI 265","270-280","470-475"]
+        ]
+        },
+    "range_courses": [
+        {
+        "department": "NON-POLI",
+        "range": "> 199",
+        "number_required": 3
+        }
+    ],
+    "free_electives": 4
+  }
+}
