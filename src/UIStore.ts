@@ -21,7 +21,10 @@ class UIStore {
   @observable spring5Active = false
   @observable isSearchingDepartment = true
   @observable isSearchingName = true
+  @observable isSearchingMajor = true
+  @observable addMajorPopupActive = true
 
+  @observable majorResults: string[] = ["comp bs", "anth"]
   @observable departmentResults: string[] = []
 
   @observable searchDepartment = ""
@@ -44,6 +47,12 @@ class UIStore {
 
   @action.bound registerDepartmentInput(input: HTMLInputElement) {
     this.departmentInput = input
+  }
+
+  @action.bound handleAddMajorClicked(e: MouseEvent<HTMLDivElement>) {
+    if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
+      this.addMajorPopupActive = !this.addMajorPopupActive
+    }
   }
 
   @action.bound handleNumberOperatorChange(e: ChangeEvent<HTMLSelectElement>) {
