@@ -11,7 +11,6 @@
         "2017": "https://advising.unc.edu/files/2012/11/AAAD-AFAM-2015-2017.pdf"
     }
   },
-// skipped American studies
   "ANTH_BA": {
       "name": "Anthropology BA",
       "absolute_courses": ["ANTH 490"],
@@ -63,7 +62,7 @@
      "BIOL_BA": {
       "name": "Biology BA",
       "absolute_courses": ["BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "BIOL 201", "BIOL 202", "BIOL 205", "CHEM 102", "CHEM 102L"],
-      "additional_courses": 11, // COUNTED LABS AS SEPARATE CLASSES 
+      "additional_courses": 11,
       "urls": {
          "2013": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
          "2014": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
@@ -75,7 +74,7 @@
       "BIOL_BS": {
       "name": "Biology BS",
       "absolute_courses": ["BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "BIOL 201", "BIOL 202", "BIOL 205", "CHEM 102", "CHEM 102L", "CHEM 241", "CHEM 241L", "CHEM 261", "CHEM 262", "CHEM 262L"],
-      "additional_courses": 14, // COUNTED LABS AS SEPARATE CLASSES 
+      "additional_courses": 14,
       "urls": {
          "2013": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
          "2014": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
@@ -87,7 +86,7 @@
       "BIOL_BS": {
       "name": "Biology Quantitative BS",
       "absolute_courses": ["BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "BIOL 201", "BIOL 202", "BIOL 205", "CHEM 102", "CHEM 102L", "CHEM 241", "CHEM 241L", "CHEM 261", "MATH 233"],
-      "additional_courses": 12, // COUNTED LABS AS SEPARATE CLASSES 
+      "additional_courses": 12,
       "urls": {
          "2013": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2013-2014.pdf",
          "2014": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2013-2014.pdf",

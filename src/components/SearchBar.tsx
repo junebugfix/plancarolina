@@ -23,7 +23,7 @@ export default class SearchBar extends React.Component {
         <h2>Search for courses</h2>
         <div id="department-number-group">
           <input placeholder="COMP" id="department-input" onChange={uiStore.handleSearchingDepartmentChange} />
-          {uiStore.isSearchingDepartment && <SearchResults label="dept-res" items={uiStore.departmentResults} />}
+          {uiStore.isSearchingDepartment && <SearchResults label={uiStore.DEPARTMENT_LABEL} items={uiStore.departmentResults} />}
           <select onChange={uiStore.handleNumberOperatorChange}>
             <option value="=">=</option>
             <option value=">=">≥</option>

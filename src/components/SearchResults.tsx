@@ -40,7 +40,7 @@ export default class SearchResults extends React.Component<{ label: string, item
 
   handleClick(e: MouseEvent) {
     if ((e.target as HTMLElement).classList.contains('SearchResults-item')) {
-      uiStore.handleDepartmentResultChosen((e.target as HTMLDivElement).innerText)
+      uiStore.handleSearchResultChosen(this.props.label, (e.target as HTMLDivElement).innerText)
     }
   }
 
@@ -72,13 +72,15 @@ export default class SearchResults extends React.Component<{ label: string, item
         selectedIndex = nextIndex
       }
     } else if (e.key === 'Enter') {
-      uiStore.handleDepartmentResultChosen((results[selectedIndex] as HTMLDivElement).innerText)
+      uiStore.handleSearchResultChosen(this.props.label, (results[selectedIndex] as HTMLDivElement).innerText)
+    } else if (e.key === 'Escape') {
+      uiStore.addMajorPopupActive = false
     }
   }
 
   render() {
     return (
-      <div ref={(input) => {this.divEl = input as HTMLDivElement}} className="SearchResults" >
+      <div ref={(input) => {this.divEl = input as HTMLDivElement}} className={`SearchResults ${this.props.label}`} >
         {this.props.items.map(item => <div key={`${this.props.label}-${this.counter++}`} className="SearchResults-item" >{item}</div>)}
       </div>
     )

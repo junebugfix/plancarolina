@@ -13,15 +13,22 @@ export interface NewCourseData {
   description: string
 }
 
+interface MajorData {
+  name: string
+  absolute_courses: string[]
+  additional_courses: number
+  urls: string[]
+}
+
 class UIStore {
   @observable departmentHues = new Map<string, number>()
 
   @observable fall5Active = false
   @observable spring5Active = false
-  @observable isSearchingDepartment = true
-  @observable isSearchingName = true
-  @observable isSearchingMajor = true
-  @observable addMajorPopupActive = true
+  @observable isSearchingDepartment = false
+  @observable isSearchingName = false
+  @observable isSearchingMajor = false
+  @observable addMajorPopupActive = false
   @observable loginPopupActive = false
 
   @observable majorResults: string[] = []
@@ -35,13 +42,23 @@ class UIStore {
 
   @observable searchResults: NewCourseData[] = []
 
+  readonly MAJOR_LABEL = "major-res"
+  readonly DEPARTMENT_LABEL = "dept-res"
+
   lastHue = 0
-  allDepartments: string[]
+  departmentNames: string[]
+  majorNames: string[] = []
+  majorData: MajorData[]
   departmentInput: HTMLInputElement
   fuzzysearch: Function
 
   constructor() {
-    this.allDepartments = Object.keys(Departments).filter(x => parseInt(x, 10) > 0).map(x => Departments[x])
+    this.departmentNames = Object.keys(Departments).filter(x => parseInt(x, 10) > 0).map(x => Departments[x])
+    let jsonMajorData = require('./majorCountWithoutComments.json')
+    this.majorData = Object.keys(jsonMajorData).map(key => jsonMajorData[key]) // turn json object into an array
+    for (let key in this.majorData) {
+      this.majorNames.push(this.majorData[key].name)
+    }
     this.fuzzysearch = require('fuzzysearch')
   }
 
@@ -87,11 +104,11 @@ class UIStore {
   }
 
   @action.bound handleSearchingMajor(e: ChangeEvent<HTMLInputElement>) {
-    console.log(e)
+    this.majorResults = this.majorNames.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
   }
 
   @action.bound handleSearchingDepartmentChange(e: ChangeEvent<HTMLInputElement>) {
-    this.departmentResults = this.allDepartments.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
+    this.departmentResults = this.departmentNames.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
     this.isSearchingDepartment = e.target.value === '' ? false : true
   }
 
@@ -100,7 +117,29 @@ class UIStore {
     this.updateSearchResults()
   }
 
-  @action.bound handleDepartmentResultChosen(result: string) {
+  @action.bound handleSearchResultChosen(label: string, result: string) {
+    if (label === this.MAJOR_LABEL) {
+      this.handleMajorResultChosen(result)
+    } else if (label === this.DEPARTMENT_LABEL) {
+      this.handleDepartmentResultChosen(result)
+    }
+  }
+
+  private handleMajorResultChosen(result: string) {
+    // TODO: show loading progress
+    this.addMajorPopupActive = false
+    let data = this.majorData.filter(x => x.name === result)[0]
+    window.fetch('/api.cgi').then(res => res.json().then(fetchedData => {
+      this.fillMajorData(fetchedData)
+    })).catch(reject => console.log(reject))
+  }
+
+  private fillMajorData(data: any) {
+    const semesterLimit = 5
+    console.log(data)
+  }
+
+  private handleDepartmentResultChosen(result: string) {
     this.searchDepartment = result
     this.departmentInput.value = result
     this.departmentResults = []

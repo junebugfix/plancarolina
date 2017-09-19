@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "http://plancarolina.com/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "react-scripts-ts start",
@@ -28,14 +27,14 @@
     "sortablejs": "^1.6.1",
     "tags-input": "^1.1.1"
   },
-    "proxy": {
-    "/api": {
-      "target": "https://wwwx.cs.unc.edu/~kateg/plancarolina",
-      "secure": true,
-      "changeOrigin": true,
-      "host": "wwwx.cs.unc.edu"
-    }
-  },
-  "homepage": "https://wwwx.cs.unc.edu/~kateg/plancarolina"
+  "proxy": {
+  "/api.cgi": {
+    "target": "https://wwwx.cs.unc.edu/~kateg/plancarolina",
+    "secure": true,
+    "changeOrigin": true,
+    "host": "wwwx.cs.unc.edu"
+  }
+},
+"homepage": "https://wwwx.cs.unc.edu/~kateg/plancarolina"
 }
 
