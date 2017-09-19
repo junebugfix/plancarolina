@@ -14,7 +14,6 @@ export interface NewCourseData {
 }
 
 class UIStore {
-
   @observable departmentHues = new Map<string, number>()
 
   @observable fall5Active = false
@@ -25,7 +24,7 @@ class UIStore {
   @observable addMajorPopupActive = true
   @observable loginPopupActive = false
 
-  @observable majorResults: string[] = ["comp bs", "anth"]
+  @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
 
   @observable searchDepartment = ""
@@ -85,6 +84,10 @@ class UIStore {
   @action.bound handleSearchingName(e: ChangeEvent<HTMLInputElement>) {
     this.searchName = e.target.value
     this.updateSearchResults()
+  }
+
+  @action.bound handleSearchingMajor(e: ChangeEvent<HTMLInputElement>) {
+    console.log(e)
   }
 
   @action.bound handleSearchingDepartmentChange(e: ChangeEvent<HTMLInputElement>) {

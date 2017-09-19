@@ -9,7 +9,7 @@ export default class AddMajorPopup extends React.Component {
   render() {
     return (
       <div className="AddMajorPopup">
-        <input placeholder="Comp Sci BS" />
+        <input placeholder="Comp Sci BS" onChange={uiStore.handleSearchingMajor} />
       </div>
     )
   }

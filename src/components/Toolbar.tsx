@@ -21,7 +21,7 @@ export default class Toolbar extends React.Component {
         <div className="Toolbar-item" onClick={uiStore.handleAddMajorClicked}>
           <span className="Toolbar-text">Add Major</span>
           {uiStore.addMajorPopupActive && <AddMajorPopup />}
-          {uiStore.isSearchingMajor && <SearchResults label="major-res" items={uiStore.majorResults} />}
+          {uiStore.addMajorPopupActive && <SearchResults label="major-res" items={uiStore.majorResults} />}
         </div>
         <div className="Toolbar-item" onClick={uiStore.handleLoginPopupClicked}><span className="Toolbar-text">Login</span>
         </div>
