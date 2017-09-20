@@ -1,98 +1,116 @@
 {
-  "AAAD_BA": {
-    "name": "African American and Diaspora Studies BA",
-    "absolute_courses": ["AAAD 101","AAAD 130","AAAD 395","AAAD 487"],
-    "additional_courses": 6,
-    "urls": {
+  "majors": [
+    {
+      "name": "African American and Diaspora Studies BA",
+      "department": "AAAD",
+      "degreeType": "BA",
+      "absoluteCourses": ["AAAD 101","AAAD 130","AAAD 395","AAAD 487"],
+      "additionalCourses": 6,
+      "urls": {
         "2013": "https://advising.unc.edu/files/2012/11/AAAD-AFAM-2013-2014-12.9.15-update.pdf",
         "2014": "https://advising.unc.edu/files/2012/11/AAAD-AFAM-2013-2014-12.9.15-update.pdf",
         "2015": "https://advising.unc.edu/files/2012/11/AAAD-AFAM-2015-2017.pdf",
         "2016": "https://advising.unc.edu/files/2012/11/AAAD-AFAM-2015-2017.pdf",
         "2017": "https://advising.unc.edu/files/2012/11/AAAD-AFAM-2015-2017.pdf"
-    }
-  },
-  "ANTH_BA": {
+      }
+    },
+    {
       "name": "Anthropology BA",
-      "absolute_courses": ["ANTH 490"],
-      "additional_courses": 8,
+      "department": "ANTH",
+      "degreeType": "BA",
+      "absoluteCourses": ["ANTH 490"],
+      "additionalCourses": 8,
       "urls": {
-          "2013": "https://advising.unc.edu/files/2012/11/ANTH-2012-2013.pdf",
-          "2014": "https://advising.unc.edu/files/2012/11/ANTH-2014-2015.pdf",
-          "2015": "https://advising.unc.edu/files/2012/11/ANTH-2014-2015.pdf",
-          "2016": "https://advising.unc.edu/files/2012/11/ANTH-2016-2017.pdf"
+        "2013": "https://advising.unc.edu/files/2012/11/ANTH-2012-2013.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/ANTH-2014-2015.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/ANTH-2014-2015.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/ANTH-2016-2017.pdf"
       }
-  },
-  "ARCH_BA": {
+    },
+    {
       "name": "Archeology BA",
-      "absolute_courses": [],
-      "additional_courses": 10,
+      "department": "ARCH",
+      "degreeType": "BA",
+      "absoluteCourses": [],
+      "additionalCourses": 10,
       "urls": {
-         "2013": "https://advising.unc.edu/files/2012/11/ARCH-2013.pdf",
-         "2014": "https://advising.unc.edu/files/2012/11/ARCH-2014.pdf",
-         "2015": "https://advising.unc.edu/files/2012/11/ARCH-2015.pdf",
-         "2016": "https://advising.unc.edu/files/2012/11/ARCH-2016.pdf",
-         "2017": "https://advising.unc.edu/files/2012/11/ARCH-2017.pdf"
+        "2013": "https://advising.unc.edu/files/2012/11/ARCH-2013.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/ARCH-2014.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/ARCH-2015.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/ARCH-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/ARCH-2017.pdf"
       }
-  },
-  "COMP_BA": {
+    },
+    {
       "name": "Computer Science BA",
-      "absolute_courses": ["MATH 231", "COMP 110", "COMP 401", "COMP 410", "COMP 411"],
-      "additional_courses": 8,
+      "department": "COMP",
+      "degreeType": "BA",
+      "absoluteCourses": ["MATH 231", "COMP 110", "COMP 401", "COMP 410", "COMP 411"],
+      "additionalCourses": 8,
       "urls": {
-         "2012": "http://advising.unc.edu/files/2012/11/ComputerScienceBA2012.pdf",
-         "2013": "https://advising.unc.edu/files/2012/11/CompSciBA-2013-2016.pdf",
-         "2014": "https://advising.unc.edu/files/2012/11/CompSciBA-2013-2016.pdf",
-         "2015": "https://advising.unc.edu/files/2012/11/CompSciBA-2013-2016.pdf",
-         "2016": "https://advising.unc.edu/files/2012/11/CompSciBA-2013-2016.pdf",
-         "2017": "https://advising.unc.edu/files/2012/11/CompSciBA-2017.pdf"
+        "2012": "http://advising.unc.edu/files/2012/11/ComputerScienceBA2012.pdf",
+        "2013": "https://advising.unc.edu/files/2012/11/CompSciBA-2013-2016.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/CompSciBA-2013-2016.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/CompSciBA-2013-2016.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/CompSciBA-2013-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/CompSciBA-2017.pdf"
       }
-  },
-      "COMP_BS": {
+    },
+    {
       "name": "Computer Science BS",
-      "absolute_courses": ["MATH 231", "MATH 232", "MATH 233", "STOR 435", "COMP 455", "COMP 550", "COMP 110", "COMP 401", "COMP 410", "COMP 411"],
-      "additional_courses": 8,
+      "department": "COMP",
+      "degreeType": "BA",
+      "absoluteCourses": ["MATH 231", "MATH 232", "MATH 233", "STOR 435", "COMP 455", "COMP 550", "COMP 110", "COMP 401", "COMP 410", "COMP 411"],
+      "additionalCourses": 8,
       "urls": {
-         "2013": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf",
-         "2014": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf",
-         "2015": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf",
-         "2016": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf",
-         "2017": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf"
+        "2013": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf"
       }
-  },
-     "BIOL_BA": {
+    },
+    {
       "name": "Biology BA",
-      "absolute_courses": ["BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "BIOL 201", "BIOL 202", "BIOL 205", "CHEM 102", "CHEM 102L"],
-      "additional_courses": 11,
+      "department": "BIOL",
+      "degreeType": "BA",
+      "absoluteCourses": ["BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "BIOL 201", "BIOL 202", "BIOL 205", "CHEM 102", "CHEM 102L"],
+      "additionalCourses": 11,
       "urls": {
-         "2013": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
-         "2014": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
-         "2015": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
-         "2016": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
-         "2017": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf"
+        "2013": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/Biology-BA-2013-2016.pdf"
       }
-  },
-      "BIOL_BS": {
+    },
+    {
       "name": "Biology BS",
-      "absolute_courses": ["BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "BIOL 201", "BIOL 202", "BIOL 205", "CHEM 102", "CHEM 102L", "CHEM 241", "CHEM 241L", "CHEM 261", "CHEM 262", "CHEM 262L"],
-      "additional_courses": 14,
+      "department": "BIOL",
+      "degreeType": "BS",
+      "absoluteCourses": ["BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "BIOL 201", "BIOL 202", "BIOL 205", "CHEM 102", "CHEM 102L", "CHEM 241", "CHEM 241L", "CHEM 261", "CHEM 262", "CHEM 262L"],
+      "additionalCourses": 14,
       "urls": {
-         "2013": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
-         "2014": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
-         "2015": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
-         "2016": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
-         "2017": "https://advising.unc.edu/files/2012/11/Biology-BS-2017.pdf"
+        "2013": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/Biology-BS-2013-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/Biology-BS-2017.pdf"
       }
-  },
-      "BIOL_BS": {
+    },
+    {
       "name": "Biology Quantitative BS",
-      "absolute_courses": ["BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "BIOL 201", "BIOL 202", "BIOL 205", "CHEM 102", "CHEM 102L", "CHEM 241", "CHEM 241L", "CHEM 261", "MATH 233"],
-      "additional_courses": 12,
+      "department": "BIOL",
+      "degreeType": "BS",
+      "absoluteCourses": ["BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "BIOL 201", "BIOL 202", "BIOL 205", "CHEM 102", "CHEM 102L", "CHEM 241", "CHEM 241L", "CHEM 261", "MATH 233"],
+      "additionalCourses": 12,
       "urls": {
-         "2013": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2013-2014.pdf",
-         "2014": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2013-2014.pdf",
-         "2015": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2015.pdf",
-         "2016": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2016.pdf",
-         "2017": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2017.pdf"
+        "2013": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2013-2014.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2013-2014.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2015.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2017.pdf"
       }
-  }
+    }
+  ]
 }

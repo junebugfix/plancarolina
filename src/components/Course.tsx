@@ -7,10 +7,12 @@ import '../styles/Course.css'
 
 export type CourseData = {
   id: number,
-  name: string,
-  genEds: string[],
   department: string,
   number: string
+  name: string,
+  credits: number,
+  geneds: string[],
+  description: string,
 }
 
 @observer

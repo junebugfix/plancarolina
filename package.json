@@ -28,13 +28,16 @@
     "tags-input": "^1.1.1"
   },
   "proxy": {
-  "/api.cgi": {
-    "target": "https://wwwx.cs.unc.edu/~kateg/plancarolina",
-    "secure": true,
-    "changeOrigin": true,
-    "host": "wwwx.cs.unc.edu"
-  }
-},
-"homepage": "https://wwwx.cs.unc.edu/~kateg/plancarolina"
+    "/api": {
+      "target": "https://wwwx.cs.unc.edu/~kateg/plancarolina",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": "/"
+      },
+      "host": "wwwx.cs.unc.edu"
+    }
+  },
+  "homepage": "http://hankhester.com/plancarolina"
 }
 

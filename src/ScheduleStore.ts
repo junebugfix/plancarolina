@@ -44,6 +44,18 @@ class ScheduleStore {
     throw new Error(`Invalid course id: ${courseId}`)
   }
 
+  addCourses(rawCourses: CourseData[]) {
+    const semesterLimit = 5
+    let courses = rawCourses.filter(c => c.id) // remove error: not found items
+    let semesterIndex = 0
+    courses.forEach(course => {
+      if (this.getSemester(semesterIndex).length > semesterLimit - 1 || semesterLimit > this.allSemesters.length - 1) {
+        semesterIndex += 1
+      }
+      this.getSemester(semesterIndex % this.allSemesters.length).push(course)
+    })
+  }
+
   @computed get allCourses(): CourseData[] {
     return new Array<CourseData>().concat(...this.allSemesters)
   }

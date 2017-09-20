@@ -33,7 +33,7 @@ export default class SearchBar extends React.Component {
         </div>
         <div id="name-gened-group">
           <label htmlFor="name-input">Name/Keywords:</label>
-          <input id="name-input" placeholder="Intro to Programming" onChange={uiStore.handleSearchingName} />
+          <input id="name-input" placeholder="Intro to Programming" onChange={uiStore.handleSearchingKeywords} />
           <br />
           <label htmlFor="gened-input">Gen Eds:</label>
           <input type="tags" placeholder="QR" id="gened-input" />

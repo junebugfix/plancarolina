@@ -5,18 +5,10 @@ import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { scheduleStore } from './ScheduleStore'
 
-export interface NewCourseData {
-  id: number,
-  department: string,
-  number: number,
-  geneds: string[],
-  description: string
-}
-
 interface MajorData {
   name: string
-  absolute_courses: string[]
-  additional_courses: number
+  absoluteCourses: string[]
+  additionalCourses: number
   urls: string[]
 }
 
@@ -36,11 +28,11 @@ class UIStore {
 
   @observable searchDepartment = ""
   @observable searchNumber: number
-  @observable searchNumberFilter = ((x: number) => x === this.searchNumber)
-  @observable searchName = ""
+  @observable searchNumberOperator = '='
+  @observable searchKeywords = ""
   @observable searchGeneds: string[] = []
 
-  @observable searchResults: NewCourseData[] = []
+  @observable searchResults: CourseData[] = []
 
   readonly MAJOR_LABEL = "major-res"
   readonly DEPARTMENT_LABEL = "dept-res"
@@ -54,8 +46,7 @@ class UIStore {
 
   constructor() {
     this.departmentNames = Object.keys(Departments).filter(x => parseInt(x, 10) > 0).map(x => Departments[x])
-    let jsonMajorData = require('./majorCountWithoutComments.json')
-    this.majorData = Object.keys(jsonMajorData).map(key => jsonMajorData[key]) // turn json object into an array
+    this.majorData = require('./majorCountWithoutComments.json').majors
     for (let key in this.majorData) {
       this.majorNames.push(this.majorData[key].name)
     }
@@ -79,14 +70,7 @@ class UIStore {
   }
 
   @action.bound handleNumberOperatorChange(e: ChangeEvent<HTMLSelectElement>) {
-    const newValue = e.target.value
-    if (newValue === '=') {
-      this.searchNumberFilter = ((x: number) => x === this.searchNumber)
-    } else if (newValue === '>=') {
-      this.searchNumberFilter = ((x: number) => x >= this.searchNumber)
-    } else if (newValue === '<=') {
-      this.searchNumberFilter = ((x: number) => x <= this.searchNumber)
-    }
+    this.searchNumberOperator = e.target.value
     this.updateSearchResults()
   }
 
@@ -98,8 +82,8 @@ class UIStore {
     this.updateSearchResults()
   }
 
-  @action.bound handleSearchingName(e: ChangeEvent<HTMLInputElement>) {
-    this.searchName = e.target.value
+  @action.bound handleSearchingKeywords(e: ChangeEvent<HTMLInputElement>) {
+    this.searchKeywords = e.target.value
     this.updateSearchResults()
   }
 
@@ -125,29 +109,55 @@ class UIStore {
     }
   }
 
-  private handleMajorResultChosen(result: string) {
+  private handleMajorResultChosen(majorName: string) {
     // TODO: show loading progress
     this.addMajorPopupActive = false
-    let data = this.majorData.filter(x => x.name === result)[0]
-    window.fetch('/api.cgi').then(res => res.json().then(fetchedData => {
-      this.fillMajorData(fetchedData)
-    })).catch(reject => console.log(reject))
+    let data = this.majorData.filter(x => x.name === majorName)[0]
+    Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
+      scheduleStore.addCourses(courses)
+    })
   }
 
-  private fillMajorData(data: any) {
-    const semesterLimit = 5
-    console.log(data)
+  private fetchCourseData(name: string): Promise<CourseData> {
+    let dept = name.split(' ')[0]
+    let num = name.split(' ')[1]
+    return new Promise((resolve, reject) => {
+      fetch(`/api/api.cgi/courses/${dept}/${num}`).then(res => {
+        if (res.ok) {
+          res.json().then(resolve).catch(reject)
+        } else {
+          reject(res)
+        }
+      })
+    })
   }
 
   private handleDepartmentResultChosen(result: string) {
     this.searchDepartment = result
     this.departmentInput.value = result
     this.departmentResults = []
+    this.updateSearchResults()
+  }
+
+  @computed get searchGenedsString() {
+    return this.searchGeneds.join(',')
+  }
+
+  @computed get searchParams() {
+    return [
+      this.searchDepartment || 'none',
+      this.searchNumberOperator || 'none',
+      (this.searchNumber || 'none').toString(),
+      this.searchKeywords || 'none',
+      this.searchGenedsString || 'none'
+    ]
   }
 
   updateSearchResults() {
-    // put request to database here
-    this.searchResults = require('./fakeApiResponse.json')
+    let [dept, op, num, keywords, geneds] = this.searchParams.map(param => encodeURIComponent(param))
+    fetch(`/api/api.cgi/search/${dept}/${op}/${num}/${keywords}/${geneds}`).then(res => {
+      res.json().then(data => console.log(data))
+    })
   }
 
   getSemesterLabel(index: Semesters) {
