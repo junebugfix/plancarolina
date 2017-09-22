@@ -4,6 +4,7 @@ import { CourseData } from './components/Course'
 import Schedule from './components/Schedule'
 import Semester from './components/Semester'
 import { Semesters, getClassElements, getChildren } from './utils'
+import './scripts/platform.js'
 
 class ScheduleStore {
 
@@ -84,6 +85,22 @@ class ScheduleStore {
       newSlipList.crossLists.push(list)
     })
     this.slipLists.push(newSlipList)
+  }
+
+  syncSchedule() {
+    let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
+    if (isGoogle) {
+      let auth2 = gapi.auth2.getAuthInstance();
+      let profile = auth2.currentUser.get().getBasicProfile();
+      if (profile === undefined) {
+        console.log("No user is logged in, syncing cancelled");
+        return; 
+      }
+
+      console.log(profile.getName());
+      console.log(profile.getImageUrl());
+      console.log(profile.getEmail());
+    }
   }
 
   addMajor() {

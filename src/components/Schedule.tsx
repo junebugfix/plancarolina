@@ -7,6 +7,7 @@ import { scheduleStore } from '../ScheduleStore'
 import { uiStore } from '../UIStore'
 import SummerButton from './SummerButton'
 import '../styles/Schedule.css'
+import { syncCurrentUserInformation } from './LoginPopup'
 
 interface ScheduleState {
   semesters: CourseData[][]
@@ -40,6 +41,7 @@ export default class Schedule extends React.Component {
           {uiStore.spring5Active &&
           <Semester index={Semesters.Spring5} />}
         </div>
+        <button onClick={syncCurrentUserInformation}>Save Classes</button>
       </div>
     )
   }
