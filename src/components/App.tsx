@@ -14,7 +14,7 @@ export default class App extends React.Component {
       <div className="App">
         <Toolbar />
         <SearchBar />
-        {uiStore.loginPopupActive && <LoginPopup />}
+        <LoginPopup />
         <Schedule />
       </div>
     )

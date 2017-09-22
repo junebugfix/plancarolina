@@ -29,7 +29,12 @@
       ga('create', 'UA-97866143-1', 'auto');
       ga('send', 'pageview');
     
-      </script>
+    </script>
+
+    <!-- Google Sign in -->
+    <script src="../src/scripts/platform.js" async defer></script> 
+    <meta name="google-signin-client_id" content="724319730394-0p2g3j67ju1l310deto92mvqv3hasshn.apps.googleusercontent.com">
+
     <title>React App</title>
   </head>
   <body>
@@ -37,6 +42,15 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <a href="#" onclick="signOut();">Sign out</a>
+    <script>
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
+      }
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
