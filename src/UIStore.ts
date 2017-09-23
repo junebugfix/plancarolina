@@ -46,6 +46,7 @@ class UIStore {
   readonly DEPARTMENT_LABEL = "dept-res"
 
   lastHue = 0
+  lastKeywordUpdate = Date.now()
   departmentNames: string[]
   majorNames: string[] = []
   majorData: MajorData[]
@@ -131,7 +132,10 @@ class UIStore {
 
   @action.bound handleSearchingKeywords(e: ChangeEvent<HTMLInputElement>) {
     this.searchKeywords = e.target.value
-    this.updateSearchResults()
+    if (Date.now() - this.lastKeywordUpdate > 500) {
+      this.updateSearchResults()
+      this.lastKeywordUpdate = Date.now()
+    }
   }
 
   @action.bound handleSearchingMajor(e: ChangeEvent<HTMLInputElement>) {
