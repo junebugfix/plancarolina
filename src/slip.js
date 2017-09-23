@@ -445,6 +445,7 @@ window['Slip'] = (function(){
                     var translateDistance = this.target.height;
                     
                     // I have no idea why I have to do this but it works - Hank
+                    // I also had to readjust for this below in onEnd
                     if (this.target.node.parentNode.classList.contains('SearchBarResults') && window.innerWidth < 855) {
                         move.y -= 70
                     }
@@ -514,11 +515,18 @@ window['Slip'] = (function(){
                        	var move = this.getTotalMovement();
 
 						if (container !== this.container){
-                        	//crossreorder
-                        	
+                            //crossreorder
+
+                            // readjust for weird fix above - Hank
+                            if (this.target.node.parentNode.classList.contains('SearchBarResults')) {
+                                move.y -= 70;
+                            }
+                            
+                            console.log(otherNodes.map(n => n.pos.y))
+                            console.log(move.y)
 							for(var i=0; i < otherNodes.length; i++) {
 								if (otherNodes[i].pos.y > move.y) break;
-							}
+                            }
                         	this.dispatch(container, 'reorder', {originalIndex: originalIndex, spliceIndex: i, origin: this});
                         }
                         else{

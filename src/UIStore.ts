@@ -74,7 +74,14 @@ class UIStore {
   @action.bound registerSlipList(el: HTMLDivElement) {
     let slipList = new this.slip(el)
     el.addEventListener('slip:reorder', (e: any) => {
-      if (this.isReorderWithinList(e)) {
+      // don't care if draggin in search result - search result event handler (below) will handle it
+      if (e.detail.origin.container.classList.contains('SearchBarResults')) {
+        const searchResultIndex = e.detail.originalIndex
+        const semesterIndex = Semesters[e.target.id as string]
+        console.log(e.detail.spliceIndex)
+        const toIndex = e.detail.spliceIndex
+        scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
+      } else if (this.isReorderWithinList(e)) {
         scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
       } else { // course was dragged to a different list
         const toList = e.target
@@ -89,11 +96,11 @@ class UIStore {
 
   @action.bound registerSearchBarResults(el: HTMLDivElement) {
     let slipList = new this.slip(el)
-    el.addEventListener('slip:reorder', (e: any) => {
-      console.log(e)
-      const toList = e.target
-      scheduleStore.insertSearchResult(e.detail.originalIndex)
-    })
+    // el.addEventListener('slip:reorder', (e: any) => {
+    //   console.log('drag in search result event!')
+    //   console.log(e)
+    //   // scheduleStore.insertSearchResult(e.detail.originalIndex)
+    // })
     scheduleStore.connectSlipList(slipList)
   }
 

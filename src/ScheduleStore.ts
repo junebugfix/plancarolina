@@ -75,15 +75,13 @@ class ScheduleStore {
   }
 
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
-    console.log(fromList, toList)
     let fromSemesterData = this.getSemester(Semesters[fromList.id])
     let toSemesterData = this.getSemester(Semesters[toList.id])
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
   }
 
-  @action.bound insertSearchResult(index: number): any {
-      let result = uiStore.searchResults[index]
-      console.log(result)
+  @action.bound insertSearchResult(resultIndex: number, semesterIndex: number, toIndex: number): any {
+    this.getSemester(semesterIndex).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
   }
 
   connectSlipList(newSlipList: any) {
