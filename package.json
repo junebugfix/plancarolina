@@ -29,11 +29,11 @@
   },
   "proxy": {
     "/api": {
-      "target": "https://wwwx.cs.unc.edu/~kateg/plancarolina",
+      "target": "http://hankhester.com/plancarolina",
       "secure": true,
       "changeOrigin": true,
       "pathRewrite": {
-        "^/api": "/"
+        "^/api": "/api"
       },
       "host": "wwwx.cs.unc.edu"
     }

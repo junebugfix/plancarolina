@@ -23,20 +23,7 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
   }
 
   componentDidMount() {
-    const Slip = require('../slip.js')
-    let slipList = new Slip(this.divEl)
-    this.divEl.addEventListener('slip:reorder', (e: any) => {
-      if (this.isReorderWithinList(e)) {
-        scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
-      } else { // course was dragged to a different list
-        const toList = e.target
-        const fromList = e.detail.origin.container
-        const toIndex = e.detail.spliceIndex
-        const fromIndex = e.detail.originalIndex
-        scheduleStore.changeLists(fromList, fromIndex, toList, toIndex)
-      }
-    })
-    scheduleStore.connectSlipList(slipList)
+    uiStore.registerSlipList(this.divEl)
   }
 
   render() {

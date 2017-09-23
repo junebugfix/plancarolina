@@ -28,7 +28,7 @@ class UIStore {
 
   @observable searchDepartment = ""
   @observable searchNumber: number
-  @observable searchNumberOperator = '='
+  @observable searchNumberOperator = 'eq'
   @observable searchKeywords = ""
   @observable searchGeneds: string[] = []
 
@@ -43,6 +43,7 @@ class UIStore {
   majorData: MajorData[]
   departmentInput: HTMLInputElement
   fuzzysearch: Function
+  slip: any
 
   constructor() {
     this.departmentNames = Object.keys(Departments).filter(x => parseInt(x, 10) > 0).map(x => Departments[x])
@@ -51,10 +52,31 @@ class UIStore {
       this.majorNames.push(this.majorData[key].name)
     }
     this.fuzzysearch = require('fuzzysearch')
+    this.slip = require('./slip.js')
   }
 
   @action.bound registerDepartmentInput(input: HTMLInputElement) {
     this.departmentInput = input
+  }
+
+  isReorderWithinList(e: Event): boolean {
+    return (e.target as HTMLDivElement).classList.contains('Course')
+  }
+
+  @action.bound registerSlipList(el: HTMLDivElement) {
+    let slipList = new this.slip(el)
+    el.addEventListener('slip:reorder', (e: any) => {
+      if (this.isReorderWithinList(e)) {
+        scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
+      } else { // course was dragged to a different list
+        const toList = e.target
+        const fromList = e.detail.origin.container
+        const toIndex = e.detail.spliceIndex
+        const fromIndex = e.detail.originalIndex
+        scheduleStore.changeLists(fromList, fromIndex, toList, toIndex)
+      }
+    })
+    scheduleStore.connectSlipList(slipList)
   }
 
   @action.bound handleAddMajorClicked(e: MouseEvent<HTMLDivElement>) {
@@ -96,8 +118,12 @@ class UIStore {
     this.isSearchingDepartment = e.target.value === '' ? false : true
   }
 
-  @action.bound handleGenedAdded(e: Event) {
-    this.searchGeneds = (e.target as HTMLInputElement).value.split(',')
+  @action.bound handleGenedChanged(e: Event) {
+    if ((e.target as HTMLInputElement).value === '') {
+      this.searchGeneds = []
+    } else {
+      this.searchGeneds = (e.target as HTMLInputElement).value.split(',')
+    }
     this.updateSearchResults()
   }
 
@@ -143,20 +169,21 @@ class UIStore {
     return this.searchGeneds.join(',')
   }
 
-  @computed get searchParams() {
-    return [
-      this.searchDepartment || 'none',
-      this.searchNumberOperator || 'none',
-      (this.searchNumber || 'none').toString(),
-      this.searchKeywords || 'none',
-      this.searchGenedsString || 'none'
-    ]
-  }
-
   updateSearchResults() {
-    let [dept, op, num, keywords, geneds] = this.searchParams.map(param => encodeURIComponent(param))
-    fetch(`/api/api.cgi/search/${dept}/${op}/${num}/${keywords}/${geneds}`).then(res => {
-      res.json().then(data => console.log(data))
+    console.log('updating search results...')
+    let dept = this.searchDepartment || 'none'
+    let op = this.searchNumberOperator || 'eq'
+    let num = this.searchNumber || 'none'
+    let keywords = this.searchKeywords || 'none'
+    let geneds = this.searchGeneds.length > 0 ? this.searchGeneds.join(',') : 'none'
+    console.log(this.searchGeneds)
+    let url = `/api/api.cgi/search/${dept}/${op}/${num}/${keywords}/${geneds}`
+    console.log(url)
+    fetch(url).then(res => {
+      res.json().then(data => {
+        this.searchResults = data.results
+        console.log('updated.')
+      })
     })
   }
 
