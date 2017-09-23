@@ -1,6 +1,7 @@
 import { observable, action, computed } from 'mobx'
 import { Departments } from './departments'
 import { CourseData } from './components/Course'
+import { uiStore } from './UIStore'
 import Schedule from './components/Schedule'
 import Semester from './components/Semester'
 import { Semesters, getClassElements, getChildren } from './utils'
@@ -74,9 +75,15 @@ class ScheduleStore {
   }
 
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
+    console.log(fromList, toList)
     let fromSemesterData = this.getSemester(Semesters[fromList.id])
     let toSemesterData = this.getSemester(Semesters[toList.id])
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
+  }
+
+  @action.bound insertSearchResult(index: number): any {
+      let result = uiStore.searchResults[index]
+      console.log(result)
   }
 
   connectSlipList(newSlipList: any) {
@@ -86,6 +93,14 @@ class ScheduleStore {
     })
     this.slipLists.push(newSlipList)
   }
+
+  // connectSearchBarResults(searchResultsSlipList: any) {
+  //   this.slipLists.forEach((list: any) => {
+  //     list.crossLists.push(searchResultsSlipList)
+  //     searchResultsSlipList.crossLists.push(list)
+  //   })
+  //   this.slipLists.push(searchResultsSlipList)
+  // }
 
   syncSchedule() {
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
@@ -101,10 +116,6 @@ class ScheduleStore {
       console.log(profile.getImageUrl());
       console.log(profile.getEmail());
     }
-  }
-
-  addMajor() {
-    console.log('adding major')
   }
 
   getSemester(id: number) {

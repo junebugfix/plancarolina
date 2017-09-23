@@ -1,3 +1,9 @@
+@media (max-width: 855px) {
+  .SearchBarResults {
+    position: relative;
+  }
+}
+
 .SearchBarResults .Course {
   width: 100px;
   text-align: center;

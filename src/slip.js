@@ -400,7 +400,6 @@ window['Slip'] = (function(){
                     	treshold = 20,
                     	crossReorder = false,
                     	foundCross = false;
-                    
                     // commented the below if statemtent out - this is what was causing the dragged element to not recognize the list below as another list - Hank
                     // if (Math.abs(move.x) <= treshold && container !== this.container){
                     // 	//first try an early out if its not a cross list transfer
@@ -445,6 +444,10 @@ window['Slip'] = (function(){
                     
                     var translateDistance = this.target.height;
                     
+                    // I have no idea why I have to do this but it works - Hank
+                    if (this.target.node.parentNode.classList.contains('SearchBarResults') && window.innerWidth < 855) {
+                        move.y -= 70
+                    }
                     // BOOKMARK: This is where the other nodes are being animated when you drag something - Hank
 					otherNodes.forEach(function(o){
 						var off = 0;
@@ -460,7 +463,12 @@ window['Slip'] = (function(){
 							if (o.pos.y > move.y) {
 								off = translateDistance;
 							}
-						}
+                        }
+                        
+                        // don't translate search results - Hank
+                        if (o.node.parentNode.classList.contains('SearchBarResults')) {
+                            off = 0
+                        }
 
 						// FIXME: should change accelerated/non-accelerated state lazily
 						var cssTranslate = 'translate(0,'+off+'px) ';

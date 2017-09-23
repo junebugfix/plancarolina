@@ -7,7 +7,7 @@
   position: absolute;
   top: 75px;
   left: 60px;
-  z-index: 9999;
+  z-index: 1;
 }
 
 .SearchBar h2 {
@@ -53,7 +53,6 @@
   border-radius: 5px;
   padding: 1px;
   background: white;
-  z-index: 999;
 }
 
 .SearchBar .department-result {
@@ -79,13 +78,9 @@
 
 @media (max-width: 855px) {
   .SearchBar {
-    position: relative;
     width: 90%;
     height: 130px;
-    left: 50%;
-    top: 10px;
     padding-top: 6px;
-    transform: translateX(-50%);
   }
 
   .SearchBar #department-number-group, #name-gened-group {

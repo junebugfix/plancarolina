@@ -32,7 +32,15 @@ class UIStore {
   @observable searchKeywords = ""
   @observable searchGeneds: string[] = []
 
-  @observable searchResults: CourseData[] = []
+  @observable searchResults: CourseData[] = [{
+    id: 99,
+    name: 'hi',
+    department: 'test',
+    number: '101',
+    geneds: [],
+    credits: 3,
+    description: 'a test class'
+  }]
 
   readonly MAJOR_LABEL = "major-res"
   readonly DEPARTMENT_LABEL = "dept-res"
@@ -75,6 +83,16 @@ class UIStore {
         const fromIndex = e.detail.originalIndex
         scheduleStore.changeLists(fromList, fromIndex, toList, toIndex)
       }
+    })
+    scheduleStore.connectSlipList(slipList)
+  }
+
+  @action.bound registerSearchBarResults(el: HTMLDivElement) {
+    let slipList = new this.slip(el)
+    el.addEventListener('slip:reorder', (e: any) => {
+      console.log(e)
+      const toList = e.target
+      scheduleStore.insertSearchResult(e.detail.originalIndex)
     })
     scheduleStore.connectSlipList(slipList)
   }
