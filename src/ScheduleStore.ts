@@ -5,7 +5,6 @@ import { uiStore } from './UIStore'
 import Schedule from './components/Schedule'
 import Semester from './components/Semester'
 import { Semesters, getClassElements, getChildren } from './utils'
-import './scripts/platform.js'
 
 class ScheduleStore {
 

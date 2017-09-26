@@ -6,6 +6,10 @@ import { CourseData } from './components/Course'
 // import './fonts/fonts.css'
 import App from './components/App'
 
+declare global {
+  let gapi: any
+}
+
 ReactDOM.render(
   <App />,
   document.getElementById('root') as HTMLElement

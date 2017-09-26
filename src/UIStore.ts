@@ -217,6 +217,20 @@ class UIStore {
     })
   }
 
+  handleLogin(googleUser: any) {
+    console.log("HEY LISTEN THE ON SIGN IN THING GOT CALLED WHICH IS COOL");
+    var profile = googleUser.getBasicProfile();
+
+    if (profile === undefined) {
+      console.log("No user is logged in, syncing cancelled");
+      return; 
+    }
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
+
   getSemesterLabel(index: Semesters) {
     if ([Semesters.Fall1, Semesters.Fall2, Semesters.Fall3, Semesters.Fall4, Semesters.Fall5].indexOf(index) !== -1) {
       return 'Fall'

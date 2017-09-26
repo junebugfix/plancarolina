@@ -522,8 +522,6 @@ window['Slip'] = (function(){
                                 move.y -= 70;
                             }
                             
-                            console.log(otherNodes.map(n => n.pos.y))
-                            console.log(move.y)
 							for(var i=0; i < otherNodes.length; i++) {
 								if (otherNodes[i].pos.y > move.y) break;
                             }
