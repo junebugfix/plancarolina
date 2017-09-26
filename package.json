@@ -33,6 +33,7 @@
       "secure": true,
       "changeOrigin": true
     }
-  }
+  },
+  "homepage": "/new"
 }
 
