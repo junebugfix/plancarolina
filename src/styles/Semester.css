@@ -2,7 +2,7 @@
   display: inline-flex;
   flex-direction: column;
   width: 150px;
-  height: 300px;
+  /* height handled in react/uiStore */
   border-radius: 4px;
   margin: 2px;
   background: hsla(0, 0%, 100%, 0.9);

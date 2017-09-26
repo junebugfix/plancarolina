@@ -92,14 +92,6 @@ class ScheduleStore {
     this.slipLists.push(newSlipList)
   }
 
-  // connectSearchBarResults(searchResultsSlipList: any) {
-  //   this.slipLists.forEach((list: any) => {
-  //     list.crossLists.push(searchResultsSlipList)
-  //     searchResultsSlipList.crossLists.push(list)
-  //   })
-  //   this.slipLists.push(searchResultsSlipList)
-  // }
-
   syncSchedule() {
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {

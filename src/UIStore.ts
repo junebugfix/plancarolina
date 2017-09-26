@@ -1,5 +1,5 @@
 import { MouseEvent, ChangeEvent, KeyboardEvent } from 'react'
-import { observable, action, computed } from 'mobx'
+import { observable, action, computed, autorun } from 'mobx'
 import { Semesters } from './utils'
 import { Departments } from './departments'
 import { CourseData } from './components/Course'
@@ -42,6 +42,10 @@ class UIStore {
     description: 'a test class'
   }]
 
+  @computed get semesterHeight() {
+    return scheduleStore.allSemesters.reduce((prev, curr) => curr.length > prev ? curr.length : prev, 0) * 28 + 30
+  }
+
   readonly MAJOR_LABEL = "major-res"
   readonly DEPARTMENT_LABEL = "dept-res"
 
@@ -80,7 +84,9 @@ class UIStore {
         const searchResultIndex = e.detail.originalIndex
         const semesterIndex = Semesters[e.target.id as string]
         console.log(e.detail.spliceIndex)
-        const toIndex = e.detail.spliceIndex
+        let toIndex = e.detail.spliceIndex
+        // TODO: I have no idea why I have to do this - Hank
+        if (window.innerWidth >= 855) toIndex += 3
         scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
       } else if (this.isReorderWithinList(e)) {
         scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
@@ -97,11 +103,6 @@ class UIStore {
 
   @action.bound registerSearchBarResults(el: HTMLDivElement) {
     let slipList = new this.slip(el)
-    // el.addEventListener('slip:reorder', (e: any) => {
-    //   console.log('drag in search result event!')
-    //   console.log(e)
-    //   // scheduleStore.insertSearchResult(e.detail.originalIndex)
-    // })
     scheduleStore.connectSlipList(slipList)
   }
 

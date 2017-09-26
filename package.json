@@ -31,11 +31,7 @@
     "/api": {
       "target": "http://hankhester.com/plancarolina",
       "secure": true,
-      "changeOrigin": true,
-      "pathRewrite": {
-        "^/api": "/api"
-      },
-      "host": "wwwx.cs.unc.edu"
+      "changeOrigin": true
     }
   },
   "homepage": "http://hankhester.com/plancarolina"

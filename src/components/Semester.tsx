@@ -28,10 +28,14 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
 
   render() {
     const semesterData = scheduleStore.getSemesterData(this.props.index)
+    const style = {
+      height: uiStore.semesterHeight + 'px'
+    }
+
     return (
       <div className="Semester">
         <div className="Semster-label">{this.label}</div>
-        <div ref={input => this.divEl = input as HTMLDivElement} className="Semester-courses" id={`${Semesters[this.props.index]}`}>
+        <div ref={input => this.divEl = input as HTMLDivElement} style={style} className="Semester-courses" id={`${Semesters[this.props.index]}`}>
           {semesterData.map(data => <Course key={`course-${data.id}`} data={data} />)}
         </div>
       </div>

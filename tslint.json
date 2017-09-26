@@ -4,7 +4,7 @@
       "align": [
           true,
           "parameters",
-          "arguments",
+        //   "arguments",
           "statements"
       ],
       "ban": false,
@@ -16,7 +16,7 @@
           true,
           "check-space"
       ],
-      "curly": true,
+    //   "curly": true,
       "eofline": false,
     //   "forin": true,
       "indent": [ true, "spaces" ],
