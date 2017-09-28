@@ -2,6 +2,7 @@ import * as React from 'react'
 import { observer } from 'mobx-react'
 import { scheduleStore } from '../ScheduleStore'
 import { uiStore } from '../UIStore'
+import { loginStore } from '../LoginStore'
 import AddMajorPopup from './AddMajorPopup'
 import LoginPopup from './LoginPopup'
 import SearchResults from './SearchResults'
@@ -23,7 +24,9 @@ export default class Toolbar extends React.Component {
           {uiStore.addMajorPopupActive && <AddMajorPopup />}
           {uiStore.addMajorPopupActive && <SearchResults label={uiStore.MAJOR_LABEL} items={uiStore.majorResults} />}
         </div>
-        <div className="Toolbar-item" onClick={uiStore.handleLoginPopupClicked}><span className="Toolbar-text">Login</span>
+        <div className="Toolbar-item" onClick={uiStore.handleLoginPopupClicked}><span className="Toolbar-text">
+          {loginStore.isLoggedIn && loginStore.name || 'Login'}
+        </span>
         </div>
       </div>
     )

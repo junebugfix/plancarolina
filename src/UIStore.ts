@@ -4,6 +4,7 @@ import { Semesters } from './utils'
 import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { scheduleStore } from './ScheduleStore'
+import { loginStore } from './LoginStore'
 
 interface MajorData {
   name: string
@@ -217,18 +218,10 @@ class UIStore {
     })
   }
 
-  handleLogin(googleUser: any) {
-    console.log("HEY LISTEN THE ON SIGN IN THING GOT CALLED WHICH IS COOL");
-    var profile = googleUser.getBasicProfile();
-
-    if (profile === undefined) {
-      console.log("No user is logged in, syncing cancelled");
-      return; 
-    }
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  handleLogin() {
+    console.log('handling ui user logging in')
+    console.log(loginStore.name)
+    console.log(loginStore.email)
   }
 
   getSemesterLabel(index: Semesters) {

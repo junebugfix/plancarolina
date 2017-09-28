@@ -28,7 +28,7 @@
   transform: translateX(-50%)
 }
 
-button.google-signout {
+button {
     color: #757575;
     font-size: 13px;
     height: 36px;
