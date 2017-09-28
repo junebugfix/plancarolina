@@ -1,18 +1,21 @@
 .LoginPopup {
   position: absolute;
-  height: 50px;
-  top: 55px;
-  padding-top: 10px;
   display: flex;
-  align-content: center;
-  justify-content: space-around;
-  flex-direction: row;
+  flex-direction: column;
+  top: 55px;
+  padding: 5px;
+  display: flex;
   background: white;
   z-index: 99999;
   border-radius: 5px;
   box-shadow: 0px 3px 10px hsla(0, 0%, 0%, 0.4);
-  left: 67.5%;
-  width: 32.5%;
+  right: 50%;
+  transform: translateX(50%);
+  /* width: 200px; */
+}
+
+.LoginPopup > * {
+  margin: 5px;
 }
 
 .LoginPopup::before {

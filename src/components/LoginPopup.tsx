@@ -18,18 +18,21 @@ export default class LoginPopup extends React.Component {
   }
 
   render() {
-    let display = uiStore.loginPopupActive ? {display: 'flex'} : {display: 'none'};
+    console.log(loginStore.isLoggedIn)
     return (
-      <div className="LoginPopup" style={display}>
-        {/* <div className="g-signin2"></div> */}
-        <GoogleLogin
-          clientId="724319730394-0p2g3j67ju1l310deto92mvqv3hasshn.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={loginStore.handleLoginSuccess}
-          onFailure={loginStore.handleLoginFailure}
-          style={{}}
-        />
-        <button className="google-signout" onClick={loginStore.logout}>Sign out</button>
+      <div className="LoginPopup">
+        {loginStore.isLoggedIn && 
+          <button className="google-signout" onClick={loginStore.logout}>
+            Sign out
+          </button> ||
+          <GoogleLogin
+            clientId="724319730394-0p2g3j67ju1l310deto92mvqv3hasshn.apps.googleusercontent.com"
+            buttonText="Sign in"
+            onSuccess={loginStore.handleLoginSuccess}
+            onFailure={loginStore.handleLoginFailure}
+            style={{}}
+          />
+        }
       </div>
     )
   }

@@ -14,7 +14,6 @@ export default class App extends React.Component {
       <div className="App">
         <Toolbar />
         <SearchBar />
-        <LoginPopup />
         <Schedule />
       </div>
     )
