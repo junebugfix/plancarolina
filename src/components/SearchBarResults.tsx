@@ -3,11 +3,14 @@ import { observer } from 'mobx-react'
 import { uiStore } from '../UIStore'
 import { scheduleStore } from '../ScheduleStore'
 import Course from './Course'
+import SearchBarResult from './SearchBarResult'
+import CourseData from './Course'
 import '../styles/SearchBarResults.css'
 
 @observer
 export default class SearchBarResults extends React.Component {
-  divEl: HTMLDivElement;
+  divEl: HTMLDivElement
+  nameEl: HTMLSpanElement
 
   componentDidMount() {
     uiStore.registerSearchBarResults(this.divEl)
@@ -15,8 +18,8 @@ export default class SearchBarResults extends React.Component {
 
   render() {
     return (
-      <div ref={el => this.divEl = el} className="SearchBarResults">
-        {uiStore.searchResults.map(res => <Course key={`search-${res.id}`} data={res} />)}
+      <div id="searchBarResults" ref={el => this.divEl = el} className="SearchBarResults">
+          {uiStore.searchResults.map(res => <SearchBarResult key={`bar-result=${res.id}`} data={res} />).slice(0, 9)}
       </div>
     )
   }

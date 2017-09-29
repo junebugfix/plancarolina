@@ -61,6 +61,15 @@ class UIStore {
     this.slip = require('./slip.js')
   }
 
+  @action.bound getDepartmentHue(dept: string) {
+    let hue = this.departmentHues.get(dept)
+    if (hue === undefined) {
+      hue = this.lastHue += 30
+      this.departmentHues.set(dept, hue)
+    }
+    return hue
+  }
+
   @action.bound registerDepartmentInput(input: HTMLInputElement) {
     this.departmentInput = input
   }

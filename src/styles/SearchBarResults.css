@@ -1,11 +1,56 @@
-@media (max-width: 855px) {
-  .SearchBarResults {
-    position: relative;
-  }
+.SearchBarResults {
+  width: 70%;
+  margin-left: 8px;
+  user-select: none;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.SearchBarResults .Course {
-  width: 100px;
+.SearchBarResults-result {
+  background: lightgray;
+  position: relative;
+  display: flex;
+  border: 1px solid grey;
+  border-radius: 4px;
+  width: 32%;
+  height: 40px;
+  font-size: 12px;
+  overflow: hidden;
+  margin: 1px;
+}
+
+.SearchBarResults .dept-num {
+  padding: 3px;
+  background: whitesmoke;
+  border-radius: 4px;
   text-align: center;
   display: inline-block;
+}
+
+.SearchBarResults .name {
+  font-style: italic;
+  margin: 6px;
+}
+
+.SearchBarResults-result .elipses {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+}
+
+.SearchBarResults .department {
+  font-weight: bold;
+}
+
+.SearchBarResults .number {
+  top: 15px;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+@media(min-width: 890px) {
+  .SearchBarResults-result {
+    width: 200px;
+  }
 }

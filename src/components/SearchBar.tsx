@@ -33,12 +33,11 @@ export default class SearchBar extends React.Component {
             </select>
             <input placeholder="110" id="number-input" onChange={uiStore.handleSearchingNumber} />
           </div>
+          <br />
           <div id="name-gened-group">
-            <label htmlFor="name-input">Name/Keywords:</label>
-            <input id="name-input" placeholder="Intro to Programming" onChange={uiStore.handleSearchingKeywords} />
+            <input id="name-input" placeholder="Name: Intro to Programming" onChange={uiStore.handleSearchingKeywords} />
             <br />
-            <label htmlFor="gened-input">Gen Eds:</label>
-            <input type="tags" placeholder="QR" id="gened-input" />
+            <input type="tags" placeholder="Gen Eds: QR" id="gened-input" />
           </div>
         </div>
         <SearchBarResults />

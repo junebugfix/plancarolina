@@ -25,13 +25,13 @@
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1008px) {
   .Schedule {
     left: 62%;
   }
 }
 
-@media (max-width: 855px) {
+@media (max-width: 890px) {
   .Schedule {
     left: 50%;
     margin-top: 180px;

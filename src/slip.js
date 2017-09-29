@@ -447,7 +447,7 @@ window['Slip'] = (function(){
                     // I have no idea why I have to do this but it works - Hank
                     // I also had to readjust for this below in onEnd
                     if (this.target.node.parentNode.classList.contains('SearchBarResults') && window.innerWidth < 855) {
-                        move.y -= 70
+                        move.y -= 150
                     }
                     // BOOKMARK: This is where the other nodes are being animated when you drag something - Hank
 					otherNodes.forEach(function(o){
@@ -519,7 +519,7 @@ window['Slip'] = (function(){
 
                             // readjust for weird fix above - Hank
                             if (this.target.node.parentNode.classList.contains('SearchBarResults')) {
-                                move.y -= 70;
+                                move.y -= 150;
                             }
                             
 							for(var i=0; i < otherNodes.length; i++) {
