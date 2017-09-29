@@ -161,7 +161,12 @@ class UIStore {
 
   @action.bound handleSearchingDepartmentChange(e: ChangeEvent<HTMLInputElement>) {
     this.departmentResults = this.departmentNames.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
-    this.isSearchingDepartment = e.target.value === '' ? false : true
+    if (e.target.value === '') {
+      this.isSearchingDepartment = false
+      this.searchDepartment = ''
+    } else {
+      this.isSearchingDepartment = true
+    }
   }
 
   @action.bound handleGenedChanged(e: Event) {
