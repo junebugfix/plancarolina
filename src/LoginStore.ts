@@ -15,8 +15,6 @@ class LoginStore {
       console.log("No user is logged in, syncing cancelled");
       return; 
     }
-    this.isLoggedIn = true
-    uiStore.handleLogin()
     let addUserData = {
       name: profile.getName(),
       email: profile.getEmail()
@@ -27,9 +25,9 @@ class LoginStore {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(res => {
-      scheduleStore.syncSchedule()
-    }).catch(err => console.log(err))
+    }).then(raw => raw.json().then(res => {
+      scheduleStore.initAllSemesters(res.schedule)
+    }).then(() => this.isLoggedIn = true)).catch(err => console.log(err))
   }
 
   get email() {

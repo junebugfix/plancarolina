@@ -97,8 +97,6 @@ class UIStore {
       if (e.detail.origin.container.classList.contains('SearchBarResults')) {
         const searchResultIndex = e.detail.originalIndex
         const semesterIndex = Semesters[e.target.id as string]
-        console.log(e)
-        console.log(e.detail.spliceIndex)
         let toIndex = e.detail.spliceIndex
         // TODO: I have no idea why I have to do this - Hank
         // if (window.innerWidth >= 890) toIndex += 3
@@ -232,10 +230,8 @@ class UIStore {
     })
   }
 
-  handleLogin() {
-    console.log('handling ui user logging in')
-    console.log(loginStore.name)
-    console.log(loginStore.email)
+  promptUserLogin() {
+    console.log('prompt user to login')
   }
 
   getSemesterLabel(index: Semesters) {

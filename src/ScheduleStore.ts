@@ -23,10 +23,12 @@ class ScheduleStore {
   slipLists: any[] = []
 
   constructor() {
-    this.initAllSemesters(require('./userData.json').semesters)
+    // this.initAllSemesters(require('./userData.json').semesters)
     autorun(() => {
       this.allSemesters.forEach(s => s.length) // needs to do something with each semester for autorun to work right
-      this.syncSchedule()
+      if (loginStore.isLoggedIn) {
+        this.saveSchedule()
+      }
     })
   }
 
@@ -96,16 +98,16 @@ class ScheduleStore {
     this.slipLists.push(newSlipList)
   }
 
-  syncSchedule() {
+  saveSchedule() {
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {
       if (!loginStore.isLoggedIn) {
-        this.promptUserLogin()
+        // uiStore.promptUserLogin()
       } else {
         let email = loginStore.email
-        fetch('/api/api.cgi/getUserSchedule', {
+        fetch('/api/api.cgi/saveUserSchedule', {
           method: 'put',
-          body: JSON.stringify(this.serverJson),
+          body: JSON.stringify(this.saveScheduleBody),
           headers: {
             'Content-Type': 'application/json'
           }
@@ -119,14 +121,15 @@ class ScheduleStore {
     }
   }
 
-  promptUserLogin() {
-    console.log('prompt user to login')
+  get saveScheduleBody() {
+    return {
+      email: loginStore.email,
+      schedule: JSON.stringify(this.compactScheduleJson)
+    }
   }
 
-  get serverJson() {
+  get compactScheduleJson() {
     return {
-      name: loginStore.name,
-      email: loginStore.email,
       schedule: this.allSemesters.map(semester => {
         return semester.map(course => course.id)
       })
@@ -160,7 +163,8 @@ class ScheduleStore {
     }
   }
 
-  private initAllSemesters(semesters: CourseData[][]) {
+  @action.bound initAllSemesters(semesters: CourseData[][]) {
+    console.log(semesters)
     this.fall1 = semesters[0]
     this.fall2 = semesters[1]
     this.fall3 = semesters[2]
