@@ -1,7 +1,8 @@
-import { observable, action, computed } from 'mobx'
+import { observable, action, computed, autorun } from 'mobx'
 import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { uiStore } from './UIStore'
+import { loginStore } from './LoginStore'
 import Schedule from './components/Schedule'
 import Semester from './components/Semester'
 import { Semesters, getClassElements, getChildren } from './utils'
@@ -23,6 +24,10 @@ class ScheduleStore {
 
   constructor() {
     this.initAllSemesters(require('./userData.json').semesters)
+    autorun(() => {
+      this.allSemesters.forEach(s => s.length) // needs to do something with each semester for autorun to work right
+      this.syncSchedule()
+    })
   }
 
   getCourseData(id: number): CourseData {
@@ -94,16 +99,37 @@ class ScheduleStore {
   syncSchedule() {
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {
-      let auth2 = gapi.auth2.getAuthInstance();
-      let profile = auth2.currentUser.get().getBasicProfile();
-      if (profile === undefined) {
-        console.log("No user is logged in, syncing cancelled");
-        return; 
+      if (!loginStore.isLoggedIn) {
+        this.promptUserLogin()
+      } else {
+        let email = loginStore.email
+        fetch('/api/api.cgi/getUserSchedule', {
+          method: 'put',
+          body: JSON.stringify(this.serverJson),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(res => {
+          res.json().then(r => {
+            console.log('synced schedule!')
+            console.log(r)
+          })
+        }).catch(err => console.log(err))
       }
+    }
+  }
 
-      console.log(profile.getName());
-      console.log(profile.getImageUrl());
-      console.log(profile.getEmail());
+  promptUserLogin() {
+    console.log('prompt user to login')
+  }
+
+  get serverJson() {
+    return {
+      name: loginStore.name,
+      email: loginStore.email,
+      schedule: this.allSemesters.map(semester => {
+        return semester.map(course => course.id)
+      })
     }
   }
 

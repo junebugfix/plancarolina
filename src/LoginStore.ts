@@ -10,15 +10,26 @@ class LoginStore {
   @observable isLoggedIn = false
 
   @action.bound handleLoginSuccess(googleUser: any) {
-    console.log('user logged in!')
-    var profile = googleUser.getBasicProfile();
-
+    let profile = googleUser.getBasicProfile();
     if (profile === undefined) {
       console.log("No user is logged in, syncing cancelled");
       return; 
     }
     this.isLoggedIn = true
     uiStore.handleLogin()
+    let addUserData = {
+      name: profile.getName(),
+      email: profile.getEmail()
+    }
+    fetch('/api/api.cgi/login', {
+      method: 'put',
+      body: JSON.stringify(addUserData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => {
+      scheduleStore.syncSchedule()
+    }).catch(err => console.log(err))
   }
 
   get email() {
