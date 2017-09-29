@@ -19,7 +19,7 @@ export default class SearchBarResults extends React.Component {
   render() {
     return (
       <div id="searchBarResults" ref={el => this.divEl = el} className="SearchBarResults">
-          {uiStore.searchResults.map(res => <SearchBarResult key={`bar-result=${res.id}`} data={res} />).slice(0, 9)}
+          {uiStore.searchResults.map(res => <SearchBarResult key={`bar-result=${res.id}`} data={res} />).slice(0, uiStore.numberOfSearchResults)}
       </div>
     )
   }

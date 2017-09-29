@@ -34,6 +34,11 @@ class UIStore {
   @observable searchGeneds: string[] = []
 
   @observable searchResults: CourseData[] = []
+  @observable numberOfSearchResults = 8
+
+  get isWideView() {
+    return window.innerWidth > 890
+  }
 
   @computed get semesterHeight() {
     return scheduleStore.allSemesters.reduce((prev, curr) => curr.length > prev ? curr.length : prev, 0) * 28 + 30
@@ -59,6 +64,14 @@ class UIStore {
     }
     this.fuzzysearch = require('fuzzysearch')
     this.slip = require('./slip.js')
+
+    window.addEventListener('resize', e => {
+      if (window.innerWidth > 890 && this.numberOfSearchResults !== 8) {
+        this.numberOfSearchResults = 8
+      } else if (window.innerWidth <= 890 && this.numberOfSearchResults !== 9) {
+        this.numberOfSearchResults = 9
+      }
+    })
   }
 
   @action.bound getDepartmentHue(dept: string) {
@@ -81,14 +94,14 @@ class UIStore {
   @action.bound registerSlipList(el: HTMLDivElement) {
     let slipList = new this.slip(el)
     el.addEventListener('slip:reorder', (e: any) => {
-      // don't care if draggin in search result - search result event handler (below) will handle it
       if (e.detail.origin.container.classList.contains('SearchBarResults')) {
         const searchResultIndex = e.detail.originalIndex
         const semesterIndex = Semesters[e.target.id as string]
+        console.log(e)
         console.log(e.detail.spliceIndex)
         let toIndex = e.detail.spliceIndex
         // TODO: I have no idea why I have to do this - Hank
-        if (window.innerWidth >= 855) toIndex += 3
+        // if (window.innerWidth >= 890) toIndex += 3
         scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
       } else if (this.isReorderWithinList(e)) {
         scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)

@@ -3,9 +3,9 @@
   border-radius: 5px;
   padding: 10px;
   width: 202px;
-  height: 500px;
+  height: 589px;
   position: absolute;
-  top: 75px;
+  top: 55px;
   left: 60px;
   z-index: 1;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
@@ -59,10 +59,6 @@
   padding: 2px 3px;
 }
 
-.SearchBar #name-gened-group {
-
-}
-
 .SearchBar select {
   font-size: 18px;
   outline: none;
@@ -78,36 +74,16 @@
 @media (max-width: 890px) {
   .SearchBar {
     width: 90%;
-    height: 130px;
-    padding-top: 6px;
+    height: 155px;
+    padding-top: 3px;
     display: flex;
   }
 
   .SearchBar #department-number-group, #name-gened-group {
-    /* position: absolute; */
     display: inline-block;
   }
-  .SearchBar #searchbar-search-group {
 
-  }
-  .SearchBar #department-number-group {
-    /* top: 32px; */
-    /* width: 200px; */
-  }
-  .SearchBar input#name-input {
-    /* width: 33vw; */
-    /* margin-left: 10px; */
-  }
-  .SearchBar .tags-input {
-    /* margin-left: 133px; */
-    /* width: 34vw; */
-  }
-  .SearchBar label[for="gened-input"] {
-    /* position: absolute; */
-    /* top: 50px; */
-  }
-  .SearchBar #name-gened-group {
-    /* left: 35%; */
-    /* top: 2px; */
+  #name-input, .tags-input {
+    margin-top: 8px;
   }
 }
