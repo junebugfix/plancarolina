@@ -7,6 +7,19 @@
   user-select: none;
 }
 
-#course-9 {
-  position: relative;
+.Course-x {
+  position: absolute;
+  right: 4px;
+  top: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+}
+
+.Course:hover .Course-x {
+  display: inline;
+}
+
+.Course-x:hover {
+  transform: scale(1.3);
 }
