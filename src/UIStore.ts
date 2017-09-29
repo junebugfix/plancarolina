@@ -143,6 +143,8 @@ class UIStore {
     let val = parseInt(e.target.value, 10)
     if (val > 0) {
       this.searchNumber = val
+    } else {
+      this.searchNumber = null
     }
     this.updateSearchResults()
   }
