@@ -33,15 +33,7 @@ class UIStore {
   @observable searchKeywords = ""
   @observable searchGeneds: string[] = []
 
-  @observable searchResults: CourseData[] = [{
-    id: 99,
-    name: 'hi',
-    department: 'test',
-    number: '101',
-    geneds: [],
-    credits: 3,
-    description: 'a test class'
-  }]
+  @observable searchResults: CourseData[] = []
 
   @computed get semesterHeight() {
     return scheduleStore.allSemesters.reduce((prev, curr) => curr.length > prev ? curr.length : prev, 0) * 28 + 30
