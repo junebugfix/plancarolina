@@ -90,6 +90,10 @@ class ScheduleStore {
     this.getSemester(semesterIndex).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
   }
 
+  @action.bound removeCourseFromSemester(courseIndex: number, semesterIndex: Semesters) {
+    this.getSemester(semesterIndex).splice(courseIndex, 1)
+  }
+
   connectSlipList(newSlipList: any) {
     this.slipLists.forEach((list: any) => {
       list.crossLists.push(newSlipList)

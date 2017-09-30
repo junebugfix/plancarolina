@@ -7,6 +7,7 @@
   user-select: none;
 }
 
+<<<<<<< HEAD
 #course-9 {
   position: relative;
 }
@@ -15,4 +16,21 @@
   z-index: 999999;
   background-color: inherit;
   position: relative;
+=======
+.Course-x {
+  position: absolute;
+  right: 4px;
+  top: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+}
+
+.Course:hover .Course-x {
+  display: inline;
+}
+
+.Course-x:hover {
+  transform: scale(1.3);
+>>>>>>> d8cfe51a589e5d12d66b35801548e212a429033c
 }

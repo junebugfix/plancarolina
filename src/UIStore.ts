@@ -111,6 +111,9 @@ class UIStore {
         scheduleStore.changeLists(fromList, fromIndex, toList, toIndex)
       }
     })
+    el.addEventListener('slip:dragoff', (e: any) => {
+      console.log(e)
+    })
     scheduleStore.connectSlipList(slipList)
   }
 
@@ -140,6 +143,8 @@ class UIStore {
     let val = parseInt(e.target.value, 10)
     if (val > 0) {
       this.searchNumber = val
+    } else {
+      this.searchNumber = null
     }
     this.updateSearchResults()
   }
@@ -158,7 +163,12 @@ class UIStore {
 
   @action.bound handleSearchingDepartmentChange(e: ChangeEvent<HTMLInputElement>) {
     this.departmentResults = this.departmentNames.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
-    this.isSearchingDepartment = e.target.value === '' ? false : true
+    if (e.target.value === '') {
+      this.isSearchingDepartment = false
+      this.searchDepartment = ''
+    } else {
+      this.isSearchingDepartment = true
+    }
   }
 
   @action.bound handleGenedChanged(e: Event) {
@@ -176,6 +186,17 @@ class UIStore {
     } else if (label === this.DEPARTMENT_LABEL) {
       this.handleDepartmentResultChosen(result)
     }
+  }
+
+  @action.bound handleRemoveCourse(e: MouseEvent<HTMLSpanElement>) {
+    let course = (e.target as HTMLDivElement).parentNode
+    // get index of course in semester
+    let semesterIndex = Semesters[course.parentElement.id]
+    let courseIndex = 0
+    while ((course = course.previousSibling) != null) {
+      courseIndex++
+    }
+    scheduleStore.removeCourseFromSemester(courseIndex, semesterIndex)
   }
 
   private handleMajorResultChosen(majorName: string) {
