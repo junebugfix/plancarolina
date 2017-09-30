@@ -5,6 +5,7 @@ import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { scheduleStore } from './ScheduleStore'
 import { loginStore } from './LoginStore'
+import './styles/AddMajorPopup.css'
 
 interface MajorData {
   name: string
@@ -200,11 +201,16 @@ class UIStore {
   }
 
   private handleMajorResultChosen(majorName: string) {
-    // TODO: show loading progress
+    let schedule = document.querySelector(".Schedule");
+    let loader = document.createElement("div");
+    loader.id = "loading-circle";
+    schedule.appendChild(loader);
+
     this.addMajorPopupActive = false
     let data = this.majorData.filter(x => x.name === majorName)[0]
     Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
       scheduleStore.addCourses(courses)
+      schedule.removeChild(loader)
     })
   }
 
