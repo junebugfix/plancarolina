@@ -181,7 +181,7 @@ window['Slip'] = (function(){
         latestPosition: null, // x,y,time where the finger is currently
         previousPosition: null, // x,y,time where the finger was ~100ms ago (for velocity calculation)
 
-        canPreventScrolling: false,
+        canPreventScrolling: true, // changed - Hank
 
         states: {
             idle: function() {
