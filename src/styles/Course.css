@@ -10,3 +10,9 @@
 #course-9 {
   position: relative;
 }
+
+#course-description {
+  z-index: 999999;
+  background-color: inherit;
+  position: relative;
+}

@@ -28,7 +28,24 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
       backgroundColor: `hsl(${uiStore.getDepartmentHue(data.department)}, 80%, 80%)`
     }
     return (
-      <div className="Course" id={`course-${data.id}`} style={style}>{data.department} {data.number}</div>
+      <div className="Course" id={`course-${data.id}`} style={style} onClick={() => this.showDescription(data)}>{data.department} {data.number}</div>
     )
+  }
+
+  showDescription(course: CourseData): void {
+    let DOMCourse = document.getElementById(`course-${course.id}`);
+    
+    let element = document.createElement("div");
+    element.innerText = course.department + " " + course.number + "\n" + course.description;
+    element.id = "course-description";
+    element.onmouseleave = () => {
+      DOMCourse.removeChild(DOMCourse.childNodes.item(DOMCourse.childNodes.length - 1));
+      DOMCourse.innerText = course.department + " " + course.number;
+    }
+
+    if (!(DOMCourse.childNodes.length > 9)) {
+      DOMCourse.innerText = "";
+      DOMCourse.appendChild(element);
+    }
   }
 }
