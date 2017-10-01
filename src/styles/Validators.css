@@ -1,0 +1,13 @@
+div#validator-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    flex-direction: column;
+}
+
+button {
+    display: flex;
+    align-self: flex-end;
+    background: #185300;
+    color: white;
+}

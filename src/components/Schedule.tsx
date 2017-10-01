@@ -41,7 +41,6 @@ export default class Schedule extends React.Component {
           {uiStore.spring5Active &&
           <Semester index={Semesters.Spring5} />}
         </div>
-        <button onClick={() => scheduleStore.validateGenEds(scheduleStore.allSemesters)}> Validate Gen Eds </button>
       </div>
     )
   }
