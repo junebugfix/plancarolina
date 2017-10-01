@@ -125,6 +125,33 @@ class ScheduleStore {
     }
   }
 
+  validateGenEds(semesters: CourseData[][]) {
+    let genEdsFulfilled: Array<string> = new Array<string>();
+    let requiredGenEds: string[] = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"];
+    semesters.forEach(semester => {
+      semester.forEach(course => {
+        if (course.geneds !== undefined) {
+          for (let i = 0; i < course.geneds.length - 1; i++) {
+            for (let j = 0; j < requiredGenEds.length; j++) {
+              if ((course.geneds[i] + course.geneds[i + 1]) === (requiredGenEds[j])) {
+                requiredGenEds.splice(j, 1);
+                break;
+              }
+            }
+            if (requiredGenEds.length === 0) {
+              break;
+            }
+          }
+        }
+      });
+    })
+    if (requiredGenEds.length === 0) {
+      window.alert("No gen-eds missing!");
+    } else {
+      window.alert("You're missing these gen-eds: " + requiredGenEds);
+    }
+  }
+
   get saveScheduleBody() {
     return {
       email: loginStore.email,
