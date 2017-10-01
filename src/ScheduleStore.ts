@@ -128,27 +128,34 @@ class ScheduleStore {
   validateGenEds(semesters: CourseData[][]) {
     let genEdsFulfilled: Array<string> = new Array<string>();
     let requiredGenEds: string[] = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"];
+    let genEdRegex: RegExp = /[A-Z]{2}/g
     semesters.forEach(semester => {
       semester.forEach(course => {
         if (course.geneds !== undefined) {
           for (let i = 0; i < course.geneds.length - 1; i++) {
             for (let j = 0; j < requiredGenEds.length; j++) {
-              if ((course.geneds[i] + course.geneds[i + 1]) === (requiredGenEds[j])) {
-                requiredGenEds.splice(j, 1);
-                break;
+              let actualGenEd = (course.geneds[i] + course.geneds[i + 1]);
+              let test = genEdRegex.test(actualGenEd);
+              genEdRegex.test(actualGenEd);
+              // I have no idea why I have to check this twice here. It makes no sense, but it makes it work
+              if (test) {
+                if (actualGenEd === requiredGenEds[j]) {
+                  requiredGenEds.splice(j, 1);
+                  break;
+                }
               }
             }
-            if (requiredGenEds.length === 0) {
-              break;
-            }
+            if (requiredGenEds.length === 0) break;
           }
         }
       });
     })
     if (requiredGenEds.length === 0) {
-      window.alert("No gen-eds missing!");
+      console.log("No gen-eds missing!");
+      document.querySelector("button.validator").innerHTML = "All Gen-eds fulfilled!";
     } else {
-      window.alert("You're missing these gen-eds: " + requiredGenEds);
+      console.log("You're missing: " + requiredGenEds);
+      document.querySelector("button.validator").innerHTML = '<div>Gen Eds Missing: ' + requiredGenEds + '</div>';
     }
   }
 

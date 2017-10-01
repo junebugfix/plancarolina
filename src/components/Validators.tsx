@@ -9,7 +9,7 @@ export default class Validators extends React.Component {
     render() {
         return (
             <div id="validator-button-container">
-                <button onClick={() => scheduleStore.validateGenEds(scheduleStore.allSemesters)}>Validate Gen Eds</button>
+                <button className="validator" onClick={() => scheduleStore.validateGenEds(scheduleStore.allSemesters)}>Validate Gen Eds</button>
             </div>
         )
     }
