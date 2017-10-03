@@ -6,6 +6,7 @@ import { loginStore } from './LoginStore'
 import Schedule from './components/Schedule'
 import Semester from './components/Semester'
 import { Semesters, getClassElements, getChildren } from './utils'
+import { intersection } from 'lodash'
 
 class ScheduleStore {
 
@@ -19,6 +20,10 @@ class ScheduleStore {
   @observable spring3: CourseData[] = []
   @observable spring4: CourseData[] = []
   @observable spring5: CourseData[] = []
+
+  @observable majorCoursesNeeded: string[] = ['hi', 'hello', 'merhaba']
+  readonly GENEDS_NEEDED = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"]
+  readonly CREDITS_NEEDED = 120
 
   slipLists: any[] = []
 
@@ -75,6 +80,20 @@ class ScheduleStore {
     ]
   }
 
+  @computed get genedsFulfilled() {
+    console.log('hi')
+    console.log(intersection(...this.allCourses.map(c => c.geneds)))
+    return intersection(...this.allCourses.map(c => c.geneds))
+  }
+
+  @computed get majorCoursesFulfilled() {
+    return ['hi']
+  }
+
+  @computed get creditsFulfilled() {
+    return ['hi']
+  }
+
   @action.bound reorderInList(el: HTMLElement, startIndex: number, endIndex: number) {
     let semesterData = this.findSemesterWithCourse(parseInt(el.id.substring(7), 10)) as CourseData[]
     semesterData.splice(endIndex, 0, semesterData.splice(startIndex, 1)[0])
@@ -125,7 +144,8 @@ class ScheduleStore {
     }
   }
 
-  validateGenEds(semesters: CourseData[][]) {
+  validateGenEds() {
+    let semesters = this.allSemesters
     let genEdsFulfilled: Array<string> = new Array<string>();
     let requiredGenEds: string[] = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"];
     let genEdRegex: RegExp = /[A-Z]{2}/g

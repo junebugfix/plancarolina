@@ -28,7 +28,12 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
       backgroundColor: `hsl(${uiStore.getDepartmentHue(data.department)}, 80%, 80%)`
     }
     return (
-      <div className="Course" id={`course-${data.id}`} style={style} onClick={() => this.showDescription(data)}>{data.department} {data.number}<span className="Course-x" onClick={uiStore.handleRemoveCourse}>x</span></div>
+      <div className="Course" id={`course-${data.id}`} style={style} onClick={() => this.showDescription(data)}>
+        {data.department} {data.number}
+        <span className="Course-x" onClick={uiStore.handleRemoveCourse}>x</span>
+        <div className="Course-info-popup">
+        </div>
+      </div>
     )
   }
 

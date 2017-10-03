@@ -1,16 +1,19 @@
 import * as React from 'react';
+import ProgressBar from './ProgressBar'
 import { observer } from 'mobx-react'
 import { scheduleStore } from '../ScheduleStore'
+import { times } from 'lodash'
 import '../styles/Validators.css'
 
 @observer
 export default class Validators extends React.Component {
 
-    render() {
-        return (
-            <div id="validator-button-container">
-                <button className="validator" onClick={() => scheduleStore.validateGenEds(scheduleStore.allSemesters)}>Validate Gen Eds</button>
-            </div>
-        )
-    }
+  counter = 0
+
+  render() {
+    return (
+      <div className="Validators">
+      </div>
+    )
+  }
 }
