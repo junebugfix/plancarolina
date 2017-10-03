@@ -48,6 +48,7 @@ class LoginStore {
     gapi.auth2.getAuthInstance().signOut().then(() => {
       console.log('user signed out')
     })
+    location.reload()
   }
 }
 
