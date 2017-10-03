@@ -33,7 +33,8 @@
 
 @media (max-width: 890px) {
   .Schedule {
-    left: 50%;
+    width: 80%;
+    left: 43%;
     margin-top: 180px;
   }
 }

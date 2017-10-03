@@ -6,7 +6,7 @@ import { loginStore } from './LoginStore'
 import Schedule from './components/Schedule'
 import Semester from './components/Semester'
 import { Semesters, getClassElements, getChildren } from './utils'
-import { intersection } from 'lodash'
+import { intersection, difference, flatten, flattenDeep } from 'lodash'
 
 class ScheduleStore {
 
@@ -28,7 +28,6 @@ class ScheduleStore {
   slipLists: any[] = []
 
   constructor() {
-    // this.initAllSemesters(require('./userData.json').semesters)
     autorun(() => {
       this.allSemesters.forEach(s => s.length) // needs to do something with each semester for autorun to work right
       if (loginStore.isLoggedIn) {
@@ -70,7 +69,7 @@ class ScheduleStore {
   }
 
   @computed get allCourses(): CourseData[] {
-    return new Array<CourseData>().concat(...this.allSemesters)
+    return [].concat(...this.allSemesters.map(s => s.slice()))
   }
 
   @computed get allSemesters(): CourseData[][] {
@@ -81,8 +80,12 @@ class ScheduleStore {
   }
 
   @computed get genedsFulfilled() {
-    console.log(intersection(...this.allCourses.map(c => c.geneds)))
-    return intersection(...this.allCourses.map(c => c.geneds))
+    return difference(this.GENEDS_NEEDED, this.genedsRemaining)
+  }
+
+  @computed get genedsRemaining() {
+    let genedsInSchedule = flatten(this.allCourses.map(c => c.geneds.slice()))
+    return difference(this.GENEDS_NEEDED, genedsInSchedule)
   }
 
   @computed get majorCoursesFulfilled() {
@@ -90,7 +93,8 @@ class ScheduleStore {
   }
 
   @computed get creditsFulfilled() {
-    return ['hi']
+    console.log(this.allCourses.filter(c => c.credits < 3))
+    return this.allCourses.reduce((prev, curr) => prev + curr.credits, 0)
   }
 
   @action.bound reorderInList(el: HTMLElement, startIndex: number, endIndex: number) {
@@ -231,7 +235,6 @@ class ScheduleStore {
     this.spring3 = semesters[7]
     this.spring4 = semesters[8]
     this.spring5 = semesters[9]
-    console.log(this.allSemesters.map(s => s.slice()))
   }
 }
 
