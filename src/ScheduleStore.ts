@@ -81,7 +81,6 @@ class ScheduleStore {
   }
 
   @computed get genedsFulfilled() {
-    console.log('hi')
     console.log(intersection(...this.allCourses.map(c => c.geneds)))
     return intersection(...this.allCourses.map(c => c.geneds))
   }
@@ -222,7 +221,6 @@ class ScheduleStore {
   }
 
   @action.bound initAllSemesters(semesters: CourseData[][]) {
-    console.log(semesters)
     this.fall1 = semesters[0]
     this.fall2 = semesters[1]
     this.fall3 = semesters[2]
@@ -233,6 +231,7 @@ class ScheduleStore {
     this.spring3 = semesters[7]
     this.spring4 = semesters[8]
     this.spring5 = semesters[9]
+    console.log(this.allSemesters.map(s => s.slice()))
   }
 }
 

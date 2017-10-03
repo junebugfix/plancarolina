@@ -39,7 +39,6 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
 
   showDescription(course: CourseData): void {
     let DOMCourse = document.getElementById(`course-${course.id}`);
-    console.log(DOMCourse.childNodes.length);
 
     let element = document.createElement("div");
     element.innerText = course.department + " " + course.number + "\n" + course.description;

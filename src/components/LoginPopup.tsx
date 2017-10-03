@@ -18,7 +18,6 @@ export default class LoginPopup extends React.Component {
   }
 
   render() {
-    console.log(loginStore.isLoggedIn)
     return (
       <div className="LoginPopup">
         {loginStore.isLoggedIn && 
@@ -36,17 +35,4 @@ export default class LoginPopup extends React.Component {
       </div>
     )
   }
-}
-
-export function syncCurrentUserInformation() {
-  let auth2 = gapi.auth2.getAuthInstance();
-  let profile = auth2.currentUser.get().getBasicProfile();
-  if (profile === undefined) {
-    console.log("No user is logged in, syncing cancelled");
-    return; 
-  }
-
-  console.log(profile.getName());
-  console.log(profile.getImageUrl());
-  console.log(profile.getEmail());
 }

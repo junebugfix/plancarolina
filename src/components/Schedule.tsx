@@ -7,7 +7,6 @@ import { scheduleStore } from '../ScheduleStore'
 import { uiStore } from '../UIStore'
 import SummerButton from './SummerButton'
 import '../styles/Schedule.css'
-import { syncCurrentUserInformation } from './LoginPopup'
 
 interface ScheduleState {
   semesters: CourseData[][]

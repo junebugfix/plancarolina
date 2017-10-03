@@ -42,7 +42,7 @@ class UIStore {
   }
 
   @computed get semesterHeight() {
-    return scheduleStore.allSemesters.reduce((prev, curr) => curr.length > prev ? curr.length : prev, 0) * 28 + 30
+    return Math.max(...scheduleStore.allSemesters.map(s => s.length)) * 28 + 30
   }
 
   readonly MAJOR_LABEL = "major-res"
@@ -246,9 +246,7 @@ class UIStore {
     let num = this.searchNumber || 'none'
     let keywords = this.searchKeywords || 'none'
     let geneds = this.searchGeneds.length > 0 ? this.searchGeneds.join(',') : 'none'
-    console.log(this.searchGeneds)
     let url = `/api/api.cgi/search/${dept}/${op}/${num}/${keywords}/${geneds}`
-    console.log(url)
     fetch(url).then(res => {
       res.json().then(data => {
         this.searchResults = data.results

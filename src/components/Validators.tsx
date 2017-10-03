@@ -13,6 +13,7 @@ export default class Validators extends React.Component {
   render() {
     return (
       <div className="Validators">
+        hi
       </div>
     )
   }

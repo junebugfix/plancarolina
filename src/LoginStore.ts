@@ -18,7 +18,6 @@ class LoginStore {
     let userTokenJson = {
       token: userToken
     }
-    console.log(userTokenJson)
     fetch('/api/api.cgi/getUserData', {
       method: 'put',
       body: JSON.stringify(userTokenJson),
@@ -27,8 +26,6 @@ class LoginStore {
       }
     }).then(raw => raw.json().then(res => {
       if (!res.error) {
-        console.log('I remembered you!')
-        console.log(res)
         this.name = res.name
         this.email = res.email
         scheduleStore.initAllSemesters(res.schedule)
@@ -57,9 +54,8 @@ class LoginStore {
         'Content-Type': 'application/json'
       }
     }).then(raw => raw.json().then(res => {
-      console.log(res)
-      this.name = googleUser.get().getBasicProfile().getName()
-      this.email = googleUser.get().getBasicProfile().getEmail()
+      this.name = googleUser.getBasicProfile().getName()
+      this.email = googleUser.getBasicProfile().getEmail()
       this.Cookie.set('token', res.token)
       scheduleStore.initAllSemesters(res.schedule)
     }).then(() => this.isLoggedIn = true)).catch(err => console.log(err))
@@ -68,6 +64,7 @@ class LoginStore {
   handleLoginFailure(e: any) {
     console.log('failure on login')
     console.log(e)
+    // TODO: alert user to failure
   }
 
   @action.bound logout() {
