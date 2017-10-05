@@ -5,6 +5,7 @@ import SearchBar from './SearchBar'
 import Schedule from './Schedule'
 import LoginPopup from './LoginPopup'
 import Validators from './Validators'
+import AboutUs from './AboutUs'
 import { observer } from 'mobx-react'
 import { uiStore } from '../UIStore'
 
@@ -14,9 +15,22 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Toolbar />
-        <SearchBar />
-        <Schedule />
-        <Validators />
+        <div className="content">
+          <div className="search-bar-container">
+            <SearchBar />
+          </div>
+          <div className="schedule-validators-container">
+            <div className="schedule-container">
+              {/* schedule */}
+              <Schedule />
+            </div>
+            <div className="validators-container">
+              {/* validators */}
+              <Validators />
+            </div>
+          </div>
+        </div>
+        <AboutUs />
       </div>
     )
   }

@@ -13,3 +13,59 @@ ul {
 .slip-swiping-container {
   overflow: hidden;
 }
+
+.App .content {
+  display: flex;
+}
+
+.App .schedule-validators-container {
+  width: 100%;
+  display: flex;
+}
+
+.App .schedule-container, .App .validators-container {
+  width: 100%;
+}
+
+.App .schedule-container {
+  height: fit-content;
+  margin-top: 40px;
+}
+
+.App .validators-container {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  margin-top: 40px;
+  padding: 20px;
+  max-width: 150px;
+}
+
+.App .search-bar-container {
+  padding: 10px;
+  width: 100%;
+  flex-shrink: 4;
+}
+
+@media (max-width: 983px) {
+  .App .schedule-validators-container {
+    flex-direction: column;
+  }
+  .App .schedule-container {
+    margin-top: 0px;
+  }
+  .App .validators-container {
+    margin-top: unset;
+    max-width: unset;
+    width: unset;
+  }
+}
+
+@media (max-width: 845px) {
+  .App .content {
+    flex-direction: column;
+  }
+  .App .search-bar-container {
+    width: unset;
+  }
+}

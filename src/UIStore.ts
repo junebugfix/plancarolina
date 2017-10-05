@@ -39,7 +39,7 @@ class UIStore {
   @observable numberOfSearchResults = 8
 
   get isWideView() {
-    return window.innerWidth > 890
+    return window.innerWidth > 845
   }
 
   @computed get semesterHeight() {
@@ -50,6 +50,7 @@ class UIStore {
   readonly DEPARTMENT_LABEL = "dept-res"
 
   lastKeywordUpdate = Date.now()
+  yearEntered: number;
   departmentNames: string[]
   majorNames: string[] = []
   majorData: MajorData[]
@@ -67,9 +68,9 @@ class UIStore {
     this.slip = require('./slip.js')
     
     window.addEventListener('resize', e => {
-      if (window.innerWidth > 890 && this.numberOfSearchResults !== 8) {
+      if (this.isWideView && this.numberOfSearchResults !== 8) {
         this.numberOfSearchResults = 8
-      } else if (window.innerWidth <= 890 && this.numberOfSearchResults !== 9) {
+      } else if (!this.isWideView && this.numberOfSearchResults !== 9) {
         this.numberOfSearchResults = 9
       }
     })
@@ -79,8 +80,17 @@ class UIStore {
     this.departmentInput = input
   }
 
-  isReorderWithinList(e: Event): boolean {
+  private isReorderWithinList(e: Event): boolean {
     return (e.target as HTMLDivElement).classList.contains('Course')
+  }
+
+  private isDuplicate(searchResultIndex: number) {
+    return scheduleStore.allCourses.map(c => c.id).indexOf(this.searchResults.map(r => r.id)[searchResultIndex]) !== -1
+  }
+
+  private alertDuplicate() {
+    // TODO: implement
+    console.log('duplicate!')
   }
 
   @action.bound registerSlipList(el: HTMLDivElement) {
@@ -90,6 +100,11 @@ class UIStore {
         const searchResultIndex = e.detail.originalIndex
         const semesterIndex = Semesters[e.target.id as string]
         let toIndex = e.detail.spliceIndex
+        if (this.isDuplicate(searchResultIndex)) {
+          this.alertDuplicate()
+          e.preventDefault()
+          return
+        }
         scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
         this.searchResults.splice(searchResultIndex, 1)
       } else if (this.isReorderWithinList(e)) {
@@ -198,9 +213,19 @@ class UIStore {
 
     this.addMajorPopupActive = false
     let data = this.majorData.filter(x => x.name === majorName)[0]
+    // change majorCoursesNeeded
     Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
       scheduleStore.addCourses(courses)
       schedule.removeChild(loader)
+      if (this.yearEntered === undefined) {
+        this.promptYearEntered()
+      }
+      let url = data.urls[this.yearEntered]
+      let year = this.yearEntered
+      while (url === undefined) {
+        url = data.urls[--year]
+      }
+      this.showOpenWorksheetButton()
     })
   }
 
@@ -246,8 +271,19 @@ class UIStore {
     })
   }
 
-  promptUserLogin() {
+  private promptUserLogin() {
     console.log('prompt user to login')
+  }
+
+  private promptYearEntered() {
+    // TODO: implement prompt
+    console.log('prompting year entered')
+    this.yearEntered = 2015
+  }
+
+  private showOpenWorksheetButton() {
+    // TODO: implement
+    console.log('showing open worksheet button')
   }
 
   getSemesterLabel(index: Semesters) {

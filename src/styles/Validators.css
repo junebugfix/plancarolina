@@ -1,31 +1,24 @@
 .Validators {
-  position: absolute;
-  right: 10px;
-  top: 250px;
-  width: 13%;
   background: whitesmoke;
   border-radius: 4px;
   padding: 4px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
   font-size: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* @media (min-width: 820px) {
+@media(max-width: 983px) {
   .Validators {
-    width: 18%;
+    flex-direction: row;
+    width: 80%;
+  }
+  .Validators .progress-group {
+    width: 100%;
+    margin: 0 10px;
   }
 }
-
-@media (min-width: 890px) {
-  .Validators {
-    right: unset;
-    top: unset;
-    left: 28px;
-    width: 198px;
-    bottom: 20px;
-    z-index: 99999;
-  }
-} */
 
 .Validators > div {
   margin-bottom: 10px;

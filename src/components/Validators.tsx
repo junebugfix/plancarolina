@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ProgressBar from './ProgressBar'
 import { observer } from 'mobx-react'
 import { scheduleStore } from '../ScheduleStore'
 import { difference } from 'lodash'
@@ -12,13 +11,13 @@ export default class Validators extends React.Component {
 
   render() {
     const genedStyle = {
-      width: Math.floor(scheduleStore.genedsFulfilled.length / scheduleStore.GENEDS_NEEDED.length * 100) + "%"
+      width: Math.min(Math.floor(scheduleStore.genedsFulfilled.length / scheduleStore.GENEDS_NEEDED.length * 100), 100) + "%"
     }
     const majorCoursesStyle = {
-      width: Math.floor(scheduleStore.majorCoursesFulfilled.length / scheduleStore.majorCoursesNeeded.length * 100) + "%"
+      width: Math.min(Math.floor(scheduleStore.majorCoursesFulfilled.length / scheduleStore.majorCoursesNeeded.length * 100), 100) + "%"
     }
     const creditsStyle = {
-      width: Math.floor(scheduleStore.creditsFulfilled / scheduleStore.CREDITS_NEEDED * 100) + "%"
+      width: Math.min(Math.floor(scheduleStore.creditsFulfilled / scheduleStore.CREDITS_NEEDED * 100), 100) + "%"
     }
     return (
       <div className="Validators">

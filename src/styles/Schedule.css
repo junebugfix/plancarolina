@@ -1,8 +1,6 @@
 .Schedule {
   display: flex;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  align-items: center;
   flex-direction: column;
   text-align: center;
   padding: 7px;
@@ -15,26 +13,5 @@
 }
 
 .Schedule-year-label {
-  flex-grow: 1;
   width: 150px;
-}
-
-@media (max-width: 1160px) {
-  .Schedule {
-    left: 55%;
-  }
-}
-
-@media (max-width: 1008px) {
-  .Schedule {
-    left: 62%;
-  }
-}
-
-@media (max-width: 890px) {
-  .Schedule {
-    width: 80%;
-    left: 43%;
-    margin-top: 180px;
-  }
 }

@@ -2,9 +2,9 @@
   background: whitesmoke;
   border-radius: 5px;
   padding: 10px;
-  width: 202px;
   height: 589px;
-  position: absolute;
+  width: 187px;
+  margin: auto;
   top: 55px;
   left: 60px;
   z-index: 1;
@@ -68,14 +68,14 @@
 }
 
 @media (max-width: 1190px) {
-  .SearchBar {
+  /* .SearchBar {
     left: 20px;
-  }
+  } */
 }
 
-@media (max-width: 890px) {
+@media (max-width: 845px) {
   .SearchBar {
-    width: 90%;
+    width: 80%;
     height: 155px;
     padding-top: 3px;
     display: flex;
@@ -87,5 +87,17 @@
 
   #name-input, .tags-input {
     margin-top: 8px;
+  }
+}
+
+@media(max-width: 760px) {
+  .SearchBar {
+    width: 90%;
+  }
+}
+
+@media(max-width: 675px) {
+  .SearchBar {
+    width: 95%;
   }
 }
