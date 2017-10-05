@@ -5,6 +5,8 @@ import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { scheduleStore } from './ScheduleStore'
 import { loginStore } from './LoginStore'
+import { colorController } from './ColorController'
+import { difference } from 'lodash'
 import './styles/AddMajorPopup.css'
 
 interface MajorData {
@@ -15,7 +17,6 @@ interface MajorData {
 }
 
 class UIStore {
-  @observable departmentHues = new Map<string, number>()
 
   @observable fall5Active = false
   @observable spring5Active = false
@@ -48,7 +49,6 @@ class UIStore {
   readonly MAJOR_LABEL = "major-res"
   readonly DEPARTMENT_LABEL = "dept-res"
 
-  lastHue = 0
   lastKeywordUpdate = Date.now()
   departmentNames: string[]
   majorNames: string[] = []
@@ -65,7 +65,7 @@ class UIStore {
     }
     this.fuzzysearch = require('fuzzysearch')
     this.slip = require('./slip.js')
-
+    
     window.addEventListener('resize', e => {
       if (window.innerWidth > 890 && this.numberOfSearchResults !== 8) {
         this.numberOfSearchResults = 8
@@ -73,15 +73,6 @@ class UIStore {
         this.numberOfSearchResults = 9
       }
     })
-  }
-
-  @action.bound getDepartmentHue(dept: string) {
-    let hue = this.departmentHues.get(dept)
-    if (hue === undefined) {
-      hue = this.lastHue += 30
-      this.departmentHues.set(dept, hue)
-    }
-    return hue
   }
 
   @action.bound registerDepartmentInput(input: HTMLInputElement) {
@@ -99,9 +90,8 @@ class UIStore {
         const searchResultIndex = e.detail.originalIndex
         const semesterIndex = Semesters[e.target.id as string]
         let toIndex = e.detail.spliceIndex
-        // TODO: I have no idea why I have to do this - Hank
-        // if (window.innerWidth >= 890) toIndex += 3
         scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
+        this.searchResults.splice(searchResultIndex, 1)
       } else if (this.isReorderWithinList(e)) {
         scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
       } else { // course was dragged to a different list
@@ -241,6 +231,7 @@ class UIStore {
 
   updateSearchResults() {
     console.log('updating search results...')
+    colorController.clearSearchResultHues()
     let dept = this.searchDepartment || 'none'
     let op = this.searchNumberOperator || 'eq'
     let num = this.searchNumber || 'none'

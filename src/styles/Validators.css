@@ -10,16 +10,84 @@
   font-size: 12px;
 }
 
+/* @media (min-width: 820px) {
+  .Validators {
+    width: 18%;
+  }
+}
+
+@media (min-width: 890px) {
+  .Validators {
+    right: unset;
+    top: unset;
+    left: 28px;
+    width: 198px;
+    bottom: 20px;
+    z-index: 99999;
+  }
+} */
+
+.Validators > div {
+  margin-bottom: 10px;
+}
+
+.Validators .progress-group {
+  position: relative;
+}
+
 .Validators .progress-bar {
   height: 15px;
   width: 100%;
   background: lightgray;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 .Validators .progress-completed {
   background: lightcoral;
   height: 100%;
   border-radius: inherit
+}
+
+.Validators .progress-popup {
+  background: lightgray;
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 5px;
+  padding: 4px;
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  left: 0px;
+  z-index: 99999;
+  user-select: none;
+  display: none;
+}
+.Validators .progress-popup::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border: 12px solid transparent;
+  border-top: 12px solid gray;
+}
+.Validators .progress-group.geneds:hover .progress-popup {
+  display: block;
+}
+.Validators .progress-group.major-courses:hover .progress-popup {
+  display: block;
+}
+.Validators .progress-group.credits:hover .progress-popup {
+  display: block;
+}
+
+.Validators .progress-gened-block {
+  border: 1px solid rgba(0,0,0,0.5);
+  font-size: 10px;
+  background: slategrey;
+  color: white;
+  border-radius: 3px;
+  padding: 3px 2px 2px 2px;
+  display: inline-block;
+  line-height: 8px;
+  margin: 1px;
 }

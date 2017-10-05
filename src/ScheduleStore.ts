@@ -3,6 +3,7 @@ import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { uiStore } from './UIStore'
 import { loginStore } from './LoginStore'
+import { colorController } from './ColorController'
 import Schedule from './components/Schedule'
 import Semester from './components/Semester'
 import { Semesters, getClassElements, getChildren } from './utils'
@@ -92,9 +93,12 @@ class ScheduleStore {
     return ['hi']
   }
 
+  @computed get majorCoursesRemaining() {
+    return difference(this.majorCoursesNeeded, this.majorCoursesFulfilled)
+  }
+
   @computed get creditsFulfilled() {
-    console.log(this.allCourses.filter(c => c.credits < 3))
-    return this.allCourses.reduce((prev, curr) => prev + curr.credits, 0)
+    return this.allCourses.reduce((prev, curr) => prev + (Number.isInteger(curr.credits) ? curr.credits : 0), 0)
   }
 
   @action.bound reorderInList(el: HTMLElement, startIndex: number, endIndex: number) {
@@ -108,11 +112,14 @@ class ScheduleStore {
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
   }
 
-  @action.bound insertSearchResult(resultIndex: number, semesterIndex: number, toIndex: number): any {
+  @action.bound insertSearchResult(resultIndex: number, semesterIndex: number, toIndex: number) {
+    const department = uiStore.searchResults[resultIndex].department
+    colorController.ensureScheduleHue(department)
     this.getSemester(semesterIndex).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
   }
 
   @action.bound removeCourseFromSemester(courseIndex: number, semesterIndex: Semesters) {
+    let department = this.getSemester(semesterIndex)[courseIndex].department
     this.getSemester(semesterIndex).splice(courseIndex, 1)
   }
 
@@ -140,45 +147,9 @@ class ScheduleStore {
         }).then(res => {
           res.json().then(r => {
             console.log('synced schedule!')
-            console.log(r)
           })
         }).catch(err => console.log(err))
       }
-    }
-  }
-
-  validateGenEds() {
-    let semesters = this.allSemesters
-    let genEdsFulfilled: Array<string> = new Array<string>();
-    let requiredGenEds: string[] = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"];
-    let genEdRegex: RegExp = /[A-Z]{2}/g
-    semesters.forEach(semester => {
-      semester.forEach(course => {
-        if (course.geneds !== undefined) {
-          for (let i = 0; i < course.geneds.length - 1; i++) {
-            for (let j = 0; j < requiredGenEds.length; j++) {
-              let actualGenEd = (course.geneds[i] + course.geneds[i + 1]);
-              let test = genEdRegex.test(actualGenEd);
-              genEdRegex.test(actualGenEd);
-              // I have no idea why I have to check this twice here. It makes no sense, but it makes it work
-              if (test) {
-                if (actualGenEd === requiredGenEds[j]) {
-                  requiredGenEds.splice(j, 1);
-                  break;
-                }
-              }
-            }
-            if (requiredGenEds.length === 0) break;
-          }
-        }
-      });
-    })
-    if (requiredGenEds.length === 0) {
-      console.log("No gen-eds missing!");
-      document.querySelector("button.validator").innerHTML = "All Gen-eds fulfilled!";
-    } else {
-      console.log("You're missing: " + requiredGenEds);
-      document.querySelector("button.validator").innerHTML = '<div>Gen Eds Missing: ' + requiredGenEds + '</div>';
     }
   }
 

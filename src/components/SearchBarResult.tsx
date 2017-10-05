@@ -2,6 +2,7 @@ import * as React from 'react'
 import { observer } from 'mobx-react'
 import { uiStore } from '../UIStore'
 import { scheduleStore } from '../ScheduleStore'
+import { colorController } from '../ColorController'
 import Course from './Course'
 import CourseData from './Course'
 import '../styles/SearchBarResults.css'
@@ -30,7 +31,7 @@ export default class SearchBarResult extends React.Component<{data: SearchBarRes
   render() {
     const res = this.props.data
     const style = {
-      background: `hsl(${uiStore.getDepartmentHue(res.department)}, 80%, 80%)`
+      background: `hsl(${colorController.getSearchResultHue(res.department)}, 80%, 80%)`
     }
     return (
       <div className="SearchBarResults-result" style={style}>

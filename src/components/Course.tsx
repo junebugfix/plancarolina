@@ -2,6 +2,7 @@ import * as React from 'react'
 import { observer } from 'mobx-react'
 import { scheduleStore } from '../ScheduleStore'
 import { uiStore } from '../UIStore'
+import { colorController } from '../ColorController'
 import { Departments } from '../departments'
 import '../styles/Course.css'
 
@@ -25,7 +26,7 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
   render() {
     const data = this.props.data
     let style = {
-      backgroundColor: `hsl(${uiStore.getDepartmentHue(data.department)}, 80%, 80%)`
+      backgroundColor: `hsl(${colorController.getScheduleHue(data.department)}, 80%, 80%)`
     }
     return (
       <div className="Course" id={`course-${data.id}`} style={style} onClick={() => this.showDescription(data)}>
