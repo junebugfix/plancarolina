@@ -23,6 +23,9 @@ export default class SearchBar extends React.Component {
       <div className="SearchBar">
         <div id="searchbar-search-group" >
           <h2>Search for courses</h2>
+          <div className="loader-container">
+            {uiStore.isLoadingSearchResults && <div className="loader"></div>}
+          </div>
           <div id="department-number-group">
             <input placeholder="COMP" id="department-input" onChange={uiStore.handleSearchingDepartmentChange} />
             {uiStore.isSearchingDepartment && <SearchResults label={uiStore.DEPARTMENT_LABEL} items={uiStore.departmentResults} />}
@@ -33,7 +36,6 @@ export default class SearchBar extends React.Component {
             </select>
             <input placeholder="110" id="number-input" onChange={uiStore.handleSearchingNumber} />
           </div>
-          <br />
           <div id="name-gened-group">
             <input id="name-input" placeholder="Name: Intro to Programming" onChange={uiStore.handleSearchingKeywords} />
             <br />

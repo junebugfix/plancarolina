@@ -1,4 +1,4 @@
-import { uniq } from 'lodash'
+import uniq from 'lodash-es/uniq';
 
 class ColorController {
   readonly HUE_INTERVAL = 20
@@ -10,7 +10,7 @@ class ColorController {
   searchResultHues = new Map<string, number>()
 
   constructor() {
-    for (let i = 0; i <= this.MAX_HUE; i += this.HUE_INTERVAL) {
+    for (let i = 0; i < this.MAX_HUE; i += this.HUE_INTERVAL) {
       this.availableHues.push(i)
     }
   }

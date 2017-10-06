@@ -5,21 +5,78 @@
   position: relative;
   cursor: move;
   user-select: none;
+  padding: 5px 0;
+  overflow: hidden;
 }
 
-#course-9 {
-  position: relative;
+.Course .course-label {
+  display: inline-block;
+  height: fit-content;
+  margin: auto;
 }
+
+.Course .course-name {
+ font-size: 11.5px;
+ padding-top: 1px;
+ width: fit-content;
+ height: fit-content;
+ line-height: 13px;
+}
+
+.Course .credits {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.Course .elipses {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+}
+
+.Course .course-geneds {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  max-width: 50px;
+  text-align: right;
+  background: rgba(255,255,255,0.5);
+  border-radius: 3px;
+}
+
+.Course .gened-block {
+  font-size: 10.5px;
+  padding: 1px;
+  background: transparent;
+  color: black;
+  font-weight: 500;
+  border: none;
+}
+
+.Course-i {
+  position: absolute;
+  display: none;
+  left: 4px;
+  font-size: 14px;
+  line-height: 26px;
+  background: inherit;
+  cursor: pointer;
+  padding: 0px 5px;
+  top: 0px;
+  height: 100%;
+}
+
 .Course-x {
   position: absolute;
   right: 4px;
   top: 3px;
   font-size: 14px;
   cursor: pointer;
+  line-height: 18px;
   display: none;
 }
 
-.Course:hover .Course-x {
+.Course:hover .Course-x, .Course:hover .Course-i {
   display: inline;
 }
 
@@ -32,4 +89,44 @@
   background-color: inherit;
   transform: translateY(-22px);
   position: relative;
+}
+
+.Course .course-info-popup {
+  position: absolute;
+  display: none;
+  bottom: 100%;
+  width: 180px;
+  max-height: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  background: rgba(20,20,20, 0.6);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.4);
+  user-select: text;
+  cursor: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.Course .Course-i:hover ~ .course-info-popup, .course-info-popup:hover {
+  display: block;
+}
+
+.Course-i:hover::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border: 10px solid transparent;
+  border-top: 10px solid rgba(20,20,20, 0.6);
+  position: absolute;
+  top: 0px;
+  left: 380%;
+  z-index: 9999;
+}
+
+.Course .course-info-popup {
+  overflow-y: scroll;
 }

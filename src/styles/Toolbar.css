@@ -6,36 +6,41 @@
   flex-flow: row wrap;
   width: 100%;
   background: hsl(200, 80%, 85%);
+  height: 38px;
 }
 
 .Toolbar-item {
   cursor: pointer;
-  border: 1px solid black;
+  border-left: none;
   padding: 0px;
   flex-grow: 1;
-  height: 43px;
   position: relative;
   user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Toolbar-text {
   display: inline-block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  padding: 5px;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 100ms ease-in-out;
+}
+
+.Toolbar-item:hover .Toolbar-text.hoverable {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 h1.Toolbar-text {
   margin: 0;
   font-size: 18px;
   display: inline-block;
+  font-weight: normal;
 }
 
 .Toolbar-logo {
-  position: relative;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 40px;
+  height: inherit;
+  margin-left: 10px;
 }

@@ -15,17 +15,17 @@ export default class Toolbar extends React.Component {
   render() {
     return (
       <div className="Toolbar">
+        <img className="Toolbar-logo" src={logo} />
         <div className="Toolbar-item">
-          <img className="Toolbar-logo" src={logo} />
           <h1 className="Toolbar-text">Plan Carolina</h1>
         </div>
         <div className="Toolbar-item" onClick={uiStore.handleAddMajorClicked}>
-          <span className="Toolbar-text">Add Major</span>
+          <span className="Toolbar-text hoverable">Add Major</span>
           {uiStore.addMajorPopupActive && <AddMajorPopup />}
           {uiStore.addMajorPopupActive && <SearchResults label={uiStore.MAJOR_LABEL} items={uiStore.majorResults} />}
         </div>
         <div className="Toolbar-item" onClick={uiStore.handleLoginPopupClicked}>
-          <span className="Toolbar-text">{loginStore.isLoggedIn && loginStore.name || 'Login'}</span>
+          <span className="Toolbar-text hoverable">{loginStore.isLoggedIn && loginStore.name || 'Login'}</span>
           {uiStore.loginPopupActive && <LoginPopup />}
         </div>
       </div>

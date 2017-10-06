@@ -1,13 +1,14 @@
-import { observable, action, computed, autorun } from 'mobx'
-import { Departments } from './departments'
-import { CourseData } from './components/Course'
-import { uiStore } from './UIStore'
-import { loginStore } from './LoginStore'
-import { colorController } from './ColorController'
-import Schedule from './components/Schedule'
-import Semester from './components/Semester'
-import { Semesters, getClassElements, getChildren } from './utils'
-import { intersection, difference, flatten, flattenDeep } from 'lodash'
+import { observable, action, computed, autorun } from 'mobx';
+import { Departments } from './departments';
+import { CourseData } from './components/Course';
+import { uiStore } from './UIStore';
+import { loginStore } from './LoginStore';
+import { colorController } from './ColorController';
+import Schedule from './components/Schedule';
+import Semester from './components/Semester';
+import { Semesters, getClassElements, getChildren } from './utils';
+import difference from 'lodash-es/difference';
+import flatten from 'lodash-es/flatten';
 
 class ScheduleStore {
 

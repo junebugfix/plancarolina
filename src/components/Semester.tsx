@@ -2,6 +2,7 @@ import * as React from 'react'
 import { observer } from 'mobx-react'
 import { scheduleStore } from '../ScheduleStore'
 import Course from './Course'
+import SearchBarResult from './SearchBarResult'
 import { Departments } from '../departments'
 import { Semesters } from '../utils'
 import { uiStore } from '../UIStore'
@@ -34,7 +35,7 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
 
     return (
       <div className="Semester">
-        <div className="Semster-label">{this.label}</div>
+        <div className="Semester-label">{this.label}</div>
         <div ref={input => this.divEl = input as HTMLDivElement} style={style} className="Semester-courses" id={`${Semesters[this.props.index]}`}>
           {semesterData.map(data => <Course key={`course-${data.id}`} data={data} />)}
         </div>

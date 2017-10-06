@@ -31,7 +31,7 @@
   transform: translateX(-50%)
 }
 
-button {
+.LoginPopup button {
     color: #757575;
     font-size: 13px;
     height: 36px;

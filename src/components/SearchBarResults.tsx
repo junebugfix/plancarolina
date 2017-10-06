@@ -17,6 +17,18 @@ export default class SearchBarResults extends React.Component {
   }
 
   render() {
+    if (uiStore.searchResults.length === 0) {
+      return (
+        <div id="searchBarResults" ref={el => this.divEl = el} className="SearchBarResults">
+          <div className="search-bar-welcome">
+            <h3>Plan your UNC career</h3>
+            <p>
+              Get started by adding your major with the button above, or by searching for courses to add to your schedule.
+            </p>
+          </div>
+        </div>
+      )
+    }
     return (
       <div id="searchBarResults" ref={el => this.divEl = el} className="SearchBarResults">
           {uiStore.searchResults.map(res => <SearchBarResult key={`bar-result=${res.id}`} data={res} />).slice(0, uiStore.numberOfSearchResults)}

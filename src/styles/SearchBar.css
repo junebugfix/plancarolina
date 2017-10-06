@@ -12,8 +12,7 @@
 }
 
 .SearchBar h2 {
-  margin: 0;
-  margin-left: 15px;
+  margin: auto;
   font-size: 16px;
   font-weight: normal;
 }
@@ -25,25 +24,42 @@
   font-size: 14px;
   outline: none;
   margin: 4px 0;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.SearchBar #searchbar-search-group {
+  width: 180px;
+  margin: auto;
 }
 
 .SearchBar .tags-input {
   width: 160px;
 }
 
+.SearchBar .tags-input .tag {
+  padding: 3px;
+}
+
 .SearchBar input#name-input {
-  width: 155px;
+  width: 167px;
 }
 
 .SearchBar input#department-input {
   width: 45px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .SearchBar input#number-input {
   width: 30px;
-  margin-left: 5px;
+  margin-left: 10px;
+}
+
+.SearchBar #name-gened-group {
+  width: 100%;
+}
+
+.SearchBar #department-number-group {
+  width: 180px;
 }
 
 .SearchBar-department-results {
@@ -79,10 +95,8 @@
     display: inline-block;
   }
 
-  .Se
-
-  #name-input, .tags-input {
-    margin-top: 8px;
+  .SearchBar h2 {
+    margin: 0 0 10px 0;
   }
 }
 
@@ -95,5 +109,46 @@
 @media(max-width: 675px) {
   .SearchBar {
     width: 95%;
+  }
+}
+
+.SearchBar .loader-container {
+  position: relative;
+}
+
+.SearchBar .loader {
+  top: -30px;
+  left: 145px;
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+}
+.loader {
+  border-top: 3px solid rgba(0,0,0,0.2);
+  border-right: 3px solid rgba(0,0,0,0.2);
+  border-bottom: 3px solid rgba(0,0,0,0.2);
+  border-left: 3px solid black;
+  transform: translateZ(0);
+  animation: load8 800ms infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -18,38 +18,63 @@ export type CourseData = {
 
 @observer
 export default class Course extends React.Component<{ data: CourseData }, {}> {
+  counter = 0
+  hasMounted = false
+  nameEl: HTMLElement
+  elipsesEl: HTMLElement
 
   constructor(props: { data: CourseData }) {
     super(props)
+    if (this.props.data.geneds[0] === '') {
+      this.props.data.geneds = []
+    }
+  }
+
+  isOverflowing() {
+    return this.nameEl.clientHeight > 24
+  }
+  
+  setElipsesEl(el: HTMLElement) {
+    this.elipsesEl = el
+    if (uiStore.expandedView) {
+      this.checkAndAddElipses()
+    }
+  }
+
+  checkAndAddElipses() {
+    if (this.isOverflowing()) {
+      this.elipsesEl.innerHTML = '...'
+    }
   }
 
   render() {
     const data = this.props.data
     let style = {
-      backgroundColor: `hsl(${colorController.getScheduleHue(data.department)}, 80%, 80%)`
+      backgroundColor: `hsl(${colorController.getScheduleHue(data.department)}, 80%, 80%)`,
+      height: uiStore.expandedView ? 44 : '',
+      textAlign: uiStore.expandedView ? 'left' : '',
+      paddingTop: uiStore.expandedView ? 2 : '',
+      paddingLeft: uiStore.expandedView ? 5 : '',
+      paddingBottom: uiStore.expandedView ? 3 : '',
+      fontSize: uiStore.expandedView ? 12 : '',
     }
     return (
-      <div className="Course" id={`course-${data.id}`} style={style} onClick={() => this.showDescription(data)}>
-        {data.department} {data.number}
-        <span className="Course-x" onClick={uiStore.handleRemoveCourse}>x</span>
-        <div className="Course-info-popup">
+      <div className="Course" id={`course-${data.id}`} style={style}>
+        <span className="course-label" style={{fontWeight: uiStore.expandedView ? 500 : 400}}>{data.department} {data.number}</span>
+        {uiStore.expandedView && <span className="credits">({data.credits})</span>}
+        {uiStore.expandedView && <div className="course-geneds">{data.geneds.map(ge => <span className="gened-block" key={`geb-${this.counter++}`}>{ge}</span>)}</div>}
+        {uiStore.expandedView && <div ref={el => this.nameEl = el} className="course-name" style={{display: uiStore.expandedView ? '' : 'none'}}>{data.name}</div>}
+        <span className="Course-x" style={{marginTop: uiStore.expandedView ? 10 : '', right: uiStore.expandedView ? 3 : ''}} onClick={uiStore.handleRemoveCourse}>x</span>
+        {uiStore.expandedView && <span ref={el => this.setElipsesEl(el)} className="elipses" style={{display: uiStore.expandedView ? '' : 'none'}}></span>}
+        <div className="course-info-popup">
+          <span className="department">{data.department}</span>
+          <span className="number"> {data.number}</span>
+          <div className="name">{data.name}</div>
+          <p className="description">{data.description}</p>
+          <div className="credits">Credits: {data.credits}</div>
+          {data.geneds.length > 0 && <div className="geneds">Gen Eds: {data.geneds.map(ge => <span className="gened-block" key={`pge-${this.counter++}`}>{ge}</span>)}</div>}
         </div>
       </div>
     )
-  }
-
-  showDescription(course: CourseData): void {
-    let DOMCourse = document.getElementById(`course-${course.id}`);
-
-    let element = document.createElement("div");
-    element.innerText = course.department + " " + course.number + "\n" + course.description;
-    element.id = "course-description";
-    element.onmouseleave = () => {
-      DOMCourse.removeChild(DOMCourse.childNodes.item(DOMCourse.childNodes.length - 1));
-    }
-
-    if (!(DOMCourse.childNodes.length > 10)) {
-      DOMCourse.appendChild(element);
-    }
   }
 }

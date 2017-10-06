@@ -1,13 +1,13 @@
-import { MouseEvent, ChangeEvent, KeyboardEvent } from 'react'
-import { observable, action, computed, autorun } from 'mobx'
-import { Semesters } from './utils'
-import { Departments } from './departments'
-import { CourseData } from './components/Course'
-import { scheduleStore } from './ScheduleStore'
-import { loginStore } from './LoginStore'
-import { colorController } from './ColorController'
-import { difference } from 'lodash'
-import './styles/AddMajorPopup.css'
+import { MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
+import { observable, action, computed, autorun } from 'mobx';
+import { Semesters } from './utils';
+import { Departments } from './departments';
+import { CourseData } from './components/Course';
+import { scheduleStore } from './ScheduleStore';
+import { loginStore } from './LoginStore';
+import { colorController } from './ColorController';
+import difference from 'lodash-es/difference';
+import './styles/AddMajorPopup.css';
 
 interface MajorData {
   name: string
@@ -17,7 +17,6 @@ interface MajorData {
 }
 
 class UIStore {
-
   @observable fall5Active = false
   @observable spring5Active = false
   @observable isSearchingDepartment = false
@@ -25,6 +24,10 @@ class UIStore {
   @observable isSearchingMajor = false
   @observable addMajorPopupActive = false
   @observable loginPopupActive = false
+  @observable expandedView = false
+  @observable isLoadingSearchResults = false
+  @observable alertOpen = false
+  @observable alertMessage = ''
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
@@ -42,8 +45,12 @@ class UIStore {
     return window.innerWidth > 845
   }
 
+  @computed get courseHeight() {
+    return this.expandedView ? 44 : 28
+  }
+
   @computed get semesterHeight() {
-    return Math.max(...scheduleStore.allSemesters.map(s => s.length)) * 28 + 30
+    return (Math.max(...scheduleStore.allSemesters.map(s => s.length)) * this.courseHeight) + 30
   }
 
   readonly MAJOR_LABEL = "major-res"
@@ -89,8 +96,8 @@ class UIStore {
   }
 
   private alertDuplicate() {
-    // TODO: implement
-    console.log('duplicate!')
+    this.alertMessage = "That course is already in your schedule."
+    this.alertOpen = true
   }
 
   @action.bound registerSlipList(el: HTMLDivElement) {
@@ -116,9 +123,6 @@ class UIStore {
         const fromIndex = e.detail.originalIndex
         scheduleStore.changeLists(fromList, fromIndex, toList, toIndex)
       }
-    })
-    el.addEventListener('slip:dragoff', (e: any) => {
-      console.log(e)
     })
     scheduleStore.connectSlipList(slipList)
   }
@@ -256,6 +260,7 @@ class UIStore {
 
   updateSearchResults() {
     console.log('updating search results...')
+    this.isLoadingSearchResults = true
     colorController.clearSearchResultHues()
     let dept = this.searchDepartment || 'none'
     let op = this.searchNumberOperator || 'eq'
@@ -267,6 +272,7 @@ class UIStore {
       res.json().then(data => {
         this.searchResults = data.results
         console.log('updated.')
+        this.isLoadingSearchResults = false
       })
     })
   }

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { observer } from 'mobx-react'
-import { scheduleStore } from '../ScheduleStore'
-import { difference } from 'lodash'
-import '../styles/Validators.css'
+import { observer } from 'mobx-react';
+import { scheduleStore } from '../ScheduleStore';
+import difference from 'lodash-es/difference';
+import '../styles/Validators.css';
 
 @observer
 export default class Validators extends React.Component {
@@ -27,9 +27,9 @@ export default class Validators extends React.Component {
           {scheduleStore.genedsFulfilled.length} out of {scheduleStore.GENEDS_NEEDED.length}
           <div className="progress-popup">
             <span>Fulfilled:</span>
-            <div>{scheduleStore.genedsFulfilled.map(ge => <span className="progress-gened-block" key={`ge-${this.counter++}`}>{ge}</span>)}</div>
+            <div>{scheduleStore.genedsFulfilled.map(ge => <span className="gened-block" key={`ge-${this.counter++}`}>{ge}</span>)}</div>
             <span>Remaining:</span>
-            <div>{scheduleStore.genedsRemaining.map(ge => <span className="progress-gened-block" key={`ge-${this.counter++}`}>{ge}</span>)}</div>
+            <div>{scheduleStore.genedsRemaining.map(ge => <span className="gened-block" key={`ge-${this.counter++}`}>{ge}</span>)}</div>
           </div>
         </div>
         <div className="progress-group major-courses">
