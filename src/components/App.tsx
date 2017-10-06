@@ -10,6 +10,7 @@ import Settings from './Settings';
 import { observer } from 'mobx-react';
 import { uiStore } from '../UIStore';
 import Snackbar from 'material-ui/Snackbar';
+import { AlertPopup } from './AlertPopup'
 
 @observer
 export default class App extends React.Component {
@@ -41,6 +42,7 @@ export default class App extends React.Component {
           message={<span>{uiStore.alertMessage}</span>}
           autoHideDuration={3000}
         />
+        {uiStore.loginAlertActive && <AlertPopup title="Hey there" body="We notice that you haven't logged in yet, make sure to do that if you would like to save your schedule! (We save it automatically, just log in and let us do the work)" />}
         <Footer />
       </div>
     )
