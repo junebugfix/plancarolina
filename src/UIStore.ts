@@ -25,6 +25,8 @@ class UIStore {
   @observable isSearchingMajor = false
   @observable addMajorPopupActive = false
   @observable loginPopupActive = false
+  @observable loginAlertActive = false
+  shouldPromptForLogin = true
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
@@ -132,6 +134,11 @@ class UIStore {
     if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
       this.addMajorPopupActive = !this.addMajorPopupActive
     }
+  }
+
+  @action.bound handleClosePopup() {
+    this.loginAlertActive = false
+    this.shouldPromptForLogin = false
   }
 
   @action.bound handleLoginPopupClicked(e: MouseEvent<HTMLDivElement>) {
@@ -271,8 +278,10 @@ class UIStore {
     })
   }
 
-  private promptUserLogin() {
-    console.log('prompt user to login')
+  promptUserLogin() {
+    if (!this.loginAlertActive && this.shouldPromptForLogin) {
+      this.loginAlertActive = true
+    }
   }
 
   private promptYearEntered() {

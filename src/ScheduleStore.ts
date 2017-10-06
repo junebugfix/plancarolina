@@ -31,9 +31,9 @@ class ScheduleStore {
   constructor() {
     autorun(() => {
       this.allSemesters.forEach(s => s.length) // needs to do something with each semester for autorun to work right
-      if (loginStore.isLoggedIn) {
-        this.saveSchedule()
-      }
+      // if (loginStore.isLoggedIn) {
+      this.saveSchedule()
+      // } else {
     })
   }
 
@@ -132,11 +132,10 @@ class ScheduleStore {
   }
 
   saveSchedule() {
+    console.log('ygkjhgkhjgjhgkjhgkjhgkjhg')
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {
-      if (!loginStore.isLoggedIn) {
-        // uiStore.promptUserLogin()
-      } else {
+      if (loginStore.isLoggedIn) {
         let email = loginStore.email
         fetch('/api/api.cgi/saveUserSchedule', {
           method: 'put',
@@ -149,6 +148,10 @@ class ScheduleStore {
             console.log('synced schedule!')
           })
         }).catch(err => console.log(err))
+      } else {
+        if (this.allCourses.length >= 5) {
+          uiStore.promptUserLogin()
+        }
       }
     }
   }
