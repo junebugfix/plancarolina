@@ -4,17 +4,21 @@ import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { scheduleStore } from './ScheduleStore'
 import { uiStore } from './UIStore'
+import * as Cookies from 'js-cookie'
 
 class LoginStore {
 
   @observable isLoggedIn = false
-  Cookie: any
   name: string
   email: string
 
   constructor() {
-    this.Cookie = require('cookie.js')
-    let userToken = this.Cookie.get('token')
+    this.fetchUserData()
+  }
+
+  private fetchUserData() {
+    let userToken = Cookies.get('token')
+    if (!userToken) return
     let userTokenJson = {
       token: userToken
     }
@@ -56,7 +60,7 @@ class LoginStore {
     }).then(raw => raw.json().then(res => {
       this.name = googleUser.getBasicProfile().getName()
       this.email = googleUser.getBasicProfile().getEmail()
-      this.Cookie.set('token', res.token)
+      Cookies.set('token', res.token, { expires: 365 })
       scheduleStore.initAllSemesters(res.schedule)
     }).then(() => this.isLoggedIn = true)).catch(err => console.log(err))
   }

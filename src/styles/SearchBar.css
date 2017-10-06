@@ -37,13 +37,13 @@
 }
 
 .SearchBar input#department-input {
-  width: 50px;
-  margin-right: 10px;
+  width: 45px;
+  margin-right: 5px;
 }
 
 .SearchBar input#number-input {
   width: 30px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .SearchBar-department-results {
@@ -62,15 +62,9 @@
 }
 
 .SearchBar select {
-  font-size: 18px;
+  font-size: 16px;
   outline: none;
   border: 1px solid lightgrey;
-}
-
-@media (max-width: 1190px) {
-  /* .SearchBar {
-    left: 20px;
-  } */
 }
 
 @media (max-width: 845px) {
@@ -84,6 +78,8 @@
   .SearchBar #department-number-group, #name-gened-group {
     display: inline-block;
   }
+
+  .Se
 
   #name-input, .tags-input {
     margin-top: 8px;

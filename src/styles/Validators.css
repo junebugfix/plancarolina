@@ -33,12 +33,13 @@
   width: 100%;
   background: lightgray;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .Validators .progress-completed {
   background: lightcoral;
   height: 100%;
-  border-radius: inherit
+  border-radius: inherit;
 }
 
 .Validators .progress-popup {

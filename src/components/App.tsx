@@ -5,7 +5,7 @@ import SearchBar from './SearchBar'
 import Schedule from './Schedule'
 import LoginPopup from './LoginPopup'
 import Validators from './Validators'
-import AboutUs from './AboutUs'
+import Footer from './Footer'
 import { observer } from 'mobx-react'
 import { uiStore } from '../UIStore'
 
@@ -21,16 +21,14 @@ export default class App extends React.Component {
           </div>
           <div className="schedule-validators-container">
             <div className="schedule-container">
-              {/* schedule */}
               <Schedule />
             </div>
             <div className="validators-container">
-              {/* validators */}
               <Validators />
             </div>
           </div>
         </div>
-        <AboutUs />
+        <Footer />
       </div>
     )
   }

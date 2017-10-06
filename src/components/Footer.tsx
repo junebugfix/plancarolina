@@ -4,11 +4,11 @@ import { scheduleStore } from '../ScheduleStore'
 import '../styles/AboutUs.css'
 
 @observer
-export default class AboutUs extends React.Component {
+export default class Footer extends React.Component {
   render() {
     return (
-      <div className="AboutUs">
-        about us
+      <div className="Footer">
+        
       </div>
     )
   }
