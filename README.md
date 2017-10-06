@@ -6,7 +6,7 @@
 > Kate, Hank, and Brooks
 
 # Our Web Stack
-> We use a combination of React, MobX,HTML, CSS, TypeScript, Python, and SQL to make our website work. We use various libraries (ex. Slip.js for course reordering, and Google's sign-in API for logging in and saving schedules)
+> We use a combination of React, MobX,HTML, CSS, TypeScript, Python, and SQL to make our website work. We use various libraries (ex. Slip.js for course reordering, and Google's sign-in API for logging in and saving schedules) as well!
 
 # Contact Us
 > Have ideas for PlanCarolina? Would you like to contribute? Did you find a bug in our system? Feel free to fill out the form on our website [here](http://plancarolina.com/contactus)
