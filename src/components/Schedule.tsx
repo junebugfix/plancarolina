@@ -1,12 +1,12 @@
-import * as React from 'react'
-import { observer } from 'mobx-react'
-import Semester from './Semester'
-import { Semesters } from '../utils'
-import { CourseData } from './Course'
-import { scheduleStore } from '../ScheduleStore'
-import { uiStore } from '../UIStore'
-import SummerButton from './SummerButton'
-import '../styles/Schedule.css'
+import * as React from 'react';
+import { observer } from 'mobx-react';
+import Semester from './Semester';
+import { Semesters } from '../utils';
+import { CourseData } from './Course';
+import { scheduleStore } from '../ScheduleStore';
+import { uiStore } from '../UIStore';
+import SummerButton from './SummerButton';
+import '../styles/Schedule.css';
 
 interface ScheduleState {
   semesters: CourseData[][]

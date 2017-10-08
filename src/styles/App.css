@@ -112,6 +112,7 @@ ul {
   }
   .App .validators-container {
     margin-top: unset;
+    padding: 10px;
     max-width: unset;
     width: unset;
   }
@@ -128,4 +129,7 @@ ul {
 
 .App .MuiSnackbarContent-root-37 {
   border-radius: 2px;
+}
+
+.App .settings-container {
 }

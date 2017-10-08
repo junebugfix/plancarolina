@@ -285,7 +285,7 @@ class UIStore {
   }
 
   promptUserLogin() {
-    if (!this.loginAlertActive && this.shouldPromptForLogin) {
+    if (!loginStore.isLoggedIn && this.shouldPromptForLogin) {
       this.loginAlertActive = true
     }
   }

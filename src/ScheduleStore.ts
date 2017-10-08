@@ -32,9 +32,7 @@ class ScheduleStore {
   constructor() {
     autorun(() => {
       this.allSemesters.forEach(s => s.length) // needs to do something with each semester for autorun to work right
-      // if (loginStore.isLoggedIn) {
       this.saveSchedule()
-      // } else {
     })
   }
 
@@ -133,7 +131,6 @@ class ScheduleStore {
   }
 
   saveSchedule() {
-    console.log('ygkjhgkhjgjhgkjhgkjhgkjhg')
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {
       if (loginStore.isLoggedIn) {

@@ -32,8 +32,8 @@ class LoginStore {
       if (!res.error) {
         this.name = res.name
         this.email = res.email
-        scheduleStore.initAllSemesters(res.schedule)
         this.isLoggedIn = true
+        scheduleStore.initAllSemesters(res.schedule)
       } else {
         console.log(res.error)
       }
