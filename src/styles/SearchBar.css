@@ -83,41 +83,12 @@
   border: 1px solid lightgrey;
 }
 
-@media (max-width: 845px) {
-  .SearchBar {
-    width: 80%;
-    height: 155px;
-    padding-top: 3px;
-    display: flex;
-  }
-
-  .SearchBar #department-number-group, #name-gened-group {
-    display: inline-block;
-  }
-
-  .SearchBar h2 {
-    margin: 0 0 10px 0;
-  }
-}
-
-@media(max-width: 760px) {
-  .SearchBar {
-    width: 90%;
-  }
-}
-
-@media(max-width: 675px) {
-  .SearchBar {
-    width: 95%;
-  }
-}
-
 .SearchBar .loader-container {
   position: relative;
 }
 
 .SearchBar .loader {
-  top: -30px;
+  top: -22px;
   left: 145px;
 }
 
@@ -150,5 +121,37 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 845px) {
+  .SearchBar {
+    width: 80%;
+    height: 155px;
+    padding-top: 3px;
+    display: flex;
+  }
+
+  .SearchBar #department-number-group, #name-gened-group {
+    display: inline-block;
+  }
+
+  .SearchBar h2 {
+    margin: 0 0 10px 0;
+  }
+  .SearchBar .loader {
+    top: -30px;
+  }
+}
+
+@media(max-width: 760px) {
+  .SearchBar {
+    width: 90%;
+  }
+}
+
+@media(max-width: 675px) {
+  .SearchBar {
+    width: 95%;
   }
 }
