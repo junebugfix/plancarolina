@@ -43,9 +43,10 @@ table {
 }
 
 body {
-  background: #7BAFD4; /*carolina blue*/
+  background: #7BAFD4;
   font-family: Avenir, 'Helvetica Neue', sans-serif;
   margin: 0;
+  transition: all 150ms ease-in-out;
 }
 
 ul {
@@ -67,7 +68,23 @@ ul {
   display: flex;
 }
 
-.App .schedule-container, .App .validators-container {
+.App .validators-settings-container {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 3;
+}
+
+.App .validators-settings {
+  background: whitesmoke;
+  padding: 10px;
+  width: 60%;
+  height: fit-content;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.7);
+  margin-top: 70px;
+}
+
+.App .schedule-container, .App .validators-settings-container {
   width: 100%;
 }
 
@@ -115,6 +132,9 @@ ul {
     padding: 10px;
     max-width: unset;
     width: unset;
+  }
+  .App .validators-settings {
+    margin-top: 10px;
   }
 }
 

@@ -1,10 +1,7 @@
 .Validators {
-  background: whitesmoke;
-  border-radius: 4px;
-  padding: 8px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
   font-size: 12px;
   width: 100%;
+  margin: auto;
   display: flex;
   flex-direction: column;
 }
@@ -12,7 +9,7 @@
 @media(max-width: 983px) {
   .Validators {
     flex-direction: row;
-    width: 80%;
+    width: 100%;
   }
   .Validators .progress-group {
     width: 100%;

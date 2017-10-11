@@ -27,10 +27,8 @@ export default class App extends React.Component {
               <Schedule />
             </div>
             <div className="validators-settings-container">
-              <div className="validators-container">
+              <div className="validators-settings">
                 <Validators />
-              </div>
-              <div className="settings-container">
                 <Settings />
               </div>
             </div>

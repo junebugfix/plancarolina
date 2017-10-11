@@ -11,7 +11,6 @@ export default class App extends React.Component {
       <div className="Settings">
         <div className="expandedView">
           <span className="settings-label expandedView">Expanded View</span>
-          <br/>
           <div className="switchContainer">
             <Switch
               checked={uiStore.expandedView}

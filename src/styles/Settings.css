@@ -1,22 +1,23 @@
 .Settings {
   display: flex;
   justify-content: center;
-  padding: 10px;
   width: 70%;
   margin: auto;
+  font-size: 12px;
 }
 
 .Settings > * {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 10px;
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
-  border-radius: 5px;
-  background: whitesmoke;
 }
 
 .Settings .settings-label.expandedView {
-  margin-bottom: -18px;
+  margin-bottom: -8px;
+}
+
+@media (max-width: 983px) {
+  .Settings {
+    margin-bottom: -8px;
+  }
 }
