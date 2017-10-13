@@ -10,6 +10,7 @@ export class AlertPopup extends React.Component<{title: string, body: string}, {
           <div className="popup">
             <h2>{this.props.title}</h2>
             <a className="close" href="#" onClick={uiStore.handleClosePopup}>&times;</a>
+            <br></br>
             <div className="content">
               {this.props.body}
             </div>
