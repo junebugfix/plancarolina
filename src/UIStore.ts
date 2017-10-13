@@ -6,6 +6,7 @@ import { CourseData } from './components/Course';
 import { scheduleStore } from './ScheduleStore';
 import { loginStore } from './LoginStore';
 import { colorController } from './ColorController';
+import * as Cookies from 'js-cookie';
 import difference from 'lodash-es/difference';
 import './styles/AddMajorPopup.css';
 
@@ -285,7 +286,7 @@ class UIStore {
   }
 
   promptUserLogin() {
-    if (!loginStore.isLoggedIn && this.shouldPromptForLogin) {
+    if ((!loginStore.isLoggedIn && this.shouldPromptForLogin) || !Cookies.get('token')) {
       this.loginAlertActive = true
     }
   }

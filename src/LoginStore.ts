@@ -34,6 +34,7 @@ class LoginStore {
         this.email = res.email
         this.isLoggedIn = true
         scheduleStore.initAllSemesters(res.schedule)
+        uiStore.shouldPromptForLogin = false
       } else {
         console.log(res.error)
       }
@@ -63,6 +64,7 @@ class LoginStore {
       Cookies.set('token', res.token, { expires: 365 })
       scheduleStore.initAllSemesters(res.schedule)
     }).then(() => this.isLoggedIn = true)).catch(err => console.log(err))
+    uiStore.shouldPromptForLogin = false
   }
 
   handleLoginFailure(e: any) {
@@ -72,10 +74,13 @@ class LoginStore {
   }
 
   @action.bound logout() {
+    Cookies.set('token', null)
     this.isLoggedIn = false
-    gapi.auth2.getAuthInstance().signOut().then(() => {
-      console.log('user signed out')
-    })
+    if (gapi.auth2) {
+      gapi.auth2.getAuthInstance().signOut().then(() => {
+        console.log('user signed out')
+      })
+    }
     location.reload()
   }
 }
