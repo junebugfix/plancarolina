@@ -30,6 +30,7 @@ class UIStore {
   @observable alertOpen = false
   @observable alertMessage = ''
   @observable loginAlertActive = false
+  @observable addClassPopupActive = false
   shouldPromptForLogin = true
 
   @observable majorResults: string[] = []
@@ -144,6 +145,10 @@ class UIStore {
   @action.bound handleClosePopup() {
     this.loginAlertActive = false
     this.shouldPromptForLogin = false
+  }
+
+  @action.bound handleCloseAddClass() {
+    this.addClassPopupActive = false;
   }
 
   @action.bound handleLoginPopupClicked(e: MouseEvent<HTMLDivElement>) {

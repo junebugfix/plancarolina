@@ -45,6 +45,11 @@
   transition: all 5s ease-in-out;
 }
 
+.add-class {
+  display: flex;
+  flex-direction: column;
+}
+
 .popup h2 {
   margin-top: 0;
   color: #333;
