@@ -33,6 +33,7 @@
   transition: opacity 500ms;
   visibility: visible;
   opacity: 1;
+  z-index: 3;
 }
 
 .popup {
@@ -48,6 +49,11 @@
 .add-class {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.add-class > form > input {
+  width: 90%
 }
 
 .popup h2 {
