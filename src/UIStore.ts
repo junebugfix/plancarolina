@@ -6,6 +6,7 @@ import { CourseData } from './components/Course';
 import { scheduleStore } from './ScheduleStore';
 import { loginStore } from './LoginStore';
 import { colorController } from './ColorController';
+import * as Cookies from 'js-cookie';
 import difference from 'lodash-es/difference';
 import './styles/AddMajorPopup.css';
 
@@ -30,8 +31,13 @@ class UIStore {
   @observable alertOpen = false
   @observable alertMessage = ''
   @observable loginAlertActive = false
+  @observable addClassPopupActive = false
   shouldPromptForLogin = true
+<<<<<<< HEAD
   @observable hasAddedACourse = false
+=======
+  @observable yearEnteredPromptActive = false;
+>>>>>>> ff01248c5b62b9ad60e467e8582168f012d6d656
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
@@ -161,6 +167,10 @@ class UIStore {
     this.shouldPromptForLogin = false
   }
 
+  @action.bound handleCloseAddClass() {
+    this.addClassPopupActive = false;
+  }
+
   @action.bound handleLoginPopupClicked(e: MouseEvent<HTMLDivElement>) {
     if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
       this.loginPopupActive = !this.loginPopupActive
@@ -232,27 +242,23 @@ class UIStore {
     scheduleStore.removeCourseFromSemester(courseIndex, semesterIndex)
   }
 
-  private handleMajorResultChosen(majorName: string) {
+  private handleMajorResultChosen(majorName: string) { // commented out loader due to asynch issues
     let schedule = document.querySelector(".Schedule");
     let loader = document.createElement("div");
-    loader.id = "loading-circle";
-    schedule.appendChild(loader);
-
+    if (this.yearEntered === undefined) {
+        this.yearEnteredPromptActive = true;
+      }
+    // loader.id = "loading-circle";
+    // schedule.appendChild(loader);
     this.addMajorPopupActive = false
     let data = this.majorData.filter(x => x.name === majorName)[0]
     // change majorCoursesNeeded
     Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
       scheduleStore.addCourses(courses)
-      schedule.removeChild(loader)
-      if (this.yearEntered === undefined) {
-        this.promptYearEntered()
-      }
+      // schedule.removeChild(loader)
       let url = data.urls[this.yearEntered]
       let year = this.yearEntered
-      while (url === undefined) {
-        url = data.urls[--year]
-      }
-      this.showOpenWorksheetButton()
+      this.showOpenWorksheetButton(url)
     })
   }
 
@@ -301,19 +307,19 @@ class UIStore {
   }
 
   promptUserLogin() {
-    if (!loginStore.isLoggedIn && this.shouldPromptForLogin) {
+    if ((!loginStore.isLoggedIn && this.shouldPromptForLogin) || !Cookies.get('token')) {
       this.loginAlertActive = true
     }
   }
 
-  private promptYearEntered() {
-    // TODO: implement prompt
-    console.log('prompting year entered')
-    this.yearEntered = 2015
+  promptYearEntered(x: number) {
+    this.yearEntered = x;
+    console.log('year entered is ' + this.yearEntered)
+    this.yearEnteredPromptActive = false;
   }
 
-  private showOpenWorksheetButton() {
-    // TODO: implement
+  private showOpenWorksheetButton(url: string) {
+    window.open(url)
     console.log('showing open worksheet button')
   }
 

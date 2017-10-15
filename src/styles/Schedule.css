@@ -9,6 +9,7 @@
   border-radius: 6px;
   position: relative;
   background: transparent;
+  user-select: none;
 }
 
 .Schedule-row {

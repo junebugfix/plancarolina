@@ -95,6 +95,7 @@ ul {
   width: 100%;
   background: purple;
   display: flex;
+  user-select: none;
 }
 
 .App .validators-settings-container {

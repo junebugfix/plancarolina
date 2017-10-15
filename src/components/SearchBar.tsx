@@ -3,6 +3,7 @@ import { observer } from 'mobx-react'
 import { uiStore } from '../UIStore'
 import SearchResults from './SearchResults'
 import SearchBarResults from './SearchBarResults'
+import AddClassPopup from './AddClassPopup'
 import '../styles/SearchBar.css'
 import 'tags-input/tags-input.css'
 
@@ -42,6 +43,8 @@ export default class SearchBar extends React.Component {
         <div className="search-bar-results-container">
           <SearchBarResults />
         </div>
+        <button id='searchbar-add-class' onClick={() => {uiStore.addClassPopupActive = true}}>Don't see your class? Click here</button>
+        {uiStore.addClassPopupActive && <AddClassPopup />}
       </div>
     )
   }
