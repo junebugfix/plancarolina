@@ -33,7 +33,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://hankhester.com/plancarolina",
+      "target": "http://plancarolina.com",
       "secure": true,
       "changeOrigin": true
     }

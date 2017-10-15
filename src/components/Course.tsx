@@ -50,7 +50,8 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
   render() {
     const data = this.props.data
     let style = {
-      backgroundColor: `hsl(${colorController.getScheduleHue(data.department)}, 80%, 80%)`,
+      // backgroundColor: `hsl(${colorController.getScheduleHue(data.department)}, 80%, 80%)`,
+      backgroundColor: 'hsl(225, 100%, 96%)',
       height: uiStore.expandedView ? 44 : '',
       textAlign: uiStore.expandedView ? 'left' : '',
       paddingTop: uiStore.expandedView ? 2 : '',
@@ -58,8 +59,12 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
       paddingBottom: uiStore.expandedView ? 3 : '',
       fontSize: uiStore.expandedView ? 12 : '',
     }
+    let dotStyle = {
+      backgroundColor: `hsl(${colorController.getScheduleHue(data.department)}, 80%, 80%)`
+    }
     return (
       <div className="Course" id={`course-${data.id}`} style={style}>
+        <span className="course-dot" style={dotStyle}></span>
         <span className="course-label" style={{fontWeight: uiStore.expandedView ? 500 : 400}}>{data.department} {data.number}</span>
         {uiStore.expandedView && <span className="credits">({data.credits})</span>}
         {uiStore.expandedView && <div className="course-geneds">{data.geneds.map(ge => <span className="gened-block" key={`geb-${this.counter++}`}>{ge}</span>)}</div>}

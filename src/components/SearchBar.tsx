@@ -26,7 +26,7 @@ export default class SearchBar extends React.Component {
           <div className="loader-container">
             {uiStore.isLoadingSearchResults && <div className="loader"></div>}
           </div>
-          <div id="department-number-group">
+          <div className="first-row-container">
             <input placeholder="COMP" id="department-input" onChange={uiStore.handleSearchingDepartmentChange} />
             {uiStore.isSearchingDepartment && <SearchResults label={uiStore.DEPARTMENT_LABEL} items={uiStore.departmentResults} />}
             <select onChange={uiStore.handleNumberOperatorChange}>
@@ -35,14 +35,13 @@ export default class SearchBar extends React.Component {
               <option value="lt">≤</option>
             </select>
             <input placeholder="110" id="number-input" onChange={uiStore.handleSearchingNumber} />
-          </div>
-          <div id="name-gened-group">
-            <input id="name-input" placeholder="Name: Intro to Programming" onChange={uiStore.handleSearchingKeywords} />
-            <br />
             <input type="tags" placeholder="Gen Eds: QR" id="gened-input" />
           </div>
+          <input id="name-input" placeholder="Name: Intro to Programming" onChange={uiStore.handleSearchingKeywords} />
         </div>
-        <SearchBarResults />
+        <div className="search-bar-results-container">
+          <SearchBarResults />
+        </div>
       </div>
     )
   }

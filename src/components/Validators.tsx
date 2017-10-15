@@ -48,7 +48,7 @@ export default class Validators extends React.Component {
         <div className="progress-group credits">
           <label>Credits</label>
           <div className="progress-bar"><div className="progress-completed" style={creditsStyle}></div></div>
-            <div>{scheduleStore.creditsFulfilled} out of {scheduleStore.CREDITS_NEEDED}</div> 
+          {scheduleStore.creditsFulfilled} out of {scheduleStore.CREDITS_NEEDED} 
         </div>
       </div>
     )
