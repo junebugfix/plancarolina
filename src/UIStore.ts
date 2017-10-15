@@ -33,11 +33,8 @@ class UIStore {
   @observable loginAlertActive = false
   @observable addClassPopupActive = false
   shouldPromptForLogin = true
-<<<<<<< HEAD
   @observable hasAddedACourse = false
-=======
   @observable yearEnteredPromptActive = false;
->>>>>>> ff01248c5b62b9ad60e467e8582168f012d6d656
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
