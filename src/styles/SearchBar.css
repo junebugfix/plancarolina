@@ -82,6 +82,24 @@
   padding: 2px 3px;
 }
 
+.SearchBar button#searchbar-add-class {
+  padding: 3px 5px;
+  border: 1px solid rgba(170, 177, 197, 0.7);
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  outline: none;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  width: fit-content;
+}
+
+.SearchBar button#searchbar-add-class:active {
+  background: lightgray;
+}
+
 .SearchBar .loader-container {
   position: relative;
 }
@@ -154,7 +172,7 @@ button#searchbar-add-class{
   }
   .SearchBar .tags-input {
     width: 170px;
-    margin: 15px 0;
+    margin: 8px 0;
   }
   .SearchBar #name-input {
     width: 164px;
@@ -178,5 +196,10 @@ button#searchbar-add-class{
     right: 0px;
     height: 97%;
     width: 69%;
+  }
+  .SearchBar button#searchbar-add-class {
+    transform: none;
+    left: 8px;
+    bottom: 7px;
   }
 }
