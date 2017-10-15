@@ -66,6 +66,7 @@ ul {
 .App .schedule-validators-container {
   width: 100%;
   display: flex;
+  user-select: none;
 }
 
 .App .validators-settings-container {

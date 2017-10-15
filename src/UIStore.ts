@@ -29,7 +29,7 @@ class UIStore {
   @observable alertOpen = false
   @observable alertMessage = ''
   @observable loginAlertActive = false
-  shouldPromptForLogin = true
+  shouldPromptForLogin = false
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []

@@ -5,6 +5,7 @@
   text-align: center;
   padding: 7px;
   border-radius: 6px;
+  user-select: none;
 }
 
 .Schedule-row {
