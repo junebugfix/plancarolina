@@ -50,6 +50,8 @@ class UIStore {
 
   @observable windowWidth = window.innerWidth
 
+  yearEnteredCallback: Function
+
   @computed get isWideView() {
     return this.windowWidth > 950
   }
@@ -243,8 +245,13 @@ class UIStore {
     let schedule = document.querySelector(".Schedule");
     let loader = document.createElement("div");
     if (this.yearEntered === undefined) {
-        this.yearEnteredPromptActive = true;
-      }
+      this.promptYearEntered().then(year => {
+        this.yearEnteredPromptActive = false
+        this.yearEntered = year
+        let url = data.urls[this.yearEntered]
+        this.showOpenWorksheetButton(url)
+      })
+    }
     // loader.id = "loading-circle";
     // schedule.appendChild(loader);
     this.addMajorPopupActive = false
@@ -253,9 +260,13 @@ class UIStore {
     Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
       scheduleStore.addCourses(courses)
       // schedule.removeChild(loader)
-      let url = data.urls[this.yearEntered]
-      let year = this.yearEntered
-      this.showOpenWorksheetButton(url)
+    })
+  }
+
+  private promptYearEntered(): Promise<number> {
+    this.yearEnteredPromptActive = true;
+    return new Promise((resolve, reject) => {
+      this.yearEnteredCallback = (year: number) => resolve(year)
     })
   }
 
@@ -309,11 +320,11 @@ class UIStore {
     }
   }
 
-  promptYearEntered(x: number) {
-    this.yearEntered = x;
-    console.log('year entered is ' + this.yearEntered)
-    this.yearEnteredPromptActive = false;
-  }
+  // promptYearEntered(x: number) {
+  //   this.yearEntered = x;
+  //   console.log('year entered is ' + this.yearEntered)
+  //   this.yearEnteredPromptActive = false;
+  // }
 
   private showOpenWorksheetButton(url: string) {
     window.open(url)
