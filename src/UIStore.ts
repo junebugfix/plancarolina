@@ -46,9 +46,11 @@ class UIStore {
   @observable searchGeneds: string[] = []
 
   @observable searchResults: CourseData[] = []
-  @observable numberOfSearchResults = 10
+  @observable numberOfSearchResults = this.isWideView ? 10 : 9
 
   @observable windowWidth = window.innerWidth
+
+  yearEnteredCallback: Function
 
   @computed get isWideView() {
     return this.windowWidth > 950
@@ -85,9 +87,9 @@ class UIStore {
     
     window.addEventListener('resize', e => {
       this.windowWidth = window.innerWidth
-      if (this.isWideView && this.numberOfSearchResults !== 8) {
-        this.numberOfSearchResults = 8
-      } else if (!this.isWideView && this.numberOfSearchResults !== 9 && this.hasAddedACourse) {
+      if (this.isWideView && this.numberOfSearchResults !== 10) {
+        this.numberOfSearchResults = 10
+      } else if (!this.isWideView && this.numberOfSearchResults !== 9) {
         this.numberOfSearchResults = 9
       }
     })
@@ -243,8 +245,13 @@ class UIStore {
     let schedule = document.querySelector(".Schedule");
     let loader = document.createElement("div");
     if (this.yearEntered === undefined) {
-        this.yearEnteredPromptActive = true;
-      }
+      this.promptYearEntered().then(year => {
+        this.yearEnteredPromptActive = false
+        this.yearEntered = year
+        let url = data.urls[this.yearEntered]
+        this.showOpenWorksheetButton(url)
+      })
+    }
     // loader.id = "loading-circle";
     // schedule.appendChild(loader);
     this.addMajorPopupActive = false
@@ -253,6 +260,13 @@ class UIStore {
     Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
       scheduleStore.addCourses(courses)
       // schedule.removeChild(loader)
+    })
+  }
+
+  private promptYearEntered(): Promise<number> {
+    this.yearEnteredPromptActive = true;
+    return new Promise((resolve, reject) => {
+      this.yearEnteredCallback = (year: number) => resolve(year)
     })
   }
 
@@ -308,11 +322,11 @@ class UIStore {
     }
   }
 
-  promptYearEntered(x: number) {
-    this.yearEntered = x;
-    console.log('year entered is ' + this.yearEntered)
-    this.yearEnteredPromptActive = false;
-  }
+  // promptYearEntered(x: number) {
+  //   this.yearEntered = x;
+  //   console.log('year entered is ' + this.yearEntered)
+  //   this.yearEnteredPromptActive = false;
+  // }
 
   private showOpenWorksheetButton(url: string) {
     window.open(url)

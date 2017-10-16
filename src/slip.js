@@ -447,9 +447,9 @@ window['Slip'] = (function(){
                     // I have no idea why I have to do this but it works - Hank
                     // I also had to readjust for this below in onEnd
                     //update, changed something to make this not needed, but I don't want to delete it in case the problem comes back
-                    // if (this.target.node.parentNode.classList.contains('SearchBarResults') && window.innerWidth < 845) {
-                    //     move.y -= 175
-                    // }
+                    if (this.target.node.parentNode.classList.contains('SearchBarResults') && window.innerWidth < 950) {
+                        move.y -= 225
+                    }
                     // BOOKMARK: This is where the other nodes are being animated when you drag something - Hank
 					otherNodes.forEach(function(o){
 						var off = 0;
@@ -519,9 +519,9 @@ window['Slip'] = (function(){
                             //crossreorder
 
                             // readjust for weird fix above - Hank - update, changed something to make this not needed, but I don't want to delete it in case the problem comes back
-                            // if (this.target.node.parentNode.classList.contains('SearchBarResults') && window.innerWidth < 845) {
-                            //     move.y -= 175;
-                            // }
+                            if (this.target.node.parentNode.classList.contains('SearchBarResults') && window.innerWidth < 845) {
+                                move.y -= 225;
+                            }
                             
 							for(var i=0; i < otherNodes.length; i++) {
 								if (otherNodes[i].pos.y > move.y) break;

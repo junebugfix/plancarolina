@@ -100,7 +100,6 @@
   .SearchBarResults {
     margin: 0;
     height: 100%;
-    overflow: hidden;
   }
   .SearchBarResults .search-bar-welcome {
     margin-top: 45px;
