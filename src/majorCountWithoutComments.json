@@ -42,6 +42,48 @@
       }
     },
     {
+      "name": "Biomedical Engineering BS",
+      "department": "BMME",
+      "degreeType": "BS",
+      "absoluteCourses": ["CHEM 101", "CHEM 101L", "BIOL 101", "BIOL 101L", "MATH 231", "MATH 232", "MATH 233", "MATH 383", "MATH 383L", "BMME 150", "BMME 160", "BMME 160", "BMME 210", "BMME 310", "BMME 410", "BMME 465", "BMME 697", "BMME 698", "BIOL 202", "BIOL 252", "BIOL 252L", "MATH 528", "BMME 350", "BMME 351"],
+      "additionalCourses": 9,
+      "urls": {
+        "2013": "https://advising.unc.edu/files/2012/11/BMMEBS-2015-2016.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/BMMEBS-2015-2016.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/BMMEBS-2015-2016.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/BMMEBS-2015-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/BMHE-BS-20172.pdf"
+      }
+    },
+    {
+      "name": "Art History BA",
+      "department": "ARTH",
+      "degreeType": "BA",
+      "absoluteCourses": [],
+      "additionalCourses": 11,
+      "urls": {
+        "2013": "https://advising.unc.edu/files/2012/11/ArtHist-2013-2014.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/ArtHist-2013-2014.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/ArtHist-2015.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/ArtHist-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/ArtHist-2017.pdf"
+      }
+    },
+    {
+      "name": "Business BSBA",
+      "department": "BUSI",
+      "degreeType": "BSBA",
+      "absoluteCourses": ["ECON 101", "ECON 410", "STOR 155", "BUSI 401", "BUSI 403", "BUSI 404", "BUSI 405", "BUSI 406", "BUSI 407", "BUSI 408", "BUSI 410", "BUSI 411", "BUSI 412"],
+      "additionalCourses": 8,
+      "urls": {
+        "2013": "https://advising.unc.edu/files/2012/11/BUSI-2016-2017.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/BUSI-2016-2017.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/BUSI-2016-2017.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/BUSI-2016-2017.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/BUSI-2016-2017.pdf"
+      }
+    },
+    {
       "name": "Computer Science BA",
       "department": "COMP",
       "degreeType": "BA",
