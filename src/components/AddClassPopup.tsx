@@ -44,7 +44,7 @@ export default class AddClassPopup extends React.Component {
       number: classNumber.value,
       credits: +hours.value,
       geneds: [geneds.value],
-      id: Math.random() * 50000
+      id: -1
     }
 
     scheduleStore.addCourses([course]);

@@ -253,9 +253,6 @@ class UIStore {
     Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
       scheduleStore.addCourses(courses)
       // schedule.removeChild(loader)
-      let url = data.urls[this.yearEntered]
-      let year = this.yearEntered
-      this.showOpenWorksheetButton(url)
     })
   }
 
@@ -304,7 +301,9 @@ class UIStore {
   }
 
   promptUserLogin() {
+    console.log("prompting login")
     if ((!loginStore.isLoggedIn && this.shouldPromptForLogin) || !Cookies.get('token')) {
+      console.log("shoudl hpapel")
       this.loginAlertActive = true
     }
   }

@@ -78,7 +78,7 @@ class LoginStore {
   }
 
   @action.bound logout() {
-    Cookies.set('token', null)
+    Cookies.remove('token')
     this.isLoggedIn = false
     if (gapi.auth2) {
       gapi.auth2.getAuthInstance().signOut().then(() => {
