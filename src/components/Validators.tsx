@@ -32,19 +32,6 @@ export default class Validators extends React.Component {
             <div>{scheduleStore.genedsRemaining.map(ge => <span className="gened-block" key={`ge-${this.counter++}`}>{ge}</span>)}</div>
           </div>
         </div>
-        <div className="progress-group major-courses">
-          <label>Major Courses</label>
-          <div className="progress-bar"><div className="progress-completed" style={majorCoursesStyle}></div></div>
-          {scheduleStore.majorCoursesFulfilled.length} out of {scheduleStore.majorCoursesNeeded.length}
-          <div className="progress-popup">
-            <div>
-              <span>Fulfilled:</span><br/>
-              {scheduleStore.majorCoursesFulfilled.map(c => <span className="progress-gened-block" key={`mc-${this.counter++}`}>{c}</span>)}<br/>
-              <span>Remaining:</span><br/>
-              {scheduleStore.majorCoursesRemaining.map(c => <span className="progress-gened-block" key={`mc-${this.counter++}`}>{c}</span>)}
-            </div>
-          </div>
-        </div>
         <div className="progress-group credits">
           <label>Credits</label>
           <div className="progress-bar"><div className="progress-completed" style={creditsStyle}></div></div>
