@@ -18,8 +18,9 @@ export default class Schedule extends React.Component {
   render() {
     return (
       <div className="Schedule">
+        {uiStore.isLoadingSchedule && <div className="schedule-loader loader"></div>}
         <div className="Schedule-row Schedule-year-labels">
-          <div className="Schedule-year-label">Freshman</div>
+          <div className="Schedule-year-label">First-Year</div>
           <div className="Schedule-year-label">Sophomore</div>
           <div className="Schedule-year-label">Junior</div>
           <div className="Schedule-year-label">Senior</div>

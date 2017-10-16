@@ -18,12 +18,12 @@ export default class SearchBarResult extends React.Component<{data: SearchBarRes
   nameEl: HTMLSpanElement
   elipsesEl: HTMLSpanElement
 
-  isOverflowing(name: string) {
-    return this.nameEl.clientWidth < this.nameEl.scrollWidth || this.nameEl.clientHeight < this.nameEl.scrollHeight
+  isOverflowing() {
+    return Math.abs(this.nameEl.clientWidth - this.nameEl.scrollWidth) > 2 || Math.abs(this.nameEl.clientHeight - this.nameEl.scrollHeight) > 2
   }
 
   componentDidMount() {
-    if (this.isOverflowing(this.props.data.name)) {
+    if (this.isOverflowing()) {
       this.elipsesEl.innerHTML = '...'
     }
   }
@@ -36,9 +36,7 @@ export default class SearchBarResult extends React.Component<{data: SearchBarRes
     return (
       <div className="SearchBarResults-result" style={style}>
         <div className="dept-num">
-          <span className="department">{res.department}</span>
-          <br />
-          <span className="number">{res.number}</span>
+          <span>{res.department}<br />{res.number}</span>
         </div>
         <span ref={el => this.nameEl = el} className="name">{res.name}<span ref={el => this.elipsesEl = el} className="elipses"></span></span>
       </div>

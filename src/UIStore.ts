@@ -27,11 +27,13 @@ class UIStore {
   @observable loginPopupActive = false
   @observable expandedView = false
   @observable isLoadingSearchResults = false
+  @observable isLoadingSchedule = false
   @observable alertOpen = false
   @observable alertMessage = ''
   @observable loginAlertActive = false
   @observable addClassPopupActive = false
   shouldPromptForLogin = true
+  @observable hasAddedACourse = false
   @observable yearEnteredPromptActive = false;
 
   @observable majorResults: string[] = []
@@ -44,10 +46,12 @@ class UIStore {
   @observable searchGeneds: string[] = []
 
   @observable searchResults: CourseData[] = []
-  @observable numberOfSearchResults = 8
+  @observable numberOfSearchResults = 10
 
-  get isWideView() {
-    return window.innerWidth > 845
+  @observable windowWidth = window.innerWidth
+
+  @computed get isWideView() {
+    return this.windowWidth > 950
   }
 
   @computed get courseHeight() {
@@ -80,9 +84,10 @@ class UIStore {
     this.slip = require('./slip.js')
     
     window.addEventListener('resize', e => {
+      this.windowWidth = window.innerWidth
       if (this.isWideView && this.numberOfSearchResults !== 8) {
         this.numberOfSearchResults = 8
-      } else if (!this.isWideView && this.numberOfSearchResults !== 9) {
+      } else if (!this.isWideView && this.numberOfSearchResults !== 9 && this.hasAddedACourse) {
         this.numberOfSearchResults = 9
       }
     })
@@ -134,6 +139,17 @@ class UIStore {
 
   @action.bound registerSearchBarResults(el: HTMLDivElement) {
     let slipList = new this.slip(el)
+    // prevent dragging the welcome text
+    el.addEventListener('slip:beforeswipe', (e) => {
+      if ((e.target as HTMLElement).classList.contains('undraggable')) {
+        e.preventDefault()
+      }
+    })
+    el.addEventListener('slip:beforereorder', (e) => {
+      if ((e.target as HTMLElement).classList.contains('undraggable')) {
+        e.preventDefault()
+      }
+    })
     scheduleStore.connectSlipList(slipList)
   }
 

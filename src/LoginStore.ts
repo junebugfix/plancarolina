@@ -18,7 +18,10 @@ class LoginStore {
 
   private fetchUserData() {
     let userToken = Cookies.get('token')
-    if (!userToken) return
+    if (!userToken) {
+      uiStore.isLoadingSchedule = false
+      return
+    }
     let userTokenJson = {
       token: userToken
     }
@@ -34,6 +37,7 @@ class LoginStore {
         this.email = res.email
         this.isLoggedIn = true
         scheduleStore.initAllSemesters(res.schedule)
+        uiStore.isLoadingSchedule = false
         uiStore.shouldPromptForLogin = false
       } else {
         console.log(res.error)

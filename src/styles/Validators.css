@@ -3,10 +3,9 @@
   width: 100%;
   margin: auto;
   display: flex;
-  flex-direction: column;
 }
 
-@media(max-width: 983px) {
+/* @media(max-width: 983px) {
   .Validators {
     flex-direction: row;
     width: 100%;
@@ -15,10 +14,11 @@
     width: 100%;
     margin: 0 10px;
   }
-}
+} */
 
 .Validators > div {
-  margin-bottom: 10px;
+  margin: 0 10px;
+  width: 100%;
 }
 
 .Validators .progress-group {

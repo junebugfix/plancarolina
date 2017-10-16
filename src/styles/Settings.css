@@ -4,20 +4,27 @@
   width: 70%;
   margin: auto;
   font-size: 12px;
+  flex-shrink: 2;
 }
 
 .Settings > * {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-direction: column;
+}
+
+.Settings .expandedView {
+  position: relative;
+  top: 4px;
 }
 
 .Settings .settings-label.expandedView {
   margin-bottom: -8px;
 }
 
-@media (max-width: 983px) {
+/* @media (max-width: 983px) {
   .Settings {
     margin-bottom: -8px;
   }
-}
+} */

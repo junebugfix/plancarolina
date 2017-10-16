@@ -1,19 +1,61 @@
 .Schedule {
   display: flex;
+  margin-left: 52px;
+  margin-right: 65px;
   align-items: center;
   flex-direction: column;
   text-align: center;
   padding: 7px;
   border-radius: 6px;
+  position: relative;
+  background: transparent;
+  user-select: none;
 }
 
 .Schedule-row {
   display: flex;
   width: 100%;
-  max-width: 550px;
   flex-direction: row;
 }
 
 .Schedule-year-label {
-  width: 150px;
+  width: 100%;
+}
+
+.Schedule-year-labels {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Schedule .schedule-loader {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 30px;
+  z-index: 99999;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .Schedule {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 1075px) {
+  .Schedule {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .Schedule {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 950px) {
+  .Schedule {
+    margin: 0 10px;
+  }
 }

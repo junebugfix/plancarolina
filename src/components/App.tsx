@@ -17,12 +17,15 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Toolbar />
-        <div className="content">
-          <div className="search-bar-container">
-            <SearchBar />
+        <div className="content-container">
+          <div className="content-left">
+            <h1 className="main-title">Plan Carolina</h1>
+            <div className="search-bar-container">
+              <SearchBar />
+            </div>
           </div>
-          <div className="schedule-validators-container">
+          <div className="content-right">
+            <Toolbar />
             <div className="schedule-container">
               <Schedule />
             </div>
@@ -30,6 +33,7 @@ export default class App extends React.Component {
               <div className="validators-settings">
                 <Validators />
                 <Settings />
+                <div className="validators box-shadow"></div>
               </div>
             </div>
           </div>

@@ -19,19 +19,20 @@ export default class SearchBarResults extends React.Component {
   render() {
     if (uiStore.searchResults.length === 0) {
       return (
-        <div id="searchBarResults" ref={el => this.divEl = el} className="SearchBarResults">
-          <div className="search-bar-welcome">
-            <h3>Plan your UNC career</h3>
-            <p>
-              Get started by adding your major with the button above, or by searching for courses to add to your schedule.
+        <div ref={el => this.divEl = el} className="SearchBarResults">
+          <div className="undraggable search-bar-welcome">
+            <h3 className="undraggable">Plan your UNC career</h3>
+            <p className="undraggable">
+              Get started by adding your major with the button above, or by searching for courses to drag into your schedule.
             </p>
           </div>
         </div>
       )
     }
     return (
-      <div id="searchBarResults" ref={el => this.divEl = el} className="SearchBarResults">
+      <div ref={el => this.divEl = el} className="SearchBarResults">
           {uiStore.searchResults.map(res => <SearchBarResult key={`bar-result=${res.id}`} data={res} />).slice(0, uiStore.numberOfSearchResults)}
+          {!uiStore.hasAddedACourse && <div className="undraggable drag-prompt">Drag a course into your schedule {uiStore.isWideView ? '→' : '↓'}</div>}
       </div>
     )
   }
