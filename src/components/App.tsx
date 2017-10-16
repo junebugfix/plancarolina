@@ -9,11 +9,17 @@ import Footer from './Footer';
 import Settings from './Settings';
 import { observer } from 'mobx-react';
 import { uiStore } from '../UIStore';
+import { loginStore } from '../LoginStore';
 import Snackbar from 'material-ui/Snackbar';
 import { AlertPopup } from './AlertPopup'
 
 @observer
 export default class App extends React.Component {
+
+  componentDidMount() {
+    loginStore.fetchUserData()
+  }
+
   render() {
     return (
       <div className="App">

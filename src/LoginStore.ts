@@ -12,11 +12,7 @@ class LoginStore {
   name: string
   email: string
 
-  constructor() {
-    this.fetchUserData()
-  }
-
-  private fetchUserData() {
+  fetchUserData() {
     let userToken = Cookies.get('token')
     if (!userToken) {
       uiStore.isLoadingSchedule = false
