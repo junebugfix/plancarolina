@@ -46,7 +46,7 @@ class UIStore {
   @observable searchGeneds: string[] = []
 
   @observable searchResults: CourseData[] = []
-  @observable numberOfSearchResults = 10
+  @observable numberOfSearchResults = this.isWideView ? 10 : 9
 
   @observable windowWidth = window.innerWidth
 
@@ -87,9 +87,9 @@ class UIStore {
     
     window.addEventListener('resize', e => {
       this.windowWidth = window.innerWidth
-      if (this.isWideView && this.numberOfSearchResults !== 8) {
-        this.numberOfSearchResults = 8
-      } else if (!this.isWideView && this.numberOfSearchResults !== 9 && this.hasAddedACourse) {
+      if (this.isWideView && this.numberOfSearchResults !== 10) {
+        this.numberOfSearchResults = 10
+      } else if (!this.isWideView && this.numberOfSearchResults !== 9) {
         this.numberOfSearchResults = 9
       }
     })
