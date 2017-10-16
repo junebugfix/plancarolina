@@ -1,0 +1,632 @@
+[{"department": "BUSI", "number": "89. ", "gen eds": "", "requirements": "", "description": "irst-Year Seminar: Special Topics. 3 Credits. Special topics course. Content will vary each semester. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 6 total credits. 2 total completions. "}, {"department": "BUSI", "number": "101", "gen eds": "", "requirements": "", "description": "Management Accounting. 4 Credits. Elements of accounting for management planning, budgeting, and control. Emphasis is on management uses of accounting information. Students may not receive credit for both BUSI 101 and BUSI 106, 107, or 108. "}, {"department": "BUSI", "number": "106", "gen eds": "", "requirements": "Pre- or corequisite, ECON 101. ", "description": "Financial Accounting CS. 3 Credits. Offered online by Continuing Studies. UNC-Chapel Hill business majors/minors may not take BUSI 106. Role of accounting, basic concepts and methodology, mass data processing, valuation and income determination principles, management and internal control problems, and basic financial statement components. Students may not receive credit for BUSI 106 and BUSI 101. "}, {"department": "BUSI", "number": "107", "gen eds": "", "requirements": "", "description": "Management Accounting SS. 3 Credits. Offered in summer school only. Elements of accounting for management planning, budgeting, and control. Emphasis is on management uses of accounting information. Students may not receive credit for both BUSI 107 and BUSI 101 or 108. "}, {"department": "BUSI", "number": "108", "gen eds": "", "requirements": "", "description": "Management Accounting CS. 3 Credits. Offered online by Continuing Studies. UNC-Chapel Hill business majors/minors may not take BUSI 108. May be taken before, after, or concurrently with BUSI 106. Elements of accounting for management planning, budgeting, and control. Emphasis is on management uses of accounting information. Students may not receive credit for both BUSI 108 and BUSI 101 or 107. "}, {"department": "BUSI", "number": "188", "gen eds": "", "requirements": "", "description": "Foundations of Leadership: Discovering Your Strengths. 1.5 Credit. This course introduces the concepts of strengths-based leadership development to help uncover strengths and maximize potential for overall success. Students will learn how to con[
+  {
+    "department": "BUSI",
+    "number": "89. ",
+    "gen eds": "",
+    "requirements": "",
+    "description": "irst-Year Seminar: Special Topics. 3 Credits. Special topics course. Content will vary each semester. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 6 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "101",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Management Accounting. 4 Credits. Elements of accounting for management planning, budgeting, and control. Emphasis is on management uses of accounting information. Students may not receive credit for both BUSI 101 and BUSI 106, 107, or 108. "
+  },
+  {
+    "department": "BUSI",
+    "number": "106",
+    "gen eds": "",
+    "requirements": "Pre- or corequisite, ECON 101. ",
+    "description": "Financial Accounting CS. 3 Credits. Offered online by Continuing Studies. UNC-Chapel Hill business majors/minors may not take BUSI 106. Role of accounting, basic concepts and methodology, mass data processing, valuation and income determination principles, management and internal control problems, and basic financial statement components. Students may not receive credit for BUSI 106 and BUSI 101. "
+  },
+  {
+    "department": "BUSI",
+    "number": "107",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Management Accounting SS. 3 Credits. Offered in summer school only. Elements of accounting for management planning, budgeting, and control. Emphasis is on management uses of accounting information. Students may not receive credit for both BUSI 107 and BUSI 101 or 108. "
+  },
+  {
+    "department": "BUSI",
+    "number": "108",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Management Accounting CS. 3 Credits. Offered online by Continuing Studies. UNC-Chapel Hill business majors/minors may not take BUSI 108. May be taken before, after, or concurrently with BUSI 106. Elements of accounting for management planning, budgeting, and control. Emphasis is on management uses of accounting information. Students may not receive credit for both BUSI 108 and BUSI 101 or 107. "
+  },
+  {
+    "department": "BUSI",
+    "number": "188",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Foundations of Leadership: Discovering Your Strengths. 1.5 Credit. This course introduces the concepts of strengths-based leadership development to help uncover strengths and maximize potential for overall success. Students will learn how to connect these strengths to all areas of life, including, but not limited to, their academic journey as well as their future career path. "
+  },
+  {
+    "department": "BUSI",
+    "number": "189",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Introduction to Careers in Business. 1.5 Credit. This course gives students an overview of the career options in business. This overview provides an understanding of the foundations of business and allows students to reflect on what specific business areas they might want to pursue. "
+  },
+  {
+    "department": "BUSI",
+    "number": "201",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business in Europe. 0.5-15 Credits. Business in Europe Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "202",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business in East Asia. 0.5-15 Credits. Business in East Asia Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "203",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business in South Asia. 0.5-15 Credits. Business in South Asia Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "204",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business in Latin America. 0.5-15 Credits. Business in Latin America Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "205",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business in the Middle East. 0.5-15 Credits. Business in the Middle East Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "206",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business in Africa. 0.5-15 Credits. Business in Africa Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "207",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business in Oceania. 0.5-15 Credits. Business in Oceania Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "401",
+    "gen eds": "CI. ",
+    "requirements": "",
+    "description": "Management and Corporate Communication. 3 Credits. Open to business majors. Writing- and speaking-intensive course that emphasizes professional communication. Provides opportunities to learn and apply the conventions and expectations for standard business documents and presentations. Features strategies for addressing informative, persuasive, and bad-news messages using a variety of media (print documents, electronic messages, and oral presentations). "
+  },
+  {
+    "department": "BUSI",
+    "number": "403",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Operations Management. 3 Credits. Analysis of the operations functions in both manufacturing and service organizations. Formulating operational policies that improve efficiency and support high-level business strategy. Developing remedies that mitigate uncertainty and variability in operational processes. "
+  },
+  {
+    "department": "BUSI",
+    "number": "404",
+    "gen eds": "",
+    "requirements": "",
+    "description": "The Legal and Ethical Environment of Business. 1.5 Credit. An introduction to the legal system and an examination of ethical issues that affect business. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 3 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "405",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Leading and Managing: An Introduction to Organizational Behavior. 3 Credits. An introduction to leading and managing in organizations. Examines the impact of individual, group, and organizational factors on organizational performance and employee attitudes. Topics include leadership, perceptions, attitudes, motivation, group development, norms and cohesiveness, empowerment, conflict, negotiations, culture, structure, stress, innovation, and change. "
+  },
+  {
+    "department": "BUSI",
+    "number": "406",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Marketing. 3 Credits. Introduction to marketing with emphasis on the social and economic aspects of distribution, consumer problems, marketing functions and institutions, marketing methods and policies. "
+  },
+  {
+    "department": "BUSI",
+    "number": "407",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Financial Accounting and Analysis. 3 Credits. Students will acquire the tools to understand and analyze information presented in corporate financial statements. Financial accounting results and projected results are utilized in virtually every segment of the business world. Knowledge of financial accounting and analysis is necessary for managers, investors, bankers, financial analysts, and professional accountants. "
+  },
+  {
+    "department": "BUSI",
+    "number": "408",
+    "gen eds": "",
+    "requirements": "Prerequisites, BUSI 101 and ECON 101. ",
+    "description": "Corporate Finance. 3 Credits. Theoretical foundations of optimal financial policy. Problems and cases provide application of theory to financial decisions involving cash flow, capital structure, capital budgeting. "
+  },
+  {
+    "department": "BUSI",
+    "number": "409",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Advanced Corporate Finance. 1.5 Credit. A follow-up course to BUSI 408 that goes more deeply into the theory and application of financial management. Emphasis is placed on investment, financing, and dividend decisions. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "410",
+    "gen eds": "",
+    "requirements": "Prerequisite, STOR 155. ",
+    "description": "Business Analytics. 3 Credits. While witnessing an explosion of data, most organizations tend to be awash with data but short on information. This course exposes students to techniques that will help them impact on an organization's strategy, planning, and operations, working on applications spanning a number of fields, including operations management, finance, and marketing. "
+  },
+  {
+    "department": "BUSI",
+    "number": "411",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Strategic Management at the Business Level. 1.5 Credit. Students analyze sources of competitive success in business organizations using case analysis and written reports to develop analytical reasoning skills for assessing forward looking opportunities for the company. The emphasis is on industry analysis and organizational analysis and the development and management of firm specific competencies for successful growth. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 3 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "412",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 411. ",
+    "description": "Strategic Management in the Modern Corporation. 1.5 Credit. Students study the development of alternate forms of corporate-level diversification, with an emphasis on understanding the varied paths of corporate development. There is a focus on the challenges of integrating activities across diversified corporations and the tools to manage firms through the transitions that signal a change in strategy. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 3 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "463",
+    "gen eds": "PH, CI. ",
+    "requirements": "",
+    "description": "Business and the Environment. 3 Credits. This course explores the intersection of business/economic growth and the major sustainability issues affecting the environment and societal well-being and raises questions about business ethics and the moral responsibility of business leaders, consumers, and citizens. Previously offered as ENEC 306. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "490",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business Topics. 1.5 Credit. Varied topics in business administration. Honors version available Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 6 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "493",
+    "gen eds": "EE-Academic Internship. ",
+    "requirements": "",
+    "description": "Business Internship Project I. 3 Credits. Permission of the department. With prior approval, a student may propose and complete an academic research project (paper and presentation) derived from an internship experience. "
+  },
+  {
+    "department": "BUSI",
+    "number": "496",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Independent Study in Business. 1.5-3 Credits. Permission of the department. Supervised individual study and research in the student's special field of interest. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 3 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "500",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Entrepreneurship and Business Planning. 3 Credits. Students gain an understanding of entrepreneurship and the tools and skills necessary to conceive, plan, execute, and scale a successful new venture. Students develop business ventures in teams through an experiential pedagogy. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "501",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 406. ",
+    "description": "Professional Selling Strategies and Skills. 3 Credits. Critical concepts and skills for selling products and services, and influencing others in business. Applicable to people considering sales or consulting as a career; to those thinking of starting an entrepreneurial company; or for those who want to understand how to influence peers, subordinates, and management. "
+  },
+  {
+    "department": "BUSI",
+    "number": "503",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Family Business I: Introduction to Family Enterprise. 1.5 Credit. Helps the student understand the evolutionary stages in the life of a family business and the challenges and opportunities that must be managed at each stage "
+  },
+  {
+    "department": "BUSI",
+    "number": "504",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 500. ",
+    "description": "Launching the Venture. 1.5 Credit. This is a cross-campus course for exceptional students, staff, and faculty, designed to help launch UNC-Chapel Hill start-ups. Only for students serious about launching in the next nine to 12 months. Admission by online application. More information at www.launch.unc.edu. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 6 total credits. 4 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "505",
+    "gen eds": "EE-Field Work. ",
+    "requirements": "",
+    "description": "Consulting to Entrepreneurial Firms. 3 Credits. Student teams engage in consulting projects to help local start-ups tackle entrepreneurial challenges. Data is collected through fieldwork, such as client meetings, customer surveys, interviews with thought leaders, site visits, product tests, and/or focus groups. "
+  },
+  {
+    "department": "BUSI",
+    "number": "506",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Venture Capital and Start-Ups. 3 Credits. An introduction to the tools and skills necessary to recognize opportunities in high tech, biotech, and traditional start-ups. Local entrepreneurs come to class to pitch to students, who analyze the start-ups from the perspective of venture capitalists. "
+  },
+  {
+    "department": "BUSI",
+    "number": "507",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Sustainable Business and Social Entrepreneurship. 3 Credits. Examines what it means to pursue business success as measured by the triple-bottom line of people, planet, and profit. Focuses on strategies that companies implement to reduce environmental impact internally and through the supply chain. Examines the responsibility of business to employees, consumers, the local community, and society at large. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "512",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Family Business II: Governance and Ownership. 1.5 Credit. Recommended preparation, completion of BUSI 503. Helps the student understand specific ownership, stewardship, tax, transition, and wealth management issues that affect family enterprises. "
+  },
+  {
+    "department": "BUSI",
+    "number": "514",
+    "gen eds": "EE-Field Work. ",
+    "requirements": "Pre- or corequisite, BUSI 554. ",
+    "description": "STAR. 4.5 Credits. Student Teams Achieving Results (STAR) is a live management consulting project that leverages and integrates UNC Kenan-Flagler course curricula. Teams of five to seven M.B.A. and undergraduate students and one faculty member work with major corporations or not-for-profit entities to solve a major strategic issue. Honors version available Repeat rules: May be repeated for credit. 9 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "517",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Private Equity and Debt Markets. 1.5 Credit. The objective of this course is to examine the changing world of private equity investments today. This is a survey course and will help prepare you to work for private equity and venture capital funds or to work for investment banks. "
+  },
+  {
+    "department": "BUSI",
+    "number": "518",
+    "gen eds": "",
+    "requirements": "Prerequisites, BUSI 502 and 517. ",
+    "description": "Applied Private Equity. 3 Credits. Permission of the instructor. Explores, at a very advanced level, all stages of the management of a venture capital and private equity fund, from capital formation, deal sourcing, due diligence, monitoring and adding value, and exiting of a portfolio company. Honors version available Repeat rules: May be repeated for credit. 9 total credits. 3 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "519",
+    "gen eds": "EE-Field Work. ",
+    "requirements": "",
+    "description": "STAR--Global. 4.5 Credits. A global, live management consulting project that integrates other curricula and students (UNC and beyond). Teams of graduate and undergraduate students and one faculty member work to solve a major strategic issue. Team members participate in a three-day training weekend, virtual teaming, and two weeks of in-country project work. Honors version available Repeat rules: May be repeated for credit. 9 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "520",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Advanced Spreadsheet Modeling for Business. 3 Credits. Primarily an online class. Use critical thinking and advanced Excel features to create spreadsheet models of common business problems. Topics include flexible design, problem solving, statistical analysis, charting, logic, reference functions, financial analysis, organizing data for complex analysis, what-if analysis, enhanced decision-making tools, troubleshooting workbooks, and VBA. "
+  },
+  {
+    "department": "BUSI",
+    "number": "524",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Applied Improvisation for Business Communication. 3 Credits. Focuses on improving students' soft skills, such as presenting, expressiveness, and interviewing, by applying the principles and techniques of improvisational theater. Participants explore creativity, adaptation, awareness, self-confidence, risk taking, physicality, intuition, and teamwork. Students can stretch their abilities and discover things about themselves and others that are crucial to success. "
+  },
+  {
+    "department": "BUSI",
+    "number": "525",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 401. ",
+    "description": "Advanced Business Presentations. 1.5 Credit. This course is grounded in argument, persuasion, and visual rhetoric to give students skills needed to develop winning presentations. Students learn strategies to help their messages \"stick\" with their audiences and to develop slide decks for the boardroom and advanced media devices. The course emphasizes efficiency in presentation preparation. "
+  },
+  {
+    "department": "BUSI",
+    "number": "526",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Leadership in Action. 3 Credits. Permission of the department. Provides student leaders with practical leadership frameworks and tools; creates opportunities to apply these on the job as leaders; and provides individualized coaching, feedback, and mentoring.  This is an applied learning course taught by a seasoned practitioner designed to accelerate each student's development and growth. "
+  },
+  {
+    "department": "BUSI",
+    "number": "532",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 403. ",
+    "description": "Service Operations. 3 Credits. Studies key challenges in effective service delivery through the analysis of staffing and scheduling, customer waiting, and revenue management. Case studies illustrate examples of effective service design and delivery in various service industries including professional services, banking, health care, hospitality, and entertainment. A simulation project is used. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "533",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 403. ",
+    "description": "Supply Chain Management. 3 Credits. Analyzes the key drivers of supply chain performance including inventories, transportation, information technology, and sourcing. Studies strategies for supply chain coordination, and challenges and opportunities in global supply chains. A supply chain simulation is used. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "534",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business Modeling with Excel. 3 Credits. Provides a broad scope of analytic experience across corporate functions that is beneficial in consulting environments. "
+  },
+  {
+    "department": "BUSI",
+    "number": "536",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 403. ",
+    "description": "Project Management. 1.5 Credit. Permission of the department. This course prepares students to take part in and lead projects effectively. The goal is to equip individuals across any career concentration rather than extend the expertise of project-management specialists. Students may not receive credit for both BUSI 536 and MBA 710. "
+  },
+  {
+    "department": "BUSI",
+    "number": "537",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 403. ",
+    "description": "Retail Operations. 1.5 Credit. Permission of the department. Examines developments in retailing and operations management principles applicable to these developments. Topics: consumer behavior, demand forecasting, logistics and distribution, store execution, international retailing, internet-based retailing, performance assessment, and impact on financial performance. Students may not receive credit for both BUSI 537 and MBA 708. "
+  },
+  {
+    "department": "BUSI",
+    "number": "538",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 403. ",
+    "description": "Sustainable Operations. 1.5 Credit. This course explores the link between sustainability and the operations function of a firm. The course focuses on the following activities: product and process design; manufacturing; transportation; logistics and distribution; closed-loop/after-sales operations such as recycling, remanufacturing, and reuse; supply chain management. "
+  },
+  {
+    "department": "BUSI",
+    "number": "539",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 403. ",
+    "description": "Health Care Operations. 1.5 Credit. Permission of the department. Students apply principles and tools of operations management to explore improvement opportunities in the design, delivery, and management of the health care value chain. The course examines the health care operation from the perspective of operations metrics such as cost, quality, time (access), and variety/customization. "
+  },
+  {
+    "department": "BUSI",
+    "number": "545",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 405. ",
+    "description": "Negotiations. 1.5 Credit. This course enables students to develop their expertise in managing negotiations. It integrates existing theory and research with personal experiences and ideas. Using hands-on exercises, readings, and lively discussions, students build and hone their ability to understand, adapt to, and evaluate the personal, social, and situational dynamics of negotiations. "
+  },
+  {
+    "department": "BUSI",
+    "number": "554",
+    "gen eds": "",
+    "requirements": "Pre- or corequisite, BUSI 408. ",
+    "description": "Consulting Skills and Frameworks. 3 Credits. Permission of the instructor. The course is dedicated to teaching the core skills for success in consulting and business in general: teamwork, analysis, and presentations. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "555",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 405. ",
+    "description": "Groups and Teams in Organizations. 1.5 Credit. Examines the design, management, and leadership of teams in organizational settings. Focus is on the interpersonal processes and structural characteristics that influence the effectiveness of teams, individual behavior in face-to-face interactions, and the dynamics of interpersonal relationships. "
+  },
+  {
+    "department": "BUSI",
+    "number": "562",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 406. ",
+    "description": "Consumer Behavior. 3 Credits. Review of conceptual models and empirical research in consumer behavior. Topics include decision processes, social and cultural influences, information processing, and ethical issues. "
+  },
+  {
+    "department": "BUSI",
+    "number": "564",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 406. ",
+    "description": "New Product Development. 3 Credits. The course concentrates on the fuzzy front end of the innovation process, focusing on tools and techniques to uncover consumer insights (needs). The design thinking process is emphasized as part of a semester-long team project. Other topics explored include creativity, intellectual property basics, prototyping, and Innovation 2.0. "
+  },
+  {
+    "department": "BUSI",
+    "number": "566",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 406. ",
+    "description": "Marketing Strategy. 3 Credits. The objective of this course is to understand and practice the strategic decision-making process in a dynamic competitive environment. The course builds on the foundations of marketing, and is based on lectures, cases, and computer simulations. "
+  },
+  {
+    "department": "BUSI",
+    "number": "568",
+    "gen eds": "",
+    "requirements": "Prerequisites, BUSI 406 and 410. ",
+    "description": "Marketing Analysis and Decision Making. 3 Credits. Marketing analytics is a systematic approach to harnessing these data to drive effective marketing decision making. We will learn to analyze historical data, market research data, and competitive information for making strategic marketing decisions. This course will be extensively based on case analysis and hands-on exercises. "
+  },
+  {
+    "department": "BUSI",
+    "number": "572",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 570. ",
+    "description": "Business Taxation. 1.5 Credit. Permission of the department. Required in spring semester for senior B.S.B.A.s who are admitted to the Kenan-Flagler Master of Accounting Program. Provides students with an initial understanding of the basic framework of the United States income tax system as it applies to businesses. "
+  },
+  {
+    "department": "BUSI",
+    "number": "580",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Investments. 3 Credits. A survey of investment principles and practices. Emphasis is given to the problems of security analysis and portfolio management with special attention to the investment problems of the individual investor. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "582",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Mergers and Acquisitions. 3 Credits. Through lectures, case studies, and guest speakers, this course will cover all aspects of mergers and acquisitions from strategy to post-merger integration with an emphasis on valuation. Related activities such as hostile takeovers, private equity deals, and international acquisitions will also be discussed. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "583",
+    "gen eds": "",
+    "requirements": "Prerequisites, BUSI 407, 408, 520, and 580. ",
+    "description": "Applied Investment Management. 3 Credits. Permission of the department. Year-long course. A live, student-managed investment fund with real dollars and fiduciary responsibility to the UNC Foundation. Emphasis is on the decisions that must be made by and/or for the ultimate investor and the analytic tools and empirical evidence that can help inform such decisions. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "584",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Financial Modeling. 3 Credits. Skill development in constructing financial models for analyzing problems with decisions faced by financial professionals. Analyzing historical performance, forecasting free cash flows, estimating discount rates, determining terminal value, identifying other sources of value, and interpreting results in a dynamic setting. "
+  },
+  {
+    "department": "BUSI",
+    "number": "585",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Introduction to Real Estate. 3 Credits. An overview of residential and commercial real estate. This survey course examines 1) buying a house and constructing a portfolio of single-family rental houses, 2) commercial real estate product types, 3) amortization, cash flows, capital expenditures, cap rates, debt and equity, hurdle rates and taxes, 4) investment analysis, 5) acquisition, development, operation, and disposition, 6) real estate and contract law, and 7) the partnership negotiation process. "
+  },
+  {
+    "department": "BUSI",
+    "number": "586",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Personal Finance. 1.5 Credit. Introduces and broadens the concept of personal finance and increases understanding of the process of accumulating and protecting personal wealth. Students learn to identify and analyze risk and return relationships, understand investment alternatives and how strategies develop as life situations mature, and gain understanding of retirement planning and effectively transferring wealth. "
+  },
+  {
+    "department": "BUSI",
+    "number": "587",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Investment Banking. 1.5 Credit. Permission of the instructor and confirmed offer of investment banking analyst internship or full-time job. This course prepares students for investment banking positions and internships. The focus of the class is on financial modeling, general knowledge of banking, and what it takes to succeed in the industry. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "588",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Introduction to Derivative Securities and Risk Management. 1.5 Credit. Introduction to derivative securities instruments (options and futures) and applications in investments and corporate finance. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "589",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Fixed Income. 1.5 Credit. The course covers traditional bonds and term structure concepts as well as fixed income derivatives and interest rate modeling. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "590",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Business Seminar. 3 Credits. Completion of requisite core course(s) and permission of the instructor required. Selected topics in business administration presented in seminar format with students engaged in individual and team study under the supervision of a member of the faculty. Honors version available Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 3 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "591",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Behavioral Finance. 1.5 Credit. Completion of BUSI 409 recommended. An abundance of evidence suggests that the standard economic paradigm, \"rational agents in an efficient market,\" does not adequately describe behavior in financial markets. This course will survey the evidence and use psychology to guide alternative theories of financial markets. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "592",
+    "gen eds": "",
+    "requirements": "Prerequisites, BUSI 601 and 603. ",
+    "description": "Applied Private Equity: Real Estate. 1.5 Credit. Permission of the instructor. This course explores, at a very advanced level, all stages of the management of a real estate private equity fund: from capital formation, deal sourcing, due diligence, monitoring and adding value, and exiting of the fund's real estate holdings. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 6 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "593",
+    "gen eds": "EE-Academic Internship. ",
+    "requirements": "",
+    "description": "Business Internship Project II. 3 Credits. Permission of the department. This course provides students with a format for reflection while performing a professional internship that enhances their ability to achieve career objectives. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "598",
+    "gen eds": "",
+    "requirements": "Prerequisites, BUSI 408, and 580 or 588. ",
+    "description": "Alternative Investments. 1.5 Credit. Permission of the instructor. Open to seniors only. Exposes students to the benefits, opportunities, and risks of incorporating alternative investments into managed institutional investment portfolios, including pension funds, endowments, and foundations. "
+  },
+  {
+    "department": "BUSI",
+    "number": "600",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Risk Management. 1.5 Credit. Permission of the instructor. Open to seniors only. Develops methods for applied analysis of financial and operational risk. "
+  },
+  {
+    "department": "BUSI",
+    "number": "601",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Real Estate Finance. 1.5 Credit. This course will focus on the different ways to finance real property, and how different financing techniques impact the feasibility and investment benefits for equity investors. Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "602",
+    "gen eds": "",
+    "requirements": "Corequisite, BUSI 408. ",
+    "description": "Strategic Economics. 1.5 Credit. This course focuses on decision making in the presence of strategic interaction. Students will apply game theory to yield insights into business decisions. Topics covered include pricing, entry, product market competition, first-mover advantage, capital budgeting, antitrust law, corporate governance, auctions, and mergers. "
+  },
+  {
+    "department": "BUSI",
+    "number": "603",
+    "gen eds": "",
+    "requirements": "Prerequisites, BUSI 408 and 585. ",
+    "description": "Real Estate Development. 1.5 Credit. This course is designed to introduce undergraduate students to the financial and economic analysis of real estate development. The course will focus on both the physical and financial dimensions of the real estate development process. The course considers multiple asset classes, and students learn to complete financial analysis of real estate development projects. "
+  },
+  {
+    "department": "BUSI",
+    "number": "604",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Real Estate and Capital Markets. 1.5 Credit. Introduces students to the capital markets for financing real estate assets. Topics include an overview of real estate as an asset class in the US economy, risk and return in real estate markets, the economics of discount and capitalization rates, the market for mortgage-backed securities (with a peek into the role that these instruments played in the recent financial crisis), and the valuation/analysis of Real Estate Investment Trusts (REITs). Honors version available "
+  },
+  {
+    "department": "BUSI",
+    "number": "610",
+    "gen eds": "GL. ",
+    "requirements": "",
+    "description": "Global Environment of Business. 3 Credits. Issues in operating overseas, including analyses of differences in country settings, legal and economic systems, and governmental policies affecting foreign operations. Studies trade theory, country groupings, and financial issues; managing operations in foreign lands; exporting. "
+  },
+  {
+    "department": "BUSI",
+    "number": "611",
+    "gen eds": "GL. ",
+    "requirements": "",
+    "description": "International Development. 3 Credits. Poverty is part of life for most of the world's population, with half living on less than two dollars a day. Course focuses on understanding this from a business school perspective. Looks at institutional failures that contribute to persistent poverty and the multiple roles managers can play in reducing poverty. "
+  },
+  {
+    "department": "BUSI",
+    "number": "617",
+    "gen eds": "GL. ",
+    "requirements": "Prerequisite, BUSI 406. ",
+    "description": "Global Marketing. 3 Credits. Examination of the problems involved in marketing products and services across national boundaries. Problem issues include culture, ideology, economics, technical standards, and currency movements. "
+  },
+  {
+    "department": "BUSI",
+    "number": "618",
+    "gen eds": "",
+    "requirements": "Prerequisite, BUSI 408. ",
+    "description": "Global Financial Markets. 1.5 Credit. Develops the foundation for financial decisions in a global economic environment. Extends the analytical concepts and tools learned in introductory investment and corporate finance courses to multicountry/multicurrency settings. Covers three major areas: the economics of exchange rates, international money and capital markets, and international corporate finance. "
+  },
+  {
+    "department": "BUSI",
+    "number": "623",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Global Entrepreneurship I. 1.5 Credit. The course ranges from developing the creative mindset, ideation, development/manufacturing, marketing, selling, and managing. The course places heavy emphasis on doing and collaborating rather than listening passively: 1) dream: design process, 2) think: feasibility, 3) create: product development and manufacturing, and 4) tell: marketing. Restricted to GLOBE students. "
+  },
+  {
+    "department": "BUSI",
+    "number": "624",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Global Entrepreneurship II. 3 Credits. The course ranges from developing the creative mindset, ideation, development/manufacturing, marketing, selling, and managing. The course places heavy emphasis on doing and collaborating rather than listening passively. 1) sell: sales; 2) run: management, finance and fundraising; and 3) launch Chapel Hill projects. Restricted to GLOBE students. "
+  },
+  {
+    "department": "BUSI",
+    "number": "650",
+    "gen eds": "EE-Field Work. ",
+    "requirements": "",
+    "description": "Symposium Core Committee. 1.5-3 Credits. Permission of the instructor. Service on the B.S.B.A. Symposium Core Committee to plan, execute, and evaluate the annual event. "
+  },
+  {
+    "department": "BUSI",
+    "number": "653",
+    "gen eds": "",
+    "requirements": "",
+    "description": "Applied Learning: Symposium Core Committee. 1.5 Credit. Permission of the department. This course is by invitation only to students who previously served on the Undergraduate Business Symposium core committee. As senior advisors, students practice the leadership, organization, delegation, communication, and teamwork skills that they learn about in their other courses. Repeat rules: May be repeated for credit. 3 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "688",
+    "gen eds": "",
+    "requirements": "Prerequisites, BUSI 408 and 588. ",
+    "description": "Applied Derivatives. 1.5 Credit. This seminar style course develops a set of financial tools useful for trading primary and derivative securities with the goal of obtaining specific exposures in equity, fixed income, and commodity markets. The course examines methods for managing financial price risk of positions and how hedge funds use derivatives in practice. Honors version available Repeat rules: May be repeated for credit. 3 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "691H",
+    "gen eds": "",
+    "requirements": "",
+    "description": " Honors Research Proposal. 3 Credits. Permission of the department. Open to senior business administration majors with a minimum 3.5 grade point average in business courses. Students learn business research techniques and develop individual proposals for business research. Successful proposals may advance to honors thesis research and writing (BUSI 692H). Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "
+  },
+  {
+    "department": "BUSI",
+    "number": "692H",
+    "gen eds": "EE-Mentored Research. ",
+    "requirements": "Prerequisite, BUSI 691H. ",
+    "description": " Honors Thesis. 3 Credits. Permission of the department. Open to senior business majors with a minimum 3.5 grade point average in business courses. Original investigation of a topic in business and preparation of a substantive research project under the direction of a faculty advisor. Written essay and oral presentation are required. "
+  }
+]nect these strengths to all areas of life, including, but not limited to, their academic journey as well as their future career path. "}, {"department": "BUSI", "number": "189", "gen eds": "", "requirements": "", "description": "Introduction to Careers in Business. 1.5 Credit. This course gives students an overview of the career options in business. This overview provides an understanding of the foundations of business and allows students to reflect on what specific business areas they might want to pursue. "}, {"department": "BUSI", "number": "201", "gen eds": "", "requirements": "", "description": "Business in Europe. 0.5-15 Credits. Business in Europe Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "}, {"department": "BUSI", "number": "202", "gen eds": "", "requirements": "", "description": "Business in East Asia. 0.5-15 Credits. Business in East Asia Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "}, {"department": "BUSI", "number": "203", "gen eds": "", "requirements": "", "description": "Business in South Asia. 0.5-15 Credits. Business in South Asia Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "}, {"department": "BUSI", "number": "204", "gen eds": "", "requirements": "", "description": "Business in Latin America. 0.5-15 Credits. Business in Latin America Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "}, {"department": "BUSI", "number": "205", "gen eds": "", "requirements": "", "description": "Business in the Middle East. 0.5-15 Credits. Business in the Middle East Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "}, {"department": "BUSI", "number": "206", "gen eds": "", "requirements": "", "description": "Business in Africa. 0.5-15 Credits. Business in Africa Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "}, {"department": "BUSI", "number": "207", "gen eds": "", "requirements": "", "description": "Business in Oceania. 0.5-15 Credits. Business in Oceania Repeat rules: May be repeated for credit. 15 total credits. 4 total completions. "}, {"department": "BUSI", "number": "401", "gen eds": "CI. ", "requirements": "", "description": "Management and Corporate Communication. 3 Credits. Open to business majors. Writing- and speaking-intensive course that emphasizes professional communication. Provides opportunities to learn and apply the conventions and expectations for standard business documents and presentations. Features strategies for addressing informative, persuasive, and bad-news messages using a variety of media (print documents, electronic messages, and oral presentations). "}, {"department": "BUSI", "number": "403", "gen eds": "", "requirements": "", "description": "Operations Management. 3 Credits. Analysis of the operations functions in both manufacturing and service organizations. Formulating operational policies that improve efficiency and support high-level business strategy. Developing remedies that mitigate uncertainty and variability in operational processes. "}, {"department": "BUSI", "number": "404", "gen eds": "", "requirements": "", "description": "The Legal and Ethical Environment of Business. 1.5 Credit. An introduction to the legal system and an examination of ethical issues that affect business. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 3 total credits. 2 total completions. "}, {"department": "BUSI", "number": "405", "gen eds": "", "requirements": "", "description": "Leading and Managing: An Introduction to Organizational Behavior. 3 Credits. An introduction to leading and managing in organizations. Examines the impact of individual, group, and organizational factors on organizational performance and employee attitudes. Topics include leadership, perceptions, attitudes, motivation, group development, norms and cohesiveness, empowerment, conflict, negotiations, culture, structure, stress, innovation, and change. "}, {"department": "BUSI", "number": "406", "gen eds": "", "requirements": "", "description": "Marketing. 3 Credits. Introduction to marketing with emphasis on the social and economic aspects of distribution, consumer problems, marketing functions and institutions, marketing methods and policies. "}, {"department": "BUSI", "number": "407", "gen eds": "", "requirements": "", "description": "Financial Accounting and Analysis. 3 Credits. Students will acquire the tools to understand and analyze information presented in corporate financial statements. Financial accounting results and projected results are utilized in virtually every segment of the business world. Knowledge of financial accounting and analysis is necessary for managers, investors, bankers, financial analysts, and professional accountants. "}, {"department": "BUSI", "number": "408", "gen eds": "", "requirements": "Prerequisites, BUSI 101 and ECON 101. ", "description": "Corporate Finance. 3 Credits. Theoretical foundations of optimal financial policy. Problems and cases provide application of theory to financial decisions involving cash flow, capital structure, capital budgeting. "}, {"department": "BUSI", "number": "409", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Advanced Corporate Finance. 1.5 Credit. A follow-up course to BUSI 408 that goes more deeply into the theory and application of financial management. Emphasis is placed on investment, financing, and dividend decisions. Honors version available "}, {"department": "BUSI", "number": "410", "gen eds": "", "requirements": "Prerequisite, STOR 155. ", "description": "Business Analytics. 3 Credits. While witnessing an explosion of data, most organizations tend to be awash with data but short on information. This course exposes students to techniques that will help them impact on an organization's strategy, planning, and operations, working on applications spanning a number of fields, including operations management, finance, and marketing. "}, {"department": "BUSI", "number": "411", "gen eds": "", "requirements": "", "description": "Strategic Management at the Business Level. 1.5 Credit. Students analyze sources of competitive success in business organizations using case analysis and written reports to develop analytical reasoning skills for assessing forward looking opportunities for the company. The emphasis is on industry analysis and organizational analysis and the development and management of firm specific competencies for successful growth. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 3 total credits. 2 total completions. "}, {"department": "BUSI", "number": "412", "gen eds": "", "requirements": "Prerequisite, BUSI 411. ", "description": "Strategic Management in the Modern Corporation. 1.5 Credit. Students study the development of alternate forms of corporate-level diversification, with an emphasis on understanding the varied paths of corporate development. There is a focus on the challenges of integrating activities across diversified corporations and the tools to manage firms through the transitions that signal a change in strategy. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 3 total credits. 2 total completions. "}, {"department": "BUSI", "number": "463", "gen eds": "PH, CI. ", "requirements": "", "description": "Business and the Environment. 3 Credits. This course explores the intersection of business/economic growth and the major sustainability issues affecting the environment and societal well-being and raises questions about business ethics and the moral responsibility of business leaders, consumers, and citizens. Previously offered as ENEC 306. Honors version available "}, {"department": "BUSI", "number": "490", "gen eds": "", "requirements": "", "description": "Business Topics. 1.5 Credit. Varied topics in business administration. Honors version available Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 6 total completions. "}, {"department": "BUSI", "number": "493", "gen eds": "EE-Academic Internship. ", "requirements": "", "description": "Business Internship Project I. 3 Credits. Permission of the department. With prior approval, a student may propose and complete an academic research project (paper and presentation) derived from an internship experience. "}, {"department": "BUSI", "number": "496", "gen eds": "", "requirements": "", "description": "Independent Study in Business. 1.5-3 Credits. Permission of the department. Supervised individual study and research in the student's special field of interest. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 3 total credits. 2 total completions. "}, {"department": "BUSI", "number": "500", "gen eds": "", "requirements": "", "description": "Entrepreneurship and Business Planning. 3 Credits. Students gain an understanding of entrepreneurship and the tools and skills necessary to conceive, plan, execute, and scale a successful new venture. Students develop business ventures in teams through an experiential pedagogy. Honors version available "}, {"department": "BUSI", "number": "501", "gen eds": "", "requirements": "Prerequisite, BUSI 406. ", "description": "Professional Selling Strategies and Skills. 3 Credits. Critical concepts and skills for selling products and services, and influencing others in business. Applicable to people considering sales or consulting as a career; to those thinking of starting an entrepreneurial company; or for those who want to understand how to influence peers, subordinates, and management. "}, {"department": "BUSI", "number": "503", "gen eds": "", "requirements": "", "description": "Family Business I: Introduction to Family Enterprise. 1.5 Credit. Helps the student understand the evolutionary stages in the life of a family business and the challenges and opportunities that must be managed at each stage "}, {"department": "BUSI", "number": "504", "gen eds": "", "requirements": "Prerequisite, BUSI 500. ", "description": "Launching the Venture. 1.5 Credit. This is a cross-campus course for exceptional students, staff, and faculty, designed to help launch UNC-Chapel Hill start-ups. Only for students serious about launching in the next nine to 12 months. Admission by online application. More information at www.launch.unc.edu. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 6 total credits. 4 total completions. "}, {"department": "BUSI", "number": "505", "gen eds": "EE-Field Work. ", "requirements": "", "description": "Consulting to Entrepreneurial Firms. 3 Credits. Student teams engage in consulting projects to help local start-ups tackle entrepreneurial challenges. Data is collected through fieldwork, such as client meetings, customer surveys, interviews with thought leaders, site visits, product tests, and/or focus groups. "}, {"department": "BUSI", "number": "506", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Venture Capital and Start-Ups. 3 Credits. An introduction to the tools and skills necessary to recognize opportunities in high tech, biotech, and traditional start-ups. Local entrepreneurs come to class to pitch to students, who analyze the start-ups from the perspective of venture capitalists. "}, {"department": "BUSI", "number": "507", "gen eds": "", "requirements": "", "description": "Sustainable Business and Social Entrepreneurship. 3 Credits. Examines what it means to pursue business success as measured by the triple-bottom line of people, planet, and profit. Focuses on strategies that companies implement to reduce environmental impact internally and through the supply chain. Examines the responsibility of business to employees, consumers, the local community, and society at large. Honors version available "}, {"department": "BUSI", "number": "512", "gen eds": "", "requirements": "", "description": "Family Business II: Governance and Ownership. 1.5 Credit. Recommended preparation, completion of BUSI 503. Helps the student understand specific ownership, stewardship, tax, transition, and wealth management issues that affect family enterprises. "}, {"department": "BUSI", "number": "514", "gen eds": "EE-Field Work. ", "requirements": "Pre- or corequisite, BUSI 554. ", "description": "STAR. 4.5 Credits. Student Teams Achieving Results (STAR) is a live management consulting project that leverages and integrates UNC Kenan-Flagler course curricula. Teams of five to seven M.B.A. and undergraduate students and one faculty member work with major corporations or not-for-profit entities to solve a major strategic issue. Honors version available Repeat rules: May be repeated for credit. 9 total credits. 2 total completions. "}, {"department": "BUSI", "number": "517", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Private Equity and Debt Markets. 1.5 Credit. The objective of this course is to examine the changing world of private equity investments today. This is a survey course and will help prepare you to work for private equity and venture capital funds or to work for investment banks. "}, {"department": "BUSI", "number": "518", "gen eds": "", "requirements": "Prerequisites, BUSI 502 and 517. ", "description": "Applied Private Equity. 3 Credits. Permission of the instructor. Explores, at a very advanced level, all stages of the management of a venture capital and private equity fund, from capital formation, deal sourcing, due diligence, monitoring and adding value, and exiting of a portfolio company. Honors version available Repeat rules: May be repeated for credit. 9 total credits. 3 total completions. "}, {"department": "BUSI", "number": "519", "gen eds": "EE-Field Work. ", "requirements": "", "description": "STAR--Global. 4.5 Credits. A global, live management consulting project that integrates other curricula and students (UNC and beyond). Teams of graduate and undergraduate students and one faculty member work to solve a major strategic issue. Team members participate in a three-day training weekend, virtual teaming, and two weeks of in-country project work. Honors version available Repeat rules: May be repeated for credit. 9 total credits. 2 total completions. "}, {"department": "BUSI", "number": "520", "gen eds": "", "requirements": "", "description": "Advanced Spreadsheet Modeling for Business. 3 Credits. Primarily an online class. Use critical thinking and advanced Excel features to create spreadsheet models of common business problems. Topics include flexible design, problem solving, statistical analysis, charting, logic, reference functions, financial analysis, organizing data for complex analysis, what-if analysis, enhanced decision-making tools, troubleshooting workbooks, and VBA. "}, {"department": "BUSI", "number": "524", "gen eds": "", "requirements": "", "description": "Applied Improvisation for Business Communication. 3 Credits. Focuses on improving students' soft skills, such as presenting, expressiveness, and interviewing, by applying the principles and techniques of improvisational theater. Participants explore creativity, adaptation, awareness, self-confidence, risk taking, physicality, intuition, and teamwork. Students can stretch their abilities and discover things about themselves and others that are crucial to success. "}, {"department": "BUSI", "number": "525", "gen eds": "", "requirements": "Prerequisite, BUSI 401. ", "description": "Advanced Business Presentations. 1.5 Credit. This course is grounded in argument, persuasion, and visual rhetoric to give students skills needed to develop winning presentations. Students learn strategies to help their messages \"stick\" with their audiences and to develop slide decks for the boardroom and advanced media devices. The course emphasizes efficiency in presentation preparation. "}, {"department": "BUSI", "number": "526", "gen eds": "", "requirements": "", "description": "Leadership in Action. 3 Credits. Permission of the department. Provides student leaders with practical leadership frameworks and tools; creates opportunities to apply these on the job as leaders; and provides individualized coaching, feedback, and mentoring.  This is an applied learning course taught by a seasoned practitioner designed to accelerate each student's development and growth. "}, {"department": "BUSI", "number": "532", "gen eds": "", "requirements": "Prerequisite, BUSI 403. ", "description": "Service Operations. 3 Credits. Studies key challenges in effective service delivery through the analysis of staffing and scheduling, customer waiting, and revenue management. Case studies illustrate examples of effective service design and delivery in various service industries including professional services, banking, health care, hospitality, and entertainment. A simulation project is used. Honors version available "}, {"department": "BUSI", "number": "533", "gen eds": "", "requirements": "Prerequisite, BUSI 403. ", "description": "Supply Chain Management. 3 Credits. Analyzes the key drivers of supply chain performance including inventories, transportation, information technology, and sourcing. Studies strategies for supply chain coordination, and challenges and opportunities in global supply chains. A supply chain simulation is used. Honors version available "}, {"department": "BUSI", "number": "534", "gen eds": "", "requirements": "", "description": "Business Modeling with Excel. 3 Credits. Provides a broad scope of analytic experience across corporate functions that is beneficial in consulting environments. "}, {"department": "BUSI", "number": "536", "gen eds": "", "requirements": "Prerequisite, BUSI 403. ", "description": "Project Management. 1.5 Credit. Permission of the department. This course prepares students to take part in and lead projects effectively. The goal is to equip individuals across any career concentration rather than extend the expertise of project-management specialists. Students may not receive credit for both BUSI 536 and MBA 710. "}, {"department": "BUSI", "number": "537", "gen eds": "", "requirements": "Prerequisite, BUSI 403. ", "description": "Retail Operations. 1.5 Credit. Permission of the department. Examines developments in retailing and operations management principles applicable to these developments. Topics: consumer behavior, demand forecasting, logistics and distribution, store execution, international retailing, internet-based retailing, performance assessment, and impact on financial performance. Students may not receive credit for both BUSI 537 and MBA 708. "}, {"department": "BUSI", "number": "538", "gen eds": "", "requirements": "Prerequisite, BUSI 403. ", "description": "Sustainable Operations. 1.5 Credit. This course explores the link between sustainability and the operations function of a firm. The course focuses on the following activities: product and process design; manufacturing; transportation; logistics and distribution; closed-loop/after-sales operations such as recycling, remanufacturing, and reuse; supply chain management. "}, {"department": "BUSI", "number": "539", "gen eds": "", "requirements": "Prerequisite, BUSI 403. ", "description": "Health Care Operations. 1.5 Credit. Permission of the department. Students apply principles and tools of operations management to explore improvement opportunities in the design, delivery, and management of the health care value chain. The course examines the health care operation from the perspective of operations metrics such as cost, quality, time (access), and variety/customization. "}, {"department": "BUSI", "number": "545", "gen eds": "", "requirements": "Prerequisite, BUSI 405. ", "description": "Negotiations. 1.5 Credit. This course enables students to develop their expertise in managing negotiations. It integrates existing theory and research with personal experiences and ideas. Using hands-on exercises, readings, and lively discussions, students build and hone their ability to understand, adapt to, and evaluate the personal, social, and situational dynamics of negotiations. "}, {"department": "BUSI", "number": "554", "gen eds": "", "requirements": "Pre- or corequisite, BUSI 408. ", "description": "Consulting Skills and Frameworks. 3 Credits. Permission of the instructor. The course is dedicated to teaching the core skills for success in consulting and business in general: teamwork, analysis, and presentations. Honors version available "}, {"department": "BUSI", "number": "555", "gen eds": "", "requirements": "Prerequisite, BUSI 405. ", "description": "Groups and Teams in Organizations. 1.5 Credit. Examines the design, management, and leadership of teams in organizational settings. Focus is on the interpersonal processes and structural characteristics that influence the effectiveness of teams, individual behavior in face-to-face interactions, and the dynamics of interpersonal relationships. "}, {"department": "BUSI", "number": "562", "gen eds": "", "requirements": "Prerequisite, BUSI 406. ", "description": "Consumer Behavior. 3 Credits. Review of conceptual models and empirical research in consumer behavior. Topics include decision processes, social and cultural influences, information processing, and ethical issues. "}, {"department": "BUSI", "number": "564", "gen eds": "", "requirements": "Prerequisite, BUSI 406. ", "description": "New Product Development. 3 Credits. The course concentrates on the fuzzy front end of the innovation process, focusing on tools and techniques to uncover consumer insights (needs). The design thinking process is emphasized as part of a semester-long team project. Other topics explored include creativity, intellectual property basics, prototyping, and Innovation 2.0. "}, {"department": "BUSI", "number": "566", "gen eds": "", "requirements": "Prerequisite, BUSI 406. ", "description": "Marketing Strategy. 3 Credits. The objective of this course is to understand and practice the strategic decision-making process in a dynamic competitive environment. The course builds on the foundations of marketing, and is based on lectures, cases, and computer simulations. "}, {"department": "BUSI", "number": "568", "gen eds": "", "requirements": "Prerequisites, BUSI 406 and 410. ", "description": "Marketing Analysis and Decision Making. 3 Credits. Marketing analytics is a systematic approach to harnessing these data to drive effective marketing decision making. We will learn to analyze historical data, market research data, and competitive information for making strategic marketing decisions. This course will be extensively based on case analysis and hands-on exercises. "}, {"department": "BUSI", "number": "572", "gen eds": "", "requirements": "Prerequisite, BUSI 570. ", "description": "Business Taxation. 1.5 Credit. Permission of the department. Required in spring semester for senior B.S.B.A.s who are admitted to the Kenan-Flagler Master of Accounting Program. Provides students with an initial understanding of the basic framework of the United States income tax system as it applies to businesses. "}, {"department": "BUSI", "number": "580", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Investments. 3 Credits. A survey of investment principles and practices. Emphasis is given to the problems of security analysis and portfolio management with special attention to the investment problems of the individual investor. Honors version available "}, {"department": "BUSI", "number": "582", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Mergers and Acquisitions. 3 Credits. Through lectures, case studies, and guest speakers, this course will cover all aspects of mergers and acquisitions from strategy to post-merger integration with an emphasis on valuation. Related activities such as hostile takeovers, private equity deals, and international acquisitions will also be discussed. Honors version available "}, {"department": "BUSI", "number": "583", "gen eds": "", "requirements": "Prerequisites, BUSI 407, 408, 520, and 580. ", "description": "Applied Investment Management. 3 Credits. Permission of the department. Year-long course. A live, student-managed investment fund with real dollars and fiduciary responsibility to the UNC Foundation. Emphasis is on the decisions that must be made by and/or for the ultimate investor and the analytic tools and empirical evidence that can help inform such decisions. Honors version available "}, {"department": "BUSI", "number": "584", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Financial Modeling. 3 Credits. Skill development in constructing financial models for analyzing problems with decisions faced by financial professionals. Analyzing historical performance, forecasting free cash flows, estimating discount rates, determining terminal value, identifying other sources of value, and interpreting results in a dynamic setting. "}, {"department": "BUSI", "number": "585", "gen eds": "", "requirements": "", "description": "Introduction to Real Estate. 3 Credits. An overview of residential and commercial real estate. This survey course examines 1) buying a house and constructing a portfolio of single-family rental houses, 2) commercial real estate product types, 3) amortization, cash flows, capital expenditures, cap rates, debt and equity, hurdle rates and taxes, 4) investment analysis, 5) acquisition, development, operation, and disposition, 6) real estate and contract law, and 7) the partnership negotiation process. "}, {"department": "BUSI", "number": "586", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Personal Finance. 1.5 Credit. Introduces and broadens the concept of personal finance and increases understanding of the process of accumulating and protecting personal wealth. Students learn to identify and analyze risk and return relationships, understand investment alternatives and how strategies develop as life situations mature, and gain understanding of retirement planning and effectively transferring wealth. "}, {"department": "BUSI", "number": "587", "gen eds": "", "requirements": "", "description": "Investment Banking. 1.5 Credit. Permission of the instructor and confirmed offer of investment banking analyst internship or full-time job. This course prepares students for investment banking positions and internships. The focus of the class is on financial modeling, general knowledge of banking, and what it takes to succeed in the industry. Honors version available "}, {"department": "BUSI", "number": "588", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Introduction to Derivative Securities and Risk Management. 1.5 Credit. Introduction to derivative securities instruments (options and futures) and applications in investments and corporate finance. Honors version available "}, {"department": "BUSI", "number": "589", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Fixed Income. 1.5 Credit. The course covers traditional bonds and term structure concepts as well as fixed income derivatives and interest rate modeling. Honors version available "}, {"department": "BUSI", "number": "590", "gen eds": "", "requirements": "", "description": "Business Seminar. 3 Credits. Completion of requisite core course(s) and permission of the instructor required. Selected topics in business administration presented in seminar format with students engaged in individual and team study under the supervision of a member of the faculty. Honors version available Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 3 total completions. "}, {"department": "BUSI", "number": "591", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Behavioral Finance. 1.5 Credit. Completion of BUSI 409 recommended. An abundance of evidence suggests that the standard economic paradigm, \"rational agents in an efficient market,\" does not adequately describe behavior in financial markets. This course will survey the evidence and use psychology to guide alternative theories of financial markets. Honors version available "}, {"department": "BUSI", "number": "592", "gen eds": "", "requirements": "Prerequisites, BUSI 601 and 603. ", "description": "Applied Private Equity: Real Estate. 1.5 Credit. Permission of the instructor. This course explores, at a very advanced level, all stages of the management of a real estate private equity fund: from capital formation, deal sourcing, due diligence, monitoring and adding value, and exiting of the fund's real estate holdings. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 6 total completions. "}, {"department": "BUSI", "number": "593", "gen eds": "EE-Academic Internship. ", "requirements": "", "description": "Business Internship Project II. 3 Credits. Permission of the department. This course provides students with a format for reflection while performing a professional internship that enhances their ability to achieve career objectives. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "}, {"department": "BUSI", "number": "598", "gen eds": "", "requirements": "Prerequisites, BUSI 408, and 580 or 588. ", "description": "Alternative Investments. 1.5 Credit. Permission of the instructor. Open to seniors only. Exposes students to the benefits, opportunities, and risks of incorporating alternative investments into managed institutional investment portfolios, including pension funds, endowments, and foundations. "}, {"department": "BUSI", "number": "600", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Risk Management. 1.5 Credit. Permission of the instructor. Open to seniors only. Develops methods for applied analysis of financial and operational risk. "}, {"department": "BUSI", "number": "601", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Real Estate Finance. 1.5 Credit. This course will focus on the different ways to finance real property, and how different financing techniques impact the feasibility and investment benefits for equity investors. Honors version available "}, {"department": "BUSI", "number": "602", "gen eds": "", "requirements": "Corequisite, BUSI 408. ", "description": "Strategic Economics. 1.5 Credit. This course focuses on decision making in the presence of strategic interaction. Students will apply game theory to yield insights into business decisions. Topics covered include pricing, entry, product market competition, first-mover advantage, capital budgeting, antitrust law, corporate governance, auctions, and mergers. "}, {"department": "BUSI", "number": "603", "gen eds": "", "requirements": "Prerequisites, BUSI 408 and 585. ", "description": "Real Estate Development. 1.5 Credit. This course is designed to introduce undergraduate students to the financial and economic analysis of real estate development. The course will focus on both the physical and financial dimensions of the real estate development process. The course considers multiple asset classes, and students learn to complete financial analysis of real estate development projects. "}, {"department": "BUSI", "number": "604", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Real Estate and Capital Markets. 1.5 Credit. Introduces students to the capital markets for financing real estate assets. Topics include an overview of real estate as an asset class in the US economy, risk and return in real estate markets, the economics of discount and capitalization rates, the market for mortgage-backed securities (with a peek into the role that these instruments played in the recent financial crisis), and the valuation/analysis of Real Estate Investment Trusts (REITs). Honors version available "}, {"department": "BUSI", "number": "610", "gen eds": "GL. ", "requirements": "", "description": "Global Environment of Business. 3 Credits. Issues in operating overseas, including analyses of differences in country settings, legal and economic systems, and governmental policies affecting foreign operations. Studies trade theory, country groupings, and financial issues; managing operations in foreign lands; exporting. "}, {"department": "BUSI", "number": "611", "gen eds": "GL. ", "requirements": "", "description": "International Development. 3 Credits. Poverty is part of life for most of the world's population, with half living on less than two dollars a day. Course focuses on understanding this from a business school perspective. Looks at institutional failures that contribute to persistent poverty and the multiple roles managers can play in reducing poverty. "}, {"department": "BUSI", "number": "617", "gen eds": "GL. ", "requirements": "Prerequisite, BUSI 406. ", "description": "Global Marketing. 3 Credits. Examination of the problems involved in marketing products and services across national boundaries. Problem issues include culture, ideology, economics, technical standards, and currency movements. "}, {"department": "BUSI", "number": "618", "gen eds": "", "requirements": "Prerequisite, BUSI 408. ", "description": "Global Financial Markets. 1.5 Credit. Develops the foundation for financial decisions in a global economic environment. Extends the analytical concepts and tools learned in introductory investment and corporate finance courses to multicountry/multicurrency settings. Covers three major areas: the economics of exchange rates, international money and capital markets, and international corporate finance. "}, {"department": "BUSI", "number": "623", "gen eds": "", "requirements": "", "description": "Global Entrepreneurship I. 1.5 Credit. The course ranges from developing the creative mindset, ideation, development/manufacturing, marketing, selling, and managing. The course places heavy emphasis on doing and collaborating rather than listening passively: 1) dream: design process, 2) think: feasibility, 3) create: product development and manufacturing, and 4) tell: marketing. Restricted to GLOBE students. "}, {"department": "BUSI", "number": "624", "gen eds": "", "requirements": "", "description": "Global Entrepreneurship II. 3 Credits. The course ranges from developing the creative mindset, ideation, development/manufacturing, marketing, selling, and managing. The course places heavy emphasis on doing and collaborating rather than listening passively. 1) sell: sales; 2) run: management, finance and fundraising; and 3) launch Chapel Hill projects. Restricted to GLOBE students. "}, {"department": "BUSI", "number": "650", "gen eds": "EE-Field Work. ", "requirements": "", "description": "Symposium Core Committee. 1.5-3 Credits. Permission of the instructor. Service on the B.S.B.A. Symposium Core Committee to plan, execute, and evaluate the annual event. "}, {"department": "BUSI", "number": "653", "gen eds": "", "requirements": "", "description": "Applied Learning: Symposium Core Committee. 1.5 Credit. Permission of the department. This course is by invitation only to students who previously served on the Undergraduate Business Symposium core committee. As senior advisors, students practice the leadership, organization, delegation, communication, and teamwork skills that they learn about in their other courses. Repeat rules: May be repeated for credit. 3 total credits. 2 total completions. "}, {"department": "BUSI", "number": "688", "gen eds": "", "requirements": "Prerequisites, BUSI 408 and 588. ", "description": "Applied Derivatives. 1.5 Credit. This seminar style course develops a set of financial tools useful for trading primary and derivative securities with the goal of obtaining specific exposures in equity, fixed income, and commodity markets. The course examines methods for managing financial price risk of positions and how hedge funds use derivatives in practice. Honors version available Repeat rules: May be repeated for credit. 3 total credits. 2 total completions. "}, {"department": "BUSI", "number": "691H", "gen eds": "", "requirements": "", "description": " Honors Research Proposal. 3 Credits. Permission of the department. Open to senior business administration majors with a minimum 3.5 grade point average in business courses. Students learn business research techniques and develop individual proposals for business research. Successful proposals may advance to honors thesis research and writing (BUSI 692H). Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "}, {"department": "BUSI", "number": "692H", "gen eds": "EE-Mentored Research. ", "requirements": "Prerequisite, BUSI 691H. ", "description": " Honors Thesis. 3 Credits. Permission of the department. Open to senior business majors with a minimum 3.5 grade point average in business courses. Original investigation of a topic in business and preparation of a substantive research project under the direction of a faculty advisor. Written essay and oral presentation are required. "}]
