@@ -27,13 +27,17 @@
   justify-content: space-around;
 }
 
-.Schedule .summer {
+.Schedule .Summer {
   background: white;
   border-radius: 5px;
   padding: 5px;
   width: 100%;
   margin: 6px;
   height: 50px;
+}
+
+.Schedule .Summer .Summer-courses {
+  height: 100%;
 }
 
 .Schedule .schedule-loader {

@@ -17,11 +17,11 @@ export default class App extends React.Component {
 
   handleSummerSelected(summerIndex: number) {
     this.selectSummerActive = false
-    uiStore.summersActive = true
     if (summerIndex === 0) uiStore.firstYearSummerActive = true
     else if (summerIndex === 1) uiStore.sophomoreSummerActive = true
     else if (summerIndex === 2) uiStore.juniorSummerActive = true
     else if (summerIndex === 3) uiStore.seniorSummerActive = true
+    else throw new Error('invalid summer index: ' + summerIndex)
   }
 
   render() {
