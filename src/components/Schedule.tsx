@@ -14,13 +14,6 @@ interface ScheduleState {
   semesters: CourseData[][]
 }
 
-export enum Summers {
-  FirstYear,
-  Sophomore,
-  Junior,
-  Senior
-}
-
 @observer
 export default class Schedule extends React.Component {
 
@@ -52,14 +45,10 @@ export default class Schedule extends React.Component {
         </div>
         {uiStore.summersActive &&
         <div className="Schedule-row">
-          <Summer index={Summers.FirstYear} />
-          <Summer index={Summers.Sophomore} />
-          <Summer index={Summers.Sophomore} />
-          <Summer index={Summers.Sophomore} />
-          {/* <div className="summer" style={{opacity: uiStore.firstYearSummerActive ? 1 : 0}}><span>Summer</span></div>
-          <div className="summer" style={{opacity: uiStore.sophomoreSummerActive ? 1 : 0}}><span>Summer</span></div>
-          <div className="summer" style={{opacity: uiStore.juniorSummerActive ? 1 : 0}}><span>Summer</span></div>
-          <div className="summer" style={{opacity: uiStore.seniorSummerActive ? 1 : 0}}><span>Summer</span></div> */}
+          <Summer index={Semesters.Summer1} opacity={uiStore.firstYearSummerActive ? 1 : 0} />
+          <Summer index={Semesters.Summer2} opacity={uiStore.sophomoreSummerActive ? 1 : 0}/>
+          <Summer index={Semesters.Summer3} opacity={uiStore.juniorSummerActive ? 1 : 0}/>
+          <Summer index={Semesters.Summer4} opacity={uiStore.seniorSummerActive ? 1 : 0}/>
         </div>
         }
       </div>

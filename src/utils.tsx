@@ -16,5 +16,9 @@ export enum Semesters {
   Spring2,
   Spring3,
   Spring4,
-  Spring5
+  Spring5,
+  Summer1,
+  Summer2,
+  Summer3,
+  Summer4
 }

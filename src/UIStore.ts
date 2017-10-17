@@ -25,7 +25,6 @@ class UIStore {
   @observable isSearchingMajor = false
   @observable addMajorPopupActive = false
   @observable loginPopupActive = false
-  @observable summersActive = false
   @observable expandedView = false
   @observable isLoadingSearchResults = false
   @observable isLoadingSchedule = false
@@ -68,6 +67,16 @@ class UIStore {
 
   @computed get semesterHeight() {
     return (Math.max(...scheduleStore.allSemesters.map(s => s.length)) * this.courseHeight) + 30
+  }
+
+  @computed get summersActive() {
+    return this.firstYearSummerActive || this.sophomoreSummerActive || this.juniorSummerActive || this.seniorSummerActive
+  }
+
+  @computed get summerHeight() {
+    return scheduleStore.allSummers.reduce((memo: number, summer: CourseData[]) => {
+      return summer.length > memo ? summer.length : memo
+    }, 0) * 20 + 40
   }
 
   readonly MAJOR_LABEL = "major-res"
