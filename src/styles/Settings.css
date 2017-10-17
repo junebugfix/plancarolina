@@ -29,6 +29,8 @@
   border-radius: 5px;
   outline: none;
   cursor: pointer;
+  height: 50%;
+  margin: auto;
 }
 
 .Settings button#add-summer-button:active {

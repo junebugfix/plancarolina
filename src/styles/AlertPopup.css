@@ -9,6 +9,15 @@
   text-align: center;
 }
 
+button#submit-add-class {
+  padding: 3px 5px;
+  border: 1px solid rgba(170, 177, 197, 0.7);
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
 .button {
   font-size: 1em;
   padding: 10px;
@@ -52,7 +61,7 @@
   width: 100%;
 }
 
-.add-class > form > input {
+.add-class > div > input {
   width: 90%
 }
 
