@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
+import { observable } from 'mobx';
 import Semester from './Semester';
+import Summer from './Summer'
 import { Semesters } from '../utils';
 import { CourseData } from './Course';
 import { scheduleStore } from '../ScheduleStore';
@@ -10,6 +12,13 @@ import '../styles/Schedule.css';
 
 interface ScheduleState {
   semesters: CourseData[][]
+}
+
+export enum Summers {
+  FirstYear,
+  Sophomore,
+  Junior,
+  Senior
 }
 
 @observer
@@ -41,6 +50,18 @@ export default class Schedule extends React.Component {
           {uiStore.spring5Active &&
           <Semester index={Semesters.Spring5} />}
         </div>
+        {uiStore.summersActive &&
+        <div className="Schedule-row">
+          <Summer index={Summers.FirstYear} />
+          <Summer index={Summers.Sophomore} />
+          <Summer index={Summers.Sophomore} />
+          <Summer index={Summers.Sophomore} />
+          {/* <div className="summer" style={{opacity: uiStore.firstYearSummerActive ? 1 : 0}}><span>Summer</span></div>
+          <div className="summer" style={{opacity: uiStore.sophomoreSummerActive ? 1 : 0}}><span>Summer</span></div>
+          <div className="summer" style={{opacity: uiStore.juniorSummerActive ? 1 : 0}}><span>Summer</span></div>
+          <div className="summer" style={{opacity: uiStore.seniorSummerActive ? 1 : 0}}><span>Summer</span></div> */}
+        </div>
+        }
       </div>
     )
   }

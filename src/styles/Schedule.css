@@ -27,6 +27,15 @@
   justify-content: space-around;
 }
 
+.Schedule .summer {
+  background: white;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  margin: 6px;
+  height: 50px;
+}
+
 .Schedule .schedule-loader {
   width: 80px;
   height: 80px;

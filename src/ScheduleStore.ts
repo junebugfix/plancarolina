@@ -22,6 +22,10 @@ class ScheduleStore {
   @observable spring3: CourseData[] = []
   @observable spring4: CourseData[] = []
   @observable spring5: CourseData[] = []
+  @observable summer1: CourseData[] = []
+  @observable summer2: CourseData[] = []
+  @observable summer3: CourseData[] = []
+  @observable summer4: CourseData[] = []
 
   @observable majorCoursesNeeded: string[] = ['hi', 'hello', 'merhaba']
   readonly GENEDS_NEEDED = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"]
