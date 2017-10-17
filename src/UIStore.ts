@@ -256,9 +256,10 @@ class UIStore {
     scheduleStore.removeCourseFromSemester(courseIndex, semesterIndex)
   }
 
-  private handleMajorResultChosen(majorName: string) { // commented out loader due to asynch issues
+  private handleMajorResultChosen(majorName: string) { 
     let schedule = document.querySelector(".Schedule");
     let loader = document.createElement("div");
+    let data = this.majorData.filter(x => x.name === majorName)[0]
     if (this.yearEntered === undefined) {
       this.promptYearEntered().then(year => {
         this.yearEnteredPromptActive = false
@@ -266,15 +267,16 @@ class UIStore {
         let url = data.urls[this.yearEntered]
         this.showOpenWorksheetButton(url)
       })
+    } else {
+      let url = data.urls[this.yearEntered]
+      this.showOpenWorksheetButton(url)
     }
-    // loader.id = "loading-circle";
-    // schedule.appendChild(loader);
+    loader.id = "loading-circle";
+    schedule.appendChild(loader);
     this.addMajorPopupActive = false
-    let data = this.majorData.filter(x => x.name === majorName)[0]
-    // change majorCoursesNeeded
     Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
       scheduleStore.addCourses(courses)
-      // schedule.removeChild(loader)
+      schedule.removeChild(loader)
     })
   }
 
@@ -345,10 +347,9 @@ class UIStore {
 
   private showOpenWorksheetButton(url: string) {
     window.open(url)
-    console.log('showing open worksheet button')
   }
 
-  getSemesterLabel(index: Semesters) {
+getSemesterLabel(index: Semesters) {
     if ([Semesters.Fall1, Semesters.Fall2, Semesters.Fall3, Semesters.Fall4, Semesters.Fall5].indexOf(index) !== -1) {
       return 'Fall'
     } else {

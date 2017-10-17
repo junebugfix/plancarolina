@@ -1,0 +1,10 @@
+let majors = ["African, African American and Diaspora Studies", "American Studies", "Anthropology", "Archaeology", "Art History", "Asian Studies", "Biology", "Biomedical Engineering", "Business", "Chemistry", "Classics", "Clinical Lab Science", "Communication Studies", "Comparative Literature", "Computer Science", "Contemporary European Studies", "Dental Hygiene", "Dramatic Art", "Economics", "English", "Environmental Sciences", "Environmental Studies", "Exercise and Sport Science", "Geography", "Geological Sciences", "Germanic and Slavic Languages and Literatures", "Global Studies", "History", "Human Development and Family Studies", "Information Science", "Interdisciplinary Studies", "Latin American Studies", "Linguistics", "Management and Society", "Mathematical Decision Sciences", "Mathematics", "Media and Journalism", "Music", "Nursing", "Peace, War, and Defense", "Pharmacy", "Philosophy", "Physics and Astronomy", "Political science", "Psychology", "Public Health", "Public Policy", "Radiologic Science", "Religious Studies", "Romance Languages", "Sociology", "Studio Art", "Undecided", "Women's and Gender Studies"];
+let otherMajors = ["Chinese", "Japanese", "South Asia", "Arab Cultures", "Biostatistics", "Environmental Health", "Nutrition", "Health Policy & Management", "French", "Hispanic Linguistics", "Hispanic Literatures and Cultures", "Italian", "Portuguese", "Astronomy"]
+
+for (let j = 0; j < majors.length; j++) {
+       str = "";
+       str = "{ \"name\":\"" +  majors[j] + "\"," + "\"department\": \"\", \"degreeType\": \"\", \"absoluteCourses\": [], \"additionalCourses\": 0, \"urls\": {\"2013\": \"http://advising.unc.edu/curriculum/academic-worksheets\", \"2014\": \"http://advising.unc.edu/curriculum/academic-worksheets\", \"2015\": \"http://advising.unc.edu/curriculum/academic-worksheets\", \"2016\": \"http://advising.unc.edu/curriculum/academic-worksheets\", \"2017\": \"http://advising.unc.edu/curriculum/academic-worksheets\" } },"
+       console.log(str);
+ 
+}
+
