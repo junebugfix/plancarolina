@@ -25,6 +25,7 @@ class UIStore {
   @observable isSearchingMajor = false
   @observable addMajorPopupActive = false
   @observable loginPopupActive = false
+  @observable summersActive = false
   @observable expandedView = false
   @observable isLoadingSearchResults = false
   @observable isLoadingSchedule = false
@@ -38,6 +39,11 @@ class UIStore {
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
+
+  @observable firstYearSummerActive = false
+  @observable sophomoreSummerActive = false
+  @observable juniorSummerActive = false
+  @observable seniorSummerActive = false
 
   @observable searchDepartment = ""
   @observable searchNumber: number
