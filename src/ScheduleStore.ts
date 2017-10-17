@@ -23,6 +23,10 @@ class ScheduleStore {
   @observable spring3: CourseData[] = []
   @observable spring4: CourseData[] = []
   @observable spring5: CourseData[] = []
+  @observable summer1: CourseData[] = []
+  @observable summer2: CourseData[] = []
+  @observable summer3: CourseData[] = []
+  @observable summer4: CourseData[] = []
 
   @observable majorCoursesNeeded: string[] = ['hi', 'hello', 'merhaba']
   readonly GENEDS_NEEDED = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"]
@@ -42,8 +46,7 @@ class ScheduleStore {
   }
 
   getSemesterData(index: number): CourseData[] {
-    let data =  this.allSemesters[index]
-    return data
+    return this.allSemesters[index]
   }
 
   findSemesterWithCourse(courseId: number): CourseData[] | null {
@@ -76,8 +79,13 @@ class ScheduleStore {
   @computed get allSemesters(): CourseData[][] {
     return [
       this.fall1, this.fall2, this.fall3, this.fall4, this.fall5,
-      this.spring1, this.spring2, this.spring3, this.spring4, this.spring5
+      this.spring1, this.spring2, this.spring3, this.spring4, this.spring5,
+      this.summer1, this.summer2, this.summer3, this.summer4
     ]
+  }
+
+  @computed get allSummers(): CourseData[][] {
+    return [this.summer1, this.summer2, this.summer3, this.summer4]
   }
 
   @computed get genedsFulfilled() {
@@ -192,6 +200,14 @@ class ScheduleStore {
         return this.spring4
       case Semesters.Spring5:
         return this.spring5
+      case Semesters.Summer1:
+        return this.summer1
+      case Semesters.Summer2:
+        return this.summer2
+      case Semesters.Summer3:
+        return this.summer3
+      case Semesters.Summer4:
+        return this.summer4
       default:
         throw new Error(`Semester id was not valid: ${id}`)
     }

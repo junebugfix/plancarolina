@@ -39,6 +39,11 @@ class UIStore {
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
 
+  @observable firstYearSummerActive = false
+  @observable sophomoreSummerActive = false
+  @observable juniorSummerActive = false
+  @observable seniorSummerActive = false
+
   @observable searchDepartment = ""
   @observable searchNumber: number
   @observable searchNumberOperator = 'eq'
@@ -62,6 +67,16 @@ class UIStore {
 
   @computed get semesterHeight() {
     return (Math.max(...scheduleStore.allSemesters.map(s => s.length)) * this.courseHeight) + 30
+  }
+
+  @computed get summersActive() {
+    return this.firstYearSummerActive || this.sophomoreSummerActive || this.juniorSummerActive || this.seniorSummerActive
+  }
+
+  @computed get summerHeight() {
+    return scheduleStore.allSummers.reduce((memo: number, summer: CourseData[]) => {
+      return summer.length > memo ? summer.length : memo
+    }, 0) * 20 + 40
   }
 
   readonly MAJOR_LABEL = "major-res"
@@ -232,9 +247,10 @@ class UIStore {
     scheduleStore.removeCourseFromSemester(courseIndex, semesterIndex)
   }
 
-  private handleMajorResultChosen(majorName: string) { // commented out loader due to asynch issues
+  private handleMajorResultChosen(majorName: string) { 
     let schedule = document.querySelector(".Schedule");
-    let loader = document.createElement("div");
+    // let loader = document.createElement("div");
+    let data = this.majorData.filter(x => x.name === majorName)[0]
     if (this.yearEntered === undefined) {
       this.promptYearEntered().then(year => {
         this.yearEnteredPromptActive = false
@@ -242,12 +258,13 @@ class UIStore {
         let url = data.urls[this.yearEntered]
         this.showOpenWorksheetButton(url)
       })
+    } else {
+      let url = data.urls[this.yearEntered]
+      this.showOpenWorksheetButton(url)
     }
     // loader.id = "loading-circle";
     // schedule.appendChild(loader);
     this.addMajorPopupActive = false
-    let data = this.majorData.filter(x => x.name === majorName)[0]
-    // change majorCoursesNeeded
     Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
       scheduleStore.addCourses(courses)
       // schedule.removeChild(loader)
@@ -313,18 +330,11 @@ class UIStore {
     }
   }
 
-  // promptYearEntered(x: number) {
-  //   this.yearEntered = x;
-  //   console.log('year entered is ' + this.yearEntered)
-  //   this.yearEnteredPromptActive = false;
-  // }
-
   private showOpenWorksheetButton(url: string) {
     window.open(url)
-    console.log('showing open worksheet button')
   }
 
-  getSemesterLabel(index: Semesters) {
+getSemesterLabel(index: Semesters) {
     if ([Semesters.Fall1, Semesters.Fall2, Semesters.Fall3, Semesters.Fall4, Semesters.Fall5].indexOf(index) !== -1) {
       return 'Fall'
     } else {

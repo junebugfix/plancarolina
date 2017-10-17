@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
+import { observable } from 'mobx';
 import Semester from './Semester';
+import Summer from './Summer'
 import { Semesters } from '../utils';
 import { CourseData } from './Course';
 import { scheduleStore } from '../ScheduleStore';
@@ -41,6 +43,14 @@ export default class Schedule extends React.Component {
           {uiStore.spring5Active &&
           <Semester index={Semesters.Spring5} />}
         </div>
+        {uiStore.summersActive &&
+        <div className="Schedule-row">
+          <Summer index={Semesters.Summer1} opacity={uiStore.firstYearSummerActive ? 1 : 0} />
+          <Summer index={Semesters.Summer2} opacity={uiStore.sophomoreSummerActive ? 1 : 0}/>
+          <Summer index={Semesters.Summer3} opacity={uiStore.juniorSummerActive ? 1 : 0}/>
+          <Summer index={Semesters.Summer4} opacity={uiStore.seniorSummerActive ? 1 : 0}/>
+        </div>
+        }
       </div>
     )
   }

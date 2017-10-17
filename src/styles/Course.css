@@ -58,15 +58,6 @@
   border-radius: 3px;
 }
 
-.Course .gened-block {
-  font-size: 10.5px;
-  padding: 1px;
-  background: transparent;
-  color: black;
-  font-weight: 500;
-  border: none;
-}
-
 .Course-i {
   position: absolute;
   display: none;
