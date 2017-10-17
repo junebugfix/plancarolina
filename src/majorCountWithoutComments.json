@@ -153,6 +153,117 @@
         "2016": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2016.pdf",
         "2017": "https://advising.unc.edu/files/2012/11/BiologyBSQuant-2017.pdf"
       }
-    }
-  ]
+    },
+    {
+      "name": "Comparative Literature BA",
+      "department": "CMPL",
+      "degreeType": "BA",
+      "absoluteCourses": ["CMPL 500"],
+      "additionalCourses": 9,
+      "urls": {
+        "2013": "https://advising.unc.edu/files/2012/11/CMPL-2013.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/CMPL-2014.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/CMPL-2015.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/CMPL-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/CMPL-2017.pdf"
+      }
+    },
+    {
+      "name": "Economics BA",
+      "department": "ECON",
+      "degreeType": "BA",
+      "absoluteCourses": ["ECON 101", "STOR 155", "ECON 400", "ECON 410", "ECON 420"],
+      "additionalCourses": 5,
+      "urls": {
+        "2013": "https://advising.unc.edu/files/2012/11/ECON-2012-2015.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/ECON-2012-2015.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/ECON-2012-2015.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/ECON-2016-2017.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/ECON-2016-2017.pdf"
+      }
+    },
+    {
+      "name": "Environmental Science BS",
+      "department": "ENEC",
+      "degreeType": "BS",
+      "absoluteCourses": ["ENEC 201", "ENEC 698", "MATH 232","MATH 231", "BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "CHEM 102", "CHEM 102L", "ENEC 201", "ENEC 203"],
+      "additionalCourses": 12,
+      "urls": {
+        "2013": "https://advising.unc.edu/files/2012/11/EnvrSciBS-2013.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/EnvrSciBS-2014.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/EnvrSciBS-2015.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/EnvrSciBS-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/EnvrSciBS-2017.pdf"
+      }
+    },
+    {
+      "name": "Public Policy BA",
+      "department": "PLCY",
+      "degreeType": "BA",
+      "absoluteCourses": ["PLCY 210", "PLCY 220", "ECON 101", "PLCY 340", "PLCY 460", "PLCY 581"],
+      "additionalCourses": 4,
+      "urls": {
+        "2013": "https://advising.unc.edu/files/2012/11/PLCY-2013.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/PLCY-2014.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/PLCY-2015.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/PLCY-2016.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/PLCY-2017.pdf"
+      }
+    },
+    {
+      "name": "Linguistics BA",
+      "department": "LING",
+      "degreeType": "BS",
+      "absoluteCourses": ["LING 101"],
+      "additionalCourses": 8,
+      "urls": {
+        "2013": "https://advising.unc.edu/files/2012/11/LING-2013-2017.pdf",
+        "2014": "https://advising.unc.edu/files/2012/11/LING-2013-2017.pdf",
+        "2015": "https://advising.unc.edu/files/2012/11/LING-2013-2017.pdf",
+        "2016": "https://advising.unc.edu/files/2012/11/LING-2013-2017.pdf",
+        "2017": "https://advising.unc.edu/files/2012/11/LING-2013-2017.pdf"
+      }
+    },
+    { "name":"American Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Asian Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Chemistry","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Classics","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Clinical Lab Science","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Communication Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Contemporary European Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Dental Hygiene","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Dramatic Art","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"English","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Environmental Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Exercise and Sport Science","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Geography","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Geological Sciences","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Germanic and Slavic Languages and Literatures","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Global Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"History","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Human Development and Family Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Information Science","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Interdisciplinary Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Latin American Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Management and Society","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Mathematical Decision Sciences","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Mathematics","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Media and Journalism","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Music","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Nursing","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Peace, War, and Defense","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Pharmacy","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Philosophy","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Physics and Astronomy","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Political science","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Psychology","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Public Health","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Radiologic Science","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Religious Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Romance Languages","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Sociology","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Studio Art","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Undecided","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } },
+    { "name":"Women's and Gender Studies","department": "", "degreeType": "", "absoluteCourses": [], "additionalCourses": 0, "urls": {"2013": "http://advising.unc.edu/curriculum/academic-worksheets", "2014": "http://advising.unc.edu/curriculum/academic-worksheets", "2015": "http://advising.unc.edu/curriculum/academic-worksheets", "2016": "http://advising.unc.edu/curriculum/academic-worksheets", "2017": "http://advising.unc.edu/curriculum/academic-worksheets" } }
+   ]
 }
