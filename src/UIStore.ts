@@ -30,11 +30,11 @@ class UIStore {
   @observable isLoadingSchedule = false
   @observable alertOpen = false
   @observable alertMessage = ''
-  @observable loginAlertActive = false
-  @observable addClassPopupActive = false
-  shouldPromptForLogin = true
   @observable hasAddedACourse = false
-  @observable yearEnteredPromptActive = false;
+  @observable yearEnteredPromptActive = false
+  @observable addClassPopupActive = false
+  @observable loginAlertActive = false
+  shouldPromptForLogin = true
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
@@ -159,15 +159,6 @@ class UIStore {
     if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
       this.addMajorPopupActive = !this.addMajorPopupActive
     }
-  }
-
-  @action.bound handleClosePopup() {
-    this.loginAlertActive = false
-    this.shouldPromptForLogin = false
-  }
-
-  @action.bound handleCloseAddClass() {
-    this.addClassPopupActive = false;
   }
 
   @action.bound handleLoginPopupClicked(e: MouseEvent<HTMLDivElement>) {

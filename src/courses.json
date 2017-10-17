@@ -401,7 +401,7 @@
   {
     "department": "AAAD",
     "number": "334",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Performing African American History. 3 Credits. Taking an issue of current or historic importance to African American communities, students conduct archival research and collect and/or analyze oral histories and work to create a documentary play that will be publicly performed. "
   },
@@ -457,7 +457,7 @@
   {
     "department": "AAAD",
     "number": "395",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": "Undergraduate Research Seminar. 3 Credits. Permission of the instructor for nonmajors. Subject matter will vary with each instructor. Each course will concern itself with a study in depth of some problem in African, African American, or diaspora studies. "
   },
@@ -625,14 +625,14 @@
   {
     "department": "AAAD",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Research I. 3 Credits. Permission of the department. Beginning of mentored research on an honors thesis. Required of all candidates for graduation with honors in African, African American, and Diaspora studies. "
   },
   {
     "department": "AAAD",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Research II. 3 Credits. Permission of the department. Completion of an honors thesis under the direction of a member of the faculty. Required of all candidates for graduation with honors in African, African American, and Diaspora studies. "
   },
@@ -1213,14 +1213,14 @@
   {
     "department": "AMST",
     "number": "350",
-    "gen eds": "HS, EE-Mentored Research, NA. ",
+    "gen eds": "HS, EE, NA. ",
     "requirements": "",
     "description": "Main Street Carolina: A Cultural History of North Carolina Downtowns. 3 Credits. An introduction to the interdisciplinary scholarly approaches to the physical, social, economic, and cultural developments of downtowns. Students will conduct and share original research. "
   },
   {
     "department": "AMST",
     "number": "350H",
-    "gen eds": "HS, EE-Mentored Research, NA. ",
+    "gen eds": "HS, EE, NA. ",
     "requirements": "",
     "description": " Main Street Carolina: A Cultural History of North Carolina Downtowns. 3 Credits. An introduction to the interdisciplinary scholarly approaches to the physical, social, economic, and cultural developments of downtowns. Students will conduct and share original research. "
   },
@@ -1346,7 +1346,7 @@
   {
     "department": "AMST",
     "number": "410",
-    "gen eds": "HS, EE-Mentored Research, NA. ",
+    "gen eds": "HS, EE, NA. ",
     "requirements": "",
     "description": "Senior Seminar in Southern Studies. 3 Credits. We will engage such topics as race, immigration, cultural tourism, and memory to consider conceptions of the South. Students will research a subject they find compelling and write a 20- to 25-page paper. "
   },
@@ -1444,7 +1444,7 @@
   {
     "department": "AMST",
     "number": "671",
-    "gen eds": "HS, EE-Mentored Research, NA. ",
+    "gen eds": "HS, EE, NA. ",
     "requirements": "",
     "description": "Introduction to Public History. 3 Credits. Introduces the theory, politics, and practice of historical work conducted in public venues (museums, historic sites, national parks, government agencies, archives), directed at public audiences, or addressed to public issues. "
   },
@@ -1458,14 +1458,14 @@
   {
     "department": "AMST",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in American Studies. 3 Credits. Directed independent research leading to the preparation of an honors thesis and an oral examination on the thesis. Required of candidates for graduation with honors in American studies who enroll in the class once permission to pursue honors is granted. "
   },
   {
     "department": "AMST",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in American Studies. 3 Credits. Directed independent research leading to the preparation of an honors thesis and an oral examination on the thesis. Required of candidates for graduation with honors in American studies who enroll in the class once permission to pursue honors is granted. "
   },
@@ -1787,7 +1787,7 @@
   {
     "department": "FOLK",
     "number": "688",
-    "gen eds": "SS, EE-Mentored Research. ",
+    "gen eds": "SS, EE. ",
     "requirements": "",
     "description": "Observation and Interpretation of Religious Action. 3 Credits. Permission of the instructor. Exercises (including field work) in learning to read the primary modes of public action in religious traditions, e.g., sermons, testimonies, rituals, and prayers. "
   },
@@ -1801,14 +1801,14 @@
   {
     "department": "FOLK",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Project in Folklore. 3 Credits. Permission of the instructor. For honors candidates. Ethnographic and/or library research and analysis of the gathered materials, leading to a draft of an honors thesis. "
   },
   {
     "department": "FOLK",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, FOLK 691H. ",
     "description": " Honors Thesis in Folklore. 3 Credits. Writing of an honors thesis based on independent research conducted in FOLK 691H. Open only to senior honors candidates who work under the direction of a faculty member. "
   },
@@ -2263,7 +2263,7 @@
   {
     "department": "ANTH",
     "number": "278",
-    "gen eds": "HS, CI, EE-Mentored Research. ",
+    "gen eds": "HS, CI, EE. ",
     "requirements": "",
     "description": "Women in Science. 3 Credits. The role of women in scientific domains throughout history and a consideration of the status of women and men as scientists. The development of science as a cultural practice. "
   },
@@ -2319,14 +2319,14 @@
   {
     "department": "ANTH",
     "number": "240",
-    "gen eds": "SS, EE-Mentored Research. ",
+    "gen eds": "SS, EE. ",
     "requirements": "",
     "description": "Action Research. 3 Credits. Action research is a strategy for answering important questions, solving problems, and generating meaningful and democratic relationships. Through this course you will learn action research from an anthropological perspective through readings, essays, discussion, and hands-on experience. APPLES leadership and service students have seating priority. "
   },
   {
     "department": "ANTH",
     "number": "248",
-    "gen eds": "SS, EE-Mentored Research. ",
+    "gen eds": "SS, EE. ",
     "requirements": "",
     "description": "Anthropology and Public Interest. 3 Credits. Explores how anthropologists can impact or participate in policy debates regarding contemporary social problems. Involves professional and internship options in public service fields. APPLES service-learning course. "
   },
@@ -3019,7 +3019,7 @@
   {
     "department": "ANTH",
     "number": "477",
-    "gen eds": "VP, EE-Mentored Research. ",
+    "gen eds": "VP, EE. ",
     "requirements": "",
     "description": "Visual Anthropology. 3 Credits. This course introduces students to visual forms of communication through both the analysis and production of still and video materials. Ethics, cross-cultural representations, and ethnographic theory will all be explored. "
   },
@@ -3306,7 +3306,7 @@
   {
     "department": "ANTH",
     "number": "688",
-    "gen eds": "SS, EE-Mentored Research. ",
+    "gen eds": "SS, EE. ",
     "requirements": "",
     "description": "Observation and Interpretation of Religious Action. 3 Credits. Permission of the instructor. Exercises (including field work) in learning to read the primary modes of public action in religious traditions, e.g., sermons, testimonies, rituals, and prayers. "
   },
@@ -3320,14 +3320,14 @@
   {
     "department": "ANTH",
     "number": "691H",
-    "gen eds": "SS, EE-Mentored Research. ",
+    "gen eds": "SS, EE. ",
     "requirements": "",
     "description": " Seniors Honors Project in Anthropology. 3 Credits. Permission of the instructor. Open only to honors candidates. "
   },
   {
     "department": "ANTH",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis in Anthropology. 3 Credits. Open only to senior honors candidates. Permission of the instructor is required. "
   },
@@ -3453,14 +3453,14 @@
   {
     "department": "ARCH",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Seniors Honors Thesis, Part 1. 3 Credits. Permission of the instructor. Restricted to senior honors candidates. First semester of senior honors thesis. Independent research under the direction of an archaeology curriculum faculty member. "
   },
   {
     "department": "ARCH",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis, Part 2. 3 Credits. Permission of the instructor. Restricted to senior honors candidates. Second semester of senior honors thesis. Independent research under the direction of an archaeology curriculum faculty member. "
   },
@@ -4461,7 +4461,7 @@
   {
     "department": "ARTH",
     "number": "595",
-    "gen eds": "VP, EE-Mentored Research. ",
+    "gen eds": "VP, EE. ",
     "requirements": "",
     "description": "Experience in Research. 1-3 Credits. Required preparation, one 100-level art history course and one 200- to 399-level art history course. An experiential learning opportunity in independent and original research on a topic or in a field of the student's choosing under the close direction of a faculty supervisor. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "
   },
@@ -4482,14 +4482,14 @@
   {
     "department": "ARTH",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Art History. 3 Credits. Permission of the instructor. Independent research directed by a faculty member leading to an honors thesis. "
   },
   {
     "department": "ARTH",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Art History. 3 Credits. Permission of the instructor. Independent research directed by a faculty member leading to an honors thesis. "
   },
@@ -4916,14 +4916,14 @@
   {
     "department": "ARTS",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis Project in Studio Art. 3 Credits. Permission of the department. ARTS 691H is designed to enable studio art majors to pursue serious and substantial work. In addition to working with the instructor of record for ARTS 499/691H, students work under the supervision of an individual thesis advisor and committee. "
   },
   {
     "department": "ARTS",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, ARTS 691H. ",
     "description": " Senior Honors Thesis Project in Studio Art. 3 Credits. ARTS 692H is taught concurrently with and by the instructor for ARTS 500. In addition to the classroom component, students continue to work with an individual thesis advisor and committee. Successful completion of ARTS 692H allows students to graduate with honors or highest honors. "
   },
@@ -5819,14 +5819,14 @@
   {
     "department": "ASIA",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis I. 3 Credits. Permission of the department. Required for honors students in Asian studies. "
   },
   {
     "department": "ASIA",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis II. 3 Credits. Permission of the department. Required for honors students in Asian studies. "
   },
@@ -7408,14 +7408,14 @@
   {
     "department": "BIOL",
     "number": "395",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, BIOL 201 or 202. ",
     "description": "Undergraduate Research in Biology. 1-3 Credits. Permission of the instructor. Majors only. Overall 3.0 GPA required. Laboratory study addressing biological questions. Requires final written report. Repeatable for six credit hours. One through five hours counts as a lecture course. Six hours (or BIOL 211 and three hours of BIOL 395) counts as a lecture/laboratory course. Repeat rules: May be repeated for credit. 6 total credits. 3 total completions. "
   },
   {
     "department": "BIOL",
     "number": "395H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, BIOL 201 or 202. ",
     "description": " Undergraduate Research in Biology. 1-3 Credits. Permission of the instructor. Majors only. Overall 3.0 GPA required. Laboratory study addressing biological questions. Requires final written report. Repeatable for six credit hours. One through five hours counts as a lecture course. Six hours (or BIOL 211 and three hours of BIOL 395) counts as a lecture/laboratory course. Repeat rules: May be repeated for credit. 6 total credits. 3 total completions. "
   },
@@ -7436,7 +7436,7 @@
   {
     "department": "BIOL",
     "number": "421L",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Pre- or corequisite, BIOL 422. ",
     "description": " Microbiology Laboratory with Research. 2 Credits. Sterile technique, bacterial growth, physiology, genetics and diversity, and bacteriophage. Research in bacterial genetics. "
   },
@@ -8213,7 +8213,7 @@
   {
     "department": "BIOL",
     "number": "692H",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis in Biology. 3 Credits. Permission of a faculty research director and three credit hours of BIOL 395 in the same laboratory required. Must be taken in the final semester of senior year. Fall and spring only. "
   },
@@ -8297,7 +8297,7 @@
   {
     "department": "BMME",
     "number": "395",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Research in Biomedical Engineering for Undergraduates. 1-4 Credits. Permission of the director of undergraduate studies. At least nine hours of independent work a week. Research with a faculty mentor. Approved learning contract required. Research proposal and final research paper also required. Repeat rules: May be repeated for credit. 12 total credits. 4 total completions. "
   },
@@ -8500,14 +8500,14 @@
   {
     "department": "BMME",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis. 3 Credits. Research honors course. Prior approval needed from the chair or associate chair of the program for topic selection and faculty research mentor. Minimum GPA requirement, written report, and abstract requirements as set forth by the honors program. "
   },
   {
     "department": "BMME",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis. 3 Credits. Research honors thesis continuation with required GPA, research topic selection with approved faculty mentor. Written abstract and report per honors program guidelines submitted by specific deadlines. "
   },
@@ -8521,7 +8521,7 @@
   {
     "department": "BMME",
     "number": "698",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "Prerequisite, BMME 697. ",
     "description": "Senior Design Project II. 3 Credits. Implementation phase of the senior design experience. Students apply the theoretical and practical knowledge they have acquired in their previous seven semesters to the design and implementation of a solution to a real-world problem. "
   },
@@ -8710,14 +8710,14 @@
   {
     "department": "BIOS",
     "number": "693H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Research in Biostatistics. 3 Credits. Directed research. Written and oral reports required. "
   },
   {
     "department": "BIOS",
     "number": "694H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Research in Biostatistics. 3 Credits. Directed research. Written and oral reports required. "
   },
@@ -8969,7 +8969,7 @@
   {
     "department": "CHEM",
     "number": "395",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Research in Chemistry for Undergraduates. 3 Credits. Required preparation, one CHEM course 420 or higher and permission of the instructor. For advanced chemistry and applied sciences majors conducting on-campus research. Students prepare a report for their faculty supervisor and present their work at a poster session. May count only once as a chemistry elective. Repeat rules: May be repeated for credit. 9 total credits. 3 total completions. "
   },
@@ -8990,7 +8990,7 @@
   {
     "department": "CHEM",
     "number": "397H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Corequisite, CHEM 395H. ",
     "description": " Honors Colloquium in Chemistry. 1 Credit. Weekly meetings complement research carried out under CHEM 395H. Expands students' exposure to specialized areas of research through guided readings and seminars with invited speakers. Aids students in preparing their research for evaluation. CHEM 395H and 397H together can contribute no more than nine total hours toward graduation. Repeat rules: May be repeated for credit. 2 total credits. 2 total completions. "
   },
@@ -9606,7 +9606,7 @@
   {
     "department": "PLAN",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Seminar in Urban and Regional Studies. 3 Credits. Permission of the instructor. An overview of the subject matter and methods of investigation for the study of cities and regions. Presentations of original papers prepared by students. "
   },
@@ -10278,14 +10278,14 @@
   {
     "department": "CLAS",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Course. 3 Credits. Honors course for departmental majors in classical archaeology, classical civilization, Greek, and Latin. "
   },
   {
     "department": "CLAS",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Course. 3 Credits. Honors course for departmental majors in classical archaeology, classical civilization, Greek, and Latin. "
   },
@@ -11174,7 +11174,7 @@
   {
     "department": "COMM",
     "number": "472",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "Prerequisite, COMM 170. ",
     "description": "Rhetorical Criticism. 3 Credits. Approaches to the analysis and assessment of rhetorical practice with a focus on how rhetoric reflects and shapes public culture. "
   },
@@ -11454,7 +11454,7 @@
   {
     "department": "COMM",
     "number": "625",
-    "gen eds": "EE-Service Learning, EE-Mentored Research, GL. ",
+    "gen eds": "EE-Service Learning, EE, GL. ",
     "requirements": "",
     "description": "Communication and Nonprofits in the Global Context. 3 Credits. Introduces students to the opportunities, challenges, and rewards of participation within the nonprofit/NGO sector. The course also equips students with the skills needed to design and conduct engaged scholarship. "
   },
@@ -11650,28 +11650,28 @@
   {
     "department": "COMM",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Cultural Studies. 3 Credits. Permission of the instructor. Required of all senior honors candidates in cultural studies. First semester of senior honors thesis. "
   },
   {
     "department": "COMM",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Cultural Studies. 3 Credits. Permission of the instructor. Required of all senior honors candidates in cultural studies. Second semester of senior honors thesis. "
   },
   {
     "department": "COMM",
     "number": "693H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors. 3 Credits. Permission of the department. Majors only. Cumulative grade point average must meet University standard. Individual projects designed by students and supervised by a faculty member. "
   },
   {
     "department": "COMM",
     "number": "694H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors. 3 Credits. Permission of the department. Majors only. Cumulative grade point average must meet University standard. Individual projects designed by students and supervised by a faculty member. "
   },
@@ -11944,7 +11944,7 @@
   {
     "department": "COMP",
     "number": "495",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Mentored Research in Computer Science. 3 Credits. Independent research conducted under the direct mentorship of a computer science faculty member. This course cannot be counted toward the completion of the major or minor. For computer science majors only. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "
   },
@@ -11972,7 +11972,7 @@
   {
     "department": "COMP",
     "number": "523",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "Prerequisites, COMP 401, 410, 411, and at least two chosen ",
     "description": "Software Engineering Laboratory. 4 Credits. Organization and scheduling of software engineering projects, structured programming, and design. Each team designs, codes, and debugs program components and synthesizes them into a tested, documented program product. from COMP 426, 431, 520, 521, 530, 535, 560, 562, 575, 580, 585. "
   },
@@ -12168,14 +12168,14 @@
   {
     "department": "COMP",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis in Computer Science. 3 Credits. For computer science majors only and by permission of the department. Individual student research for students pursuing an honors thesis in computer science under the supervision of a departmental faculty adviser. "
   },
   {
     "department": "COMP",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis in Computer Science. 3 Credits. Permission of the department. Required of all students in the honors program in computer science. The construction of a written honors thesis and an oral public presentation of the thesis are required. "
   },
@@ -12861,14 +12861,14 @@
   {
     "department": "DRAM",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Project in Dramatic Art. 3 Credits. Required preparation, 3.3 cumulative grade point average and permission of the department. The commencement of a special project (essay or creative endeavor), approved by the department, by a student who has been designated a candidate for undergraduate honors. "
   },
   {
     "department": "DRAM",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, DRAM 691H. ",
     "description": " Honors Project in Dramatic Art. 3 Credits. Permission of the department. The completion of a special project by a student who has been designated a candidate for undergraduate honors. "
   },
@@ -12917,7 +12917,7 @@
   {
     "department": "ECON",
     "number": "55. ",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": "irst-Year Seminar: Economics of Sports. 3 Credits. This course uses a varity of economic tools to analyze selected topics and issues related to professional, collegiate, and recreational athletics. "
   },
@@ -13393,14 +13393,14 @@
   {
     "department": "ECON",
     "number": "570",
-    "gen eds": "SS, EE-Mentored Research, QI. ",
+    "gen eds": "SS, EE, QI. ",
     "requirements": "Prerequisites, ECON 400 and 410. ",
     "description": "Applied Econometric Analysis. 3 Credits. Statistical methods in the construction, estimation, testing, and application of linear economic models; computer programs and interpretation of their output in empirical analysis of common economic theories. "
   },
   {
     "department": "ECON",
     "number": "570H",
-    "gen eds": "SS, EE-Mentored Research, QI. ",
+    "gen eds": "SS, EE, QI. ",
     "requirements": "Prerequisites, ECON 400 and 410. ",
     "description": " Applied Econometric Analysis. 3 Credits. Statistical methods in the construction, estimation, testing, and application of linear economic models; computer programs and interpretation of their output in empirical analysis of common economic theories. "
   },
@@ -13442,14 +13442,14 @@
   {
     "department": "ECON",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Course. 3 Credits. Permission of the instructor. Readings in economics and beginning of directed research on an honors thesis. Required of all candidates for graduation with honors in economics. "
   },
   {
     "department": "ECON",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, ECON 691H . ",
     "description": " Honors Course. 3 Credits. Permission of the instructor. Completion of an honors thesis under the direction of a member of the faculty. Required of all candidates for graduation with honors in economics. "
   },
@@ -13701,7 +13701,7 @@
   {
     "department": "CMPL",
     "number": "260",
-    "gen eds": "VP, CI, EE-Mentored Research. ",
+    "gen eds": "VP, CI, EE. ",
     "requirements": "",
     "description": "Landscape in Literature and the Arts: Re-Imagining the Natural World. 3 Credits. Explores how human interaction with the natural world is represented in the literary, visual, and performing arts from Roman fresco to the ecological art and fiction of the 21st century. Students conduct mentored research at Ackland Art Museum with peer and faculty feedback at every stage. "
   },
@@ -13932,7 +13932,7 @@
   {
     "department": "CMPL",
     "number": "460",
-    "gen eds": "LA, CI, EE-Mentored Research. ",
+    "gen eds": "LA, CI, EE. ",
     "requirements": "Prerequisite, ENGL 105. ",
     "description": "Transnational Romanticism: Romantic Movements in Europe and the Americas. 3 Credits. Research-intensive course that explores how the Romantic movement beginning in 18th-century Europe has shaped the world we experience now. Topics vary and include revolutionary republicanism; slavery and abolition; quests for originality, expressiveness, and spiritual renovation; critiques of progress and modern urban culture; and revaluations of the natural world. "
   },
@@ -14100,14 +14100,14 @@
   {
     "department": "CMPL",
     "number": "500",
-    "gen eds": "LA, CI, EE-Mentored Research. ",
+    "gen eds": "LA, CI, EE. ",
     "requirements": "",
     "description": "Advanced Seminar. 3 Credits. This seminar allows comparative literature majors to work on an independent project to synthesize their curricular experience, and it introduces them to current, broadly applicable issues in comparative literature. "
   },
   {
     "department": "CMPL",
     "number": "558",
-    "gen eds": "LA, EE-Mentored Research, WB. ",
+    "gen eds": "LA, EE, WB. ",
     "requirements": "",
     "description": "The Lives and Times of Medieval Corpses. 3 Credits. An investigation of the social, poiltical, and literary uses of corpses in the Middle Ages. "
   },
@@ -14135,7 +14135,7 @@
   {
     "department": "CMPL",
     "number": "622",
-    "gen eds": "EE-Mentored Research, WB. ",
+    "gen eds": "EE, WB. ",
     "requirements": "",
     "description": "Medieval Cosmopolitanisms. 3 Credits. An examination of medieval engagements with the foreign and the extent to which those engagements challenged conventional ways of thinking about the world. "
   },
@@ -14156,14 +14156,14 @@
   {
     "department": "CMPL",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Comparative Lit Senior Honors Thesis Part I. 3 Credits. Required of all students reading for honors in comparative literature. "
   },
   {
     "department": "CMPL",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, CMPL 691H. ",
     "description": " Comparative Lit Senior Honors Thesis Part II. 3 Credits. Required of all students reading for honors in comparative literature. "
   },
@@ -14331,7 +14331,7 @@
   {
     "department": "ENGL",
     "number": "75. ",
-    "gen eds": "HS, CI, EE-Mentored Research. ",
+    "gen eds": "HS, CI, EE. ",
     "requirements": "",
     "description": "irst-Year Seminar: Interpreting the South from Manuscripts. 3 Credits. The aim of the course is to give beginning university students the requisite research skills to allow them to appreciate and to contribute to an understanding of the past by directly experiencing and interpreting records from the past. Students will actually get to work with historical documents, some more than 200 years old. "
   },
@@ -14912,7 +14912,7 @@
   {
     "department": "ENGL",
     "number": "274",
-    "gen eds": "LA, CI, EE-Mentored Research. ",
+    "gen eds": "LA, CI, EE. ",
     "requirements": "",
     "description": "Approaches to Drama: Regional Productions. 3 Credits. Approaches to the literary interpretation of drama, stressing original research into literary history, genre, and social and cultural contexts, with an emphasis on current plays staged in area theater. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "
   },
@@ -14996,21 +14996,21 @@
   {
     "department": "ENGL",
     "number": "292",
-    "gen eds": "LA, EE-Mentored Research. ",
+    "gen eds": "LA, EE. ",
     "requirements": "",
     "description": "Depictions of Childhood in Literature and the Visual Arts. 3 Credits. This course considers a range of texts, including children's literature, to focus on the aesthetic, historical, and social factors grounding depictions of childhood. Other material includes literature and visual texts in various forms. The course stresses original student research. "
   },
   {
     "department": "ENGL",
     "number": "295",
-    "gen eds": "LA, CI, EE-Mentored Research. ",
+    "gen eds": "LA, CI, EE. ",
     "requirements": "",
     "description": "Undergraduate Research Seminar. 3 Credits. Guides students through the processes of developing an original research topic, conducting research, and analyzing research, leading students to produce a high-quality presentation of their findings. Topic varies by instructor but may focus on literary studies or closely-related arenas such as medical humanities, digital humanities, and creative writing, among others. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 3 total completions. "
   },
   {
     "department": "ENGL",
     "number": "295H",
-    "gen eds": "LA, CI, EE-Mentored Research. ",
+    "gen eds": "LA, CI, EE. ",
     "requirements": "",
     "description": " Undergraduate Research Seminar. 3 Credits. Guides students through the processes of developing an original research topic, conducting research, and analyzing research, leading students to produce a high-quality presentation of their findings. Topic varies by instructor but may focus on literary studies or closely-related arenas such as medical humanities, digital humanities, and creative writing, among others. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 3 total completions. "
   },
@@ -15129,14 +15129,14 @@
   {
     "department": "ENGL",
     "number": "316",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": "Rhetorical Traditions. 3 Credits. Examines histories of rhetorical theory and practice. Students will develop original research projects that expand our understanding of rhetorical traditions. Historical periods, critical perspectives, genres, and topics will vary. "
   },
   {
     "department": "ENGL",
     "number": "316H",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": " Rhetorical Traditions. 3 Credits. Examines histories of rhetorical theory and practice. Students will develop original research projects that expand our understanding of rhetorical traditions. Historical periods, critical perspectives, genres, and topics will vary. "
   },
@@ -16060,7 +16060,7 @@
   {
     "department": "ENGL",
     "number": "496",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": "Independent Research. 1-3 Credits. Permission of the department. Recommended for students in junior or senior year of study. Intensive mentored research, service learning, field work, creative work, or internship. Requires 30 hours of research, writing, or experiential activities, or 100 hours of internship work, culminating in a written project. "
   },
@@ -16291,35 +16291,35 @@
   {
     "department": "ENGL",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " English Senior Honors Thesis, Part I. 3 Credits. Restricted to senior honors candidates. First semester of senior honors thesis. Independent research under the direction of an English department faculty member. "
   },
   {
     "department": "ENGL",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " English Senior Honors Thesis, Part II. 3 Credits. Restricted to senior honors candidates. Second semester of senior honors thesis. Essay preparation under the direction of an English department faculty member. "
   },
   {
     "department": "ENGL",
     "number": "693H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisites, ENGL 130, 131, 132H, or 133H; ENGL 206 or ",
     "description": " Creative Writing Senior Honors Thesis, Part I. 3 Credits. Permission of the program director. Restricted to senior honors candidates. The first half of a two-semester seminar. Each student begins a book of fiction (25,000 words) or poetry (1,000 lines). Extensive discussion of student work in class and in conferences. 207; and ENGL 406 or 407. "
   },
   {
     "department": "ENGL",
     "number": "694H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisites, ENGL 130, 131, 132H, or 133H; ENGL 206 or ",
     "description": " Creative Writing Senior Honors Thesis, Part II. 3 Credits. Permission of the program director. Restricted to senior honors candidates. The second half of a two-semester seminar. Each student completes a book of fiction or poetry. Extensive discussion of student work in class and in conferences with instructor. 207; ENGL 406 or 407; and ENGL 693H. "
   },
   {
     "department": "ENGL",
     "number": "695",
-    "gen eds": "LA, CI, EE-Mentored Research. ",
+    "gen eds": "LA, CI, EE. ",
     "requirements": "",
     "description": "Research Seminar. 3 Credits. Guides students through the processes of developing an original research topic, conducting research, and analyzing research, leading students to produce a high-quality presentation of their findings. Topic varies by instructor but may focus on literary studies or closely-related arenas such as medical humanities, digital humanities, and creative writing, among others. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 3 total completions. "
   },
@@ -16655,7 +16655,7 @@
   {
     "department": "ENEC",
     "number": "395",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Research in Environmental Sciences and Studies for Undergraduates. 1-3 Credits. Permission of the instructor. Research in an area of environmental science or environmental studies. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "
   },
@@ -17054,21 +17054,21 @@
   {
     "department": "ENEC",
     "number": "693H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Research in Environmental Sciences and Studies. 3 Credits. Permission of the director of undergraduate studies. First of two course sequence leading to the honors designation. "
   },
   {
     "department": "ENEC",
     "number": "694H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Project in Environmental Sciences and Studies. 3 Credits. Permission of the director of undergraduate studies. Independent project leading to the honors designation. Includes weekly research seminar. "
   },
   {
     "department": "ENEC",
     "number": "698",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Capstone: Analysis and Solution of Environmental Problems. 3 Credits. Interdisciplinary, team-based analyses of environmental phenomena are performed and applied to problems of the selection of effective environmental strategies. Students may select from a wide range of examples and venues. "
   },
@@ -17488,21 +17488,21 @@
   {
     "department": "ENVR",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Research. 3 Credits. Permission of the instructor. Directed readings or laboratory study of a selected topic. A written report is required in the form of an honors thesis (ENVR 692H). "
   },
   {
     "department": "ENVR",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis. 3 Credits. Students complete honors research projects. "
   },
   {
     "department": "ENVR",
     "number": "695",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Undergraduate Research. 1-3 Credits. Directed readings or laboratory study. Written reports are required. May be taken more than once for credit. Three to nine hours per week. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "
   },
@@ -17796,7 +17796,7 @@
   {
     "department": "EXSS",
     "number": "395",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Undergraduate Research Course. 1-3 Credits. Permission of the instructor. Majors only. Overall 3.0 grade point average required. Laboratory/research study addressing exercise and sport science questions. Requires final written report. Repeatable for six total credits. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "
   },
@@ -17936,14 +17936,14 @@
   {
     "department": "EXSS",
     "number": "693H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, EXSS 273. ",
     "description": " Senior Honors Thesis. 3 Credits. Required preparation, a cumulative grade point average meeting the University standard and permission of the department. Directed independent research under the supervision of a faculty advisor who teaches in the exercise and sport science curriculum. "
   },
   {
     "department": "EXSS",
     "number": "694H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, EXSS 273. ",
     "description": " Senior Honors Thesis. 3 Credits. Required preparation, a cumulative grade point average meeting the University standard and permission of the department. Preparation of an honors thesis and an oral examination on the thesis. "
   },
@@ -18041,14 +18041,14 @@
   {
     "department": "RECR",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in RECR. 3 Credits. Special studies for undergraduates. Intensive study on a particular topic under the supervision of a qualified member of the staff. For RECR majors, with special permission of the faculty members involved and the director of undergraduate studies. "
   },
   {
     "department": "RECR",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in RECR. 3 Credits. Honors project in recreation. The completion of a special project, approved by the department, by a student who has been designated a candidate for undergraduate honors. The second of a two-course honors sequence. "
   },
@@ -19301,7 +19301,7 @@
   {
     "department": "GEOG",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors. 3 Credits. By permission of the department. Required of all students aspiring to honors in geography. Directed readings, research, and writing. "
   },
@@ -19966,14 +19966,14 @@
   {
     "department": "GEOL",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors. 3 Credits. By permission of the department. For details, see geology degree requirements. "
   },
   {
     "department": "GEOL",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, GEOL 691H. ",
     "description": " Honors. 3 Credits. For details, see geology degree requirements. "
   },
@@ -19994,7 +19994,7 @@
   {
     "department": "GSLL",
     "number": "70. ",
-    "gen eds": "LA, EE-Mentored Research, GL. ",
+    "gen eds": "LA, EE, GL. ",
     "requirements": "",
     "description": "irst-Year Seminar: Teenage Kicks: Race, Class, and Gender in Postwar Youth Cultures. 3 Credits. This seminar investigates youth cultures from the 1940s to the present in the United States and around the world. It offers students a history of how different youth cultures developed over time, and consideration of how the constitution of youth cultures has been influenced by factors like race, class, and gender. "
   },
@@ -20057,21 +20057,21 @@
   {
     "department": "GSLL",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Course. 3 Credits. Permission of the director of undergraduate studies. For majors only. Reading and special studies under the direction of a faculty member. "
   },
   {
     "department": "GSLL",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Course. 3 Credits. Permission of the director of undergraduate studies. For majors only. Reading and preparation of an essay under the direction of a faculty member, designed to lead to the completion of the honors thesis. "
   },
   {
     "department": "GSLL",
     "number": "693H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Seminar. 3 Credits. Permission of the director of undergraduate studies. For majors only. Introduction to research techniques and preparation of an essay, designed to lead to the completion of the honors thesis. "
   },
@@ -20848,21 +20848,21 @@
   {
     "department": "GERM",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Course. 3 Credits. Permission of the director of undergraduate studies. For majors only. Reading and special studies under the direction of a faculty member. "
   },
   {
     "department": "GERM",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Course. 3 Credits. Permission of the director of undergraduate studies. For majors only. Reading and preparation of an essay under the direction of a faculty member, designed to lead to the completion of the honors thesis. "
   },
   {
     "department": "GERM",
     "number": "693H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Seminar. 3 Credits. Permission of the director of undergraduate studies. For majors only. Introduction to research techniques and preparation of an essay, designed to lead to the completion of the honors thesis. "
   },
@@ -21401,14 +21401,14 @@
   {
     "department": "RUSS",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Reading Course. 3 Credits. Russian language and culture majors only. Researching and writing of an honors thesis on an agreed-upon topic not covered by scheduled courses, under the direction of departmental advisors. "
   },
   {
     "department": "RUSS",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Reading Course. 3 Credits. Russian language and culture majors only. Researching and writing of an honors thesis on an agreed-upon topic not covered by scheduled courses, under the direction of departmental advisors. "
   },
@@ -21639,14 +21639,14 @@
   {
     "department": "SLAV",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Reading Course. 3 Credits. Slavic and East European languages and cultures majors only. Research and writing of an honors thesis on an agreed-upon topic not covered by scheduled courses, under the direction of departmental advisors. "
   },
   {
     "department": "SLAV",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Reading Course. 3 Credits. Slavic and East European languages and cultures majors only. Research and writing of an honors thesis on an agreed-upon topic not covered by scheduled courses, under the direction of departmental advisors. "
   },
@@ -21898,14 +21898,14 @@
   {
     "department": "GLBL",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Global Studies. 3 Credits. Permission of the instructor. Preparation for writing the honors thesis. "
   },
   {
     "department": "GLBL",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Global Studies. 3 Credits. Permission of the instructor. Completion of the honors thesis and an oral examination of the thesis. "
   },
@@ -23235,7 +23235,7 @@
   {
     "department": "HIST",
     "number": "398",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": "Undergraduate Seminar in History. 3 Credits. Permission of the department. The course is in general limited to 15 students. The subject matter will vary with the instructor. Each course will concern itself with a study in depth of some historical problem. Students will write a substantial research paper. Repeat rules: May be repeated for credit. 6 total credits. 2 total completions. "
   },
@@ -24012,21 +24012,21 @@
   {
     "department": "HIST",
     "number": "671",
-    "gen eds": "HS, EE-Mentored Research, NA. ",
+    "gen eds": "HS, EE, NA. ",
     "requirements": "",
     "description": "Introduction to Public History. 3 Credits. Introduces the theory, politics, and practice of historical work conducted in public venues (museums, historic sites, national parks, government agencies, archives), directed at public audiences, or addressed to public issues. "
   },
   {
     "department": "HIST",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in History. 3 Credits. Permission of the instructor. Introduction to the methods of historical research; designed to lead to the completion of an honors essay. "
   },
   {
     "department": "HIST",
     "number": "692H",
-    "gen eds": "HS, CI, EE-Mentored Research. ",
+    "gen eds": "HS, CI, EE. ",
     "requirements": "",
     "description": " Honors in History. 3 Credits. Permission of the instructor. Introduction to the methods of historical research; designed to lead to the completion of an honors essay. "
   },
@@ -24117,14 +24117,14 @@
   {
     "department": "IDST",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis. 3 Credits. Permission of the instructor. Required of all senior honors candidates. "
   },
   {
     "department": "IDST",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis. 3 Credits. Permission of the instructor. Second semester of senior honors thesis; required of all senior honors candidates. "
   },
@@ -24180,14 +24180,14 @@
   {
     "department": "LTAM",
     "number": "690",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Seminar in Latin American Issues. 3 Credits. LTAM 691H. Honors in Latin American Studies. 3 Credits. Directed independent research leading to the preparation of an honors thesis. "
   },
   {
     "department": "LTAM",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Latin American Studies. 3 Credits. Completion of the honors thesis and an oral examination of the thesis. "
   },
@@ -24677,14 +24677,14 @@
   {
     "department": "LING",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis. 3 Credits. See the program for honors in the College of Arts and Sciences and the department honors advisor. "
   },
   {
     "department": "LING",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis. 3 Credits. See the program for honors in the College of Arts and Sciences and the department honors advisor. "
   },
@@ -24824,7 +24824,7 @@
   {
     "department": "MASC",
     "number": "395",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Undergraduate Research in Marine Sciences. 1-3 Credits. Permission of a faculty research director. Directed readings with laboratory study on a selected topic. Repeat rules: May be repeated for credit. 8 total credits. 4 total completions. "
   },
@@ -25356,7 +25356,7 @@
   {
     "department": "MATH",
     "number": "296",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Directed Exploration in Mathematics. 1-3 Credits. By permission of the director of undergraduate studies. Experimentation or deeper investigation under the supervision of a faculty member of topics in mathematics that may be, but need not be, connected with an existing course. No one may receive more than seven semester hours of credit for this course. Formerly offered as MATH 290. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 7 total credits. 7 total completions. "
   },
@@ -25398,7 +25398,7 @@
   {
     "department": "MATH",
     "number": "396",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Undergraduate Reading and Research in Mathematics. 1-3 Credits. Permission of the director of undergraduate studies. This course is intended mainly for students working on honors projects. No one may receive more than three semester hours credit for this course. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 6 total credits. 2 total completions. "
   },
@@ -25720,14 +25720,14 @@
   {
     "department": "MATH",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Research in Mathematics. 3 Credits. Permission of the director of undergraduate studies. Readings in mathematics and the beginning of directed research on an honors thesis. "
   },
   {
     "department": "MATH",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis in Mathematics. 3 Credits. Permission of the director of undergraduate studies. Completion of an honors thesis under the direction of a member of the faculty. Required of all candidates for graduation with honors in mathematics. "
   },
@@ -26742,7 +26742,7 @@
   {
     "department": "MUSC",
     "number": "296",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Special Studies for Undergraduates. 1-3 Credits. Available only to music majors by permission of the director of undergraduate studies. Intensive study on a particular topic under faculty supervision. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 6 total credits. 6 total completions. "
   },
@@ -26938,14 +26938,14 @@
   {
     "department": "MUSC",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honors Thesis in Music I. 3 Credits. Admission by permission of the honors advisor. Independent study by a student who has been designated a candidate for undergraduate honors in music. "
   },
   {
     "department": "MUSC",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisites, MUSC 691H. ",
     "description": " Senior Honors Thesis in Music II. 3 Credits. Continuance and completion of an honors thesis in music. "
   },
@@ -27071,7 +27071,7 @@
   {
     "department": "NUTR",
     "number": "295",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Undergraduate Research Experience in Nutrition. 3 Credits. Permission of the instructor. For undergraduates enrolled in the department's baccalaureate degree program. Directed readings or laboratory study on a selected topic. May be taken more than once for credit. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 9 total credits. 3 total completions. "
   },
@@ -27155,7 +27155,7 @@
   {
     "department": "NUTR",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Research in Nutrition. 3 Credits. Permission of the instructor. Directed readings or laboratory study of a selected topic. Requires a written proposal to be submitted to and approved by the B.S.P.H. Committee and faculty research director. A written report is required. May be taken more than once for credit. Six laboratory hours per week. "
   },
@@ -27813,7 +27813,7 @@
   {
     "department": "PWAD",
     "number": "670",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": "Peace Making in the Israeli-Palestinian Conflict. 3 Credits. Research-intensive seminar focusing on the barriers preventing peace making from occurring. The course will make a distinction between making peace among individuals and achieving a political solution between governments and organizations. "
   },
@@ -27834,14 +27834,14 @@
   {
     "department": "PWAD",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Peace, War, and Defense. 3 Credits. Permission of the instructor. Directed research on an independent basis for majors who are preparing an honors thesis and for the oral examination on the thesis. "
   },
   {
     "department": "PWAD",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, PWAD 691H. ",
     "description": " Honors in Peace, War, and Defense. 3 Credits. Directed research on an independent basis for majors who are preparing an honors thesis and for the oral examination on the thesis. "
   },
@@ -28296,7 +28296,7 @@
   {
     "department": "PHIL",
     "number": "261",
-    "gen eds": "PH, CI, EE-Mentored Research. ",
+    "gen eds": "PH, CI, EE. ",
     "requirements": "",
     "description": "Ethics in Practice. 3 Credits. Required preparation, one previous PHIL ethics course. Permission of the instructor. Ethics Bowl provides a unique experiential opportunity for students to apply theory to practical global issues. Students will prepare cases to present locally and at Ethics Bowl competition. Repeat rules: May be repeated for credit. 12 total credits. 4 total completions. "
   },
@@ -28387,7 +28387,7 @@
   {
     "department": "PHIL",
     "number": "292",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, two previous PHIL courses. ",
     "description": "Introducing and Integrating Philosophy into Primary and Secondary Schools. 3 Credits. Permission of the instructor. This course combines on-campus structured learning with substantial on-site field work incorporating philosophy into the primary and/or secondary school curriculum. Philosophy subjects and school partners will vary by semester. Repeat rules: May be repeated for credit. 9 total credits. 3 total completions. "
   },
@@ -28835,14 +28835,14 @@
   {
     "department": "PHIL",
     "number": "691H",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": " Courses for Honors. 3 Credits. Permission of the director of undergraduate studies. See the director of undergraduate studies of the department. "
   },
   {
     "department": "PHIL",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Courses for Honors. 3 Credits. Permission of the director of undergraduate studies. See the director of undergraduate studies of the department. "
   },
@@ -28954,7 +28954,7 @@
   {
     "department": "ASTR",
     "number": "502",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisites, ASTR 301 and MATH 383; pre- or corequisite, ",
     "description": "Astrophysics II (Modern Research in Astrophysics). 3 Credits. An introduction to modern research in astrophysics based on scientific journal articles addressing a current topic of interest in galactic or extragalactic astrophysics, including training in computer modeling and statistical analysis, culminating in the completion of a research project. PHYS 331. "
   },
@@ -29213,7 +29213,7 @@
   {
     "department": "PHYS",
     "number": "295",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Research with Faculty Mentor I. 1-12 Credits. Research with a faculty mentor. Approved learning contract required. Repeat rules: May be repeated for credit. 12 total credits. 4 total completions. "
   },
@@ -29283,14 +29283,14 @@
   {
     "department": "PHYS",
     "number": "395",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": "Research with Faculty Mentor II. 1-12 Credits. Research with a faculty mentor. Approved learning contract required. Additionally, students write and submit a proposal to an internal or external competition for funding intended for students. They also give a poster or oral presentation on the topic of their research at an appropriate symposium or meeting. Repeat rules: May be repeated for credit. 12 total credits. 4 total completions. "
   },
   {
     "department": "PHYS",
     "number": "395H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Research with Faculty Mentor II. 1-12 Credits. Research with a faculty mentor. Approved learning contract required. Additionally, students write and submit a proposal to an internal or external competition for funding intended for students. They also give a poster or oral presentation on the topic of their research at an appropriate symposium or meeting. Repeat rules: May be repeated for credit. 12 total credits. 4 total completions. "
   },
@@ -29493,14 +29493,14 @@
   {
     "department": "PHYS",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Senior Honor Thesis Research I. 3 Credits. Permission of the instructor. Readings in physics and directed research for a senior honor thesis project. Required of all candidates for graduation with honors in physics. "
   },
   {
     "department": "PHYS",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, PHYS 691H. ",
     "description": " Senior Honor Thesis Research II. 3 Credits. Readings in physics and directed research for a senior honor thesis project. Required of all candidates for graduation with honors in physics. "
   },
@@ -29731,7 +29731,7 @@
   {
     "department": "POLI",
     "number": "150L",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Co-requisite, POLI 150; ",
     "description": " International Relations and World Politics Research Laboratory. 1 Credit. Permission of the instructor. This laboratory section introduces students in POLI 150 to contemporary research methods in the study of international relations and world politics. Students will design and conduct independent research related to international politics. "
   },
@@ -29752,7 +29752,7 @@
   {
     "department": "POLI",
     "number": "196",
-    "gen eds": "EE-Academic Internship, EE-Field Work, EE-Mentored Research. ",
+    "gen eds": "EE-Academic Internship, EE-Field Work, EE. ",
     "requirements": "",
     "description": "Independent Study in Political Science. 1-3 Credits. Permission of the director of undergraduate studies. Readings and research under the supervision of a member of the department. Open to political science majors. Repeat rules: May be repeated for credit. 9 total credits. 3 total completions. "
   },
@@ -30284,7 +30284,7 @@
   {
     "department": "POLI",
     "number": "421",
-    "gen eds": "SS, CI, EE-Mentored Research. ",
+    "gen eds": "SS, CI, EE. ",
     "requirements": "",
     "description": "Framing Public Policies. 3 Credits. This course will focus on the process by which policies get framed, or defined, in public discussions. Framing is focusing attention on some elements of a complex public problem rather than others. Readings combine psychological background with case histories of United States and comparative public policy changes over time. "
   },
@@ -30627,21 +30627,21 @@
   {
     "department": "POLI",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Seminar in Research Design. 3 Credits. Required of all students in the honors program in political science. "
   },
   {
     "department": "POLI",
     "number": "692H",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": " Honors Thesis Research. 3 Credits. Required of all students in the honors program in political science. "
   },
   {
     "department": "POLI",
     "number": "693H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis Research. 3 Credits. Required of all students in the honors program in political science. "
   },
@@ -30935,7 +30935,7 @@
   {
     "department": "PSYC",
     "number": "270",
-    "gen eds": "PX, EE-Mentored Research. ",
+    "gen eds": "PX, EE. ",
     "requirements": "Prerequisites, PSYC 101, and 210 or 215. ",
     "description": "Laboratory Research in Psychology. 4 Credits. Experiments in biological, behavioral, cognitive, developmental, personality, and social psychology will be discussed, prepared, performed, and reported. One lecture hour and four laboratory hours per week. "
   },
@@ -30998,7 +30998,7 @@
   {
     "department": "PSYC",
     "number": "395",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisites, PSYC 101 and two additional psychology ",
     "description": "Independent Research. 1-3 Credits. A minimum of a 3.0 cumulative grade point average. Permission of the instructor. Supervised research resulting in a written report. May be repeated for credit up to six hours, but counts only once as a psychology elective. courses, at least one of which must be numbered 200 or greater. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 6 total credits. 6 total completions. "
   },
@@ -31026,14 +31026,14 @@
   {
     "department": "PSYC",
     "number": "403",
-    "gen eds": "PX, EE-Mentored Research. ",
+    "gen eds": "PX, EE. ",
     "requirements": "Prerequisites, PSYC 101 and 220 or 402. ",
     "description": "Advanced Biopsychology Laboratory. 3 Credits. \"Hands on\" laboratory course designed to introduce students to experimental protocols emphasizing \"brain-behavior\" relationships. Topics include gross neuroanatomy, stereotaxic surgery, and the effects of drugs on behavior. "
   },
   {
     "department": "PSYC",
     "number": "403H",
-    "gen eds": "PX, EE-Mentored Research. ",
+    "gen eds": "PX, EE. ",
     "requirements": "Prerequisites, PSYC 101 and 220 or 402. ",
     "description": " Advanced Biopsychology Laboratory. 3 Credits. \"Hands on\" laboratory course designed to introduce students to experimental protocols emphasizing \"brain-behavior\" relationships. Topics include gross neuroanatomy, stereotaxic surgery, and the effects of drugs on behavior. "
   },
@@ -31180,7 +31180,7 @@
   {
     "department": "PSYC",
     "number": "470",
-    "gen eds": "PL, EE-Mentored Research. ",
+    "gen eds": "PL, EE. ",
     "requirements": "Prerequisites, PSYC 101 and 250, and 210 or 215. ",
     "description": "Developmental Research on the Family. 3 Credits. Child and adolescent development within the context of family is examined. Course topics include family theory, cognitive development, divorce, poverty, and gender. Each student will complete a research project. "
   },
@@ -31278,7 +31278,7 @@
   {
     "department": "PSYC",
     "number": "509",
-    "gen eds": "SS, EE-Mentored Research. ",
+    "gen eds": "SS, EE. ",
     "requirements": "Prerequisites, PSYC 101 and 245. ",
     "description": "Applied Behavioral Analysis. 3 Credits. PSYC 222 recommended. A survey of applications of learning theory in solving clinical, educational, and societal problems. Practicum experience included. "
   },
@@ -31467,7 +31467,7 @@
   {
     "department": "PSYC",
     "number": "693H",
-    "gen eds": "SS, CI, EE-Mentored Research. ",
+    "gen eds": "SS, CI, EE. ",
     "requirements": "",
     "description": " Honors in Psychology I. 3 Credits. Required preparation, cumulative GPA of 3.3, psychology GPA of 3.5, one semester of PSYC 395, and acceptance through application to the honors committee. To be taken in the fall of the last year of studies as the first course in the two-semester honors sequence. Students conduct research under the direction of a faculty advisor and receive classroom instruction in research-related topics. "
   },
@@ -32006,14 +32006,14 @@
   {
     "department": "PLCY",
     "number": "691H",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "Prerequisites, PLCY 460 and 581. ",
     "description": " Honors in Public Policy. 3 Credits. Permission of the instructor. In preparing their honors theses, students will formulate a testable policy research question, design a study to answer this research question, and learn to think critically about causal inference. "
   },
   {
     "department": "PLCY",
     "number": "692H",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "Prerequisite, PLCY 691H. ",
     "description": " Honors in Public Policy. 3 Credits. Permission of the instructor. For senior public policy majors. Directed research for the honors thesis. Students may only receive credit for one semester of this course. An application for enrollment must be completed by the student and approved by the director of the public policy honors program. "
   },
@@ -32027,7 +32027,7 @@
   {
     "department": "PLCY",
     "number": "698",
-    "gen eds": "CI, EE-Mentored Research, NA. ",
+    "gen eds": "CI, EE, NA. ",
     "requirements": "Prerequisites, PLCY 460; pre- or co-requisite, PLCY 581. ",
     "description": "Senior Capstone in Public Policy. 3 Credits. Students apply knowledge and skills gained in the major to a real-world policy problem. In small teams, students produce actionable, client- centered, public policy analysis for a government agency or nonprofit organization. Students also develop skills in team work, leadership, communication, professional etiquette, and time management. "
   },
@@ -33602,21 +33602,21 @@
   {
     "department": "RELI",
     "number": "688",
-    "gen eds": "SS, EE-Mentored Research. ",
+    "gen eds": "SS, EE. ",
     "requirements": "",
     "description": "Observation and Interpretation of Religious Action. 3 Credits. Permission of the instructor. Exercises (including field work) in learning to read the primary modes of public action in religious traditions, e.g., sermons, testimonies, rituals, and prayers. "
   },
   {
     "department": "RELI",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Religious Studies. 3 Credits. Permission of the director of undergraduate studies. Required of all students reading for honors in religious studies. "
   },
   {
     "department": "RELI",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Religious Studies. 3 Credits. Permission of the director of undergraduate studies. Required of all students reading for honors in religious studies. "
   },
@@ -34547,14 +34547,14 @@
   {
     "department": "FREN",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis in French. 3 Credits. Required of students reading for honors. Preparation of an essay under the direction of a member of the faculty. Topic to be approved by thesis director in consultation with honors advisor. "
   },
   {
     "department": "FREN",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis in French. 3 Credits. Restricted to senior honors candidates. Second semester of senior honors thesis. Thesis preparation under the direction of a departmental faculty member. "
   },
@@ -34736,14 +34736,14 @@
   {
     "department": "ITAL",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis. 3 Credits. Required of students reading for honors. Preparation of an essay under direction of a member of the faculty. Topics to be approved by thesis director in consultation with honors advisor. "
   },
   {
     "department": "ITAL",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis in Italian. 3 Credits. Restricted to senior honors candidates. Second semester of senior honors thesis. Thesis preparation under the direction of a departmental faculty member. "
   },
@@ -35023,14 +35023,14 @@
   {
     "department": "PORT",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis. 3 Credits. Required of all students reading for honors. Preparation of an essay under the direction of a faculty member. Topic to be approved by thesis director in consultation with honors advisor. "
   },
   {
     "department": "PORT",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis in Portuguese. 3 Credits. Restricted to senior honors candidates. Second semester of senior honors thesis. Thesis preparation under the direction of a departmental faculty member. "
   },
@@ -35156,7 +35156,7 @@
   {
     "department": "ROML",
     "number": "500",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Research Methods for Romance Languages and European Studies. 3 Credits. Required preparation, B.A. with honors student or M.A. student. Provides training in research methodology for a B.A. with honors or M.A. thesis. Students will learn to conceptualize an original research project and to identify and assess the current intellectual debates in their chosen areas of research. "
   },
@@ -35814,14 +35814,14 @@
   {
     "department": "SPAN",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis. 3 Credits. Required of students reading for honors. Preparation of an essay under the direction of a faculty member. Topic to be approved by thesis director in consultation with honors advisor. "
   },
   {
     "department": "SPAN",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors Thesis in Spanish. 3 Credits. Restricted to senior honors candidates. Second semester of senior honors thesis. Thesis preparation under the direction of a departmental faculty member. "
   },
@@ -36535,14 +36535,14 @@
   {
     "department": "SOCI",
     "number": "691H",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "",
     "description": " Senior Honors Research and Seminar. 3 Credits. Permission of the department. SOCI 691H is required of senior honors candidates. Individual student research (under supervision of an advisor). Weekly seminar to discuss work on honors thesis, as well as special topics in sociology. "
   },
   {
     "department": "SOCI",
     "number": "692H",
-    "gen eds": "CI, EE-Mentored Research. ",
+    "gen eds": "CI, EE. ",
     "requirements": "Prerequisite, SOCI 691H. ",
     "description": " Senior Honors Research and Seminar. 3 Credits. Permission of the department. Individual student research under supervision of an advisor. Weekly seminar to discuss work on honors thesis as well as special topics in sociology. "
   },
@@ -36745,7 +36745,7 @@
   {
     "department": "STOR",
     "number": "496",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": "Undergraduate Reading and Research in Statistics and Operations Research. 1-3 Credits. Permission of the director of undergraduate studies. This course is intended mainly for students working on honors projects. May be repeated for credit. Repeat rules: May be repeated for credit; may be repeated in the same term for different topics; 6 total credits. 6 total completions. "
   },
@@ -36843,7 +36843,7 @@
   {
     "department": "STOR",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "",
     "description": " Honors in Mathematical Decision Sciences. 3 Credits. Permission of the department. Majors only. Individual reading, study, or project supervised by a faculty member. "
   },
@@ -37172,7 +37172,7 @@
   {
     "department": "WMST",
     "number": "278",
-    "gen eds": "HS, CI, EE-Mentored Research. ",
+    "gen eds": "HS, CI, EE. ",
     "requirements": "",
     "description": "Women in Science. 3 Credits. The role of women in scientific domains throughout history and a consideration of the status of women and men as scientists. The development of science as a cultural practice. "
   },
@@ -37774,14 +37774,14 @@
   {
     "department": "WMST",
     "number": "691H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisites, WMST 101 and 202. ",
     "description": " Honors in Women's Studies. 3 Credits. Senior standing and permission of the department. The first semester of the yearlong honors thesis in women's and gender studies. Completing WMST 691H fulfills the WMST 695 requirement for the major. "
   },
   {
     "department": "WMST",
     "number": "692H",
-    "gen eds": "EE-Mentored Research. ",
+    "gen eds": "EE. ",
     "requirements": "Prerequisite, WMST 691H. ",
     "description": " Honors in Women's Studies. 3 Credits. Permission of department. Second semester of the yearlong honors thesis project. "
   },

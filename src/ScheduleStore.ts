@@ -3,6 +3,7 @@ import { Departments } from './departments';
 import { CourseData } from './components/Course';
 import { uiStore } from './UIStore';
 import { loginStore } from './LoginStore';
+import { promptUserLogin } from './components/AlertPopup'
 import { colorController } from './ColorController';
 import Schedule from './components/Schedule';
 import Semester from './components/Semester';
@@ -148,7 +149,7 @@ class ScheduleStore {
         }).catch(err => console.log(err))
       } else {
         if (this.allCourses.length >= 5) {
-          uiStore.promptUserLogin()
+          promptUserLogin()
         }
       }
     }
