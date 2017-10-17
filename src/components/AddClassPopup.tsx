@@ -1,10 +1,13 @@
 import * as React from 'react'
+import { observable, action } from 'mobx'
 import { uiStore } from '../UIStore'
 import { scheduleStore } from '../ScheduleStore'
+import { loginStore } from '../LoginStore'
 import { CourseData } from './Course'
 import "../styles/AlertPopup.css"
 
 export default class AddClassPopup extends React.Component {
+  courseOffset: number = 0;
 
   render() {
     return (
@@ -12,17 +15,17 @@ export default class AddClassPopup extends React.Component {
       <div id="popup1" className="overlay">
         <div className="popup">
           <h2>Add Class</h2>
-          <a className="close" href="#" onClick={uiStore.handleCloseAddClass}>&times;</a>
-          <br></br>
+          <a className="close" href="#" onClick={() => uiStore.addClassPopupActive = false}>&times;</a>
+          <br/>
           <div className="content add-class">
-            <form>
+            <div>
               <h6>Class Department (ex. COMP)</h6><input type='text' id="add-major-class-department"/>
               <h6>Class number (ex. 110)</h6><input type='number' id="add-major-class-number"/>
               <h6>Class name (ex. Introduction to Programming)</h6><input type='text' id="add-major-class-name"/>
               <h6>Credit hours (ex. 3)</h6><input type='number' id="add-major-class-hours"/>
               <h6>Gen eds? (ex. EE, GL, NA, HS)</h6><input type='text' id="add-major-class-geneds"/>
-              <button onClick={() => this.addClass()}>Add class</button>
-            </form>
+              <button id='submit-add-class' onClick={() => this.addClass()}>Submit class</button>
+            </div>
           </div>
         </div>
       </div>
@@ -38,38 +41,49 @@ export default class AddClassPopup extends React.Component {
     let geneds: HTMLInputElement = document.getElementById("add-major-class-geneds") as HTMLInputElement
 
     let course: CourseData = {
-      name: name.value, 
       department: department.value,
-      description: department.value + classNumber.value + ": " + name.value,
       number: classNumber.value,
+      name: name.value, 
       credits: +hours.value,
       geneds: [geneds.value],
-      id: -1
+      description: department.value + classNumber.value + ": " + name.value,
+      id: 99999
     }
 
-    scheduleStore.addCourses([course]);
-    uiStore.addClassPopupActive = false;
+    let userId: number
+    let uidString: string = 'uid'
+
+    fetch('api/api.cgi/getUserId/' + loginStore.email, {
+      method: 'get',
+      headers: {
+        'Content-Type': 'text'
+      }
+    }).then(raw => raw.json().then(res => {
+      userId = +res[uidString]
+    }))
+
+    let userDefinedCourse = {
+      cid: 99999,
+      department: department.value,
+      cnumber: +classNumber.value,
+      cname: name.value,
+      credits: +hours.value,
+      geneds: [geneds.value].toString(),
+      description: department.value + classNumber.value + ": " + name.value,
+      uid: userId
+    }
+
+    fetch('/api/api.cgi/addUserDefinedCourse', {
+      method: 'put',
+      body: JSON.stringify(userDefinedCourse),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(raw => raw.json().then(res => {
+      scheduleStore.addCourses([course])
+      this.courseOffset++
+      console.log(res)
+    }).then().catch(err => console.log(err)))
+    uiStore.addClassPopupActive = false
   }
 }
-
-// addCourses(rawCourses: CourseData[]) {
-//   const semesterLimit = 5
-//   let courses = rawCourses.filter(c => c.id) // remove error: not found items
-//   let semesterIndex = 0
-//   courses.forEach(course => {
-//     if (this.getSemester(semesterIndex).length > semesterLimit - 1 || semesterLimit > this.allSemesters.length - 1) {
-//       semesterIndex += 1
-//     }
-//     this.getSemester(semesterIndex % this.allSemesters.length).push(course)
-//   })
-// }
-
-// export type CourseData = {
-//   id: number,
-//   department: string,
-//   number: string
-//   name: string,
-//   credits: number,
-//   geneds: string[],
-//   description: string,
-// }
