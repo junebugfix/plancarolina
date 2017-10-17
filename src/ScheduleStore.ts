@@ -9,6 +9,7 @@ import Semester from './components/Semester';
 import { Semesters, getClassElements, getChildren } from './utils';
 import difference from 'lodash-es/difference';
 import flatten from 'lodash-es/flatten';
+import union from 'lodash-es/union';
 
 class ScheduleStore {
 
@@ -61,7 +62,7 @@ class ScheduleStore {
 
   addCourses(rawCourses: CourseData[]) {
     const semesterLimit = 5
-    let courses = rawCourses.filter(c => c.id) // remove error: not found items
+    let courses = difference(rawCourses, this.allCourses)
     let semesterIndex = 0
     courses.forEach(course => {
       if (this.getSemester(semesterIndex).length > semesterLimit - 1 || semesterLimit > this.allSemesters.length - 1) {
