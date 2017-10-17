@@ -1,5 +1,5 @@
 
-.YearEnteredPrompt button {
+/* .YearEnteredPrompt button {
     color: #757575;
     font-size: 13px;
     height: 36px;
@@ -40,4 +40,19 @@
   top: -10px;
   left: 50%;
   transform: translateX(-50%)
+} */
+.YearEnteredPrompt {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+  font-size: 12px;
+  flex-shrink: 2;
+}
+
+.YearEnteredPrompt > * {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
