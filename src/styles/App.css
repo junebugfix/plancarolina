@@ -158,8 +158,8 @@ ul {
 .gened-block {
   border: 1px solid rgba(0,0,0,0.5);
   font-size: 10px;
-  background: slategrey;
-  color: white;
+  background: hsl(224, 90%, 90%);
+  color: black;
   border-radius: 3px;
   padding: 3px 2px 2px 2px;
   display: inline-block;

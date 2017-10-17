@@ -5,17 +5,6 @@
   display: flex;
 }
 
-/* @media(max-width: 983px) {
-  .Validators {
-    flex-direction: row;
-    width: 100%;
-  }
-  .Validators .progress-group {
-    width: 100%;
-    margin: 0 10px;
-  }
-} */
-
 .Validators > div {
   margin: 0 10px;
   width: 100%;
@@ -41,14 +30,15 @@
 }
 
 .Validators .progress-popup {
-  background: lightgray;
-  border: 1px solid rgba(0,0,0,0.5);
+  background: hsl(225, 100%, 96%);
+  border: 1px solid rgba(170, 177, 197, 0.7);
   border-radius: 5px;
   padding: 4px;
   position: absolute;
   bottom: 30px;
   width: 100%;
   left: 0px;
+  bottom: 100%;
   z-index: 99999;
   user-select: none;
   display: none;
@@ -60,7 +50,7 @@
   top: 100%;
   transform: translateX(-50%);
   border: 12px solid transparent;
-  border-top: 12px solid gray;
+  border-top: 12px solid rgb(170, 177, 197);
 }
 .Validators .progress-group.geneds:hover .progress-popup {
   display: block;
