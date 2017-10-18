@@ -3,7 +3,7 @@ import * as React from 'react';
 export default class Spinner extends React.Component<{ radius?: number, thickness?: number }, {}> {
   render() {
     const size = this.props.radius ? this.props.radius * 2 : 20
-    const thickness = this.props.thickness ? this.props.thickness : 3
+    const thickness = this.props.thickness ? this.props.thickness : 2
     const style = {
       display: 'inline-block',
       boxSizing: 'border-box',

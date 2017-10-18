@@ -101,28 +101,9 @@
 }
 
 .SearchBar .loader-container {
-  position: relative;
-}
-
-.SearchBar .loader {
-  top: -22px;
-  left: 145px;
-}
-
-.loader,
-.loader:after {
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
   position: absolute;
-}
-.loader {
-  border-top: 3px solid rgba(0,0,0,0.2);
-  border-right: 3px solid rgba(0,0,0,0.2);
-  border-bottom: 3px solid rgba(0,0,0,0.2);
-  border-left: 3px solid black;
-  transform: translateZ(0);
-  animation: load8 800ms infinite linear;
+  left: 165px;
+  top: 37px;
 }
 
 button#searchbar-add-class{
@@ -171,7 +152,7 @@ button#searchbar-add-class{
     margin: 0;
   }
   .SearchBar #department-input, .SearchBar select {
-    margin-right: 10px;
+    margin-right: 5px;
   }
   .SearchBar .search-bar-results-container {
     position: absolute;

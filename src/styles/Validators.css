@@ -62,11 +62,15 @@
   display: block;
 }
 
-.App .saving-schedule-container {
+.Validators .saving-schedule-container {
   background: white;
   display: flex;
   flex-shrink: 2;
   height: fit-content;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.Validators .loader-container {
+  margin-left: 7px;
 }

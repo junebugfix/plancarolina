@@ -168,12 +168,6 @@ ul {
   margin: 1px;
 }
 
-.App .loader-container {
-  position: relative;
-  top: 3px;
-  left: 7px;
-}
-
 @-webkit-keyframes load8 {
   0% {
     transform: rotate(0deg);

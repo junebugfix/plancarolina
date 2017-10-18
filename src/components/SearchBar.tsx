@@ -4,6 +4,7 @@ import { uiStore } from '../UIStore'
 import SearchResults from './SearchResults'
 import SearchBarResults from './SearchBarResults'
 import AddClassPopup from './AddClassPopup'
+import Spinner from './Spinner';
 import '../styles/SearchBar.css'
 import 'tags-input/tags-input.css'
 
@@ -25,7 +26,7 @@ export default class SearchBar extends React.Component {
         <div id="searchbar-search-group" >
           <h2>Search for courses</h2>
           <div className="loader-container">
-            {uiStore.isLoadingSearchResults && <div className="loader"></div>}
+            {uiStore.isLoadingSearchResults && <Spinner />}
           </div>
           <div className="first-row-container">
             <input placeholder="COMP" id="department-input" onChange={uiStore.handleSearchingDepartmentChange} />
