@@ -21,7 +21,7 @@ export default class Toolbar extends React.Component {
           <h1 className="Toolbar-text">Plan Carolina</h1>
         </div> */}
         <div className="toolbar-content">
-          <div className="Toolbar-item" onClick={uiStore.handleAddMajorClicked}>
+          <div className="Toolbar-item" id="amp" onClick={uiStore.handleAddMajorClicked}>
             <span className="Toolbar-text hoverable">Add Major</span>
             {uiStore.addMajorPopupActive && <AddMajorPopup />}
             {uiStore.addMajorPopupActive && <SearchResults label={uiStore.MAJOR_LABEL} items={uiStore.majorResults} />}

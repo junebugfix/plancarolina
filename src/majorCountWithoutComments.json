@@ -186,7 +186,7 @@
       "name": "Environmental Science BS",
       "department": "ENEC",
       "degreeType": "BS",
-      "absoluteCourses": ["ENEC 201", "ENEC 698", "MATH 232","MATH 231", "BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "CHEM 102", "CHEM 102L", "ENEC 201", "ENEC 203"],
+      "absoluteCourses": ["ENEC 201", "ENEC 698", "MATH 232","MATH 231", "BIOL 101", "BIOL 101L", "CHEM 101", "CHEM 101L", "CHEM 102", "CHEM 102L", "ENEC 203"],
       "additionalCourses": 12,
       "urls": {
         "2013": "https://advising.unc.edu/files/2012/11/EnvrSciBS-2013.pdf",
