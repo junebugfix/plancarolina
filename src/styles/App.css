@@ -45,7 +45,7 @@ table {
 body {
   background: #D1EEFF;
   /* background: #78B0D0; */
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Work Sans', 'Avenir', sans-serif;
   margin: 0;
   transition: all 150ms ease-in-out;
 }
@@ -104,6 +104,7 @@ ul {
   justify-content: center;
   flex-shrink: 3;
   margin: 10px 0;
+  position: relative;
 }
 
 .App .validators-settings {
@@ -165,6 +166,29 @@ ul {
   display: inline-block;
   line-height: 8px;
   margin: 1px;
+}
+
+.App .loader-container {
+  position: relative;
+  top: 3px;
+  left: 7px;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 950px) {

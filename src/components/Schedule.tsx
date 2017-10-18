@@ -7,7 +7,9 @@ import { Semesters } from '../utils';
 import { CourseData } from './Course';
 import { scheduleStore } from '../ScheduleStore';
 import { uiStore } from '../UIStore';
-import SummerButton from './SummerButton';
+import Icon from 'material-ui/Icon'
+import { CircularProgress } from 'material-ui/Progress'
+import Spinner from './Spinner'
 import '../styles/Schedule.css';
 
 interface ScheduleState {
@@ -20,7 +22,7 @@ export default class Schedule extends React.Component {
   render() {
     return (
       <div className="Schedule">
-        {uiStore.isLoadingSchedule && <div className="schedule-loader loader"></div>}
+        {/* {uiStore.isLoadingSchedule && <div className="schedule-loader loader"></div>} */}
         <div className="Schedule-row Schedule-year-labels">
           <div className="Schedule-year-label">First-Year</div>
           <div className="Schedule-year-label">Sophomore</div>

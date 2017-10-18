@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import { scheduleStore } from '../ScheduleStore';
+import { uiStore } from '../UIStore';
+import Spinner from './Spinner';
 import difference from 'lodash-es/difference';
+import Icon from 'material-ui/Icon';
 import '../styles/Validators.css';
 
 @observer
@@ -21,6 +24,10 @@ export default class Validators extends React.Component {
     }
     return (
       <div className="Validators">
+        <div className="saving-schedule-container">
+          {uiStore.isSavingSchedule ? <span>saving schedule</span> : <span>schedule<br/>saved</span>}
+          <div className="loader-container">{uiStore.isSavingSchedule ? <Spinner radius={10} /> : <Icon style={{ fontSize: 16 }}>done</Icon>}</div>
+        </div>
         <div className="progress-group geneds">
           <label>Gen Eds</label>
           <div className="progress-bar"><div className="progress-completed" style={genedStyle}></div></div>

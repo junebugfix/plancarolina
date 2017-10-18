@@ -7,10 +7,12 @@ import LoginPopup from './LoginPopup';
 import Validators from './Validators';
 import Footer from './Footer';
 import Settings from './Settings';
+import Spinner from './Spinner';
 import { observer } from 'mobx-react';
 import { uiStore } from '../UIStore';
 import { loginStore } from '../LoginStore';
 import Snackbar from 'material-ui/Snackbar';
+import Icon from 'material-ui/Icon';
 import { AlertPopup } from './AlertPopup'
 
 @observer

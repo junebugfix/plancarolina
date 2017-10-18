@@ -10,7 +10,6 @@ import Semester from './components/Semester';
 import { Semesters, getClassElements, getChildren } from './utils';
 import difference from 'lodash-es/difference';
 import flatten from 'lodash-es/flatten';
-import union from 'lodash-es/union';
 
 class ScheduleStore {
 
@@ -34,13 +33,6 @@ class ScheduleStore {
   readonly CREDITS_NEEDED = 120
 
   slipLists: any[] = []
-
-  constructor() {
-    autorun(() => {
-      this.allSemesters.forEach(s => s.length) // needs to do something with each semester for autorun to work right
-      this.saveSchedule()
-    })
-  }
 
   getCourseData(id: number): CourseData {
     return this.allCourses.filter((course: CourseData) => course.id === id)[0]
@@ -71,6 +63,7 @@ class ScheduleStore {
       }
       this.getSemester(semesterIndex % this.allSemesters.length).push(course)
     })
+    this.saveSchedule()
   }
 
   @computed get allCourses(): CourseData[] {
@@ -113,23 +106,27 @@ class ScheduleStore {
   @action.bound reorderInList(el: HTMLElement, startIndex: number, endIndex: number) {
     let semesterData = this.findSemesterWithCourse(parseInt(el.id.substring(7), 10)) as CourseData[]
     semesterData.splice(endIndex, 0, semesterData.splice(startIndex, 1)[0])
+    this.saveSchedule()
   }
 
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
     let fromSemesterData = this.getSemester(Semesters[fromList.id])
     let toSemesterData = this.getSemester(Semesters[toList.id])
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
+    this.saveSchedule()
   }
 
   @action.bound insertSearchResult(resultIndex: number, semesterIndex: number, toIndex: number) {
     const department = uiStore.searchResults[resultIndex].department
     colorController.ensureScheduleHue(department)
     this.getSemester(semesterIndex).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
+    this.saveSchedule()
   }
 
   @action.bound removeCourseFromSemester(courseIndex: number, semesterIndex: Semesters) {
     let department = this.getSemester(semesterIndex)[courseIndex].department
     this.getSemester(semesterIndex).splice(courseIndex, 1)
+    this.saveSchedule()
   }
 
   connectSlipList(newSlipList: any) {
@@ -141,6 +138,7 @@ class ScheduleStore {
   }
 
   saveSchedule() {
+    uiStore.isSavingSchedule = true
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {
       if (loginStore.isLoggedIn) {
@@ -154,6 +152,7 @@ class ScheduleStore {
         }).then(res => {
           res.json().then(r => {
             console.log('synced schedule!')
+            uiStore.isSavingSchedule = false
           })
         }).catch(err => console.log(err))
       } else {

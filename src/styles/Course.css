@@ -1,5 +1,6 @@
 .Course {
   border: 1px solid rgba(170, 177, 197, 0.7);
+  background: hsl(225, 100%, 96%);
   box-sizing: border-box;
   padding: 2px;
   position: relative;

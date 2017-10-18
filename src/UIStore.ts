@@ -34,6 +34,7 @@ class UIStore {
   @observable yearEnteredPromptActive = false
   @observable addClassPopupActive = false
   @observable loginAlertActive = false
+  @observable isSavingSchedule = false
   shouldPromptForLogin = true
 
   @observable majorResults: string[] = []
