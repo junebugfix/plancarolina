@@ -44,8 +44,8 @@ export default class SearchBar extends React.Component {
         <div className="search-bar-results-container">
           <SearchBarResults />
         </div>
-        <button id='searchbar-add-class' onClick={() => {uiStore.addClassPopupActive = true}}>Don't see your class? Click here</button>
-        {uiStore.addClassPopupActive && <AddClassPopup />}
+        {/* <button id='searchbar-add-class' onClick={() => {uiStore.addClassPopupActive = true}}>Don't see your class? Click here</button> */}
+        {/*uiStore.addClassPopupActive && <AddClassPopup />*/}
       </div>
     )
   }
