@@ -188,6 +188,7 @@ ul {
 @media (max-width: 950px) {
   .App .content-container {
     flex-direction: column;
+    height: fit-content;
   }
   .App .content-left {
     width: 100%;

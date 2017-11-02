@@ -1,3 +1,23 @@
 .Footer {
-  background: slategray;
+  background: #282C34;
+  margin-top: 10px;
+  padding: 5px;
+  color: white;
+  font-size: 13px;
+  text-align: center;
+}
+
+.Footer a, .Footer a:active {
+  color: lightblue;
+  margin: 0 5px;
+}
+
+.Footer span#created-by {
+  margin-right: 5px;
+  line-height: 20px;
+}
+
+.Footer span#contact-us-at {
+  display: inline-block;
+  line-height: 20px;
 }
