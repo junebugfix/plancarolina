@@ -74,7 +74,7 @@ ul {
 
 .App .content-container {
   display: flex;
-  height: 100vh;
+  height: 100%;
 }
 
 .App .content-left {
