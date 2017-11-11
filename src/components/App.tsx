@@ -46,6 +46,7 @@ export default class App extends React.Component {
             </div>
           </div>
         </div>
+        <Footer />
         <Snackbar
           open={uiStore.alertOpen}
           onRequestClose={() => uiStore.alertOpen = false}
@@ -53,7 +54,6 @@ export default class App extends React.Component {
           autoHideDuration={3000}
         />
         {uiStore.loginAlertActive && <AlertPopup title="Hey there" body="We notice that you haven't logged in yet, make sure to do that if you would like to save your schedule! (We save it automatically, just log in and let us do the work)" />}
-        <Footer />
       </div>
     )
   }
