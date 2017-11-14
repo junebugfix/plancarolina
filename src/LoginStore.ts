@@ -27,7 +27,7 @@ class LoginStore {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(raw => raw.json().then(res => {
+    } as any).then(raw => raw.json().then(res => {
       if (!res.error) {
         this.name = res.name
         this.email = res.email
@@ -58,7 +58,7 @@ class LoginStore {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(raw => raw.json().then(res => {
+    } as any).then(raw => raw.json().then(res => {
       this.name = googleUser.getBasicProfile().getName()
       this.email = googleUser.getBasicProfile().getEmail()
       Cookies.set('token', res.token, { expires: 365 })
