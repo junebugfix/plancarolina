@@ -87,6 +87,26 @@ button#submit-add-class {
   overflow: auto;
 }
 
+.buttons-container {
+  margin-top: 20px;
+  display: flex;
+}
+
+.buttons-container button {
+  width: 100%;
+  margin: 3px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  background-color: #eee;
+  cursor: pointer;
+  outline: transparent;
+  box-sizing: border-box;
+}
+
+.buttons-container button:focus {
+  border: 2px solid black;
+}
+
 @media screen and (max-width: 700px){
   .box{
     width: 70%;

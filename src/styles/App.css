@@ -77,6 +77,10 @@ ul {
   height: 100%;
 }
 
+.App .persistent-snackbar {
+  width: 480px;
+}
+
 .App .content-left {
   width: 34%;
   height: 100%;
