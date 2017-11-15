@@ -87,7 +87,7 @@
       "name": "Computer Science BA",
       "department": "COMP",
       "degreeType": "BA",
-      "absoluteCourses": ["MATH 231", "COMP 110", "COMP 401", "COMP 411"],
+      "absoluteCourses": ["MATH 231", "COMP 110", "COMP 401", "COMP 410", "COMP 411"],
       "additionalCourses": 8,
       "urls": {
         "2012": "http://advising.unc.edu/files/2012/11/ComputerScienceBA2012.pdf",
@@ -102,7 +102,7 @@
       "name": "Computer Science BS",
       "department": "COMP",
       "degreeType": "BA",
-      "absoluteCourses": ["MATH 231", "MATH 232", "MATH 233", "STOR 435", "COMP 455", "COMP 550", "COMP 110", "COMP 401", "COMP 411"],
+      "absoluteCourses": ["MATH 231", "MATH 232", "MATH 233", "STOR 435", "COMP 455", "COMP 550", "COMP 110", "COMP 401", "COMP 410", "COMP 411"],
       "additionalCourses": 8,
       "urls": {
         "2013": "https://advising.unc.edu/files/2012/11/CompSciBS-2013-2017.pdf",
