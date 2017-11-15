@@ -41,14 +41,14 @@ export default class AddClassPopup extends React.Component {
     let geneds: HTMLInputElement = document.getElementById("add-major-class-geneds") as HTMLInputElement
 
     let course: CourseData = {
-      id: 99999,
       department: department.value,
       number: Number(classNumber.value),
       modifier: "",
       name: name.value, 
       credits: +hours.value,
       geneds: [geneds.value],
-      description: department.value + classNumber.value + ": " + name.value
+      description: department.value + classNumber.value + ": " + name.value,
+      id: 99999
     }
 
     let userId: number
@@ -66,7 +66,7 @@ export default class AddClassPopup extends React.Component {
     let userDefinedCourse = {
       cid: 99999,
       department: department.value,
-      cnumber: +classNumber.value,
+      cnumber: Number(classNumber.value),
       modifier: "",
       cname: name.value,
       credits: +hours.value,
