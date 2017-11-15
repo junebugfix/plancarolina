@@ -37,6 +37,9 @@ class LoginStore {
         this.email = res.email
         this.isLoggedIn = true
         scheduleStore.initAllSemesters(res.schedule)
+        if (res.settings) {
+          uiStore.loadSettings(JSON.parse(res.settings))
+        }
         if (flatten(res.schedule).length > 0) {
           uiStore.hasAddedACourse = true
         }

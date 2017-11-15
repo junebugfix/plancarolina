@@ -17,6 +17,18 @@ interface MajorData {
   urls: string[]
 }
 
+interface UserSettings {
+  expandedView: boolean
+  majors: string[]
+  departmentHues: { [dept: string]: number }
+  fall5Active: boolean
+  spring5Active: boolean
+  firstYearSummerActive: boolean
+  sophomoreSummerActive: boolean
+  juniorSummerActive: boolean
+  seniorSummerActive: boolean
+}
+
 class UIStore {
   @observable fall5Active = false
   @observable spring5Active = false
@@ -40,6 +52,8 @@ class UIStore {
   @observable promptHandleConflictPopup = false
   @observable isSavingSchedule = false
   shouldPromptForLogin = true
+
+  majors: string[] = []
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
@@ -82,6 +96,20 @@ class UIStore {
     return scheduleStore.allSummers.reduce((memo: number, summer: CourseData[]) => {
       return summer.length > memo ? summer.length : memo
     }, 0) * 20 + 40
+  }
+
+  @computed get userSettings(): UserSettings {
+    return {
+      expandedView: this.expandedView,
+      firstYearSummerActive: this.firstYearSummerActive,
+      sophomoreSummerActive: this.sophomoreSummerActive,
+      juniorSummerActive: this.juniorSummerActive,
+      seniorSummerActive: this.seniorSummerActive,
+      fall5Active: this.fall5Active,
+      spring5Active: this.spring5Active,
+      majors: this.majors,
+      departmentHues: colorController.getScheduleHuesObject()
+    }
   }
 
   readonly MAJOR_LABEL = "major-res"
@@ -245,6 +273,45 @@ class UIStore {
       courseIndex++
     }
     scheduleStore.removeCourseFromSemester(courseIndex, semesterIndex)
+  }
+
+  @action.bound loadSettings(settings: UserSettings) {
+    this.expandedView = settings.expandedView || this.expandedView
+    this.firstYearSummerActive = settings.firstYearSummerActive || this.firstYearSummerActive
+    this.sophomoreSummerActive = settings.sophomoreSummerActive || this.sophomoreSummerActive
+    this.juniorSummerActive = settings.juniorSummerActive || this.juniorSummerActive
+    this.seniorSummerActive = settings.seniorSummerActive || this.seniorSummerActive
+    this.fall5Active = settings.fall5Active || this.fall5Active
+    this.spring5Active = settings.spring5Active || this.spring5Active
+    this.majors = settings.majors || this.majors
+    colorController.loadDepartmentHues(settings.departmentHues)
+    this.forceUpdateSchedule()
+  }
+
+  @action.bound forceUpdateSchedule() {
+    this.expandedView = !this.expandedView
+    this.expandedView = !this.expandedView
+  }
+
+  saveSettings() {
+    if (!loginStore.isLoggedIn) return
+    console.log(this.userSettings)
+    const requestBody = {
+      settings: JSON.stringify(this.userSettings),
+      email: loginStore.email
+    }
+    console.log(JSON.stringify(requestBody))
+    fetch('/api/api.cgi/saveUserSettings', {
+      method: 'put',
+      body: JSON.stringify(requestBody),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    } as any).then(res => {
+      res.json().then(r => {
+        console.log('saved user settings')
+      }).catch(err => console.log(err))
+    }).catch(err => console.log(err))
   }
 
   snackbarAlert(message: string, snackbarAction?: Function, snackbarActionLabel?: string) {

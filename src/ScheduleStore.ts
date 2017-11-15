@@ -163,6 +163,7 @@ class ScheduleStore {
         }
       }
     }
+    uiStore.saveSettings()
   }
 
   get saveScheduleBody() {

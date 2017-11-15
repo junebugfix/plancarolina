@@ -22,6 +22,7 @@ export default class App extends React.Component {
     else if (summerIndex === 2) uiStore.juniorSummerActive = true
     else if (summerIndex === 3) uiStore.seniorSummerActive = true
     else throw new Error('invalid summer index: ' + summerIndex)
+    uiStore.saveSettings()
   }
 
   render() {
@@ -32,7 +33,10 @@ export default class App extends React.Component {
           <div className="switchContainer">
             <Switch
               checked={uiStore.expandedView}
-              onChange={() => uiStore.expandedView = !uiStore.expandedView}
+              onChange={() => {
+                uiStore.expandedView = !uiStore.expandedView
+                uiStore.saveSettings()
+              }}
             />
           </div>
         </div>

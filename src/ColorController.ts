@@ -48,6 +48,20 @@ class ColorController {
     }
   }
 
+  loadDepartmentHues(hues: { [dept: string]: number }) {
+    for (const dept in hues) {
+      this.scheduleHues.set(dept, hues[dept])
+    }
+  }
+
+  getScheduleHuesObject() {
+    const result: { [dept: string]: number } = {}
+    this.scheduleHues.forEach((val, key, map) => {
+      result[key] = val
+    })
+    return result
+  }
+
   private getAvailableHue() {
     if (this.availableHues.length === 0) {
       return this.getRandomHue()
