@@ -84,7 +84,7 @@
     "department": "COMP",
     "degree": "BA",
     "name": "Computer Science BA",
-    "absolute_courses": ["MATH 231", "COMP 401", "COMP 411"],
+    "absolute_courses": ["MATH 231", "COMP 401", "COMP 410", "COMP 411"],
     "choice_courses": {
       "number_required": 1,
       "choices": [
@@ -106,7 +106,7 @@
     "department": "COMP",
     "degree": "BS",
     "name": "Computer Science BS",
-    "absolute_courses": ["MATH 231","MATH 232","MATH 233","COMP 401","COMP 411","COMP 455","COMP 550","STOR 435"],
+    "absolute_courses": ["MATH 231","MATH 232","MATH 233","COMP 401","COMP 410", "COMP 411","COMP 455","COMP 550","STOR 435"],
     "choice_courses": {
         "number_required": 1,
         "number_groups": 3,
