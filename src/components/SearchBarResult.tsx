@@ -9,7 +9,7 @@ import '../styles/SearchBarResults.css'
 
 interface SearchBarResultData {
   department: string
-  number: string
+  number: number 
   modifier: string
   name: string
 }
