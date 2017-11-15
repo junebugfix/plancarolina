@@ -42,7 +42,8 @@ export default class AddClassPopup extends React.Component {
 
     let course: CourseData = {
       department: department.value,
-      number: classNumber.value,
+      number: Number(classNumber.value),
+      modifier: "",
       name: name.value, 
       credits: +hours.value,
       geneds: [geneds.value],
@@ -65,7 +66,8 @@ export default class AddClassPopup extends React.Component {
     let userDefinedCourse = {
       cid: 99999,
       department: department.value,
-      cnumber: +classNumber.value,
+      cnumber: Number(classNumber.value),
+      modifier: "",
       cname: name.value,
       credits: +hours.value,
       geneds: [geneds.value].toString(),

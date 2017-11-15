@@ -9,7 +9,8 @@ import '../styles/Course.css'
 export type CourseData = {
   id: number,
   department: string,
-  number: string
+  number: number,
+  modifier: string,
   name: string,
   credits: number,
   geneds: string[],

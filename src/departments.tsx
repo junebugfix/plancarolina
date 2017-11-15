@@ -91,5 +91,12 @@ export enum Departments {
   ROML,
   MNGT,
   SOCI,
-  WMST
+  WMST,
+  MEJO,
+  INLS,
+  BUSI,
+  EDUC,
+  NURS,
+  PHCY,
+  HBEH
 }
