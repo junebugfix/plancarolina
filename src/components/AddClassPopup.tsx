@@ -58,7 +58,7 @@ export default class AddClassPopup extends React.Component {
       headers: {
         'Content-Type': 'text'
       }
-    }).then(raw => raw.json().then(res => {
+    } as any).then(raw => raw.json().then(res => {
       userId = +res[uidString]
     }))
 
@@ -79,7 +79,7 @@ export default class AddClassPopup extends React.Component {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(raw => raw.json().then(res => {
+    } as any).then(raw => raw.json().then(res => {
       scheduleStore.addCourses([course])
       this.courseOffset++
       console.log(res)
