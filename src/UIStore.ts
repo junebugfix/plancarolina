@@ -237,6 +237,8 @@ class UIStore {
   }
 
   @action.bound handleSearchingMajor(e: ChangeEvent<HTMLInputElement>) {
+    this.addMajorAlertActive = false;
+    this.shouldPromptAddMajor = false;
     this.majorResults = this.majorNames.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
   }
 
@@ -357,9 +359,17 @@ class UIStore {
 
   private fetchCourseData(name: string): Promise<CourseData> {
     let dept = name.split(' ')[0]
-    let num = name.split(' ')[1]
+    let numStr = name.split(' ')[1]
+    let num: number
+    let mod = 'N'
+    if (numStr[numStr.length - 1] === "H" || numStr[numStr.length - 1] === "L") {
+      mod = numStr[numStr.length - 1]
+      num = Number(numStr.slice(0, numStr.length - 1))
+    } else {
+      num = Number(numStr)
+    }
     return new Promise((resolve, reject) => {
-      fetch(`/api/api.cgi/courses/${dept}/${num}`).then(res => {
+      fetch(`/api/api.cgi/courses/${dept}/${num}/${mod}`).then(res => {
         if (res.ok) {
           res.json().then(resolve).catch(reject)
         } else {
