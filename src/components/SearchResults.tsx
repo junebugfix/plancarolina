@@ -57,6 +57,7 @@ export default class SearchResults extends React.Component<{ label: string, item
       }
     }
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault()
       if (selectedIndex >= 0) {
         results[selectedIndex].classList.remove('selected')
       }

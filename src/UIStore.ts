@@ -328,25 +328,25 @@ class UIStore {
 
   private handleMajorResultChosen(majorName: string) { 
     let schedule = document.querySelector(".Schedule");
-    // let loader = document.createElement("div");
+    let loader = document.createElement("div");
     let data = this.majorData.filter(x => x.name === majorName)[0]
     if (this.yearEntered === undefined) {
       this.promptYearEntered().then(year => {
         this.yearEnteredPromptActive = false
         this.yearEntered = year
         let url = data.urls[this.yearEntered]
-        this.showOpenWorksheetButton(url)
+        // this.showOpenWorksheetButton(url)
       })
     } else {
       let url = data.urls[this.yearEntered]
-      this.showOpenWorksheetButton(url)
+      // this.showOpenWorksheetButton(url)
     }
-    // loader.id = "loading-circle";
-    // schedule.appendChild(loader);
+    loader.id = "loading-circle";
+    schedule.appendChild(loader);
     this.addMajorPopupActive = false
     Promise.all(data.absoluteCourses.map(c => this.fetchCourseData(c))).then(courses => {
       scheduleStore.addCourses(courses)
-      // schedule.removeChild(loader)
+      schedule.removeChild(loader)
     })
   }
 
@@ -420,7 +420,7 @@ class UIStore {
     }
   }
 
-  private showOpenWorksheetButton(url: string) {
+  showOpenWorksheetButton(url: string) {
     window.open(url)
   }
 

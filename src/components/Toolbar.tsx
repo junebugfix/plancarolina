@@ -7,6 +7,7 @@ import AddMajorPopup from './AddMajorPopup'
 import YearEnteredPrompt from './YearEnteredPrompt'
 import LoginPopup from './LoginPopup'
 import SearchResults from './SearchResults'
+import { MajorWorksheetLink } from './MajorWorksheetLink'
 import '../styles/Toolbar.css'
 
 const logo = require('../logo.png')

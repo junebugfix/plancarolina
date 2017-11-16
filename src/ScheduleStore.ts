@@ -1,6 +1,6 @@
 import { observable, action, computed, autorun } from 'mobx';
 import { Departments } from './departments';
-import { CourseData } from './components/Course';
+import Course, { CourseData } from './components/Course';
 import { uiStore } from './UIStore';
 import { loginStore } from './LoginStore';
 import { colorController } from './ColorController';
@@ -54,26 +54,44 @@ class ScheduleStore {
   }
 
   addCourses(rawCourses: CourseData[]) {
-    const semesterLimit = 5
-    let courses = difference(rawCourses, this.allCourses)
+    const maxCoursesPerSemester = 5
+    const currentCourseIds = this.allCourses.map(c => c.id)
+    const availableSemesters = this.semestersToAutomaticallyAddTo
     let semesterIndex = 0
-    courses.forEach(course => {
-      if (this.getSemester(semesterIndex).length > semesterLimit - 1 || semesterLimit > this.allSemesters.length - 1) {
+    rawCourses.forEach(course => {
+      if (availableSemesters[semesterIndex].length >= maxCoursesPerSemester) {
         semesterIndex += 1
       }
-      this.getSemester(semesterIndex % this.allSemesters.length).push(course)
+      if (!this.isInSchedule(course)) {
+        availableSemesters[semesterIndex % availableSemesters.length].push(course)
+      }
     })
     this.saveSchedule()
+  }
+
+  isInSchedule(course: CourseData) {
+    return this.allCourses.map(c => c.id).indexOf(course.id) !== -1
   }
 
   @computed get allCourses(): CourseData[] {
     return [].concat(...this.allSemesters.map(s => s.slice()))
   }
 
+  @computed get semestersToAutomaticallyAddTo(): CourseData[][] {
+    const result = [
+      this.fall1, this.fall2, this.fall3, this.fall4,
+      this.spring1, this.spring2, this.spring3, this.spring4
+    ]
+    if (uiStore.fall5Active) result.push(this.fall5)
+    if (uiStore.spring5Active) result.push(this.spring5)
+    return result
+  }
+
   @computed get allSemesters(): CourseData[][] {
     return [
-      this.fall1, this.fall2, this.fall3, this.fall4, this.fall5,
-      this.spring1, this.spring2, this.spring3, this.spring4, this.spring5,
+      this.fall1, this.fall2, this.fall3, this.fall4,
+      this.spring1, this.spring2, this.spring3, this.spring4, 
+      this.fall5, this.spring5,
       this.summer1, this.summer2, this.summer3, this.summer4
     ]
   }
@@ -221,11 +239,11 @@ class ScheduleStore {
     this.fall2 = semesters[1]
     this.fall3 = semesters[2]
     this.fall4 = semesters[3]
-    this.fall5 = semesters[4]
-    this.spring1 = semesters[5]
-    this.spring2 = semesters[6]
-    this.spring3 = semesters[7]
-    this.spring4 = semesters[8]
+    this.spring1 = semesters[4]
+    this.spring2 = semesters[5]
+    this.spring3 = semesters[6]
+    this.spring4 = semesters[7]
+    this.fall5 = semesters[8]
     this.spring5 = semesters[9]
   }
 }
