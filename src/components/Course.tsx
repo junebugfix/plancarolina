@@ -65,7 +65,7 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
       return (
         <div className="Course" id={`course-${data.id}`} style={style}>
           <span className="course-dot" style={dotStyle}></span>
-          <span className="course-label" style={{fontWeight: uiStore.expandedView ? 500 : 400}}>{data.department} {data.number}</span>
+          <span className="course-label" style={{fontWeight: uiStore.expandedView ? 500 : 400}}>{data.department} {data.number}{data.modifier}</span>
           {uiStore.expandedView && <span className="credits">({data.credits})</span>}
           {uiStore.expandedView && <div className="course-geneds">{data.geneds.map(ge => <span className="gened-block" key={`geb-${this.counter++}`}>{ge}</span>)}</div>}
           {uiStore.expandedView && <div ref={el => this.nameEl = el} className="course-name" style={{display: uiStore.expandedView ? '' : 'none'}}>{data.name}</div>}
@@ -89,7 +89,7 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
       return (
         <div className="Course" id={`course-${data.id}`}>
           <span className="course-dot" style={dotStyle}></span>
-          <span className="course-label" style={{fontWeight: uiStore.expandedView ? 500 : 400}}>{data.department} {data.number}</span>
+          <span className="course-label" style={{fontWeight: uiStore.expandedView ? 500 : 400}}>{data.department} {data.number}{data.modifier}</span>
           {uiStore.expandedView && <span className="credits">({data.credits})</span>}
           {uiStore.expandedView && <div className="course-geneds">{data.geneds.map(ge => <span className="gened-block" key={`geb-${this.counter++}`}>{ge}</span>)}</div>}
           {uiStore.expandedView && <div ref={el => this.nameEl = el} className="course-name" style={{display: uiStore.expandedView ? '' : 'none'}}>{data.name}</div>}
