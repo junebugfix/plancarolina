@@ -339,7 +339,6 @@ class UIStore {
       })
     } else {
       let url = data.urls[this.yearEntered]
-      this.showOpenWorksheetButton(url)
     }
     // loader.id = "loading-circle";
     // schedule.appendChild(loader);
@@ -420,7 +419,7 @@ class UIStore {
     }
   }
 
-  private showOpenWorksheetButton(url: string) {
+  showOpenWorksheetButton(url: string) {
     window.open(url)
   }
 
