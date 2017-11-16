@@ -55,13 +55,19 @@ class ScheduleStore {
 
   addCourses(rawCourses: CourseData[]) {
     const semesterLimit = 5
-    let courses = difference(rawCourses, this.allCourses)
+    let currentCourses = new Set<number>()
+    let allCourses = this.allCourses
     let semesterIndex = 0
-    courses.forEach(course => {
+    for (let i: number = 0; i < allCourses.length; i++) {
+      currentCourses.add(allCourses[i].id)
+    } 
+    rawCourses.forEach(course => {
       if (this.getSemester(semesterIndex).length > semesterLimit - 1 || semesterLimit > this.allSemesters.length - 1) {
         semesterIndex += 1
       }
-      this.getSemester(semesterIndex % this.allSemesters.length).push(course)
+      if (!currentCourses.has(course.id)) {
+        this.getSemester(semesterIndex % this.allSemesters.length).push(course)
+      }
     })
     this.saveSchedule()
   }
