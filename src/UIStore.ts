@@ -49,6 +49,8 @@ class UIStore {
   @observable addClassPopupActive = false
   @observable loginAlertActive = false
   @observable persistentLoginAlertActive = false
+  @observable addMajorAlertActive = false
+  @observable shouldPromptAddMajor = true
   @observable promptHandleConflictPopup = false
   @observable isSavingSchedule = false
   shouldPromptForLogin = true
@@ -201,6 +203,7 @@ class UIStore {
   @action.bound handleAddMajorClicked(e: MouseEvent<HTMLDivElement>) {
     if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
       this.addMajorPopupActive = !this.addMajorPopupActive
+      this.alertAddMajor()
     }
   }
 
@@ -398,6 +401,12 @@ class UIStore {
     if ((!loginStore.isLoggedIn || !Cookies.get('token')) && uiStore.shouldPromptForLogin) {
       uiStore.loginAlertActive = true
       uiStore.shouldPromptForLogin = false
+    }
+  }
+
+  alertAddMajor() {
+    if (uiStore.shouldPromptAddMajor) {
+      uiStore.addMajorAlertActive = true
     }
   }
 
