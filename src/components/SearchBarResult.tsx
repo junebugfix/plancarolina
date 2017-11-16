@@ -9,7 +9,8 @@ import '../styles/SearchBarResults.css'
 
 interface SearchBarResultData {
   department: string
-  number: string
+  number: number 
+  modifier: string
   name: string
 }
 
@@ -36,7 +37,7 @@ export default class SearchBarResult extends React.Component<{data: SearchBarRes
     return (
       <div className="SearchBarResults-result" style={style}>
         <div className="dept-num">
-          <span>{res.department}<br />{res.number}</span>
+          <span>{res.department}<br />{res.number}{res.modifier}</span>
         </div>
         <span ref={el => this.nameEl = el} className="name">{res.name}<span ref={el => this.elipsesEl = el} className="elipses"></span></span>
       </div>

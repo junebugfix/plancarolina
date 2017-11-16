@@ -4,7 +4,7 @@ import { Semesters } from './utils';
 import { Departments } from './departments';
 import { CourseData } from './components/Course';
 import { scheduleStore } from './ScheduleStore';
-import { loginStore } from './LoginStore';
+import { loginStore, HandleConflictResult } from './LoginStore';
 import { colorController } from './ColorController';
 import * as Cookies from 'js-cookie';
 import difference from 'lodash-es/difference';
@@ -15,6 +15,18 @@ interface MajorData {
   absoluteCourses: string[]
   additionalCourses: number
   urls: string[]
+}
+
+interface UserSettings {
+  expandedView: boolean
+  majors: string[]
+  departmentHues: { [dept: string]: number }
+  fall5Active: boolean
+  spring5Active: boolean
+  firstYearSummerActive: boolean
+  sophomoreSummerActive: boolean
+  juniorSummerActive: boolean
+  seniorSummerActive: boolean
 }
 
 class UIStore {
@@ -30,12 +42,18 @@ class UIStore {
   @observable isLoadingSchedule = false
   @observable alertOpen = false
   @observable alertMessage = ''
+  @observable alertAction: Function
+  @observable alertActionLabel = ''
   @observable hasAddedACourse = false
   @observable yearEnteredPromptActive = false
   @observable addClassPopupActive = false
   @observable loginAlertActive = false
+  @observable persistentLoginAlertActive = false
+  @observable promptHandleConflictPopup = false
   @observable isSavingSchedule = false
   shouldPromptForLogin = true
+
+  majors: string[] = []
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
@@ -78,6 +96,20 @@ class UIStore {
     return scheduleStore.allSummers.reduce((memo: number, summer: CourseData[]) => {
       return summer.length > memo ? summer.length : memo
     }, 0) * 20 + 40
+  }
+
+  @computed get userSettings(): UserSettings {
+    return {
+      expandedView: this.expandedView,
+      firstYearSummerActive: this.firstYearSummerActive,
+      sophomoreSummerActive: this.sophomoreSummerActive,
+      juniorSummerActive: this.juniorSummerActive,
+      seniorSummerActive: this.seniorSummerActive,
+      fall5Active: this.fall5Active,
+      spring5Active: this.spring5Active,
+      majors: this.majors,
+      departmentHues: colorController.getScheduleHuesObject()
+    }
   }
 
   readonly MAJOR_LABEL = "major-res"
@@ -123,11 +155,6 @@ class UIStore {
     return scheduleStore.allCourses.map(c => c.id).indexOf(this.searchResults.map(r => r.id)[searchResultIndex]) !== -1
   }
 
-  private alertDuplicate() {
-    this.alertMessage = "That course is already in your schedule."
-    this.alertOpen = true
-  }
-
   @action.bound registerSlipList(el: HTMLDivElement) {
     let slipList = new this.slip(el)
     el.addEventListener('slip:reorder', (e: any) => {
@@ -136,8 +163,8 @@ class UIStore {
         const semesterIndex = Semesters[e.target.id as string]
         let toIndex = e.detail.spliceIndex
         if (this.isDuplicate(searchResultIndex)) {
-          this.alertDuplicate()
           e.preventDefault()
+          this.snackbarAlert('That course is already in your schedule.')
           return
         }
         scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
@@ -248,6 +275,52 @@ class UIStore {
     scheduleStore.removeCourseFromSemester(courseIndex, semesterIndex)
   }
 
+  @action.bound loadSettings(settings: UserSettings) {
+    this.expandedView = settings.expandedView || this.expandedView
+    this.firstYearSummerActive = settings.firstYearSummerActive || this.firstYearSummerActive
+    this.sophomoreSummerActive = settings.sophomoreSummerActive || this.sophomoreSummerActive
+    this.juniorSummerActive = settings.juniorSummerActive || this.juniorSummerActive
+    this.seniorSummerActive = settings.seniorSummerActive || this.seniorSummerActive
+    this.fall5Active = settings.fall5Active || this.fall5Active
+    this.spring5Active = settings.spring5Active || this.spring5Active
+    this.majors = settings.majors || this.majors
+    colorController.loadDepartmentHues(settings.departmentHues)
+    this.forceUpdateSchedule()
+  }
+
+  @action.bound forceUpdateSchedule() {
+    this.expandedView = !this.expandedView
+    this.expandedView = !this.expandedView
+  }
+
+  saveSettings() {
+    if (!loginStore.isLoggedIn) return
+    console.log(this.userSettings)
+    const requestBody = {
+      settings: JSON.stringify(this.userSettings),
+      email: loginStore.email
+    }
+    console.log(JSON.stringify(requestBody))
+    fetch('/api/api.cgi/saveUserSettings', {
+      method: 'put',
+      body: JSON.stringify(requestBody),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    } as any).then(res => {
+      res.json().then(r => {
+        console.log('saved user settings')
+      }).catch(err => console.log(err))
+    }).catch(err => console.log(err))
+  }
+
+  snackbarAlert(message: string, snackbarAction?: Function, snackbarActionLabel?: string) {
+    this.alertMessage = message
+    this.alertAction = snackbarAction
+    this.alertActionLabel = snackbarActionLabel
+    this.alertOpen = true
+  }
+
   private handleMajorResultChosen(majorName: string) { 
     let schedule = document.querySelector(".Schedule");
     // let loader = document.createElement("div");
@@ -305,7 +378,6 @@ class UIStore {
   }
 
   updateSearchResults() {
-    console.log('updating search results...')
     this.isLoadingSearchResults = true
     colorController.clearSearchResultHues()
     let dept = this.searchDepartment || 'none'
@@ -317,17 +389,15 @@ class UIStore {
     fetch(url).then(res => {
       res.json().then(data => {
         this.searchResults = data.results
-        console.log('updated.')
         this.isLoadingSearchResults = false
       })
     })
   }
 
   promptUserLogin() {
-    console.log("prompting login")
-    if ((!loginStore.isLoggedIn && this.shouldPromptForLogin) || !Cookies.get('token')) {
-      console.log("shoudl hpapel")
-      this.loginAlertActive = true
+    if ((!loginStore.isLoggedIn || !Cookies.get('token')) && uiStore.shouldPromptForLogin) {
+      uiStore.loginAlertActive = true
+      uiStore.shouldPromptForLogin = false
     }
   }
 

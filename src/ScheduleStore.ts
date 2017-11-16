@@ -3,7 +3,6 @@ import { Departments } from './departments';
 import { CourseData } from './components/Course';
 import { uiStore } from './UIStore';
 import { loginStore } from './LoginStore';
-import { promptUserLogin } from './components/AlertPopup'
 import { colorController } from './ColorController';
 import Schedule from './components/Schedule';
 import Semester from './components/Semester';
@@ -31,6 +30,7 @@ class ScheduleStore {
   @observable majorCoursesNeeded: string[] = ['hi', 'hello', 'merhaba']
   readonly GENEDS_NEEDED = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"]
   readonly CREDITS_NEEDED = 120
+  readonly PROMPT_LOGIN_THRESHOLD = 3
 
   slipLists: any[] = []
 
@@ -117,6 +117,7 @@ class ScheduleStore {
   }
 
   @action.bound insertSearchResult(resultIndex: number, semesterIndex: number, toIndex: number) {
+    if (!uiStore.hasAddedACourse) uiStore.hasAddedACourse = true
     const department = uiStore.searchResults[resultIndex].department
     colorController.ensureScheduleHue(department)
     this.getSemester(semesterIndex).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
@@ -138,6 +139,7 @@ class ScheduleStore {
   }
 
   saveSchedule() {
+    if (!loginStore.isLoggedIn) return
     uiStore.isSavingSchedule = true
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {
@@ -149,18 +151,19 @@ class ScheduleStore {
           headers: {
             'Content-Type': 'application/json'
           }
-        }).then(res => {
+        } as any).then(res => {
           res.json().then(r => {
             console.log('synced schedule!')
             uiStore.isSavingSchedule = false
           })
         }).catch(err => console.log(err))
       } else {
-        if (this.allCourses.length >= 5) {
-          promptUserLogin()
+        if (this.allCourses.length >= this.PROMPT_LOGIN_THRESHOLD) {
+          uiStore.promptUserLogin()
         }
       }
     }
+    uiStore.saveSettings()
   }
 
   get saveScheduleBody() {

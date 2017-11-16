@@ -9,7 +9,8 @@ import '../styles/Course.css'
 export type CourseData = {
   id: number,
   department: string,
-  number: string
+  number: number,
+  modifier: string,
   name: string,
   credits: number,
   geneds: string[],
@@ -25,10 +26,7 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
 
   constructor(props: { data: CourseData }) {
     super(props)
-    console.log(this.props.data)
-    // this.props.data.geneds = this.props.data.geneds === undefined ? [''] : this.props.data.geneds;
     if (this.props.data.geneds[0] === '') {
-      console.log("we got no gen eds")
       this.props.data.geneds = []
     }
   }
