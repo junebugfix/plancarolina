@@ -21,7 +21,7 @@ import { AlertPopup } from './AlertPopup'
 export default class App extends React.Component {
 
   componentDidMount() {
-    loginStore.fetchUserData()
+    loginStore.tryAutoLogin()
   }
 
   render() {
