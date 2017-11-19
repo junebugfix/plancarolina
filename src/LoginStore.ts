@@ -61,7 +61,7 @@ class LoginStore {
       supportedIdTokenProviders: [
         {
           uri: 'https://accounts.google.com',
-          clientId: '39695730822-42pc2md5in45nhcs959grmp9g7mh8jbm.apps.googleusercontent.com'
+          clientId: '724319730394-0p2g3j67ju1l310deto92mvqv3hasshn.apps.googleusercontent.com'
         }
       ]
     }
