@@ -26,10 +26,11 @@
 .Settings button#add-summer-button {
   background: white;
   border: 1px solid black;
+  padding: 5px;
   border-radius: 5px;
   outline: none;
   cursor: pointer;
-  height: 50%;
+  height: fit-content;
   margin: auto;
 }
 

@@ -31,11 +31,13 @@ export default class SearchBar extends React.Component {
           <div className="first-row-container">
             <input placeholder="COMP" id="department-input" onChange={uiStore.handleSearchingDepartmentChange} />
             {uiStore.isSearchingDepartment && <SearchResults label={uiStore.DEPARTMENT_LABEL} items={uiStore.departmentResults} />}
-            <select onChange={uiStore.handleNumberOperatorChange}>
-              <option value="eq">=</option>
-              <option value="gt">≥</option>
-              <option value="lt">≤</option>
-            </select>
+            <div id="custom-select">
+              <select onChange={uiStore.handleNumberOperatorChange}>
+                <option value="eq">=</option>
+                <option value="gt">≥</option>
+                <option value="lt">≤</option>
+              </select>
+            </div>
             <input placeholder="110" id="number-input" onChange={uiStore.handleSearchingNumber} />
             <input type="tags" placeholder="Gen Eds: QR" id="gened-input" />
           </div>
@@ -44,7 +46,7 @@ export default class SearchBar extends React.Component {
         <div className="search-bar-results-container">
           <SearchBarResults />
         </div>
-        {<button id='searchbar-add-class' onClick={() => {uiStore.addClassPopupActive = true}}>Don't see your class? Click here</button>}
+        {<button id='searchbar-add-class' onClick={() => {uiStore.addClassPopupActive = true}}>Don't see your class?{!uiStore.isMobileView && ' Click here'}</button>}
         {uiStore.addClassPopupActive && <AddClassPopup />}
       </div>
     )

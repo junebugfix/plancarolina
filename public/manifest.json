@@ -1,5 +1,6 @@
 {
-    "name": "",
+    "short_name": "Plan Carolina",
+    "name": "Plan Carolina",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -12,7 +13,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "start_url": "/?utm_source=homescreen",
+    "theme_color": "#D1EEFF",
+    "background_color": "#D1EEFF",
     "display": "standalone"
 }

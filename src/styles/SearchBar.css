@@ -36,6 +36,28 @@
   margin-bottom: 12px;
 }
 
+.SearchBar #custom-select {
+  display: inline-block;
+  position: relative;
+  border: 1px solid rgba(170, 177, 197, 0.7);
+  margin-right: 5px;
+  width: 30px;
+  top: 6px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #ffffff url("../arrow.png") no-repeat 80% 60%;
+  background-size: 25% 24%;
+}
+
+.SearchBar .first-row-container select {
+  width: 130%;
+  appearance: none;
+  border: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
 .SearchBar input#department-input {
   width: 45px;
 }
@@ -166,5 +188,50 @@ button#searchbar-add-class{
     transform: none;
     left: 8px;
     bottom: 7px;
+  }
+}
+
+@media (max-width: 650px) {
+  .SearchBar {
+    margin-top: 12px;
+    padding: 5px;
+  }
+  .SearchBar h2 {
+    position: absolute;
+    font-size: 12px;
+    left: 0px;
+    transform: translateY(-85%);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2px 3px;
+    text-align: center;
+  }
+  .SearchBar #searchbar-search-group {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 5px;
+  }
+  .SearchBar .first-row-container {
+    width: 100%;
+  }
+  .tags-input {
+    display: none !important;
+  }
+  .SearchBar input#name-input {
+    margin-left: 5px;
+    width: 45%;
+  }
+  .SearchBar .search-bar-results-container {
+    width: 100%;
+    height: 70%;
+    margin-top: 45px;
+  }
+  .SearchBar button#searchbar-add-class {
+    bottom: 0px;
+    left: 0px;
+    padding: 1px 6px;
+    border-radius: 10px;
+    transform: translateY(100%);
   }
 }

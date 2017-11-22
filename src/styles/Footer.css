@@ -5,6 +5,7 @@
   color: white;
   font-size: 13px;
   text-align: center;
+  width: 100%;
 }
 
 .Footer a, .Footer a:active {
@@ -20,4 +21,10 @@
 .Footer span#contact-us-at {
   display: inline-block;
   line-height: 20px;
+}
+
+@media (max-width: 650px) {
+  .Footer {
+    font-size: 12px;
+  }
 }

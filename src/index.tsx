@@ -5,6 +5,7 @@ import { scheduleStore } from './ScheduleStore';
 import { uiStore } from './UIStore';
 import { CourseData } from './components/Course';
 import App from './components/App';
+import registerServiceWorker from './registerServiceWorker'
 
 declare global {
   let gapi: any
@@ -18,3 +19,5 @@ ReactDOM.render(
   <App />,
   document.getElementById('root') as HTMLElement
 )
+
+registerServiceWorker()

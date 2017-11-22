@@ -60,6 +60,10 @@ ul {
   overflow: hidden;
 }
 
+.App {
+  overflow: hidden;
+}
+
 .App .box-shadow {
   position: absolute;
   width: 100%;
@@ -210,15 +214,17 @@ ul {
   }
 }
 
-/* @media (max-width: 845px) {
-  .App .content {
-    flex-direction: column;
-  }
-  .App .search-bar-container {
-    width: unset;
-  }
-} */
-
 .App .MuiSnackbarContent-root-37 {
   border-radius: 2px;
+}
+
+@media (max-width: 650px) {
+  .App .main-title {
+    font-size: 20px;
+    margin-top: 7px;
+  }
+  .App .validators-settings {
+    width: 100%;
+    margin: 0 10px;
+  }
 }
