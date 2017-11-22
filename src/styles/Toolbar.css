@@ -58,3 +58,13 @@ h1.Toolbar-text {
     font-size: 17px;
   }
 }
+
+@media (max-width: 650px) {
+  .Toolbar {
+    height: fit-content;
+    font-size: 14px;
+  }
+  .Toolbar .toolbar-content {
+    margin-right: 5px;
+  }
+}

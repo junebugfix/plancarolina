@@ -33,7 +33,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://plancarolina.com",
+      "target": "https://plancarolina.com",
       "secure": true,
       "changeOrigin": true
     }

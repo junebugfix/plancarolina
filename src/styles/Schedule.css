@@ -64,3 +64,20 @@
     margin: 0 10px;
   }
 }
+
+.Schedule .tap-prompt {
+  font-size: 13px;
+  display: inline-block;
+  margin: 10px;
+}
+
+@media (max-width: 650px) {
+  .Schedule {
+    margin: 0;
+    margin-top: -10px;
+  }
+  .Schedule-year-labels {
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+}
