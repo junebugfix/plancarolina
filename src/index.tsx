@@ -6,7 +6,6 @@ import { uiStore } from './UIStore';
 import { loginStore } from './LoginStore';
 import { CourseData } from './components/Course';
 import App from './components/App';
-import { createDiffieHellman } from 'crypto';
 
 declare global {
   // let googleyolo: any
