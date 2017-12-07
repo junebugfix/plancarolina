@@ -137,8 +137,22 @@
   overflow-y: scroll;
 }
 
-@MEDIA (max-width: 990px) {
+@media (max-width: 990px) {
   .Course .course-label {
     margin-left: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .Course {
+    height: fit-content;
+    padding: 1px 2px;
+  }
+  .Course .course-dot {
+    display: none;
+  }
+  .Course .course-label {
+    font-size: 13px;
+    margin: auto;
   }
 }

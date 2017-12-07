@@ -24,8 +24,7 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
   nameEl: HTMLElement
   elipsesEl: HTMLElement
 
-  constructor(props: { data: CourseData }) {
-    super(props)
+  componentWillMount() {
     if (this.props.data.geneds[0] === '') {
       this.props.data.geneds = []
     }
@@ -83,18 +82,19 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
       )
     } else {
       const data = this.props.data
-      let dotStyle = {
-        backgroundColor: `hsl(${colorController.getScheduleHue(data.department)}, 80%, 80%)`
+      const hue = colorController.getScheduleHue(data.department)
+      const courseColor = `hsl(${hue}, 80%, 80%)`
+      const dotStyle = {
+        backgroundColor: courseColor
+      }
+      const courseStyle = {
+        backgroundColor: uiStore.isMobileView ? courseColor : ''
       }
       return (
-        <div className="Course" id={`course-${data.id}`}>
+        <div className="Course" id={`course-${data.id}`} style={courseStyle}>
           <span className="course-dot" style={dotStyle}></span>
-          <span className="course-label" style={{fontWeight: uiStore.expandedView ? 500 : 400}}>{data.department} {data.number}{data.modifier}</span>
-          {uiStore.expandedView && <span className="credits">({data.credits})</span>}
-          {uiStore.expandedView && <div className="course-geneds">{data.geneds.map(ge => <span className="gened-block" key={`geb-${this.counter++}`}>{ge}</span>)}</div>}
-          {uiStore.expandedView && <div ref={el => this.nameEl = el} className="course-name" style={{display: uiStore.expandedView ? '' : 'none'}}>{data.name}</div>}
-          <span className="Course-x" style={{marginTop: uiStore.expandedView ? 10 : '', right: uiStore.expandedView ? 3 : ''}} onClick={uiStore.handleRemoveCourse}>x</span>
-          {uiStore.expandedView && <span ref={el => this.setElipsesEl(el)} className="elipses" style={{display: uiStore.expandedView ? '' : 'none'}}></span>}
+          <span className="course-label">{data.department}&nbsp;{data.number}{data.modifier}</span>
+          <span className="Course-x" onClick={uiStore.handleRemoveCourse}>x</span>
           <div className="course-info-popup">
             <span className="department">{data.department}</span>
             <span className="number"> {data.number}</span>

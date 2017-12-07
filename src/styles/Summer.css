@@ -1,0 +1,27 @@
+.Summer {
+  position: relative;
+}
+
+.Summer .Summer-x {
+  display: none;
+  cursor: pointer;
+  font-size: 13px;
+  background-color: #fff;
+  padding: 2px 4px;
+  border-radius: 50%;
+  border: 1px solid rgba(170, 177, 197, 0.7);
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transform: translate(50%, -50%);
+}
+
+.Summer:hover .Summer-x {
+  display: inline-block;
+}
+
+@media (max-width: 650px) {
+  .Summer .Summer-label {
+    font-size: 13px;
+  }
+}

@@ -18,11 +18,12 @@ interface ScheduleState {
 
 @observer
 export default class Schedule extends React.Component {
-
   render() {
+    const type = uiStore.isMobileView ? 'mobile' : 'normal'
     return (
       <div className="Schedule">
         {/* {uiStore.isLoadingSchedule && <div className="schedule-loader loader"></div>} */}
+        {uiStore.isMobileView && <span className="tap-prompt">Tap a semester to rearrange courses</span>}
         <div className="Schedule-row Schedule-year-labels">
           <div className="Schedule-year-label">First-Year</div>
           <div className="Schedule-year-label">Sophomore</div>
@@ -30,27 +31,27 @@ export default class Schedule extends React.Component {
           <div className="Schedule-year-label">Senior</div>
         </div>
         <div className="Schedule-row">
-          <Semester index={Semesters.Fall1} />
-          <Semester index={Semesters.Fall2} />
-          <Semester index={Semesters.Fall3} />
-          <Semester index={Semesters.Fall4} />
+          <Semester type={type} index={Semesters.Fall1} />
+          <Semester type={type} index={Semesters.Fall2} />
+          <Semester type={type} index={Semesters.Fall3} />
+          <Semester type={type} index={Semesters.Fall4} />
           {uiStore.fall5Active &&
-          <Semester index={Semesters.Fall5} />}
+          <Semester type={type} index={Semesters.Fall5} />}
         </div>
         <div className="Schedule-row">
-          <Semester index={Semesters.Spring1} />
-          <Semester index={Semesters.Spring2} />
-          <Semester index={Semesters.Spring3} />
-          <Semester index={Semesters.Spring4} />
+          <Semester type={type} index={Semesters.Spring1} />
+          <Semester type={type} index={Semesters.Spring2} />
+          <Semester type={type} index={Semesters.Spring3} />
+          <Semester type={type} index={Semesters.Spring4} />
           {uiStore.spring5Active &&
-          <Semester index={Semesters.Spring5} />}
+          <Semester type={type} index={Semesters.Spring5} />}
         </div>
-        {uiStore.summersActive &&
+        {uiStore.isAnySummerActive &&
         <div className="Schedule-row">
-          <Summer index={Semesters.Summer1} opacity={uiStore.firstYearSummerActive ? 1 : 0} />
-          <Summer index={Semesters.Summer2} opacity={uiStore.sophomoreSummerActive ? 1 : 0}/>
-          <Summer index={Semesters.Summer3} opacity={uiStore.juniorSummerActive ? 1 : 0}/>
-          <Summer index={Semesters.Summer4} opacity={uiStore.seniorSummerActive ? 1 : 0}/>
+          <Summer type={type} index={Semesters.Summer1} opacity={uiStore.firstYearSummerActive ? 1 : 0} />
+          <Summer type={type} index={Semesters.Summer2} opacity={uiStore.sophomoreSummerActive ? 1 : 0}/>
+          <Summer type={type} index={Semesters.Summer3} opacity={uiStore.juniorSummerActive ? 1 : 0}/>
+          <Summer type={type} index={Semesters.Summer4} opacity={uiStore.seniorSummerActive ? 1 : 0}/>
         </div>
         }
       </div>

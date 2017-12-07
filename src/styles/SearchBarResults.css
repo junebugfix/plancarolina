@@ -121,3 +121,31 @@
     border-radius: 4px;
   }
 }
+
+@media (max-width: 650px) {
+  .SearchBarResults {
+    width: 100%;
+  }
+  .SearchBar .search-bar-welcome {
+    margin-top: 10px;
+  }
+  .SearchBarResults .search-bar-welcome h3 {
+    font-size: 18px;
+  }
+  .SearchBarResults .search-bar-welcome p {
+    font-size: 13px;
+  }
+  .SearchBarResults .SearchBarResults-result .name {
+    font-size: 10px;
+    margin: 1px;
+  }
+  .SearchBarResults .SearchBarResults-result .dept-num {
+    font-size: 12px;
+    padding: 0px;
+  }
+  .SearchBarResults .drag-prompt {
+    left: 100%;
+    top: 100%;
+    transform: translate(-100%, -80%);
+  }
+}

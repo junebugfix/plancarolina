@@ -3,18 +3,25 @@ import * as ReactDOM from 'react-dom';
 import { autorun } from 'mobx';
 import { scheduleStore } from './ScheduleStore';
 import { uiStore } from './UIStore';
+import { loginStore } from './LoginStore';
 import { CourseData } from './components/Course';
 import App from './components/App';
+import registerServiceWorker from './registerServiceWorker'
 
 declare global {
-  let gapi: any
+  // let googleyolo: any
   interface Window {
-    uiStore: any
+    onGoogleYoloLoad: any
   }
 }
-window.uiStore = uiStore
+
+window.onGoogleYoloLoad = googleyolo => {
+  loginStore.handleGoogleYoloLoaded(googleyolo)
+}
 
 ReactDOM.render(
   <App />,
   document.getElementById('root') as HTMLElement
 )
+
+registerServiceWorker()
