@@ -6,6 +6,8 @@
   font-size: 13px;
   text-align: center;
   width: 100%;
+  position: absolute;
+  bottom: 0px;
 }
 
 .Footer a, .Footer a:active {
