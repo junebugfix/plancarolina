@@ -27,3 +27,12 @@
     margin: 6px 6px;
   }
 }
+
+@media (max-width: 650px) {
+  .Semester {
+    margin: 2px;
+  }
+  .Semester .Semester-label {
+    font-size: 14px;
+  }
+}

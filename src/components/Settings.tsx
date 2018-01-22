@@ -28,7 +28,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="Settings">
-        <div className="expandedView">
+        {!uiStore.isMobileView && <div className="expandedView">
           <span className="settings-label expandedView">Expanded View</span>
           <div className="switchContainer">
             <Switch
@@ -39,7 +39,7 @@ export default class App extends React.Component {
               }}
             />
           </div>
-        </div>
+        </div>}
         <div className="add-summer">
           <button id="add-summer-button" onClick={() => this.selectSummerActive = true}>Add summer</button>
         </div>

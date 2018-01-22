@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Toolbar from './Toolbar';
 import SearchBar from './SearchBar';
+import MobileSearchBar from './MobileSearchBar';
 import '../styles/App.css';
 import Schedule from './Schedule';
 import LoginPopup from './LoginPopup';
@@ -21,7 +22,7 @@ import { AlertPopup } from './AlertPopup'
 export default class App extends React.Component {
 
   componentDidMount() {
-    loginStore.fetchUserData()
+    loginStore.tryAutoLogin()
   }
 
   render() {
@@ -31,7 +32,8 @@ export default class App extends React.Component {
           <div className="content-left">
             <h1 className="main-title">Plan Carolina</h1>
             <div className="search-bar-container">
-              <SearchBar />
+              {uiStore.isMobileView ? <MobileSearchBar /> : <SearchBar />}
+               {/* <SearchBar /> */}
             </div>
           </div>
           <div className="content-right">

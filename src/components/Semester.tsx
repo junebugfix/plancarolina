@@ -10,11 +10,11 @@ import { CourseData } from './Course'
 import '../styles/Semester.css'
 
 @observer
-export default class Semester extends React.Component<{ index: Semesters }, {}> {
+export default class Semester extends React.Component<{ index: Semesters, type: 'normal' | 'mobile' }, {}> {
   divEl: HTMLDivElement; // store the div element of the semester with a 'ref' attribute (see render below) to pass it to slipjs
   label: string
 
-  constructor(props: { index: Semesters }) {
+  constructor(props: { index: Semesters, type: 'normal' | 'mobile' }) {
     super(props)
     this.label = uiStore.getSemesterLabel(props.index)
   }
@@ -24,13 +24,14 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
   }
 
   componentDidMount() {
-    uiStore.registerSlipList(this.divEl)
+    if (this.props.type === 'normal') {
+      uiStore.registerSlipList(this.divEl)
+    }
   }
 
   render() {
     const semesterData = scheduleStore.getSemesterData(this.props.index)
     const style = {
-      // height: uiStore.semesterHeight + 'px'
       height: '200px'
     }
 
@@ -44,5 +45,4 @@ export default class Semester extends React.Component<{ index: Semesters }, {}> 
       </div>
     )
   }
-
 }

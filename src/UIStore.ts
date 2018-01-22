@@ -82,6 +82,10 @@ class UIStore {
     return this.windowWidth > 950
   }
 
+  @computed get isMobileView() {
+    return this.windowWidth <= 650
+  }
+
   @computed get courseHeight() {
     return this.expandedView ? 44 : 28
   }
@@ -90,7 +94,7 @@ class UIStore {
     return (Math.max(...scheduleStore.allSemesters.map(s => s.length)) * this.courseHeight) + 30
   }
 
-  @computed get summersActive() {
+  @computed get isAnySummerActive() {
     return this.firstYearSummerActive || this.sophomoreSummerActive || this.juniorSummerActive || this.seniorSummerActive
   }
 
@@ -198,6 +202,25 @@ class UIStore {
       }
     })
     scheduleStore.connectSlipList(slipList)
+  }
+
+  @action.bound deactivateSummer(index: number) {
+    switch (index) {
+      case Semesters.Summer1:
+        this.firstYearSummerActive = false
+        break;
+      case Semesters.Summer2:
+        this.sophomoreSummerActive = false
+        break;
+      case Semesters.Summer3:
+        this.juniorSummerActive = false
+        break;
+      case Semesters.Summer4:
+        this.seniorSummerActive = false
+        break;
+      default:
+        break;
+    }
   }
 
   @action.bound handleAddMajorClicked(e: MouseEvent<HTMLDivElement>) {

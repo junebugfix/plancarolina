@@ -32,9 +32,9 @@ export default class Validators extends React.Component {
           </div>
         }
         <div className="progress-group geneds">
-          <label>Gen Eds</label>
+          <label>Gen&nbsp;Eds</label>
           <div className="progress-bar"><div className="progress-completed" style={genedStyle}></div></div>
-          {scheduleStore.genedsFulfilled.length} out of {scheduleStore.GENEDS_NEEDED.length}
+          {scheduleStore.genedsFulfilled.length}&nbsp;out&nbsp;of&nbsp;{scheduleStore.GENEDS_NEEDED.length}
           <div className="progress-popup">
             <span>Fulfilled:</span>
             <div>{scheduleStore.genedsFulfilled.map(ge => <span className="gened-block" key={`ge-${this.counter++}`}>{ge}</span>)}</div>
@@ -45,7 +45,7 @@ export default class Validators extends React.Component {
         <div className="progress-group credits">
           <label>Credits</label>
           <div className="progress-bar"><div className="progress-completed" style={creditsStyle}></div></div>
-          {scheduleStore.creditsFulfilled} out of {scheduleStore.CREDITS_NEEDED} 
+          {scheduleStore.creditsFulfilled}&nbsp;out&nbsp;of&nbsp;{scheduleStore.CREDITS_NEEDED} 
         </div>
       </div>
     )
