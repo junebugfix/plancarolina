@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register src/**/*test.tsx",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register src/**/*test.jsx",
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "eject": "react-scripts-ts eject"
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.1.1",
-    "@types/mocha": "^2.2.46",
+    "@types/mocha": "^2.2.47",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.1.2",

@@ -1,5 +1,0 @@
-~~~Classes that we are missing in our Database rn~~~
-
-COMP 410
-COMP 435
-
