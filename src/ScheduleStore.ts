@@ -105,7 +105,10 @@ class ScheduleStore {
   }
 
   @computed get genedsRemaining() {
-    let genedsInSchedule = flatten(this.allCourses.map(c => c.geneds.slice()))
+    let genedsInSchedule = flatten(this.allCourses.map((c) => {
+      if (c === null || c === undefined) return [""]
+      return c.geneds.slice()
+    }))
     return difference(this.GENEDS_NEEDED, genedsInSchedule)
   }
 
