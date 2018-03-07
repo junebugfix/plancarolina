@@ -89,9 +89,8 @@ class ScheduleStore {
 
   @computed get allSemesters(): CourseData[][] {
     return [
-      this.fall1, this.fall2, this.fall3, this.fall4,
-      this.spring1, this.spring2, this.spring3, this.spring4, 
-      this.fall5, this.spring5,
+      this.fall1, this.fall2, this.fall3, this.fall4, this.fall5,
+      this.spring1, this.spring2, this.spring3, this.spring4, this.spring5,
       this.summer1, this.summer2, this.summer3, this.summer4
     ]
   }
@@ -235,16 +234,21 @@ class ScheduleStore {
   }
 
   @action.bound initAllSemesters(semesters: CourseData[][]) {
-    this.fall1 = semesters[0]
-    this.fall2 = semesters[1]
-    this.fall3 = semesters[2]
-    this.fall4 = semesters[3]
-    this.spring1 = semesters[4]
-    this.spring2 = semesters[5]
-    this.spring3 = semesters[6]
-    this.spring4 = semesters[7]
-    this.fall5 = semesters[8]
-    this.spring5 = semesters[9]
+    console.log(semesters)
+    this.fall1 = semesters[Semesters.Fall1]
+    this.fall2 = semesters[Semesters.Fall2]
+    this.fall3 = semesters[Semesters.Fall3]
+    this.fall4 = semesters[Semesters.Fall4]
+    this.fall5 = semesters[Semesters.Fall5]
+    this.spring1 = semesters[Semesters.Spring1]
+    this.spring2 = semesters[Semesters.Spring2]
+    this.spring3 = semesters[Semesters.Spring3]
+    this.spring4 = semesters[Semesters.Spring4]
+    this.spring5 = semesters[Semesters.Spring5]
+    this.summer1 = semesters[Semesters.Summer1]
+    this.summer2 = semesters[Semesters.Summer2]
+    this.summer3 = semesters[Semesters.Summer3]
+    this.summer4 = semesters[Semesters.Summer4]
   }
 }
 
