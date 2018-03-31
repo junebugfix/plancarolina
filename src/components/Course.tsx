@@ -25,6 +25,7 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
   elipsesEl: HTMLElement
 
   componentWillMount() {
+    console.log(this.props.data)
     if (this.props.data.geneds[0] === '') {
       this.props.data.geneds = []
     }

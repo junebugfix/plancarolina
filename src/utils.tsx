@@ -6,6 +6,10 @@ export function getChildren(el: HTMLElement): HTMLElement[] {
   return Array.prototype.slice.call(el.children)
 }
 
+export function getObjectValues(obj: Object) {
+  return Object.keys(obj).map(key => obj[key])
+}
+
 export enum Semesters {
   Fall1,
   Fall2,

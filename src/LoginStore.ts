@@ -1,18 +1,19 @@
 import { observable, action, computed } from 'mobx'
-import { Semesters } from './utils'
+import { Semesters, getObjectValues } from './utils'
 import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { scheduleStore } from './ScheduleStore'
 import { uiStore } from './UIStore'
 import flatten from 'lodash-es/flatten'
 import * as Cookies from 'js-cookie'
+import { ScheduleData } from './components/Schedule';
 
 export type HandleConflictResult = 'overwrite' | 'merge' | 'discard'
 
 interface UserData {
   name: string,
   email: string,
-  schedule: CourseData[][],
+  schedule: ScheduleData,
   settings: string
 }
 
@@ -20,7 +21,7 @@ class LoginStore {
   @observable isLoggedIn = false
   @observable name: string
   @observable email: string
-  previouslySavedSchedule: CourseData[][]
+  previouslySavedSchedule: ScheduleData
   _googleyolo: any
 
   get googleyolo() {
@@ -120,7 +121,7 @@ class LoginStore {
       uiStore.promptHandleConflictPopup = true
     } else {
       scheduleStore.initAllSemesters(userData.schedule)
-      if (flatten(userData.schedule).length > 0) {
+      if (flatten(getObjectValues(userData.schedule)).length > 0) {
         uiStore.hasAddedACourse = true
       }
     }
@@ -162,7 +163,7 @@ class LoginStore {
     if (result === 'overwrite') {
       scheduleStore.saveSchedule()
     } else if (result === 'merge') {
-      scheduleStore.addCourses(flatten(this.previouslySavedSchedule))
+      scheduleStore.addCourses(flatten(getObjectValues(this.previouslySavedSchedule)))
     } else if (result === 'discard') {
       scheduleStore.initAllSemesters(this.previouslySavedSchedule)
     }

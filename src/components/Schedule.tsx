@@ -16,6 +16,23 @@ interface ScheduleState {
   semesters: CourseData[][]
 }
 
+export interface ScheduleData {
+  fall1: CourseData[]
+  fall2: CourseData[]
+  fall3: CourseData[]
+  fall4: CourseData[]
+  fall5: CourseData[]
+  spring1: CourseData[]
+  spring2: CourseData[]
+  spring3: CourseData[]
+  spring4: CourseData[]
+  spring5: CourseData[]
+  summer1: CourseData[]
+  summer2: CourseData[]
+  summer3: CourseData[]
+  summer4: CourseData[]
+}
+
 @observer
 export default class Schedule extends React.Component {
   render() {

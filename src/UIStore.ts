@@ -1,6 +1,6 @@
 import { MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
 import { observable, action, computed, autorun } from 'mobx';
-import { Semesters } from './utils';
+import { Semesters, getObjectValues } from './utils';
 import { Departments } from './departments';
 import { CourseData } from './components/Course';
 import { scheduleStore } from './ScheduleStore';
@@ -91,7 +91,7 @@ class UIStore {
   }
 
   @computed get semesterHeight() {
-    return (Math.max(...scheduleStore.allSemesters.map(s => s.length)) * this.courseHeight) + 30
+    return (Math.max(...scheduleStore.semestersArray.map(s => s.length)) * this.courseHeight) + 30
   }
 
   @computed get isAnySummerActive() {
@@ -99,7 +99,7 @@ class UIStore {
   }
 
   @computed get summerHeight() {
-    return scheduleStore.allSummers.reduce((memo: number, summer: CourseData[]) => {
+    return scheduleStore.summersArray.reduce((memo: number, summer: CourseData[]) => {
       return summer.length > memo ? summer.length : memo
     }, 0) * 20 + 40
   }

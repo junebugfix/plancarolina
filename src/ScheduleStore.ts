@@ -4,9 +4,9 @@ import Course, { CourseData } from './components/Course';
 import { uiStore } from './UIStore';
 import { loginStore } from './LoginStore';
 import { colorController } from './ColorController';
-import Schedule from './components/Schedule';
+import Schedule, { ScheduleData } from './components/Schedule';
 import Semester from './components/Semester';
-import { Semesters, getClassElements, getChildren } from './utils';
+import { Semesters, getClassElements, getChildren, getObjectValues } from './utils';
 import difference from 'lodash-es/difference';
 import flatten from 'lodash-es/flatten';
 
@@ -39,18 +39,14 @@ class ScheduleStore {
   }
 
   getSemesterData(index: number): CourseData[] {
-    return this.allSemesters[index]
+    return this[Semesters[index].toLowerCase()]
   }
 
-  findSemesterWithCourse(courseId: number): CourseData[] | null {
-    for (let i = 0; i < this.allSemesters.length; i++) {
-      for (let j = 0; j < this.allSemesters[i].length; j++) {
-        if (this.allSemesters[i][j].id === courseId) {
-          return this.allSemesters[i]
-        }
-      }
-    }
-    throw new Error(`Invalid course id: ${courseId}`)
+  findSemesterWithCourse(courseId: number): CourseData[] {
+    const semestersWithCourse = this.semestersArray.filter(s => s.filter(c => c.id === courseId).length > 0)
+    if (semestersWithCourse.length === 0) throw new Error(`Invalid course id: ${courseId}`)
+    if (semestersWithCourse.length > 1) throw new Error(`Course id exists twice in schedule! - ${courseId}`)
+    return semestersWithCourse[0]
   }
 
   addCourses(rawCourses: CourseData[]) {
@@ -74,7 +70,8 @@ class ScheduleStore {
   }
 
   @computed get allCourses(): CourseData[] {
-    return [].concat(...this.allSemesters.map(s => s.slice()))
+    return [].concat(...this.semestersArray.map(s => s.slice()))
+    // return flatten(this.semestersArray)
   }
 
   @computed get semestersToAutomaticallyAddTo(): CourseData[][] {
@@ -87,7 +84,34 @@ class ScheduleStore {
     return result
   }
 
-  @computed get allSemesters(): CourseData[][] {
+  @computed get scheduleObject(): ScheduleData {
+    return {
+      fall1: this.fall1,
+      fall2: this.fall2,
+      fall3: this.fall3,
+      fall4: this.fall4,
+      fall5: this.fall5,
+      spring1: this.spring1,
+      spring2: this.spring2,
+      spring3: this.spring3,
+      spring4: this.spring4,
+      spring5: this.spring4,
+      summer1: this.summer1,
+      summer2: this.summer2,
+      summer3: this.summer3,
+      summer4: this.summer4
+    }
+  }
+
+  @computed get idScheduleObject(): ScheduleData {
+    const schedule = this.scheduleObject
+    for (const key in schedule) {
+      schedule[key] = schedule[key].map(course => course.id)
+    }
+    return schedule
+  }
+
+  @computed get semestersArray(): CourseData[][] {
     return [
       this.fall1, this.fall2, this.fall3, this.fall4, this.fall5,
       this.spring1, this.spring2, this.spring3, this.spring4, this.spring5,
@@ -95,7 +119,7 @@ class ScheduleStore {
     ]
   }
 
-  @computed get allSummers(): CourseData[][] {
+  @computed get summersArray(): CourseData[][] {
     return [this.summer1, this.summer2, this.summer3, this.summer4]
   }
 
@@ -121,14 +145,17 @@ class ScheduleStore {
   }
 
   @action.bound reorderInList(el: HTMLElement, startIndex: number, endIndex: number) {
-    let semesterData = this.findSemesterWithCourse(parseInt(el.id.substring(7), 10)) as CourseData[]
+    const semesterData = this.findSemesterWithCourse(parseInt(el.id.substring(7), 10)) as CourseData[]
     semesterData.splice(endIndex, 0, semesterData.splice(startIndex, 1)[0])
     this.saveSchedule()
   }
 
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
-    let fromSemesterData = this.getSemester(Semesters[fromList.id])
-    let toSemesterData = this.getSemester(Semesters[toList.id])
+    console.log(arguments)
+    const fromSemesterData = this.getSemester(Semesters[fromList.id])
+    const toSemesterData = this.getSemester(Semesters[toList.id])
+    console.log(fromSemesterData)
+    console.log(toSemesterData)
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
     this.saveSchedule()
   }
@@ -183,18 +210,10 @@ class ScheduleStore {
     uiStore.saveSettings()
   }
 
-  get saveScheduleBody() {
+  @computed get saveScheduleBody() {
     return {
       email: loginStore.email,
-      schedule: JSON.stringify(this.compactScheduleJson)
-    }
-  }
-
-  get compactScheduleJson() {
-    return {
-      schedule: this.allSemesters.map(semester => {
-        return semester.map(course => course.id)
-      })
+      schedule: JSON.stringify(this.idScheduleObject)
     }
   }
 
@@ -233,22 +252,10 @@ class ScheduleStore {
     }
   }
 
-  @action.bound initAllSemesters(semesters: CourseData[][]) {
-    console.log(semesters)
-    this.fall1 = semesters[Semesters.Fall1]
-    this.fall2 = semesters[Semesters.Fall2]
-    this.fall3 = semesters[Semesters.Fall3]
-    this.fall4 = semesters[Semesters.Fall4]
-    this.fall5 = semesters[Semesters.Fall5]
-    this.spring1 = semesters[Semesters.Spring1]
-    this.spring2 = semesters[Semesters.Spring2]
-    this.spring3 = semesters[Semesters.Spring3]
-    this.spring4 = semesters[Semesters.Spring4]
-    this.spring5 = semesters[Semesters.Spring5]
-    this.summer1 = semesters[Semesters.Summer1]
-    this.summer2 = semesters[Semesters.Summer2]
-    this.summer3 = semesters[Semesters.Summer3]
-    this.summer4 = semesters[Semesters.Summer4]
+  @action.bound initAllSemesters(semesters: ScheduleData) {
+    for (const semesterName in semesters) {
+      this[semesterName] = semesters[semesterName]
+    }
   }
 }
 
