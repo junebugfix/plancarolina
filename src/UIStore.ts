@@ -17,7 +17,7 @@ interface MajorData {
   urls: string[]
 }
 
-interface UserSettings {
+export interface UserSettings {
   expandedView: boolean
   majors: string[]
   departmentHues: { [dept: string]: number }
@@ -447,7 +447,7 @@ class UIStore {
     window.open(url)
   }
 
-getSemesterLabel(index: Semesters) {
+  getSemesterLabel(index: Semesters) {
     if ([Semesters.Fall1, Semesters.Fall2, Semesters.Fall3, Semesters.Fall4, Semesters.Fall5].indexOf(index) !== -1) {
       return 'Fall'
     } else {

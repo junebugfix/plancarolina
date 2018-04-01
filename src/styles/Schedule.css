@@ -74,7 +74,10 @@
 @media (max-width: 650px) {
   .Schedule {
     margin: 0;
-    margin-top: -10px;
+    margin-top: -15px;
+  }
+  .Schedule .tap-prompt {
+    margin-top: 5px;
   }
   .Schedule-year-labels {
     font-size: 13px;

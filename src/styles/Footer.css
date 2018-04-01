@@ -28,3 +28,10 @@
     font-size: 12px;
   }
 }
+
+@media (max-width: 650px) and (min-height: 640px) {
+  .Footer {
+    position: absolute;
+    bottom: 0px;
+  }
+}

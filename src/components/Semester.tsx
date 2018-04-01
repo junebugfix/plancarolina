@@ -32,7 +32,7 @@ export default class Semester extends React.Component<{ index: Semesters, type: 
   render() {
     const semesterData = scheduleStore.getSemesterData(this.props.index)
     const style = {
-      height: '200px'
+      height: uiStore.semesterHeight
     }
 
     return (

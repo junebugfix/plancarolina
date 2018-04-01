@@ -123,6 +123,7 @@ ul {
   border-radius: 5px;
   position: relative;
   display: flex;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 1110px) {

@@ -3,7 +3,7 @@ import { Semesters, getObjectValues } from './utils'
 import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { scheduleStore } from './ScheduleStore'
-import { uiStore } from './UIStore'
+import { uiStore, UserSettings } from './UIStore'
 import flatten from 'lodash-es/flatten'
 import * as Cookies from 'js-cookie'
 import { ScheduleData } from './components/Schedule';
@@ -14,7 +14,7 @@ interface UserData {
   name: string,
   email: string,
   schedule: ScheduleData,
-  settings: string
+  settings: UserSettings
 }
 
 class LoginStore {
@@ -121,6 +121,7 @@ class LoginStore {
       uiStore.promptHandleConflictPopup = true
     } else {
       scheduleStore.initAllSemesters(userData.schedule)
+      uiStore.loadSettings(userData.settings)
       if (flatten(getObjectValues(userData.schedule)).length > 0) {
         uiStore.hasAddedACourse = true
       }
