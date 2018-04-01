@@ -27,8 +27,8 @@ export default class Validators extends React.Component {
       <div className="Validators">
         {loginStore.isLoggedIn &&
           <div className="saving-schedule-container">
-            {uiStore.isSavingSchedule ? <span>saving schedule</span> : <span>schedule<br/>saved</span>}
-            <div className="loader-container">{uiStore.isSavingSchedule ? <Spinner radius={10} /> : <Icon style={{ fontSize: 16, position: 'relative', top: '3px' }}>done</Icon>}</div>
+            {uiStore.isSaving ? <span>saving schedule</span> : <span>schedule<br/>saved</span>}
+            <div className="loader-container">{uiStore.isSaving ? <Spinner radius={10} /> : <Icon style={{ fontSize: 16, position: 'relative', top: '3px' }}>done</Icon>}</div>
           </div>
         }
         <div className="progress-group geneds">

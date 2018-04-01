@@ -68,13 +68,11 @@ class LoginStore {
     }
     return new Promise<{ name: string, email: string }>((resolve, reject) => {
       googleyolo.retrieve(googleYoloOptions).then(credential => {
-        console.log('automatically logged in with googleyolo!')
         resolve({ name: credential.displayName, email: credential.id })
       }).catch(error => {
         if (error.type === 'noCredentialsAvailable') {
           googleyolo.hint(googleYoloOptions).then(credential => {
             if (credential.authMethod === 'https://accounts.google.com') {
-              console.log('automatically logged in from hint with googleyolo!')
               resolve({ name: credential.displayName, email: credential.id })
             }
           }).catch(err => reject(err))
@@ -140,7 +138,6 @@ class LoginStore {
   }
 
   @action.bound handleLogin(name: string, email: string) {
-    console.log(`handling login with name: ${name} and email: ${email}`)
     fetch('/api/api.cgi/login', {
       method: 'put',
       body: JSON.stringify({ name, email }),

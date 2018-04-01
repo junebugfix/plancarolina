@@ -52,7 +52,7 @@ class UIStore {
   @observable addMajorAlertActive = false
   @observable shouldPromptAddMajor = true
   @observable promptHandleConflictPopup = false
-  @observable isSavingSchedule = false
+  @observable isSaving = false
   shouldPromptForLogin = true
 
   majors: string[] = []
@@ -145,6 +145,10 @@ class UIStore {
         this.numberOfSearchResults = 10
       } else if (!this.isWideView && this.numberOfSearchResults !== 9) {
         this.numberOfSearchResults = 9
+      }
+
+      if (scheduleStore.slipListsActive && this.isMobileView) {
+        scheduleStore.disconnectSlipLists()
       }
     })
   }
@@ -323,12 +327,11 @@ class UIStore {
 
   saveSettings() {
     if (!loginStore.isLoggedIn) return
-    console.log(this.userSettings)
+    uiStore.isSaving = true
     const requestBody = {
       settings: JSON.stringify(this.userSettings),
       email: loginStore.email
     }
-    console.log(JSON.stringify(requestBody))
     fetch('/api/api.cgi/saveUserSettings', {
       method: 'put',
       body: JSON.stringify(requestBody),
@@ -337,7 +340,7 @@ class UIStore {
       }
     } as any).then(res => {
       res.json().then(r => {
-        console.log('saved user settings')
+        uiStore.isSaving = false
       }).catch(err => console.log(err))
     }).catch(err => console.log(err))
   }

@@ -33,6 +33,7 @@ class ScheduleStore {
   readonly PROMPT_LOGIN_THRESHOLD = 3
 
   slipLists: any[] = []
+  slipListsActive: boolean = false
 
   getCourseData(id: number): CourseData {
     return this.allCourses.filter((course: CourseData) => course.id === id)[0]
@@ -151,11 +152,8 @@ class ScheduleStore {
   }
 
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
-    console.log(arguments)
     const fromSemesterData = this.getSemester(Semesters[fromList.id])
     const toSemesterData = this.getSemester(Semesters[toList.id])
-    console.log(fromSemesterData)
-    console.log(toSemesterData)
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
     this.saveSchedule()
   }
@@ -175,6 +173,7 @@ class ScheduleStore {
   }
 
   connectSlipList(newSlipList: any) {
+    this.slipListsActive = true
     this.slipLists.forEach((list: any) => {
       list.crossLists.push(newSlipList)
       newSlipList.crossLists.push(list)
@@ -182,9 +181,16 @@ class ScheduleStore {
     this.slipLists.push(newSlipList)
   }
 
+  disconnectSlipLists() {
+    this.slipListsActive = false
+    for (const list of this.slipLists) {
+      list.detach()
+    }
+  }
+
   saveSchedule() {
     if (!loginStore.isLoggedIn) return
-    uiStore.isSavingSchedule = true
+    uiStore.isSaving = true
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {
       if (loginStore.isLoggedIn) {
@@ -197,8 +203,7 @@ class ScheduleStore {
           }
         } as any).then(res => {
           res.json().then(r => {
-            console.log('synced schedule!')
-            uiStore.isSavingSchedule = false
+            uiStore.isSaving = false
           })
         }).catch(err => console.log(err))
       } else {

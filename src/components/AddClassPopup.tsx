@@ -84,7 +84,6 @@ export default class AddClassPopup extends React.Component {
     } as any).then(raw => raw.json().then(res => {
       scheduleStore.addCourses([course])
       this.courseOffset++
-      console.log(res)
     }).then().catch(err => console.log(err)))
     uiStore.addClassPopupActive = false
   }
