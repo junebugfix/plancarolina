@@ -50,7 +50,9 @@ export default class App extends React.Component {
             </div>
           </div>
         </div>
-        <Footer />
+        <div className="footer-container">
+          <Footer />
+        </div>
         <Snackbar
           open={uiStore.alertOpen}
           onRequestClose={() => uiStore.alertOpen = false}

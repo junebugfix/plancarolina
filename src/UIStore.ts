@@ -166,6 +166,7 @@ class UIStore {
   }
 
   @action.bound registerSlipList(el: HTMLDivElement) {
+    console.log('actually registering')
     let slipList = new this.slip(el)
     el.addEventListener('slip:reorder', (e: any) => {
       if (e.detail.origin.container.classList.contains('SearchBarResults')) {
@@ -225,6 +226,7 @@ class UIStore {
       default:
         break;
     }
+    this.saveSettings()
   }
 
   @action.bound handleAddMajorClicked(e: MouseEvent<HTMLDivElement>) {

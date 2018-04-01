@@ -10,9 +10,18 @@ import '../styles/Summer.css'
 @observer
 export default class Summer extends React.Component<{index: Semesters, opacity: number, type: 'normal' | 'mobile'}, {}> {
   divEl: HTMLDivElement
+  isRegistered: boolean = false
 
-  componentDidMount() {
-    uiStore.registerSlipList(this.divEl)
+  componentDidUpdate() {
+    if (!this.isRegistered) {
+      if (this.props.type === 'normal') {
+        console.log('registering')
+        uiStore.registerSlipList(this.divEl)
+        this.isRegistered = true
+      }
+    } else if (this.props.type === 'mobile') {
+      this.isRegistered = false
+    }
   }
 
   render() {

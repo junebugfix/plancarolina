@@ -2,6 +2,7 @@
   display: inline-flex;
   flex-direction: column;
   width: 100%;
+  min-height: 50px;
   /* height handled in react and uiStore */
   border-radius: 4px;
   margin: 8px 13px;
@@ -16,6 +17,33 @@
 
 .Semester-courses {
   height: 100%;
+}
+
+.Semester .Semester-add-button, .Semester .Semester-add-background {
+  width: 100%;
+  height: 20px;
+  border: none;
+  font-size: 14px;
+  border-radius: 0 0 4px 4px;
+}
+
+.Semester .Semester-add-button {
+  background-color: transparent;
+  z-index: 99999;
+  cursor: pointer;
+  outline: transparent;
+}
+
+.Semester .Semester-add-background {
+  opacity: 0;
+  position: absolute;
+  bottom: 0px;
+  background: linear-gradient(to bottom, #ffffff 0%,#D4E3F0 100%);
+  transition: opacity 150ms ease-in-out;
+}
+
+.Semester .Semester-add-button:hover + .Semester-add-background {
+  opacity: 1;
 }
 
 .sortable-ghost {

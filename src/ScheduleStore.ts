@@ -178,7 +178,7 @@ class ScheduleStore {
       list.crossLists.push(newSlipList)
       newSlipList.crossLists.push(list)
     })
-    this.slipLists.push(newSlipList)
+    this.slipLists.push(newSlipList);
   }
 
   disconnectSlipLists() {

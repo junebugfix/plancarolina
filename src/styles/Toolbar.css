@@ -8,9 +8,8 @@
 
 .Toolbar .toolbar-content {
   display: flex;
-  flex-flow: row wrap;
   position: absolute;
-  width: 40%;
+  width: 45%;
   right: 0px;
   height: 100%;
 }
@@ -63,8 +62,18 @@ h1.Toolbar-text {
   .Toolbar {
     height: fit-content;
     font-size: 14px;
+    top: 15px;
   }
   .Toolbar .toolbar-content {
     margin-right: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .Toolbar {
+    font-size: 12px;
+  }
+  .Toolbar .toolbar-content {
+    width: 50%;
   }
 }

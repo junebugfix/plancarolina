@@ -28,6 +28,7 @@ export default class Semester extends React.Component<{ index: Semesters, type: 
   componentDidUpdate() {
     if (!this.isRegistered) {
       if (this.props.type === 'normal') {
+        console.log('registering')
         uiStore.registerSlipList(this.divEl)
         this.isRegistered = true
       }
@@ -49,6 +50,8 @@ export default class Semester extends React.Component<{ index: Semesters, type: 
         <div ref={el => this.divEl = el as HTMLDivElement} style={style} className="Semester-courses" id={`${Semesters[this.props.index]}`}>
           {semesterData.map(data => <Course key={`course-${data.id}`} data={data} />)}
         </div>
+        <button className="Semester-add-button">+</button>
+        <div className="Semester-add-background"></div>
         <div className="schedule box-shadow"></div>
       </div>
     )

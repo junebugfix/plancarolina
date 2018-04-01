@@ -6,6 +6,7 @@
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  height: fit-content;
 }
 
 .Footer a, .Footer a:active {
@@ -29,9 +30,9 @@
   }
 }
 
-@media (max-width: 650px) and (min-height: 640px) {
+/* @media (max-width: 650px) and (min-height: 550px) {
   .Footer {
     position: absolute;
     bottom: 0px;
   }
-}
+} */

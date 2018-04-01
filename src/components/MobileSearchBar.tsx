@@ -6,11 +6,11 @@ import '../styles/MobileSearchBar.css'
 
 @observer
 export default class MobileSearchBar extends React.Component {
-
   render() {
     return (
       <div className="MobileSearchBar">
-
+        <input placeholder="Search courses..." />
+        <button id="filters-button">filters</button>
       </div>
     )
   }

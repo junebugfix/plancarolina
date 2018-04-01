@@ -79,7 +79,7 @@
 .Course-x {
   position: absolute;
   right: 4px;
-  top: 3px;
+  top: 2px;
   font-size: 14px;
   cursor: pointer;
   line-height: 18px;
@@ -91,7 +91,11 @@
 }
 
 .Course-x:hover {
-  transform: scale(1.3);
+  transform: scale(1.3, 1.2);
+}
+
+.Semester.mobile .Course-x {
+  display: none;
 }
 
 #course-description {

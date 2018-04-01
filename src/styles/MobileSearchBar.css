@@ -3,4 +3,19 @@
   height: 45px;
   margin: 5px auto 0 auto;
   background: #fff;
+  display: flex;
+}
+
+.MobileSearchBar input {
+  width: 50%;
+  margin: 8px;
+  font-size: 13px;
+}
+
+.MobileSearchBar button {
+  font-size: 13px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 8px;
 }
