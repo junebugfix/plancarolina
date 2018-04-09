@@ -12,16 +12,20 @@ export default class Summer extends React.Component<{index: Semesters, opacity: 
   divEl: HTMLDivElement
   isRegistered: boolean = false
 
-  componentDidUpdate() {
-    if (!this.isRegistered) {
-      if (this.props.type === 'normal') {
-        console.log('registering')
-        uiStore.registerSlipList(this.divEl)
-        this.isRegistered = true
-      }
-    } else if (this.props.type === 'mobile') {
-      this.isRegistered = false
-    }
+  // componentDidUpdate() {
+  //   if (!this.isRegistered) {
+  //     if (this.props.type === 'normal') {
+  //       console.log('registering')
+  //       uiStore.registerSlipList(this.divEl)
+  //       this.isRegistered = true
+  //     }
+  //   } else if (this.props.type === 'mobile') {
+  //     this.isRegistered = false
+  //   }
+  // }
+
+  componentDidMount() {
+    uiStore.registerSlipList(this.divEl)
   }
 
   render() {

@@ -157,7 +157,10 @@
     padding: 1px 2px;
   }
   .Course .course-dot {
-    display: none;
+    width: 5px;
+    border-radius: 0px;
+    left: 0px;
+    height: 100%;
   }
   .Course .course-label {
     font-size: 13px;

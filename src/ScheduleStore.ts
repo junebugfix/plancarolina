@@ -181,12 +181,12 @@ class ScheduleStore {
     this.slipLists.push(newSlipList);
   }
 
-  disconnectSlipLists() {
-    this.slipListsActive = false
-    for (const list of this.slipLists) {
-      list.detach()
-    }
-  }
+  // disconnectSlipLists() {
+  //   this.slipListsActive = false
+  //   for (const list of this.slipLists) {
+  //     list.detach()
+  //   }
+  // }
 
   saveSchedule() {
     if (!loginStore.isLoggedIn) return

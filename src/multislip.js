@@ -732,6 +732,7 @@ window['Slip'] = (function(){
             var triggerOffset = 30,
             	offset = 0;
             
+            if (!this.target) return
 			var scrollable = this.target.scrollContainer || document.body,
 				containerRect = scrollable.getBoundingClientRect(),
 				targetRect = this.target.node.getBoundingClientRect(),

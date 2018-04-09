@@ -7,13 +7,14 @@ import Schedule from './Schedule';
 import LoginPopup from './LoginPopup';
 import Validators from './Validators';
 import Footer from './Footer';
+import Dialog from './Dialog'
+import Snackbar from './Snackbar'
 import Settings from './Settings';
 import Spinner from './Spinner';
 import HandleConflictPopup from './HandleConflictPopup';
 import { observer } from 'mobx-react';
 import { uiStore } from '../UIStore';
 import { loginStore } from '../LoginStore';
-import Snackbar from 'material-ui/Snackbar';
 import Icon from 'material-ui/Icon';
 import Button from 'material-ui/Button'
 import { AlertPopup } from './AlertPopup'
@@ -53,19 +54,8 @@ export default class App extends React.Component {
         <div className="footer-container">
           <Footer />
         </div>
-        <Snackbar
-          open={uiStore.alertOpen}
-          onRequestClose={() => uiStore.alertOpen = false}
-          message={<span>{uiStore.alertMessage}</span>}
-          autoHideDuration={3000}
-        />
-        <Snackbar
-          open={uiStore.persistentLoginAlertActive}
-          message={<span>You are not logged in - your schedule is not being saved!</span>}
-          className="persistent-snackbar"
-          action={<Button color="accent" dense onClick={() => uiStore.loginPopupActive = true}>Login</Button>}
-          style={{marginRight: 20, marginBottom: 50}}
-        />
+        <Snackbar ref={el => uiStore.snackbar = el} />
+        <Dialog ref={el => uiStore.dialog = el} />
         {uiStore.loginAlertActive && <AlertPopup 
           title="Hey there"
           body="We notice that you haven't logged in yet, make sure to do that if you would like to save your schedule! (We save it automatically, just log in and let us do the work)"

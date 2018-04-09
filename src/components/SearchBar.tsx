@@ -29,16 +29,18 @@ export default class SearchBar extends React.Component {
             {uiStore.isLoadingSearchResults && <Spinner />}
           </div>
           <div className="first-row-container">
-            <input placeholder="COMP" id="department-input" onChange={uiStore.handleSearchingDepartmentChange} />
-            {uiStore.isSearchingDepartment && <SearchResults label={uiStore.DEPARTMENT_LABEL} items={uiStore.departmentResults} />}
-            <div id="custom-select">
-              <select onChange={uiStore.handleNumberOperatorChange}>
-                <option value="eq">=</option>
-                <option value="gt">≥</option>
-                <option value="lt">≤</option>
-              </select>
+            <div className="first-part">
+              <input placeholder="COMP" id="department-input" onChange={uiStore.handleSearchingDepartmentChange} />
+              {uiStore.isSearchingDepartment && <SearchResults label={uiStore.DEPARTMENT_LABEL} items={uiStore.departmentResults} />}
+              <div id="custom-select">
+                <select onChange={uiStore.handleNumberOperatorChange}>
+                  <option value="eq">=</option>
+                  <option value="gt">≥</option>
+                  <option value="lt">≤</option>
+                </select>
+              </div>
+              <input placeholder="110" id="number-input" onChange={uiStore.handleSearchingNumber} />
             </div>
-            <input placeholder="110" id="number-input" onChange={uiStore.handleSearchingNumber} />
             <input type="tags" placeholder="Gen Eds: QR" id="gened-input" />
           </div>
           <input id="name-input" placeholder="Name: Intro to Programming" onChange={uiStore.handleSearchingKeywords} />

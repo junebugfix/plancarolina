@@ -47,64 +47,62 @@ export default class Course extends React.Component<{ data: CourseData }, {}> {
     }
   }
 
+  getColor() {
+    return `hsl(${colorController.getScheduleHue(this.props.data.department)}, 80%, 80%)`
+  }
+
+  renderSmallCourse() {
+    const data = this.props.data
+    const color = this.getColor()
+    const dotStyle = { backgroundColor: color }
+    // const courseStyle = { backgroundColor: uiStore.isMobileView ? color : '' }
+    const courseStyle = {}
+    return (
+      <div className="Course" id={`course-${data.id}`} style={courseStyle}>
+        <span className="course-dot" style={dotStyle}></span>
+        <span className="course-label">{data.department}&nbsp;{data.number}{data.modifier}</span>
+        <span className="Course-x" onClick={uiStore.handleRemoveCourse}>x</span>
+        <div className="course-info-popup">
+          <span className="department">{data.department}</span>
+          <span className="number"> {data.number}</span>
+          <div className="name">{data.name}</div>
+          <p className="description">{data.description}</p>
+          <div className="credits">Credits: {data.credits}</div>
+          {data.geneds.length > 0 && <div className="geneds">Gen Eds: {data.geneds.map(ge => <span className="gened-block" key={`pge-${this.counter++}`}>{ge}</span>)}</div>}
+        </div>
+      </div>
+    )
+  }
+
+  renderExpandedCourse() {
+    const data = this.props.data
+    const color = this.getColor()
+    const dotStyle = { backgroundColor: color }
+    return (
+      <div className="Course expanded" id={`course-${data.id}`}>
+        <span className="course-dot" style={dotStyle}></span>
+        <span className="course-label">{data.department} {data.number}{data.modifier}</span>
+        <span className="credits">({data.credits})</span>
+        <div className="course-geneds">{data.geneds.map(ge => <span className="gened-block" key={`geb-${this.counter++}`}>{ge}</span>)}</div>
+        <div ref={el => this.nameEl = el} className="course-name">{data.name}</div>
+        <span className="Course-x" onClick={uiStore.handleRemoveCourse}>x</span>
+        <span ref={el => this.setElipsesEl(el)} className="elipses"></span>
+        <div className="course-info-popup">
+          <span className="department">{data.department}</span>
+          <span className="number"> {data.number}</span>
+          <div className="name">{data.name}</div>
+          <p className="description">{data.description}</p>
+          <div className="credits">Credits: {data.credits}</div>
+          {data.geneds.length > 0 && <div className="geneds">Gen Eds: {data.geneds.map(ge => <span className="gened-block" key={`pge-${this.counter++}`}>{ge}</span>)}</div>}
+        </div>
+      </div>
+    )
+  }
+
   render() {
     if (uiStore.expandedView) {
-      const data = this.props.data
-      let style = {
-        height: 44,
-        textAlign: 'left',
-        paddingTop: 2,
-        paddingLeft: 5,
-        paddingBottom: 3,
-        fontSize: 12
-      }
-      let dotStyle = {
-        backgroundColor: `hsl(${colorController.getScheduleHue(data.department)}, 80%, 80%)`
-      }
-      return (
-        <div className="Course" id={`course-${data.id}`} style={style}>
-          <span className="course-dot" style={dotStyle}></span>
-          <span className="course-label" style={{fontWeight: uiStore.expandedView ? 500 : 400}}>{data.department} {data.number}{data.modifier}</span>
-          {uiStore.expandedView && <span className="credits">({data.credits})</span>}
-          {uiStore.expandedView && <div className="course-geneds">{data.geneds.map(ge => <span className="gened-block" key={`geb-${this.counter++}`}>{ge}</span>)}</div>}
-          {uiStore.expandedView && <div ref={el => this.nameEl = el} className="course-name" style={{display: uiStore.expandedView ? '' : 'none'}}>{data.name}</div>}
-          <span className="Course-x" style={{marginTop: uiStore.expandedView ? 10 : '', right: uiStore.expandedView ? 3 : ''}} onClick={uiStore.handleRemoveCourse}>x</span>
-          {uiStore.expandedView && <span ref={el => this.setElipsesEl(el)} className="elipses" style={{display: uiStore.expandedView ? '' : 'none'}}></span>}
-          <div className="course-info-popup">
-            <span className="department">{data.department}</span>
-            <span className="number"> {data.number}</span>
-            <div className="name">{data.name}</div>
-            <p className="description">{data.description}</p>
-            <div className="credits">Credits: {data.credits}</div>
-            {data.geneds.length > 0 && <div className="geneds">Gen Eds: {data.geneds.map(ge => <span className="gened-block" key={`pge-${this.counter++}`}>{ge}</span>)}</div>}
-          </div>
-        </div>
-      )
-    } else {
-      const data = this.props.data
-      const hue = colorController.getScheduleHue(data.department)
-      const courseColor = `hsl(${hue}, 80%, 80%)`
-      const dotStyle = {
-        backgroundColor: courseColor
-      }
-      const courseStyle = {
-        backgroundColor: uiStore.isMobileView ? courseColor : ''
-      }
-      return (
-        <div className="Course" id={`course-${data.id}`} style={courseStyle}>
-          <span className="course-dot" style={dotStyle}></span>
-          <span className="course-label">{data.department}&nbsp;{data.number}{data.modifier}</span>
-          <span className="Course-x" onClick={uiStore.handleRemoveCourse}>x</span>
-          <div className="course-info-popup">
-            <span className="department">{data.department}</span>
-            <span className="number"> {data.number}</span>
-            <div className="name">{data.name}</div>
-            <p className="description">{data.description}</p>
-            <div className="credits">Credits: {data.credits}</div>
-            {data.geneds.length > 0 && <div className="geneds">Gen Eds: {data.geneds.map(ge => <span className="gened-block" key={`pge-${this.counter++}`}>{ge}</span>)}</div>}
-          </div>
-        </div>
-      )
+      return this.renderExpandedCourse()
     }
+    return this.renderSmallCourse()
   }
 }

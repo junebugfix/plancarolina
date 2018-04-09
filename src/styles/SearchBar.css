@@ -36,17 +36,24 @@
   margin-bottom: 12px;
 }
 
+.SearchBar .first-row-container .first-part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .SearchBar #custom-select {
   display: inline-block;
-  position: relative;
+  /* position: relative; */
   border: 1px solid rgba(170, 177, 197, 0.7);
   margin-right: 5px;
   width: 30px;
-  top: 6px;
+  /* top: 5px; */
+  padding: 0 0 1px 2px;
   border-radius: 4px;
   overflow: hidden;
   background: #ffffff url("../arrow.png") no-repeat 80% 60%;
-  background-size: 25% 24%;
+  background-size: 25% 23%;
 }
 
 .SearchBar .first-row-container select {
@@ -60,6 +67,7 @@
 
 .SearchBar input#department-input {
   width: 45px;
+  margin-right: 5px;
 }
 
 .SearchBar input#number-input {

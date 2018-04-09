@@ -9,6 +9,7 @@
   background: hsla(0, 0%, 100%, 0.9);
   user-select: none;
   position: relative;
+  /* -webkit-tap-highlight-color: transparent; */
 }
 
 .Semester .Semester-label {
@@ -17,6 +18,8 @@
 
 .Semester-courses {
   height: 100%;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .Semester .Semester-add-button, .Semester .Semester-add-background {
@@ -29,7 +32,7 @@
 
 .Semester .Semester-add-button {
   background-color: transparent;
-  z-index: 99999;
+  z-index: 2;
   cursor: pointer;
   outline: transparent;
 }
@@ -44,10 +47,6 @@
 
 .Semester .Semester-add-button:hover + .Semester-add-background {
   opacity: 1;
-}
-
-.sortable-ghost {
-  opacity: 0
 }
 
 @media (max-width: 1200px) {

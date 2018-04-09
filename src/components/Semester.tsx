@@ -26,15 +26,19 @@ export default class Semester extends React.Component<{ index: Semesters, type: 
   }
 
   componentDidUpdate() {
-    if (!this.isRegistered) {
-      if (this.props.type === 'normal') {
-        console.log('registering')
-        uiStore.registerSlipList(this.divEl)
-        this.isRegistered = true
-      }
-    } else if (this.props.type === 'mobile') {
-      this.isRegistered = false
-    }
+    // if (!this.isRegistered) {
+    //   if (this.props.type === 'normal') {
+    //     console.log('registering')
+    //     uiStore.registerSlipList(this.divEl)
+    //     this.isRegistered = true
+    //   }
+    // } else if (this.props.type === 'mobile') {
+    //   this.isRegistered = false
+    // }
+  }
+
+  componentDidMount() {
+    uiStore.registerSlipList(this.divEl)
   }
 
   render() {

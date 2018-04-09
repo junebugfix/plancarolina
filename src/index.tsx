@@ -10,6 +10,7 @@ import registerServiceWorker from './registerServiceWorker'
 
 declare global {
   // let googleyolo: any
+  let gapi: any
   interface Window {
     onGoogleYoloLoad: any
   }

@@ -94,8 +94,8 @@ ul {
   height: calc(100vh - 30px);
 }
 
-.App .persistent-snackbar {
-  width: 480px;
+.App #snackbar {
+  width: fit-content;
 }
 
 .App .content-left {
@@ -247,5 +247,11 @@ ul {
   .App .validators-settings {
     width: 100%;
     margin: 0 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .App #snackbar {
+    width: 100%
   }
 }

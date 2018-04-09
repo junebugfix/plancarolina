@@ -9,6 +9,8 @@ import { colorController } from './ColorController';
 import * as Cookies from 'js-cookie';
 import difference from 'lodash-es/difference';
 import './styles/AddMajorPopup.css';
+import Dialog, { DialogOptions } from './components/Dialog';
+import Snackbar, { SnackbarOptions } from './components/Snackbar';
 
 interface MajorData {
   name: string
@@ -40,22 +42,21 @@ class UIStore {
   @observable expandedView = false
   @observable isLoadingSearchResults = false
   @observable isLoadingSchedule = false
-  @observable alertOpen = false
-  @observable alertMessage = ''
-  @observable alertAction: Function
-  @observable alertActionLabel = ''
+  // @observable snackbarOpen = false
+  // @observable snackbarText = ''
+  // @observable snackbarAction: Function
+  // @observable snackbarActionLabel = ''
   @observable hasAddedACourse = false
   @observable yearEnteredPromptActive = false
   @observable addClassPopupActive = false
   @observable loginAlertActive = false
+  // @observable dialogActive = false
   @observable persistentLoginAlertActive = false
   @observable addMajorAlertActive = false
   @observable shouldPromptAddMajor = true
   @observable promptHandleConflictPopup = false
   @observable isSaving = false
-  shouldPromptForLogin = true
-
-  majors: string[] = []
+  @observable shouldPromptForLogin = true
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
@@ -70,13 +71,14 @@ class UIStore {
   @observable searchNumberOperator = 'eq'
   @observable searchKeywords = ""
   @observable searchGeneds: string[] = []
-
   @observable searchResults: CourseData[] = []
   @observable numberOfSearchResults = this.isWideView ? 10 : 9
-
   @observable windowWidth = window.innerWidth
 
   yearEnteredCallback: Function
+  dialog: Dialog
+  snackbar: Snackbar
+  majors: string[] = []
 
   @computed get isWideView() {
     return this.windowWidth > 950
@@ -87,11 +89,17 @@ class UIStore {
   }
 
   @computed get courseHeight() {
-    return this.expandedView ? 44 : 28
+    if (this.expandedView) {
+      return 44
+    } else if (this.isMobileView) {
+      return 21
+    }
+    return 26
   }
 
   @computed get semesterHeight() {
-    return (Math.max(...scheduleStore.semestersArray.map(s => s.length)) * this.courseHeight) + 30
+    const longestSemesterLength = Math.max(...scheduleStore.semestersArray.map(s => s.length))
+    return Math.max((longestSemesterLength * this.courseHeight) + 10, 30)
   }
 
   @computed get isAnySummerActive() {
@@ -137,7 +145,7 @@ class UIStore {
       this.majorNames.push(this.majorData[key].name)
     }
     this.fuzzysearch = require('fuzzysearch')
-    this.slip = require('./slip.js')
+    this.slip = require('./multislip.js')
     
     window.addEventListener('resize', e => {
       this.windowWidth = window.innerWidth
@@ -147,9 +155,9 @@ class UIStore {
         this.numberOfSearchResults = 9
       }
 
-      if (scheduleStore.slipListsActive && this.isMobileView) {
-        scheduleStore.disconnectSlipLists()
-      }
+      // if (scheduleStore.slipListsActive && this.isMobileView) {
+        // scheduleStore.disconnectSlipLists()
+      // }
     })
   }
 
@@ -165,6 +173,11 @@ class UIStore {
     return scheduleStore.allCourses.map(c => c.id).indexOf(this.searchResults.map(r => r.id)[searchResultIndex]) !== -1
   }
 
+  showDialog(options: DialogOptions) {
+    this.dialog.options = options
+    this.dialog.open = true
+  }
+
   @action.bound registerSlipList(el: HTMLDivElement) {
     console.log('actually registering')
     let slipList = new this.slip(el)
@@ -175,7 +188,7 @@ class UIStore {
         let toIndex = e.detail.spliceIndex
         if (this.isDuplicate(searchResultIndex)) {
           e.preventDefault()
-          this.snackbarAlert('That course is already in your schedule.')
+          this.snackbarAlert({ message: 'That course is already in your schedule.' })
           return
         }
         scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
@@ -347,11 +360,9 @@ class UIStore {
     }).catch(err => console.log(err))
   }
 
-  snackbarAlert(message: string, snackbarAction?: Function, snackbarActionLabel?: string) {
-    this.alertMessage = message
-    this.alertAction = snackbarAction
-    this.alertActionLabel = snackbarActionLabel
-    this.alertOpen = true
+  snackbarAlert(options: SnackbarOptions) {
+    this.snackbar.options = options
+    this.snackbar.open = true
   }
 
   private handleMajorResultChosen(majorName: string) { 

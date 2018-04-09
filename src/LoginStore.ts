@@ -22,7 +22,161 @@ class LoginStore {
   @observable name: string
   @observable email: string
   previouslySavedSchedule: ScheduleData
+  loginAttempts = 0
+  _auth2: any
   _googleyolo: any
+
+  resetLoginAttempts() {
+    this.loginAttempts = 0
+  }
+
+  tryAutoLogin() {
+    const token = Cookies.get('token')
+    if (token) {
+      this.loginWithToken(token)
+    } else {
+      this.tryGoogleAutoLogin()
+    }
+  }
+
+  tryGoogleAutoLogin() {
+    this.googleYoloOneTapLogin().then((result: any) => {
+      switch (result.type) {
+        case 'success':
+          this.handleLogin(result.name, result.email, result.imageUrl)
+          break;
+        default:
+          break;
+      }
+    })
+  }
+
+  loginWithToken(token: string) {
+    this.fetchUserDataFromToken(token).then(userData => {
+      this.loadUserData(userData)
+    })
+  }
+
+  loginWithGoogle() {
+    uiStore.loginPopupActive = false
+    this.loginAttempts++
+    if (this.loginAttempts >= 3) {
+      this.alertTroubleLoggingIn()
+    }
+
+    this.googleYoloOneTapLogin().then((result: any) => {
+      switch (result.type) {
+        case 'success':
+          this.handleLogin(result.name, result.email, result.imageUrl)
+          break;
+        case 'noCredentialsAvailable':
+          this.gapiLogin()
+          break;
+        case 'userCanceled':
+          const canceledSnackbarOptions = {
+            message: 'Didn\'t see your account?',
+            action: () => this.gapiLogin(),
+            actionLabel: 'Login'
+          }
+          uiStore.snackbarAlert(canceledSnackbarOptions)
+          break;
+        case 'requestFailed':
+          const failedSnackbarOptions = {
+            message: 'Could not connect to internet',
+            action: () => this.loginWithGoogle(),
+            actionLabel: 'Retry'
+          }
+          uiStore.snackbarAlert(failedSnackbarOptions)
+          break;
+        default:
+          break;
+      }
+    })
+  }
+
+  get auth2() {
+    return new Promise<any>((resolve, reject) => {
+      if (this._auth2) resolve(this._auth2)
+      gapi.load('auth2', () => {
+        gapi.auth2.init().then(auth2 => {
+          this._auth2 = auth2
+          resolve(auth2)
+        })
+      })
+    })
+  }
+
+  alertTroubleLoggingIn() {
+    const dialogOptions = {
+      titleText: 'Trouble signing in?',
+      bodyText: 'The "Tracking protection" or "Prevent cross-site tracking" feature in some browsers disables google sign in, since they are technically "tracking" that you are logged into the site. If you can\'t sign in, please disable this feature in your browser\'s preferences and try again. Additionally, clearing your browser\'s cache and cookies may help.',
+      button1Text: 'Close',
+      button1Action: () => uiStore.dialog.open = false,
+    }
+    uiStore.showDialog(dialogOptions)
+    this.resetLoginAttempts()
+  }
+  
+  googleYoloOneTapLogin() {
+    return new Promise(async (resolve, reject) => {
+      const googleyolo = await this.googleyolo
+      googleyolo.hint({
+        supportedAuthMethods: [
+          "https://accounts.google.com"
+        ],
+        supportedIdTokenProviders: [
+          {
+            uri: "https://accounts.google.com",
+            clientId: "858591149551-skst1i5q4krogmu6t9dldjr3m6eu52ra.apps.googleusercontent.com"
+          }
+        ]
+      }).then((credential) => {
+        resolve({ type: 'success', name: credential.displayName, email: credential.id, imageUrl: credential.profilePicture })
+      }, (error) => {
+        console.log(error)
+        resolve(error)
+      })
+    })
+  }
+
+  gapiLogin() {
+    this.auth2.then(async auth2 => {
+      if (auth2.isSignedIn.get()) {
+        const profile = auth2.currentUser.get().getBasicProfile()
+        const name = profile.getName()
+        const email = profile.getEmail()
+        const imageUrl = profile.getImageUrl()
+        const confirmed = await this.promptConfirmUser(name, email, imageUrl)
+        if (confirmed) {
+          this.handleLogin(name, email, imageUrl)
+          return
+        }
+      }
+      auth2.signIn({ prompt: 'select_account' }).then((googleUser) => {
+        this.signInWithGoogleUser(googleUser)
+      }, (error) => console.log(error))
+    })
+  }
+
+  signInWithGoogleUser(googleUser: any) {
+    const profile = googleUser.getBasicProfile()
+    this.handleLogin(profile.getName(), profile.getEmail(), profile.getImageUrl())
+  }
+
+  promptConfirmUser(name: string, email: string, imageUrl: string) {
+    return new Promise((resolve, reject) => {
+      const dialogOptions = {
+        titleText: `Continue as ${name}?`,
+        bodyText: `Click continue to sign in as ${name}, (${email}).`,
+        button1Text: 'Continue',
+        button1Action: () => resolve(true),
+        button2Text: 'Use other account',
+        button2Action: () => resolve(false),
+        imageUrl
+      }
+      uiStore.showDialog(dialogOptions)
+    })
+  }
 
   get googleyolo() {
     return new Promise<any>((resolve, reject) => {
@@ -30,56 +184,9 @@ class LoginStore {
         resolve(this._googleyolo)
       }
       window.onGoogleYoloLoad = googleyolo => {
+        this._googleyolo = googleyolo
         resolve(googleyolo)
       }
-    })
-  }
-
-  tryAutoLogin() {
-    const userToken = Cookies.get('token')
-    if (userToken) {
-      this.fetchUserDataFromToken(userToken).then(userData => {
-        this.loadUserData(userData)
-      }).catch(error => {
-        console.log(error)
-        this.tryGoogleAutoLogin()
-      })
-    } else {
-      this.tryGoogleAutoLogin()
-    }
-  }
-
-  private tryGoogleAutoLogin() {
-    this.fetchLoginFromGoogleYolo().then(loginInfo => {
-      this.handleLogin(loginInfo.name, loginInfo.email)
-    }).catch(err => console.log(err))
-  }
-
-  private async fetchLoginFromGoogleYolo(): Promise<{ name: string, email: string }> {
-    const googleyolo = await this.googleyolo
-    const googleYoloOptions = {
-      supportedAuthMethods: [ 'https://accounts.google.com', 'googleyolo://id-and-password' ],
-      supportedIdTokenProviders: [
-        {
-          uri: 'https://accounts.google.com',
-          clientId: '724319730394-0p2g3j67ju1l310deto92mvqv3hasshn.apps.googleusercontent.com'
-        }
-      ]
-    }
-    return new Promise<{ name: string, email: string }>((resolve, reject) => {
-      googleyolo.retrieve(googleYoloOptions).then(credential => {
-        resolve({ name: credential.displayName, email: credential.id })
-      }).catch(error => {
-        if (error.type === 'noCredentialsAvailable') {
-          googleyolo.hint(googleYoloOptions).then(credential => {
-            if (credential.authMethod === 'https://accounts.google.com') {
-              resolve({ name: credential.displayName, email: credential.id })
-            }
-          }).catch(err => reject(err))
-        } else {
-          reject(error)
-        }
-      })
     })
   }
 
@@ -105,13 +212,8 @@ class LoginStore {
     this._googleyolo = googleyolo
   }
 
-  @action.bound handleGoogleLoginSuccess(googleUser: any) {
-    const name = googleUser.getBasicProfile().getName()
-    const email = googleUser.getBasicProfile().getEmail()
-    this.handleLogin(name, email)
-  }
-
   @action.bound loadUserData(userData: UserData) {
+    (window as any).loginstore = this
     this.name = userData.name
     this.email = userData.email
     if (scheduleStore.allCourses.length > 0) {
@@ -134,10 +236,10 @@ class LoginStore {
     uiStore.isLoadingSchedule = false
     uiStore.loginPopupActive = false
     uiStore.persistentLoginAlertActive = false
-    uiStore.snackbarAlert(`Welcome back, ${givenName}`)
+    uiStore.snackbarAlert({ message: `Welcome back, ${givenName}` })
   }
 
-  @action.bound handleLogin(name: string, email: string) {
+  @action.bound handleLogin(name: string, email: string, imageUrl: string) {
     fetch('/api/api.cgi/login', {
       method: 'put',
       body: JSON.stringify({ name, email }),
@@ -169,12 +271,33 @@ class LoginStore {
   }
 
   handleLoginFailure(e: any) {
-    uiStore.snackbarAlert('Failed to login')
+    uiStore.snackbarAlert({ message: 'Failed to login' })
+  }
+
+  disableGoogleYoloAutoSignIn() {
+    return new Promise((resolve, reject) => {
+      this.googleyolo.then(googleyolo => googleyolo.disableAutoSignIn())
+        .then(() => resolve())
+    })
+  }
+
+  disableAuth2AutoSignIn() {
+    return new Promise((resolve, reject) => {
+      this.auth2.then(auth2 => {
+        auth2.disconnect()
+        resolve()
+      })
+    })
   }
 
   @action.bound logout() {
-    Cookies.remove('token')
-    location.reload()
+    Promise.all([
+      this.disableGoogleYoloAutoSignIn(),
+      this.disableAuth2AutoSignIn()
+    ]).then(() => {
+      Cookies.remove('token')
+      location.reload()
+    })
   }
 }
 
