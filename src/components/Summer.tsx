@@ -12,24 +12,24 @@ export default class Summer extends React.Component<{index: Semesters, opacity: 
   divEl: HTMLDivElement
   isRegistered: boolean = false
 
-  // componentDidUpdate() {
-  //   if (!this.isRegistered) {
-  //     if (this.props.type === 'normal') {
-  //       console.log('registering')
-  //       uiStore.registerSlipList(this.divEl)
-  //       this.isRegistered = true
-  //     }
-  //   } else if (this.props.type === 'mobile') {
-  //     this.isRegistered = false
-  //   }
-  // }
+  componentDidUpdate() {
+    // if (!this.isRegistered) {
+    //   if (this.props.type === 'normal') {
+    //     console.log('registering')
+    //     uiStore.registerSlipList(this.divEl)
+    //     this.isRegistered = true
+    //   }
+    // } else if (this.props.type === 'mobile') {
+    //   this.isRegistered = false
+    // }
+  }
 
   componentDidMount() {
-    uiStore.registerSlipList(this.divEl)
+    // uiStore.registerSlipList(this.divEl)
   }
 
   render() {
-    const summerData = scheduleStore.getSemesterData(this.props.index)
+    // const summerData = scheduleStore.getSemesterData(this.props.index)
     const style = {
       opacity: this.props.opacity,
       height: uiStore.summerHeight
@@ -39,7 +39,7 @@ export default class Summer extends React.Component<{index: Semesters, opacity: 
         <span className="Summer-label">Summer</span>
         <span className="Summer-x" onClick={() => uiStore.deactivateSummer(this.props.index)}><span>x</span></span>
         <div className="Summer-courses" ref={el => this.divEl = el} id={`${Semesters[this.props.index]}`}>
-          {summerData.map(data => <Course key={`course-${data.id}`} data={data} />)}
+          {/* {summerData.map(data => <Course key={`course-${data.id}`} data={data} />)} */}
         </div>
       </div>
     )

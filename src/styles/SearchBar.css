@@ -6,6 +6,7 @@
   margin-left: 61px;
   z-index: 1;
   position: relative;
+  /* overflow: hidden; */
 }
 
 .SearchBar h2 {
@@ -21,6 +22,16 @@
   padding: 5px;
   font-size: 14px;
   outline: none;
+}
+
+.SearchBar input:focus {
+  border: 1px solid #7bc9ee;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
+}
+
+.SearchBar .TagsInput:focus-within {
+  border: 1px solid #7bc9ee;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
 }
 
 .SearchBar #searchbar-search-group {
@@ -39,30 +50,33 @@
 .SearchBar .first-row-container .first-part {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .SearchBar #custom-select {
   display: inline-block;
-  /* position: relative; */
   border: 1px solid rgba(170, 177, 197, 0.7);
   margin-right: 5px;
-  width: 30px;
-  /* top: 5px; */
-  padding: 0 0 1px 2px;
+  width: 34px;
   border-radius: 4px;
   overflow: hidden;
+  padding: 2px 0;
   background: #ffffff url("../arrow.png") no-repeat 80% 60%;
-  background-size: 25% 23%;
+  background-size: 25% 20%;
 }
 
-.SearchBar .first-row-container select {
-  width: 130%;
+.SearchBar #custom-select select {
   appearance: none;
+  width: 130%;
   border: none;
   background: transparent;
   background-image: none;
   box-shadow: none;
+  padding: 0 0 1px 5px;
+}
+
+.SearchBar #custom-select:focus-within {
+  border: 1px solid #7bc9ee
 }
 
 .SearchBar input#department-input {
@@ -72,6 +86,7 @@
 
 .SearchBar input#number-input {
   width: 30px;
+  margin-right: 5px;
 }
 
 .SearchBar select {
@@ -124,6 +139,7 @@
   bottom: 10px;
   transform: translateX(-50%);
   width: fit-content;
+  z-index: 1;
 }
 
 .SearchBar button#searchbar-add-class:active {
@@ -164,6 +180,7 @@ button#searchbar-add-class{
   .SearchBar .first-row-container {
     display: inline-block;
     margin: 0;
+    margin-top: 5px;
   }
   .SearchBar .tags-input {
     width: 170px;
@@ -172,9 +189,13 @@ button#searchbar-add-class{
   .SearchBar #name-input {
     width: 164px;
   }
+  .SearchBar #search-input {
+    width: 176px;
+    box-sizing: border-box;
+  }
   .SearchBar h2 {
     width: 175px;
-    margin: -3px 0 10px 0;
+    margin: -3px 0 4px 0;
   }
   .SearchBar #searchbar-search-group {
     width: 25%;
@@ -222,9 +243,6 @@ button#searchbar-add-class{
   }
   .SearchBar .first-row-container {
     width: 100%;
-  }
-  .tags-input {
-    display: none !important;
   }
   .SearchBar input#name-input {
     margin-left: 5px;

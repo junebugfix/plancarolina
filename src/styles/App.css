@@ -49,7 +49,7 @@ html {
 body {
   background: #D1EEFF;
   /* background: #78B0D0; */
-  font-family: 'Work Sans', 'Avenir', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   margin: 0;
   transition: all 150ms ease-in-out;
   height: 100%;
@@ -91,7 +91,11 @@ ul {
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  height: calc(100vh - 30px);
+  /* height: calc(100vh - 30px); */
+}
+
+.App .hover:hover {
+  cursor: pointer;
 }
 
 .App #snackbar {
@@ -181,7 +185,8 @@ ul {
 .gened-block {
   border: 1px solid rgba(0,0,0,0.5);
   font-size: 10px;
-  background: hsl(224, 90%, 90%);
+  /* background: hsl(224, 90%, 90%); */
+  background-color: #d0effd;
   color: black;
   border-radius: 3px;
   padding: 3px 2px 2px 2px;

@@ -79,4 +79,7 @@
   .Validators {
     font-size: 12px;
   }
+  .Validators .progress-bar {
+    height: 10px;
+  }
 }

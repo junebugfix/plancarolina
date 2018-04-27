@@ -1,0 +1,12 @@
+.SearchVisualization {
+  height: 20px;
+  margin: 10px auto 5px auto;
+  width: 94%;
+}
+
+.SearchVisualization .block {
+  background-color: white;
+  padding: 4px;
+  border-radius: 4px;
+  margin-right: 4px;
+}

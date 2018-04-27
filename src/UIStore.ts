@@ -6,6 +6,7 @@ import { CourseData } from './components/Course';
 import { scheduleStore } from './ScheduleStore';
 import { loginStore, HandleConflictResult } from './LoginStore';
 import { colorController } from './ColorController';
+import CourseSearch, { ALL_GENEDS } from './CourseSearch'
 import * as Cookies from 'js-cookie';
 import difference from 'lodash-es/difference';
 import './styles/AddMajorPopup.css';
@@ -41,25 +42,20 @@ class UIStore {
   @observable loginPopupActive = false
   @observable expandedView = false
   @observable isLoadingSearchResults = false
-  @observable isLoadingSchedule = false
-  // @observable snackbarOpen = false
-  // @observable snackbarText = ''
-  // @observable snackbarAction: Function
-  // @observable snackbarActionLabel = ''
+  @observable hasSetScheduleLoadInterval = false
   @observable hasAddedACourse = false
   @observable yearEnteredPromptActive = false
   @observable addClassPopupActive = false
   @observable loginAlertActive = false
-  // @observable dialogActive = false
   @observable persistentLoginAlertActive = false
   @observable addMajorAlertActive = false
   @observable shouldPromptAddMajor = true
   @observable promptHandleConflictPopup = false
-  @observable isSaving = false
   @observable shouldPromptForLogin = true
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
+  @observable currentSearch: CourseSearch = new CourseSearch()
 
   @observable firstYearSummerActive = false
   @observable sophomoreSummerActive = false
@@ -129,12 +125,11 @@ class UIStore {
   readonly MAJOR_LABEL = "major-res"
   readonly DEPARTMENT_LABEL = "dept-res"
 
-  lastKeywordUpdate = Date.now()
+  lastSearchResultUpdate = Date.now()
   yearEntered: number;
   departmentNames: string[]
   majorNames: string[] = []
   majorData: MajorData[]
-  departmentInput: HTMLInputElement
   fuzzysearch: Function
   slip: any
 
@@ -151,18 +146,16 @@ class UIStore {
       this.windowWidth = window.innerWidth
       if (this.isWideView && this.numberOfSearchResults !== 10) {
         this.numberOfSearchResults = 10
-      } else if (!this.isWideView && this.numberOfSearchResults !== 9) {
+      } else if (!this.isWideView && !this.isMobileView && this.numberOfSearchResults !== 9) {
         this.numberOfSearchResults = 9
+      } else if (this.isMobileView) {
+        this.numberOfSearchResults = 6
       }
 
       // if (scheduleStore.slipListsActive && this.isMobileView) {
         // scheduleStore.disconnectSlipLists()
       // }
     })
-  }
-
-  @action.bound registerDepartmentInput(input: HTMLInputElement) {
-    this.departmentInput = input
   }
 
   private isReorderWithinList(e: Event): boolean {
@@ -178,49 +171,57 @@ class UIStore {
     this.dialog.open = true
   }
 
-  @action.bound registerSlipList(el: HTMLDivElement) {
-    console.log('actually registering')
-    let slipList = new this.slip(el)
-    el.addEventListener('slip:reorder', (e: any) => {
-      if (e.detail.origin.container.classList.contains('SearchBarResults')) {
-        const searchResultIndex = e.detail.originalIndex
-        const semesterIndex = Semesters[e.target.id as string]
-        let toIndex = e.detail.spliceIndex
-        if (this.isDuplicate(searchResultIndex)) {
-          e.preventDefault()
-          this.snackbarAlert({ message: 'That course is already in your schedule.' })
-          return
-        }
-        scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
-        this.searchResults.splice(searchResultIndex, 1)
-      } else if (this.isReorderWithinList(e)) {
-        scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
-      } else { // course was dragged to a different list
-        const toList = e.target
-        const fromList = e.detail.origin.container
-        const toIndex = e.detail.spliceIndex
-        const fromIndex = e.detail.originalIndex
-        scheduleStore.changeLists(fromList, fromIndex, toList, toIndex)
-      }
-    })
-    scheduleStore.connectSlipList(slipList)
+  alertNetworkError(retryFn?: (e: any) => void) {
+    const options: SnackbarOptions = { message: 'Could not connect to internet' }
+    if (retryFn) {
+      options.actionLabel = 'Retry'
+      options.action = retryFn
+    }
+    this.snackbarAlert(options)
   }
 
-  @action.bound registerSearchBarResults(el: HTMLDivElement) {
-    let slipList = new this.slip(el)
-    // prevent dragging the welcome text
-    el.addEventListener('slip:beforeswipe', (e) => {
-      if ((e.target as HTMLElement).classList.contains('undraggable')) {
-        e.preventDefault()
-      }
-    })
-    el.addEventListener('slip:beforereorder', (e) => {
-      if ((e.target as HTMLElement).classList.contains('undraggable')) {
-        e.preventDefault()
-      }
-    })
-    scheduleStore.connectSlipList(slipList)
-  }
+  // @action.bound registerSlipList(el: HTMLDivElement) {
+  //   let slipList = new this.slip(el)
+  //   el.addEventListener('slip:reorder', (e: any) => {
+  //     if (e.detail.origin.container.classList.contains('SearchBarResults')) {
+  //       const searchResultIndex = e.detail.originalIndex
+  //       const semesterIndex = Semesters[e.target.id as string]
+  //       let toIndex = e.detail.spliceIndex
+  //       if (this.isDuplicate(searchResultIndex)) {
+  //         e.preventDefault()
+  //         this.snackbarAlert({ message: 'That course is already in your schedule.' })
+  //         return
+  //       }
+  //       scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
+  //       this.searchResults.splice(searchResultIndex, 1)
+  //     } else if (this.isReorderWithinList(e)) {
+  //       scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
+  //     } else { // course was dragged to a different list
+  //       const toList = e.target
+  //       const fromList = e.detail.origin.container
+  //       const toIndex = e.detail.spliceIndex
+  //       const fromIndex = e.detail.originalIndex
+  //       scheduleStore.changeLists(fromList, fromIndex, toList, toIndex)
+  //     }
+  //   })
+  //   scheduleStore.connectSlipList(slipList)
+  // }
+
+  // @action.bound registerSearchBarResults(el: HTMLDivElement) {
+  //   let slipList = new this.slip(el)
+  //   // prevent dragging the welcome text
+  //   el.addEventListener('slip:beforeswipe', (e) => {
+  //     if ((e.target as HTMLElement).classList.contains('undraggable')) {
+  //       e.preventDefault()
+  //     }
+  //   })
+  //   el.addEventListener('slip:beforereorder', (e) => {
+  //     if ((e.target as HTMLElement).classList.contains('undraggable')) {
+  //       e.preventDefault()
+  //     }
+  //   })
+  //   // scheduleStore.connectSlipList(slipList)
+  // }
 
   @action.bound deactivateSummer(index: number) {
     switch (index) {
@@ -255,59 +256,11 @@ class UIStore {
     }
   }
 
-  @action.bound handleNumberOperatorChange(e: ChangeEvent<HTMLSelectElement>) {
-    this.searchNumberOperator = e.target.value
-    this.updateSearchResults()
-  }
-
-  @action.bound handleSearchingNumber(e: ChangeEvent<HTMLInputElement>) {
-    let val = parseInt(e.target.value, 10)
-    if (val > 0) {
-      this.searchNumber = val
-    } else {
-      this.searchNumber = null
-    }
-    this.updateSearchResults()
-  }
-
-  @action.bound handleSearchingKeywords(e: ChangeEvent<HTMLInputElement>) {
-    this.searchKeywords = e.target.value
-    if (Date.now() - this.lastKeywordUpdate > 500) {
-      this.updateSearchResults()
-      this.lastKeywordUpdate = Date.now()
-    }
-  }
-
-  @action.bound handleSearchingMajor(e: ChangeEvent<HTMLInputElement>) {
-    this.addMajorAlertActive = false;
-    this.shouldPromptAddMajor = false;
-    this.majorResults = this.majorNames.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
-  }
-
-  @action.bound handleSearchingDepartmentChange(e: ChangeEvent<HTMLInputElement>) {
-    this.departmentResults = this.departmentNames.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
-    if (e.target.value === '') {
-      this.isSearchingDepartment = false
-      this.searchDepartment = ''
-    } else {
-      this.isSearchingDepartment = true
-    }
-  }
-
-  @action.bound handleGenedChanged(e: Event) {
-    if ((e.target as HTMLInputElement).value === '') {
-      this.searchGeneds = []
-    } else {
-      this.searchGeneds = (e.target as HTMLInputElement).value.split(',')
-    }
-    this.updateSearchResults()
-  }
-
   @action.bound handleSearchResultChosen(label: string, result: string) {
     if (label === this.MAJOR_LABEL) {
       this.handleMajorResultChosen(result)
     } else if (label === this.DEPARTMENT_LABEL) {
-      this.handleDepartmentResultChosen(result)
+      // this.handleDepartmentResultChosen(result)
     }
   }
 
@@ -342,22 +295,17 @@ class UIStore {
 
   saveSettings() {
     if (!loginStore.isLoggedIn) return
-    uiStore.isSaving = true
     const requestBody = {
       settings: JSON.stringify(this.userSettings),
       email: loginStore.email
     }
-    fetch('/api/api.cgi/saveUserSettings', {
+    fetch('/api/api2.cgi/saveUserSettings', {
       method: 'put',
       body: JSON.stringify(requestBody),
       headers: {
         'Content-Type': 'application/json'
       }
-    } as any).then(res => {
-      res.json().then(r => {
-        uiStore.isSaving = false
-      }).catch(err => console.log(err))
-    }).catch(err => console.log(err))
+    })
   }
 
   snackbarAlert(options: SnackbarOptions) {
@@ -408,7 +356,7 @@ class UIStore {
       num = Number(numStr)
     }
     return new Promise((resolve, reject) => {
-      fetch(`/api/api.cgi/courses/${dept}/${num}/${mod}`).then(res => {
+      fetch(`/api/api2.cgi/courses/${dept}/${num}/${mod}`).then(res => {
         if (res.ok) {
           res.json().then(resolve).catch(reject)
         } else {
@@ -418,27 +366,15 @@ class UIStore {
     })
   }
 
-  private handleDepartmentResultChosen(result: string) {
-    this.searchDepartment = result
-    this.departmentInput.value = result
-    this.departmentResults = []
-    this.updateSearchResults()
-  }
-
   @computed get searchGenedsString() {
     return this.searchGeneds.join(',')
   }
 
-  updateSearchResults() {
+  updateSearchResults(search: CourseSearch) {
+    console.log(search)
     this.isLoadingSearchResults = true
     colorController.clearSearchResultHues()
-    let dept = this.searchDepartment || 'none'
-    let op = this.searchNumberOperator || 'eq'
-    let num = this.searchNumber || 'none'
-    let keywords = this.searchKeywords || 'none'
-    let geneds = this.searchGeneds.length > 0 ? this.searchGeneds.join(',') : 'none'
-    let url = `/api/api.cgi/search/${dept}/${op}/${num}/${keywords}/${geneds}`
-    fetch(url).then(res => {
+    fetch(search.url).then(res => {
       res.json().then(data => {
         this.searchResults = data.results
         this.isLoadingSearchResults = false

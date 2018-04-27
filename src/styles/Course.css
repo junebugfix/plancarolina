@@ -167,3 +167,21 @@
     margin: auto;
   }
 }
+
+@media (max-width: 380px) {
+  .Course .course-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 350px) {
+  .Course .course-label {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 319px) {
+  .Course .course-label {
+    font-size: 10px;
+  }
+}

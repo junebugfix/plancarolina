@@ -23,12 +23,26 @@ export default class Validators extends React.Component {
     const creditsStyle = {
       width: Math.min(Math.floor(scheduleStore.creditsFulfilled / scheduleStore.CREDITS_NEEDED * 100), 100) + "%"
     }
+    let loadingStatusIcon, saveStatusText
+    if (scheduleStore.saveStatus === 'saving') {
+      loadingStatusIcon = (<Spinner radius={10} />)
+      saveStatusText = 'saving schedule'
+    } else if (scheduleStore.saveStatus === 'waiting') {
+      loadingStatusIcon = (<Icon style={{ fontSize: 16, position: 'relative', top: '3px' }}>error_outline</Icon>)
+      saveStatusText = 'not saved: no connection'
+    } else {
+      loadingStatusIcon = (<Icon style={{ fontSize: 16, position: 'relative', top: '3px' }}>done</Icon>)
+      saveStatusText = 'schedule saved'
+    }
+
+    const savingContainerClickFn = scheduleStore.saveStatus === 'waiting' ? () => scheduleStore.saveSchedule() : null
+    const savingContainerStyle = scheduleStore.saveStatus === 'waiting' ? { cursor: 'pointer' } : null
     return (
       <div className="Validators">
         {loginStore.isLoggedIn &&
-          <div className="saving-schedule-container">
-            {uiStore.isSaving ? <span>saving schedule</span> : <span>schedule<br/>saved</span>}
-            <div className="loader-container">{uiStore.isSaving ? <Spinner radius={10} /> : <Icon style={{ fontSize: 16, position: 'relative', top: '3px' }}>done</Icon>}</div>
+          <div className="saving-schedule-container" onClick={savingContainerClickFn} style={savingContainerStyle}>
+            <span>{saveStatusText}</span>
+            <div className="loader-container">{loadingStatusIcon}</div>
           </div>
         }
         <div className="progress-group geneds">

@@ -8,7 +8,8 @@ import Schedule, { ScheduleData } from './components/Schedule';
 import Semester from './components/Semester';
 import { Semesters, getClassElements, getChildren, getObjectValues } from './utils';
 import difference from 'lodash-es/difference';
-import flatten from 'lodash-es/flatten';
+// import flatten from 'lodash-es/flatten';
+import { flatten } from './utils'
 
 class ScheduleStore {
 
@@ -27,21 +28,21 @@ class ScheduleStore {
   @observable summer3: CourseData[] = []
   @observable summer4: CourseData[] = []
 
+  @observable saveStatus: 'saved' | 'saving' | 'waiting'
+
   @observable majorCoursesNeeded: string[] = ['hi', 'hello', 'merhaba']
   readonly GENEDS_NEEDED = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"]
   readonly CREDITS_NEEDED = 120
   readonly PROMPT_LOGIN_THRESHOLD = 3
 
-  slipLists: any[] = []
-  slipListsActive: boolean = false
-
   getCourseData(id: number): CourseData {
     return this.allCourses.filter((course: CourseData) => course.id === id)[0]
   }
 
-  getSemesterData(index: number): CourseData[] {
-    return this[Semesters[index].toLowerCase()]
-  }
+  // getSemesterData(index: number): CourseData[] {
+  //   const data = this[Semesters[index].toLowerCase()] as CourseData[]
+  //   return data
+  // }
 
   findSemesterWithCourse(courseId: number): CourseData[] {
     const semestersWithCourse = this.semestersArray.filter(s => s.filter(c => c.id === courseId).length > 0)
@@ -72,7 +73,6 @@ class ScheduleStore {
 
   @computed get allCourses(): CourseData[] {
     return [].concat(...this.semestersArray.map(s => s.slice()))
-    // return flatten(this.semestersArray)
   }
 
   @computed get semestersToAutomaticallyAddTo(): CourseData[][] {
@@ -145,6 +145,23 @@ class ScheduleStore {
     return this.allCourses.reduce((prev, curr) => prev + (Number.isInteger(curr.credits) ? curr.credits : 0), 0)
   }
 
+  @action.bound moveCourse(fromSemester: Semesters, fromIndex: number, toSemester: Semesters, toIndex: number) {
+    if (fromSemester === toSemester) {
+      const semester = this.getSemester(fromSemester).slice()
+      const [course] = semester.splice(fromIndex, 1)
+      semester.splice(toIndex, 0, course)
+      this[Semesters[fromSemester].toLowerCase()].replace(semester)
+    } else {
+      const newFromSemester = this.getSemester(fromSemester).slice()
+      const newToSemester = this.getSemester(toSemester).slice()
+      const [course] = newFromSemester.splice(fromIndex, 1)
+      newToSemester.splice(toIndex, 0, course)
+      this[Semesters[fromSemester].toLowerCase()].replace(newFromSemester)
+      this[Semesters[toSemester].toLowerCase()].replace(newToSemester)
+    }
+    this.saveSchedule();
+  }
+
   @action.bound reorderInList(el: HTMLElement, startIndex: number, endIndex: number) {
     const semesterData = this.findSemesterWithCourse(parseInt(el.id.substring(7), 10)) as CourseData[]
     semesterData.splice(endIndex, 0, semesterData.splice(startIndex, 1)[0])
@@ -158,11 +175,11 @@ class ScheduleStore {
     this.saveSchedule()
   }
 
-  @action.bound insertSearchResult(resultIndex: number, semesterIndex: number, toIndex: number) {
+  @action.bound insertSearchResult(resultIndex: number, toSemester: Semesters, toIndex: number) {
     if (!uiStore.hasAddedACourse) uiStore.hasAddedACourse = true
     const department = uiStore.searchResults[resultIndex].department
     colorController.ensureScheduleHue(department)
-    this.getSemester(semesterIndex).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
+    this.getSemester(toSemester).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
     this.saveSchedule()
   }
 
@@ -172,14 +189,14 @@ class ScheduleStore {
     this.saveSchedule()
   }
 
-  connectSlipList(newSlipList: any) {
-    this.slipListsActive = true
-    this.slipLists.forEach((list: any) => {
-      list.crossLists.push(newSlipList)
-      newSlipList.crossLists.push(list)
-    })
-    this.slipLists.push(newSlipList);
-  }
+  // connectSlipList(newSlipList: any) {
+  //   this.slipListsActive = true
+  //   this.slipLists.forEach((list: any) => {
+  //     list.crossLists.push(newSlipList)
+  //     newSlipList.crossLists.push(list)
+  //   })
+  //   this.slipLists.push(newSlipList);
+  // }
 
   // disconnectSlipLists() {
   //   this.slipListsActive = false
@@ -189,8 +206,10 @@ class ScheduleStore {
   // }
 
   saveSchedule() {
+    if (loginStore.offline) return
+    const alertNetworkErrorWithRetry = () => uiStore.alertNetworkError(() => this.saveSchedule())
     if (!loginStore.isLoggedIn) return
-    uiStore.isSaving = true
+    this.saveStatus = 'saving'
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {
       if (loginStore.isLoggedIn) {
@@ -203,9 +222,17 @@ class ScheduleStore {
           }
         } as any).then(res => {
           res.json().then(r => {
-            uiStore.isSaving = false
+            this.saveStatus = 'saved'
+          }).catch(err => {
+            alertNetworkErrorWithRetry()
+            this.saveStatus = 'waiting'
+            console.log(err)
           })
-        }).catch(err => console.log(err))
+        }).catch(err => {
+          alertNetworkErrorWithRetry()
+          this.saveStatus = 'waiting'
+          console.log(err)
+        })
       } else {
         if (this.allCourses.length >= this.PROMPT_LOGIN_THRESHOLD) {
           uiStore.promptUserLogin()

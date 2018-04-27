@@ -4,9 +4,12 @@ import { Departments } from './departments'
 import { CourseData } from './components/Course'
 import { scheduleStore } from './ScheduleStore'
 import { uiStore, UserSettings } from './UIStore'
-import flatten from 'lodash-es/flatten'
+// import flatten from 'lodash-es/flatten'
+import { flatten } from './utils'
 import * as Cookies from 'js-cookie'
 import { ScheduleData } from './components/Schedule';
+import { fakeUserData } from './fakeUserData';
+import { uniq } from 'lodash-es';
 
 export type HandleConflictResult = 'overwrite' | 'merge' | 'discard'
 
@@ -26,11 +29,17 @@ class LoginStore {
   _auth2: any
   _googleyolo: any
 
+  offline = false
+
   resetLoginAttempts() {
     this.loginAttempts = 0
   }
 
   tryAutoLogin() {
+    if (this.offline) {
+      this.loadUserData(fakeUserData as any)
+      return
+    }
     const token = Cookies.get('token')
     if (token) {
       this.loginWithToken(token)
@@ -54,6 +63,11 @@ class LoginStore {
   loginWithToken(token: string) {
     this.fetchUserDataFromToken(token).then(userData => {
       this.loadUserData(userData)
+    }).catch(err => {
+      if (err === 'No user exists') {
+        Cookies.remove('token')
+        this.tryGoogleAutoLogin()
+      }
     })
   }
 
@@ -191,8 +205,9 @@ class LoginStore {
   }
 
   fetchUserDataFromToken(token: string): Promise<UserData> {
+    const alertNetworkErrorWithRetry = () => uiStore.alertNetworkError(() => this.fetchUserDataFromToken(token))
     return new Promise<UserData>((resolve, reject) => {
-      fetch('/api/api.cgi/getUserData', {
+      fetch('/api/api2.cgi/getUserData', {
         method: 'put',
         body: JSON.stringify({ token }),
         headers: {
@@ -202,9 +217,18 @@ class LoginStore {
         if (!res.error) {
           resolve(res)
         } else {
+          if (res.error !== 'No user exists') {
+            alertNetworkErrorWithRetry()
+          }
           reject(res.error)
         }
-      })).catch(err => reject(err))
+      }).catch(err => {
+        alertNetworkErrorWithRetry()
+        reject(err)
+      })).catch(err => {
+        alertNetworkErrorWithRetry()
+        reject(err)
+      })
     })
   }
 
@@ -213,7 +237,6 @@ class LoginStore {
   }
 
   @action.bound loadUserData(userData: UserData) {
-    (window as any).loginstore = this
     this.name = userData.name
     this.email = userData.email
     if (scheduleStore.allCourses.length > 0) {
@@ -233,14 +256,13 @@ class LoginStore {
     }
     this.isLoggedIn = true
     uiStore.shouldPromptForLogin = false
-    uiStore.isLoadingSchedule = false
     uiStore.loginPopupActive = false
     uiStore.persistentLoginAlertActive = false
     uiStore.snackbarAlert({ message: `Welcome back, ${givenName}` })
   }
 
   @action.bound handleLogin(name: string, email: string, imageUrl: string) {
-    fetch('/api/api.cgi/login', {
+    fetch('/api/api2.cgi/login', {
       method: 'put',
       body: JSON.stringify({ name, email }),
       headers: {

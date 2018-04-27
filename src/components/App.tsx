@@ -18,6 +18,7 @@ import { loginStore } from '../LoginStore';
 import Icon from 'material-ui/Icon';
 import Button from 'material-ui/Button'
 import { AlertPopup } from './AlertPopup'
+import { scheduleStore } from '../ScheduleStore';
 
 @observer
 export default class App extends React.Component {
@@ -34,7 +35,6 @@ export default class App extends React.Component {
             <h1 className="main-title">Plan Carolina</h1>
             <div className="search-bar-container">
               {uiStore.isMobileView ? <MobileSearchBar /> : <SearchBar />}
-               {/* <SearchBar /> */}
             </div>
           </div>
           <div className="content-right">

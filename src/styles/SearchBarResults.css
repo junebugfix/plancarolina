@@ -31,7 +31,7 @@
 }
 
 .SearchBarResults-result {
-  background: lightgray;
+  background: hsl(225, 100%, 96%);
   position: relative;
   display: flex;
   border: 1px solid grey;
@@ -48,28 +48,25 @@
   background: white;
   border-radius: 4px;
   text-align: center;
-  display: inline-block;
-  width: 42px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 2px;
-  font-size: 13px;  
+  font-size: 12px;  
   position: relative;
 }
 
-.SearchBarResults .dept-num span {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .SearchBarResults .name {
-  display: inline-block;
+  display: flex;
+  flex-grow: 3;
+  align-items: center;
   font-style: italic;
-  height: fit-content;
+  height: 90%;
   max-height: 48px;
   overflow: hidden;
-  width: 73%;
+  width: auto;
   margin: auto 4px;
 }
 
@@ -125,15 +122,32 @@
 @media (max-width: 650px) {
   .SearchBarResults {
     width: 100%;
+    min-height: 50px;
+    margin-bottom: 6px;
+    justify-content: space-evenly 
   }
-  .SearchBar .search-bar-welcome {
-    margin-top: 10px;
+  .SearchBarResults .search-bar-welcome {
+    margin: 0 auto;
+    background-color: #fff;
+    width: 95%;
+    display: flex;
+    min-height: 50px;
+    border-radius: 4px;
   }
   .SearchBarResults .search-bar-welcome h3 {
-    font-size: 18px;
+    font-size: 15px;
   }
   .SearchBarResults .search-bar-welcome p {
-    font-size: 13px;
+    font-size: 12px;
+    margin: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 4px;
+    line-height: 13px;
+  }
+  .SearchBarResults .SearchBarResults-result {
+    height: 35px;
+    margin: 0;
   }
   .SearchBarResults .SearchBarResults-result .name {
     font-size: 10px;

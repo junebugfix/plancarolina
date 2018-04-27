@@ -21,7 +21,11 @@ export default class Snackbar extends React.Component {
 
   render() {
     const { message, action, actionLabel, autoHideDuration } = this.options
-    const actionProp = action ? <Button key={actionLabel} color="accent" onClick={action}>{actionLabel}</Button> : null
+    const actionWithClose = (e: any) => {
+      action(e)
+      this.open = false
+    }
+    const actionProp = action ? <Button key={actionLabel} color="accent" onClick={actionWithClose}>{actionLabel}</Button> : null
     return (
       <MUISnackbar
         id="snackbar"

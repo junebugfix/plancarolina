@@ -1,0 +1,43 @@
+.AutocompleteInput {
+  position: relative;
+}
+
+.AutocompleteInput input {
+  width: 48px;
+  margin-right: 5px;
+}
+
+.AutocompleteInput input.error {
+  border: 1px solid #ff7676;
+}
+
+.AutocompleteInput .suggestions {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  border-radius: 4px;
+  z-index: 9998;
+  width: 200px;
+  font-size: 14px;
+}
+
+.AutocompleteInput .suggestions .item {
+  background-color: #fff;
+  padding: 3px;
+  border: 1px solid #bbb;
+  border-top: none;
+  z-index: 99999;
+}
+
+.AutocompleteInput .suggestions .item:first-child {
+  border-top: 1px solid #bbb;
+}
+
+.AutocompleteInput .suggestions .item:last-child {
+  border-radius: 0 0 3px 3px;
+}
+
+.AutocompleteInput .suggestions .item.highlighted {
+  background-color: #d0effd;
+}

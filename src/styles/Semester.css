@@ -9,7 +9,7 @@
   background: hsla(0, 0%, 100%, 0.9);
   user-select: none;
   position: relative;
-  /* -webkit-tap-highlight-color: transparent; */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .Semester .Semester-label {
@@ -19,6 +19,7 @@
 .Semester-courses {
   height: 100%;
   user-select: none;
+  position: relative;
   -webkit-tap-highlight-color: transparent;
 }
 

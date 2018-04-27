@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default class Spinner extends React.Component<{ radius?: number, thickness?: number }, {}> {
+export default class Spinner extends React.Component<{ radius?: number, thickness?: number, style?: any }, {}> {
   render() {
     const size = this.props.radius ? this.props.radius * 2 : 20
     const thickness = this.props.thickness ? this.props.thickness : 2
@@ -24,6 +24,8 @@ export default class Spinner extends React.Component<{ radius?: number, thicknes
       width: size,
       height: size
     }
+
+    Object.assign(style, this.props.style)
 
     return (
       <span style={{ position: 'relative', display: 'inline-block', width: size, height: size }}>

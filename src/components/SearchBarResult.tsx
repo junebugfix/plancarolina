@@ -3,19 +3,19 @@ import { observer } from 'mobx-react'
 import { uiStore } from '../UIStore'
 import { scheduleStore } from '../ScheduleStore'
 import { colorController } from '../ColorController'
-import Course from './Course'
-import CourseData from './Course'
+import Course, { CourseData } from './Course'
 import '../styles/SearchBarResults.css'
 
 interface SearchBarResultData {
   department: string
-  number: number 
+  courseNumber: number 
   modifier: string
   name: string
+  id: number
 }
 
 @observer
-export default class SearchBarResult extends React.Component<{data: SearchBarResultData}, {}> {
+export default class SearchBarResult extends React.Component<{ data: CourseData, index: number }, {}> {
   nameEl: HTMLSpanElement
   elipsesEl: HTMLSpanElement
 
@@ -26,20 +26,20 @@ export default class SearchBarResult extends React.Component<{data: SearchBarRes
   componentDidMount() {
     if (this.isOverflowing()) {
       this.elipsesEl.innerHTML = '...'
+      this.nameEl.style.alignItems = 'flex-start'
     }
   }
 
   render() {
-    const res = this.props.data
-    const style = {
-      background: `hsl(${colorController.getSearchResultHue(res.department)}, 80%, 80%)`
-    }
+    const { data, index } = this.props
+    const { department, courseNumber, modifier, name } = data
+    const colorStyle = { backgroundColor: `hsl(${colorController.getSearchResultHue(department)}, 80%, 80%)` }
     return (
-      <div className="SearchBarResults-result" style={style}>
-        <div className="dept-num">
-          <span>{res.department}<br />{res.number}{res.modifier}</span>
+      <div id={`search-result-${index}`} className="SearchBarResults-result">
+        <div className="dept-num" style={colorStyle}>
+          <span>{department}<br />{courseNumber}{modifier}</span>
         </div>
-        <span ref={el => this.nameEl = el} className="name">{res.name}<span ref={el => this.elipsesEl = el} className="elipses"></span></span>
+        <span ref={el => this.nameEl = el} className="name">{name}<span ref={el => this.elipsesEl = el} className="elipses"></span></span>
       </div>
     )
   }
