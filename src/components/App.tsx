@@ -19,12 +19,14 @@ import Icon from 'material-ui/Icon';
 import Button from 'material-ui/Button'
 import { AlertPopup } from './AlertPopup'
 import { scheduleStore } from '../ScheduleStore';
+import { coursesStore } from '../CoursesStore';
 
 @observer
 export default class App extends React.Component {
 
   componentDidMount() {
     loginStore.tryAutoLogin()
+    coursesStore.downloadCoursesWithoutDescriptions()
   }
 
   render() {

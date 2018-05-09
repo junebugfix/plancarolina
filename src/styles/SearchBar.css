@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
 }
 
 .SearchBar .first-row-container .first-part {
@@ -61,8 +61,8 @@
   border-radius: 4px;
   overflow: hidden;
   padding: 2px 0;
-  background: #ffffff url("../arrow.png") no-repeat 80% 60%;
-  background-size: 25% 20%;
+  background: #ffffff url("../arrow.svg") no-repeat 95% 55%;
+  background-size: 45% 35%;
 }
 
 .SearchBar #custom-select select {
@@ -72,7 +72,13 @@
   background: transparent;
   background-image: none;
   box-shadow: none;
+  outline: transparent;
   padding: 0 0 1px 5px;
+}
+
+.SearchBar #custom-select select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
 }
 
 .SearchBar #custom-select:focus-within {
@@ -136,7 +142,7 @@
   position: absolute;
   outline: none;
   left: 50%;
-  bottom: 10px;
+  bottom: 5px;
   transform: translateX(-50%);
   width: fit-content;
   z-index: 1;
@@ -221,6 +227,15 @@ button#searchbar-add-class{
 }
 
 @media (max-width: 650px) {
+  .SearchBar #search-input {
+    width: 150px;
+  }
+  .SearchBar .TagsInput {
+    width: 148px;
+  }
+}
+
+@media (max-width: 600px) {
   .SearchBar {
     margin-top: 12px;
     padding: 5px;

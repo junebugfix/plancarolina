@@ -7,8 +7,9 @@ const DOWN_KEY = 40
 const UP_KEY = 38
 const ENTER_KEY = 13
 const TAB_KEY = 9
+const ESCAPE_KEY = 27
 
-export default class AutocompleteInput extends React.Component<{ allSuggestions: string[], expandedDict?: { [key: string]: string }, onValidSelection?: (val: string) => void, placeholder?: string }, { highlightedIndex: number, value: string, focused: boolean, suggestions: string[] }> {
+export default class AutocompleteInput extends React.Component<{ allSuggestions: string[], expandedDict?: { [key: string]: string }, onChange?: (val: string) => void, placeholder?: string }, { highlightedIndex: number, value: string, focused: boolean, suggestions: string[] }> {
   inputEl: HTMLInputElement
   counter = 0
 
@@ -21,9 +22,7 @@ export default class AutocompleteInput extends React.Component<{ allSuggestions:
     const value = (e.target as HTMLInputElement).value
     const suggestions = this.getSuggestions(value)
     this.setState({ value, suggestions, highlightedIndex: 0 })
-    if (this.props.onValidSelection && this.isValidInput(value) && value !== '') {
-      this.props.onValidSelection(value)
-    }
+    if (this.props.onChange) this.props.onChange(value)
   }
 
   handleFocus(e: React.FocusEvent<HTMLInputElement>) {
@@ -45,6 +44,8 @@ export default class AutocompleteInput extends React.Component<{ allSuggestions:
       } else if (e.keyCode === UP_KEY || (e.keyCode === TAB_KEY && e.shiftKey)) {
         e.preventDefault()
         this.moveHightlightUp()
+      } else if (e.keyCode === ESCAPE_KEY) {
+        this.inputEl.blur()
       }
     }
   }
@@ -53,7 +54,7 @@ export default class AutocompleteInput extends React.Component<{ allSuggestions:
     const suggestion = this.state.suggestions[this.state.highlightedIndex]
     this.inputEl.value = suggestion
     this.setState({ value: suggestion })
-    if (this.props.onValidSelection) this.props.onValidSelection(suggestion)
+    if (this.props.onChange) this.props.onChange(suggestion)
     this.inputEl.blur()
   }
 

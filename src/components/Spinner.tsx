@@ -28,7 +28,7 @@ export default class Spinner extends React.Component<{ radius?: number, thicknes
     Object.assign(style, this.props.style)
 
     return (
-      <span style={{ position: 'relative', display: 'inline-block', width: size, height: size }}>
+      <span className="undraggable" style={{ position: 'relative', display: 'inline-block', width: size, height: size }}>
         <div style={style}></div>
         <div style={afterStyle}></div>
       </span>

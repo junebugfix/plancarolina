@@ -25,13 +25,13 @@
   line-height: 20px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .Footer {
     font-size: 12px;
   }
 }
 
-/* @media (max-width: 650px) and (min-height: 550px) {
+/* @media (max-width: 600px) and (min-height: 550px) {
   .Footer {
     position: absolute;
     bottom: 0px;

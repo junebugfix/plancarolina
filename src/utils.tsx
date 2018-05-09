@@ -64,6 +64,17 @@ export function getCenterPoint(el: HTMLElement) {
   return { x: bounds.left + (bounds.width / 2), y: bounds.top + (bounds.height / 2) }
 }
 
+// export function getPosition(el: HTMLElement) {
+//   var _x = 0;
+//   var _y = 0;
+//   while ( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+//       _x += el.offsetLeft - el.scrollLeft;
+//       _y += el.offsetTop - el.scrollTop;
+//       el = el.offsetParent as HTMLElement;
+//   }
+//   return { top: _y, left: _x };
+// }
+
 export interface Point {
   x: number,
   y: number

@@ -23,6 +23,46 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.Semester input {
+  border: none;
+  /* margin-top: 8px; */
+  outline: transparent;
+  padding: 4px 0;
+  font-size: 13px;
+  /* background-color: #EBF0FE; */
+  background-color: #fff;
+  width: 100%;
+  border-radius: 7px;
+  border: 1px solid rgba(170, 177, 197, 0.7);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.Semester .search-results {
+  position: absolute;
+  z-index: 99999;
+  background-color: #fff;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  top: 100%;
+}
+
+.Semester .search-results .result {
+  padding: 3px;
+  border: 1px solid #bbb;
+  border-bottom: none;
+}
+
+.Semester .search-results .result span {
+  margin-right: 5px;
+}
+
+.Semester .search-results .result:last-child {
+  border-bottom: 1px solid #bbb;
+}
+
 .Semester .Semester-add-button, .Semester .Semester-add-background {
   width: 100%;
   height: 20px;
@@ -50,15 +90,35 @@
   opacity: 1;
 }
 
+.Schedule .Schedule-row.summers .container {
+  width: 100%;
+  margin: 0 13px;
+}
+
 @media (max-width: 1200px) {
   .Semester {
     margin: 6px 6px;
   }
+  .Semester.summer {
+    margin: 0;
+  }
+  .Schedule-row.summers .container {
+    margin: 0 6px !important;
+  }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .Semester {
     margin: 2px;
+  }
+  .Semester.summer {
+    margin: 0;
+  }
+  .Schedule-row.summers {
+    margin-top: 2px;
+  }
+  .Schedule-row.summers .container {
+    margin: 0 2px !important;
   }
   .Semester .Semester-label {
     font-size: 14px;

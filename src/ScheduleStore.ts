@@ -39,11 +39,6 @@ class ScheduleStore {
     return this.allCourses.filter((course: CourseData) => course.id === id)[0]
   }
 
-  // getSemesterData(index: number): CourseData[] {
-  //   const data = this[Semesters[index].toLowerCase()] as CourseData[]
-  //   return data
-  // }
-
   findSemesterWithCourse(courseId: number): CourseData[] {
     const semestersWithCourse = this.semestersArray.filter(s => s.filter(c => c.id === courseId).length > 0)
     if (semestersWithCourse.length === 0) throw new Error(`Invalid course id: ${courseId}`)
@@ -177,10 +172,14 @@ class ScheduleStore {
 
   @action.bound insertSearchResult(resultIndex: number, toSemester: Semesters, toIndex: number) {
     if (!uiStore.hasAddedACourse) uiStore.hasAddedACourse = true
-    const department = uiStore.searchResults[resultIndex].department
-    colorController.ensureScheduleHue(department)
-    this.getSemester(toSemester).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
-    this.saveSchedule()
+    const courseToAdd = uiStore.searchResults[resultIndex]
+    if (this.isInSchedule(courseToAdd)) {
+      uiStore.snackbarAlert({ message: 'That course is already in your schedule' })
+    } else {
+      colorController.ensureScheduleHue(courseToAdd.department)
+      this.getSemester(toSemester).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
+      this.saveSchedule()
+    }
   }
 
   @action.bound removeCourseFromSemester(courseIndex: number, semesterIndex: Semesters) {
@@ -188,22 +187,6 @@ class ScheduleStore {
     this.getSemester(semesterIndex).splice(courseIndex, 1)
     this.saveSchedule()
   }
-
-  // connectSlipList(newSlipList: any) {
-  //   this.slipListsActive = true
-  //   this.slipLists.forEach((list: any) => {
-  //     list.crossLists.push(newSlipList)
-  //     newSlipList.crossLists.push(list)
-  //   })
-  //   this.slipLists.push(newSlipList);
-  // }
-
-  // disconnectSlipLists() {
-  //   this.slipListsActive = false
-  //   for (const list of this.slipLists) {
-  //     list.detach()
-  //   }
-  // }
 
   saveSchedule() {
     if (loginStore.offline) return

@@ -28,17 +28,9 @@
   justify-content: space-around;
 }
 
-.Schedule .Summer {
-  background: white;
-  border-radius: 5px;
-  padding: 5px;
+.Schedule .Schedule-row.summers .Semester.summer {
   width: 100%;
-  margin: 6px;
-  height: 50px;
-}
-
-.Schedule .Summer .Summer-courses {
-  height: 100%;
+  margin: 0;
 }
 
 @media (max-width: 1200px) {
@@ -61,7 +53,8 @@
 
 @media (max-width: 950px) {
   .Schedule {
-    margin: 0 10px;
+    margin: 0 auto 10px auto;
+    max-width: 700px;
   }
 }
 
@@ -71,7 +64,7 @@
   margin: 10px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .Schedule {
     margin: 0;
     margin-top: -15px;

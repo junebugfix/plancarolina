@@ -47,27 +47,35 @@ export default class Schedule extends React.Component {
           <div className="Schedule-year-label">Senior</div>
         </div>
         <div className="Schedule-row">
-          <Semester type={type} index={Semesters.Fall1} courses={scheduleStore.fall1} />
-          <Semester type={type} index={Semesters.Fall2} courses={scheduleStore.fall2} />
-          <Semester type={type} index={Semesters.Fall3} courses={scheduleStore.fall3} />
-          <Semester type={type} index={Semesters.Fall4} courses={scheduleStore.fall4} />
+          <Semester label="Fall" type={type} index={Semesters.Fall1} courses={scheduleStore.fall1} />
+          <Semester label="Fall" type={type} index={Semesters.Fall2} courses={scheduleStore.fall2} />
+          <Semester label="Fall" type={type} index={Semesters.Fall3} courses={scheduleStore.fall3} />
+          <Semester label="Fall" type={type} index={Semesters.Fall4} courses={scheduleStore.fall4} />
           {uiStore.fall5Active &&
-          <Semester type={type} index={Semesters.Fall5} courses={scheduleStore.fall5} />}
+          <Semester label="Fall" type={type} index={Semesters.Fall5} courses={scheduleStore.fall5} />}
         </div>
         <div className="Schedule-row">
-          <Semester type={type} index={Semesters.Spring1} courses={scheduleStore.spring1} />
-          <Semester type={type} index={Semesters.Spring2} courses={scheduleStore.spring2} />
-          <Semester type={type} index={Semesters.Spring3} courses={scheduleStore.spring3} />
-          <Semester type={type} index={Semesters.Spring4} courses={scheduleStore.spring4} />
+          <Semester label="Spring" type={type} index={Semesters.Spring1} courses={scheduleStore.spring1} />
+          <Semester label="Spring" type={type} index={Semesters.Spring2} courses={scheduleStore.spring2} />
+          <Semester label="Spring" type={type} index={Semesters.Spring3} courses={scheduleStore.spring3} />
+          <Semester label="Spring" type={type} index={Semesters.Spring4} courses={scheduleStore.spring4} />
           {uiStore.spring5Active &&
-          <Semester type={type} index={Semesters.Spring5} courses={scheduleStore.spring5} />}
+          <Semester label="Spring" type={type} index={Semesters.Spring5} courses={scheduleStore.spring5} />}
         </div>
         {uiStore.isAnySummerActive &&
-        <div className="Schedule-row">
-          <Summer type={type} index={Semesters.Summer1} opacity={uiStore.firstYearSummerActive ? 1 : 0} />
-          <Summer type={type} index={Semesters.Summer2} opacity={uiStore.sophomoreSummerActive ? 1 : 0}/>
-          <Summer type={type} index={Semesters.Summer3} opacity={uiStore.juniorSummerActive ? 1 : 0}/>
-          <Summer type={type} index={Semesters.Summer4} opacity={uiStore.seniorSummerActive ? 1 : 0}/>
+        <div className="Schedule-row summers">
+          <div className="container summer1">
+            {uiStore.summer1Active && <Semester label="Summer" type={type} index={Semesters.Summer1} courses={scheduleStore.summer1} />}
+          </div>
+          <div className="container summer2">
+            {uiStore.summer2Active && <Semester label="Summer" type={type} index={Semesters.Summer2} courses={scheduleStore.summer2} />}
+          </div>
+          <div className="container summer3">
+            {uiStore.summer3Active && <Semester label="Summer" type={type} index={Semesters.Summer3} courses={scheduleStore.summer3} />}
+          </div>
+          <div className="container summer4">
+            {uiStore.summer4Active && <Semester label="Summer" type={type} index={Semesters.Summer4} courses={scheduleStore.summer4} />}
+          </div>
         </div>
         }
       </div>

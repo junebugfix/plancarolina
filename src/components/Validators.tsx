@@ -13,6 +13,16 @@ export default class Validators extends React.Component {
 
   counter = 0
 
+  componentDidMount() {
+    // force the browser to download error.svg
+    // since this icon is displayed when there's a network error, you can't lazy load it
+    const dummyImg = document.createElement('img')
+    dummyImg.src = 'error.svg'
+    dummyImg.style.display = 'none'
+    document.body.appendChild(dummyImg)
+    dummyImg.remove()
+  }
+
   render() {
     const genedStyle = {
       width: Math.min(Math.floor(scheduleStore.genedsFulfilled.length / scheduleStore.GENEDS_NEEDED.length * 100), 100) + "%"
@@ -28,10 +38,10 @@ export default class Validators extends React.Component {
       loadingStatusIcon = (<Spinner radius={10} />)
       saveStatusText = 'saving schedule'
     } else if (scheduleStore.saveStatus === 'waiting') {
-      loadingStatusIcon = (<Icon style={{ fontSize: 16, position: 'relative', top: '3px' }}>error_outline</Icon>)
+      loadingStatusIcon = (<img alt="error" src="error.svg" />)
       saveStatusText = 'not saved: no connection'
     } else {
-      loadingStatusIcon = (<Icon style={{ fontSize: 16, position: 'relative', top: '3px' }}>done</Icon>)
+      loadingStatusIcon = (<img alt="done" src="done.svg" />)
       saveStatusText = 'schedule saved'
     }
 

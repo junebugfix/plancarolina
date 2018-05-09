@@ -18,11 +18,34 @@ function getAllDepartments() {
 export const ALL_DEPARTMENTS = getAllDepartments()
 
 export default class CourseSearch {
+  static fromString(s: string): CourseSearch {
+    const search = new CourseSearch()
+    for (const word of s.split(' ')) {
+      if (ALL_DEPARTMENTS.includes(word)) {
+        search.department = Departments[word]
+      } else if (this.isCourseNumber(word)) {
+        search.courseNumber = parseInt(word, 10)
+      } else {
+        search.keywords = search.keywords === undefined ? word : search.keywords + ' ' + word
+      }
+    }
+    return search
+  }
+
+  static isCourseNumber(s: string) {
+    const intVal = parseInt(s, 10)
+    return intVal > 0 && intVal < 1000
+  }
+
   department: Departments
   courseNumber: number
   operator: Operator
   geneds: Gened[] = []
   keywords: string
+
+  isEmpty() {
+    return this.department === undefined && this.courseNumber === undefined && this.geneds.length === 0 && (this.keywords === undefined || this.keywords === '')
+  }
 
   get url() {
     const genedsQuery = this.geneds.length === 0 ? 'none' : this.geneds.join(',')

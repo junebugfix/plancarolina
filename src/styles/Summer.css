@@ -1,5 +1,6 @@
 .Summer {
   position: relative;
+  width: 25%;
 }
 
 .Summer .Summer-x {
@@ -20,7 +21,7 @@
   display: inline-block;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .Summer .Summer-label {
     font-size: 13px;
   }

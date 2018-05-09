@@ -5,6 +5,7 @@ import { scheduleStore } from '../ScheduleStore'
 import Course from './Course'
 import SearchBarResult from './SearchBarResult'
 import CourseData from './Course'
+import Spinner from './Spinner'
 import '../styles/SearchBarResults.css'
 import { dragController } from '../DragController';
 
@@ -18,6 +19,13 @@ export default class SearchBarResults extends React.Component {
   }
 
   render() {
+    if (uiStore.searchPending) {
+      return (
+        <div ref={el => this.divEl = el} style={{ justifyContent: 'center', alignItems: 'center', fontSize: 22, color: '#666' }} className="SearchBarResults undraggable">
+          Loading courses...
+        </div>
+      )
+    }
     if (uiStore.searchResults.length === 0) {
       return (
         <div ref={el => this.divEl = el} className="SearchBarResults">

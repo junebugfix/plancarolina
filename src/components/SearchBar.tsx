@@ -12,6 +12,7 @@ import AutocompleteInput from './AutocompleteInput'
 import CourseSearch, { ALL_GENEDS, ALL_DEPARTMENTS, Operator, Gened } from '../CourseSearch';
 import { DEPARTMENT_NAMES, Departments } from '../departments';
 import '../styles/SearchBar.css'
+import Switch from 'material-ui/Switch';
 
 const genedDict = {
   CR: 'English Composition and Rhetoric',
@@ -39,15 +40,24 @@ export default class SearchBar extends React.Component {
 
   search = new CourseSearch()
 
+  componentDidMount() {
+    uiStore.registerSearchBar(this)
+  }
+
   handleDepartmentChange(value: string) {
-    this.search.department = Departments[value]
+    const input = value.toUpperCase()
+    if (ALL_DEPARTMENTS.includes(input)) {
+      this.search.department = Departments[input]
+    } else {
+      this.search.department = undefined
+    }
     uiStore.updateSearchResults(this.search)
   }
 
   handleNumberChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = parseInt(e.target.value, 10)
     if (value) this.search.courseNumber = value
-    else this.search.courseNumber = null
+    else this.search.courseNumber = undefined
     uiStore.updateSearchResults(this.search)
   }
 
@@ -57,7 +67,6 @@ export default class SearchBar extends React.Component {
   }
 
   handleGenedChange(newGenedTags: string[]) {
-    console.log(newGenedTags)
     this.search.geneds = newGenedTags as Gened[]
     uiStore.updateSearchResults(this.search)
   }
@@ -85,11 +94,11 @@ export default class SearchBar extends React.Component {
         <div id="searchbar-search-group" >
           <h2>Search for courses</h2>
           <div className="loader-container">
-            {uiStore.isLoadingSearchResults && <Spinner />}
+            {uiStore.searchPending && <Spinner />}
           </div>
           <div className="first-row-container">
             <div className="first-part">
-              <AutocompleteInput allSuggestions={ALL_DEPARTMENTS} expandedDict={DEPARTMENT_NAMES} placeholder="COMP" onValidSelection={e => this.handleDepartmentChange(e)} />
+              <AutocompleteInput allSuggestions={ALL_DEPARTMENTS} expandedDict={DEPARTMENT_NAMES} placeholder="COMP" onChange={e => this.handleDepartmentChange(e)} />
               {uiStore.isSearchingDepartment && <SearchResults label={uiStore.DEPARTMENT_LABEL} items={uiStore.departmentResults} />}
               <div id="custom-select">
                 <select onChange={e => this.handleOperatorChange(e)}>
@@ -107,7 +116,7 @@ export default class SearchBar extends React.Component {
         <div className="search-bar-results-container">
           <SearchBarResults />
         </div>
-        {<button id='searchbar-add-class' onClick={() => {uiStore.addClassPopupActive = true}}>Don't see your class?{!uiStore.isMobileView && ' Click here'}</button>}
+        {<button id='searchbar-add-class' onClick={() => {uiStore.addClassPopupActive = true}}>Don't see a class?</button>}
         {uiStore.addClassPopupActive && <AddClassPopup />}
       </div>
     )

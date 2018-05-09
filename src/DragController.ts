@@ -153,6 +153,7 @@ class DragController {
   }
 
   private handleMousedown(e: MouseEvent | TouchEvent, item: HTMLElement) {
+    if ((e.target as any).classList.contains('Course-x') || (e.target as HTMLElement).tagName === 'IMG') return
     const { clientX, clientY } = this.getClientPos(e)
     e.preventDefault()
     this.isDragging = true
@@ -166,12 +167,12 @@ class DragController {
 
     const itemBounds = this.draggingEl.getBoundingClientRect()
     this.draggingElHeight = itemBounds.height
+    this.draggingEl.style.zIndex = '99998'
     if (this.draggingList !== null) {
       this.draggingListBounds = this.draggingList.getBoundingClientRect()
       this.draggingEl.style.position = 'absolute'
       this.draggingEl.style.width = itemBounds.width + 'px'
       this.draggingEl.style.top = (itemBounds.top - this.draggingListBounds.top) + 'px'
-      this.draggingEl.style.zIndex = '99999'
     }
     
     this.updateGhostPosition()
@@ -190,12 +191,15 @@ class DragController {
     const el = this.draggingEl
 
     setTimeout(() => {
-      el.style.position = ''
+      el.style.position = 'relative'
       el.style.width = ''
       el.style.top = ''
-      el.style.zIndex = ''
+      if (el.classList.contains('SearchBarResults-result')) {
+        el.style.zIndex = '9997'
+      } else {
+        el.style.zIndex = ''
+      }
     }, 150)
-
   }
 
   private handleMouseup(e: MouseEvent | TouchEvent) {
@@ -218,7 +222,11 @@ class DragController {
     this.draggingEl.style.position = ''
     this.draggingEl.style.width = ''
     this.draggingEl.style.top = ''
-    this.draggingEl.style.zIndex = ''
+    if (this.draggingEl.classList.contains('Course')) {
+      this.draggingEl.style.zIndex = '9997'
+    } else {
+      this.draggingEl.style.zIndex = ''
+    }
     this.isDragging = false
     this.draggingEl = null
     this.draggingElPos = null

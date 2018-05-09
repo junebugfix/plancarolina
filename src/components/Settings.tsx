@@ -17,10 +17,10 @@ export default class App extends React.Component {
 
   handleSummerSelected(summerIndex: number) {
     this.selectSummerActive = false
-    if (summerIndex === 0) uiStore.firstYearSummerActive = true
-    else if (summerIndex === 1) uiStore.sophomoreSummerActive = true
-    else if (summerIndex === 2) uiStore.juniorSummerActive = true
-    else if (summerIndex === 3) uiStore.seniorSummerActive = true
+    if (summerIndex === 0) uiStore.summer1Active = true
+    else if (summerIndex === 1) uiStore.summer2Active = true
+    else if (summerIndex === 2) uiStore.summer3Active = true
+    else if (summerIndex === 3) uiStore.summer4Active = true
     else throw new Error('invalid summer index: ' + summerIndex)
     uiStore.saveSettings()
   }
@@ -29,7 +29,7 @@ export default class App extends React.Component {
     return (
       <div className="Settings">
         {!uiStore.isMobileView && <div className="expandedView">
-          <span className="settings-label expandedView">Expanded View</span>
+          <span className="settings-label expandedView">Show GenEds</span>
           <div className="switchContainer">
             <Switch
               checked={uiStore.expandedView}

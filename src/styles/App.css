@@ -140,7 +140,7 @@ ul {
   border-radius: 5px;
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 @media (max-width: 1110px) {
@@ -244,7 +244,43 @@ ul {
   border-radius: 2px;
 }
 
-@media (max-width: 650px) {
+.course-popup {
+  position: absolute;
+  padding: 5px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  /* background-color: #D0EFFD; */
+  background-color: #EBF0FE;
+  font-size: 14px;
+  width: 250px;
+  z-index: 99999;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  animation: fadein 100ms ease-out forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.course-popup .title {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.course-popup .stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
   .App .main-title {
     font-size: 20px;
     margin-top: 7px;

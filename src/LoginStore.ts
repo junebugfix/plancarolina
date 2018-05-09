@@ -37,7 +37,7 @@ class LoginStore {
 
   tryAutoLogin() {
     if (this.offline) {
-      this.loadUserData(fakeUserData as any)
+      this.loadUserData(fakeUserData as UserData)
       return
     }
     const token = Cookies.get('token')

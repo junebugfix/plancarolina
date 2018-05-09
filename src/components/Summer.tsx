@@ -4,11 +4,12 @@ import { observable } from 'mobx';
 import { scheduleStore } from '../ScheduleStore';
 import { uiStore } from '../UIStore';
 import { Semesters } from '../utils'
-import Course from './Course'
+import Course, { CourseData } from './Course'
 import '../styles/Summer.css'
+import { dragController } from '../DragController';
 
 @observer
-export default class Summer extends React.Component<{index: Semesters, opacity: number, type: 'normal' | 'mobile'}, {}> {
+export default class Summer extends React.Component<{index: Semesters, type: 'normal' | 'mobile', courses: CourseData[]}, {}> {
   divEl: HTMLDivElement
   isRegistered: boolean = false
 
@@ -26,12 +27,13 @@ export default class Summer extends React.Component<{index: Semesters, opacity: 
 
   componentDidMount() {
     // uiStore.registerSlipList(this.divEl)
+    dragController.registerDraggableList(this.divEl)
   }
 
   render() {
     // const summerData = scheduleStore.getSemesterData(this.props.index)
     const style = {
-      opacity: this.props.opacity,
+      // opacity: this.props.opacity,
       height: uiStore.summerHeight
     }
     return (

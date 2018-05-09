@@ -15,7 +15,7 @@
 }
 
 .Validators .progress-bar {
-  height: 15px;
+  height: 10px;
   width: 100%;
   background: lightgray;
   border-radius: 10px;
@@ -67,15 +67,14 @@
   display: flex;
   flex-shrink: 2;
   height: fit-content;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto 0;
 }
 
 .Validators .loader-container {
   margin-left: 7px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .Validators {
     font-size: 12px;
   }

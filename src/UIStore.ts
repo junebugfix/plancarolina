@@ -4,6 +4,7 @@ import { Semesters, getObjectValues } from './utils';
 import { Departments } from './departments';
 import { CourseData } from './components/Course';
 import { scheduleStore } from './ScheduleStore';
+import { coursesStore } from './CoursesStore';
 import { loginStore, HandleConflictResult } from './LoginStore';
 import { colorController } from './ColorController';
 import CourseSearch, { ALL_GENEDS } from './CourseSearch'
@@ -12,6 +13,7 @@ import difference from 'lodash-es/difference';
 import './styles/AddMajorPopup.css';
 import Dialog, { DialogOptions } from './components/Dialog';
 import Snackbar, { SnackbarOptions } from './components/Snackbar';
+import SearchBar from './components/SearchBar';
 
 interface MajorData {
   name: string
@@ -41,7 +43,7 @@ class UIStore {
   @observable addMajorPopupActive = false
   @observable loginPopupActive = false
   @observable expandedView = false
-  @observable isLoadingSearchResults = false
+  @observable searchPending = false
   @observable hasSetScheduleLoadInterval = false
   @observable hasAddedACourse = false
   @observable yearEnteredPromptActive = false
@@ -57,10 +59,10 @@ class UIStore {
   @observable departmentResults: string[] = []
   @observable currentSearch: CourseSearch = new CourseSearch()
 
-  @observable firstYearSummerActive = false
-  @observable sophomoreSummerActive = false
-  @observable juniorSummerActive = false
-  @observable seniorSummerActive = false
+  @observable summer1Active = false
+  @observable summer2Active = false
+  @observable summer3Active = false
+  @observable summer4Active = false
 
   @observable searchDepartment = ""
   @observable searchNumber: number
@@ -74,19 +76,26 @@ class UIStore {
   yearEnteredCallback: Function
   dialog: Dialog
   snackbar: Snackbar
+  coursePopup: HTMLElement
   majors: string[] = []
+  currentPopupDescEl: HTMLElement
+  currentPopupId: number
+  getDescriptionsTimeout
+  searchBar: SearchBar
+
+  readonly SEARCH_UPDATE_INTERVAL_MS = 150
 
   @computed get isWideView() {
     return this.windowWidth > 950
   }
 
   @computed get isMobileView() {
-    return this.windowWidth <= 650
+    return this.windowWidth <= 600
   }
 
   @computed get courseHeight() {
     if (this.expandedView) {
-      return 44
+      return 30
     } else if (this.isMobileView) {
       return 21
     }
@@ -95,11 +104,11 @@ class UIStore {
 
   @computed get semesterHeight() {
     const longestSemesterLength = Math.max(...scheduleStore.semestersArray.map(s => s.length))
-    return Math.max((longestSemesterLength * this.courseHeight) + 10, 30)
+    return Math.max((longestSemesterLength * this.courseHeight) + 30, 30)
   }
 
   @computed get isAnySummerActive() {
-    return this.firstYearSummerActive || this.sophomoreSummerActive || this.juniorSummerActive || this.seniorSummerActive
+    return this.summer1Active || this.summer2Active || this.summer3Active || this.summer4Active
   }
 
   @computed get summerHeight() {
@@ -111,10 +120,10 @@ class UIStore {
   @computed get userSettings(): UserSettings {
     return {
       expandedView: this.expandedView,
-      firstYearSummerActive: this.firstYearSummerActive,
-      sophomoreSummerActive: this.sophomoreSummerActive,
-      juniorSummerActive: this.juniorSummerActive,
-      seniorSummerActive: this.seniorSummerActive,
+      firstYearSummerActive: this.summer1Active,
+      sophomoreSummerActive: this.summer2Active,
+      juniorSummerActive: this.summer3Active,
+      seniorSummerActive: this.summer4Active,
       fall5Active: this.fall5Active,
       spring5Active: this.spring5Active,
       majors: this.majors,
@@ -125,7 +134,6 @@ class UIStore {
   readonly MAJOR_LABEL = "major-res"
   readonly DEPARTMENT_LABEL = "dept-res"
 
-  lastSearchResultUpdate = Date.now()
   yearEntered: number;
   departmentNames: string[]
   majorNames: string[] = []
@@ -151,15 +159,7 @@ class UIStore {
       } else if (this.isMobileView) {
         this.numberOfSearchResults = 6
       }
-
-      // if (scheduleStore.slipListsActive && this.isMobileView) {
-        // scheduleStore.disconnectSlipLists()
-      // }
     })
-  }
-
-  private isReorderWithinList(e: Event): boolean {
-    return (e.target as HTMLDivElement).classList.contains('Course')
   }
 
   private isDuplicate(searchResultIndex: number) {
@@ -171,6 +171,57 @@ class UIStore {
     this.dialog.open = true
   }
 
+  handleDescriptionLoaded(id: number, description: string) {
+    if (this.currentPopupId === id) {
+      this.currentPopupDescEl.innerText = description
+    }
+  }
+
+  showCoursePopup(data: CourseData, left: number, top: number, bottom?: number) {
+    if (top && bottom) throw new Error('defined both top and bottom')
+    const popup = document.createElement('div')
+    popup.classList.add('course-popup')
+    popup.style.left = `${left}px`
+    if (bottom) {
+      popup.style.bottom = `${window.innerHeight - bottom}px`
+    } else {
+      popup.style.top = `${top}px`
+    }
+
+    const title = document.createElement('div')
+    title.classList.add('title')
+    title.innerText = `${data.department} ${data.courseNumber}: ${data.name}`
+
+    const stats = document.createElement('div')
+    stats.classList.add('stats')
+
+    const geneds = document.createElement('span')
+    geneds.innerText = `Geneds: ${data.geneds.join(' ')}`
+
+    const credits = document.createElement('span')
+    credits.innerText = `Credits: ${data.credits}`
+
+    const description = document.createElement('div')
+    description.innerText = coursesStore.descriptions[data.id] || 'Loading description...'
+    this.currentPopupDescEl = description
+
+    popup.appendChild(title)
+    stats.appendChild(geneds)
+    stats.appendChild(credits)
+    popup.appendChild(stats)
+    popup.appendChild(description)
+
+    this.coursePopup = popup
+    this.currentPopupId = data.id
+    document.body.appendChild(popup)
+  }
+
+  hideCoursePopup() {
+    if (this.coursePopup) {
+      this.coursePopup.remove()
+    }
+  }
+
   alertNetworkError(retryFn?: (e: any) => void) {
     const options: SnackbarOptions = { message: 'Could not connect to internet' }
     if (retryFn) {
@@ -180,62 +231,19 @@ class UIStore {
     this.snackbarAlert(options)
   }
 
-  // @action.bound registerSlipList(el: HTMLDivElement) {
-  //   let slipList = new this.slip(el)
-  //   el.addEventListener('slip:reorder', (e: any) => {
-  //     if (e.detail.origin.container.classList.contains('SearchBarResults')) {
-  //       const searchResultIndex = e.detail.originalIndex
-  //       const semesterIndex = Semesters[e.target.id as string]
-  //       let toIndex = e.detail.spliceIndex
-  //       if (this.isDuplicate(searchResultIndex)) {
-  //         e.preventDefault()
-  //         this.snackbarAlert({ message: 'That course is already in your schedule.' })
-  //         return
-  //       }
-  //       scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
-  //       this.searchResults.splice(searchResultIndex, 1)
-  //     } else if (this.isReorderWithinList(e)) {
-  //       scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
-  //     } else { // course was dragged to a different list
-  //       const toList = e.target
-  //       const fromList = e.detail.origin.container
-  //       const toIndex = e.detail.spliceIndex
-  //       const fromIndex = e.detail.originalIndex
-  //       scheduleStore.changeLists(fromList, fromIndex, toList, toIndex)
-  //     }
-  //   })
-  //   scheduleStore.connectSlipList(slipList)
-  // }
-
-  // @action.bound registerSearchBarResults(el: HTMLDivElement) {
-  //   let slipList = new this.slip(el)
-  //   // prevent dragging the welcome text
-  //   el.addEventListener('slip:beforeswipe', (e) => {
-  //     if ((e.target as HTMLElement).classList.contains('undraggable')) {
-  //       e.preventDefault()
-  //     }
-  //   })
-  //   el.addEventListener('slip:beforereorder', (e) => {
-  //     if ((e.target as HTMLElement).classList.contains('undraggable')) {
-  //       e.preventDefault()
-  //     }
-  //   })
-  //   // scheduleStore.connectSlipList(slipList)
-  // }
-
   @action.bound deactivateSummer(index: number) {
     switch (index) {
       case Semesters.Summer1:
-        this.firstYearSummerActive = false
+        this.summer1Active = false
         break;
       case Semesters.Summer2:
-        this.sophomoreSummerActive = false
+        this.summer2Active = false
         break;
       case Semesters.Summer3:
-        this.juniorSummerActive = false
+        this.summer3Active = false
         break;
       case Semesters.Summer4:
-        this.seniorSummerActive = false
+        this.summer4Active = false
         break;
       default:
         break;
@@ -276,14 +284,14 @@ class UIStore {
   }
 
   @action.bound loadSettings(settings: UserSettings) {
-    this.expandedView = settings.expandedView || this.expandedView
-    this.firstYearSummerActive = settings.firstYearSummerActive || this.firstYearSummerActive
-    this.sophomoreSummerActive = settings.sophomoreSummerActive || this.sophomoreSummerActive
-    this.juniorSummerActive = settings.juniorSummerActive || this.juniorSummerActive
-    this.seniorSummerActive = settings.seniorSummerActive || this.seniorSummerActive
-    this.fall5Active = settings.fall5Active || this.fall5Active
-    this.spring5Active = settings.spring5Active || this.spring5Active
-    this.majors = settings.majors || this.majors
+    this.expandedView = settings.expandedView
+    this.summer1Active = settings.firstYearSummerActive
+    this.summer2Active = settings.sophomoreSummerActive
+    this.summer3Active = settings.juniorSummerActive
+    this.summer4Active = settings.seniorSummerActive
+    this.fall5Active = settings.fall5Active
+    this.spring5Active = settings.spring5Active
+    this.majors = settings.majors
     colorController.loadDepartmentHues(settings.departmentHues)
     this.forceUpdateSchedule()
   }
@@ -370,16 +378,42 @@ class UIStore {
     return this.searchGeneds.join(',')
   }
 
+  updateDescriptions() {
+    console.log('updating descriptions...')
+    if (this.searchResults.length > 0) {
+      coursesStore.getDescriptions(this.searchResults.map(c => c.id)).then(res => {
+        console.log('updated descriptions')
+      }).catch(err => console.log(err))
+    }
+  }
+
   updateSearchResults(search: CourseSearch) {
-    console.log(search)
-    this.isLoadingSearchResults = true
     colorController.clearSearchResultHues()
-    fetch(search.url).then(res => {
-      res.json().then(data => {
-        this.searchResults = data.results
-        this.isLoadingSearchResults = false
+    if (search.isEmpty()) {
+      this.searchResults = []
+    } else {
+      console.log('not empty!')
+      coursesStore.search(search).then(results => {
+        this.searchResults = results
+        clearTimeout(this.getDescriptionsTimeout)
+        this.getDescriptionsTimeout = setTimeout(() => this.updateDescriptions(), 300)
+      }).catch(reason => {
+        if (reason === coursesStore.COURSES_NOT_LOADED_ERROR) {
+          this.searchPending = true
+        }
       })
-    })
+    }
+  }
+
+  handleCoursesLoaded() {
+    if (this.searchPending) {
+      this.updateSearchResults(this.searchBar.search)
+      this.searchPending = false
+    }
+  }
+
+  registerSearchBar(searchBar: SearchBar) {
+    this.searchBar = searchBar
   }
 
   promptUserLogin() {
