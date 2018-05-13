@@ -144,7 +144,7 @@
   left: 50%;
   bottom: 5px;
   transform: translateX(-50%);
-  width: fit-content;
+  width: 110px;
   z-index: 1;
 }
 

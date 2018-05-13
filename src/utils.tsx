@@ -64,6 +64,28 @@ export function getCenterPoint(el: HTMLElement) {
   return { x: bounds.left + (bounds.width / 2), y: bounds.top + (bounds.height / 2) }
 }
 
+// export function isDescendant(parent: HTMLElement, child: HTMLElement) {
+//   let node = .parentNode
+//   while (node !== null) {
+//     if (node === parent) {
+//       return true
+//     }
+//     node = node.parentNode
+//   }
+//   return false
+// }
+
+export function isChildOfClass(className: string, child: HTMLElement) {
+  let node = child
+  while (node !== null) {
+    if (node.classList.contains(className)) {
+      return true
+    }
+    node = node.parentElement
+  }
+  return false
+}
+
 // export function getPosition(el: HTMLElement) {
 //   var _x = 0;
 //   var _y = 0;
@@ -98,6 +120,22 @@ export function arrayEqual(arr1: any[], arr2: any[]) {
     if (arr1[0] !== arr2[0]) return false
   }
   return true
+}
+
+export function isLeftSemester(index: Semesters) {
+  return [Semesters.Fall1, Semesters.Fall2, Semesters.Spring1, Semesters.Spring2, Semesters.Summer1, Semesters.Summer2].includes(index)
+}
+
+export function isRightSemester(index: Semesters) {
+  return !isLeftSemester(index)
+}
+
+export function isTopSemester(index: Semesters) {
+  return [Semesters.Fall1, Semesters.Fall2, Semesters.Fall3, Semesters.Fall4, Semesters.Fall5].includes(index)
+}
+
+export function isBottomSemester(index: Semesters) {
+  return !isTopSemester(index)
 }
 
 export enum Semesters {

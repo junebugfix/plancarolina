@@ -9,12 +9,10 @@
   padding: 3px 0;
   border-radius: 7px;
   font-size: 13px;
-  /* overflow: hidden; */
-  /* height: 26px; */
 }
 
-.Course.expanded {
-  /* height: 30px; */
+.Course.mobile {
+  overflow: hidden;
 }
 
 .Semester.mobile .Course {

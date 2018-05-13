@@ -6,48 +6,11 @@
   justify-content: flex-start;
 }
 
-.SearchBarResults .more {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  padding-right: 2px;
-  width: 15px;
-  height: 13px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 6px;
-  text-align: center;
-  background-color: #EBF0FE;
-  border-radius: 0 3px 0 3px;
-  opacity: 0;
-  transition: opacity 150ms;
-}
-
-.SearchBarResults .more:hover {
-  cursor: default;
-}
-
-.SearchBarResults-result:hover .more.active {
-  opacity: 1;
-}
-
-.SearchBarResults .SearchBarResults-result .geneds {
-  /* position: absolute; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: fit-content;
-  margin: auto;
-  right: 0px;
-  top: 1px;
-}
-
-.SearchBarResults .SearchBarResults-result .geneds span {
-  font-size: 10px;
-  background-color: #fff;
-  margin: 1px 0;
-  padding: 2px 2px 1px 2px;
-  border-radius: 3px;
+.SearchBarResults .SearchBarResult {
+  margin: 5px;
+  width: 45.5%;
+  height: 62px;
+  cursor: move;
 }
 
 .SearchBarResults .search-bar-welcome {
@@ -74,88 +37,6 @@
   font-size: 14px;
 }
 
-.SearchBarResults-result {
-  background-color: hsl(225, 100%, 96%);
-  position: relative;
-  display: flex;
-  border: 1px solid grey;
-  border-radius: 4px;
-  width: 45.5%;
-  height: 62px;
-  font-size: 12px;
-  overflow: hidden;
-  margin: 5px;
-  cursor: move;
-}
-
-.SearchBarResults .dept-num {
-  background: white;
-  border-radius: 4px 0 0 4px;
-  padding: 0 1px;
-  text-align: center;
-  display: flex;
-  line-height: 14px;
-  width: 30%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 42px;
-  font-size: 12px;  
-  position: relative;
-}
-
-.SearchBarResults .gened-tag {
-  padding: 1px;
-  background-color: #fff;
-  border-radius: 3px;
-  font-size: 10px;
-  margin: 0 1px;
-}
-
-.SearchBarResults .name {
-  display: flex;
-  align-items: center;
-  font-style: italic;
-  overflow: hidden;
-  height: 100%;
-  width: 75%;
-  margin: 1px 2px;
-}
-
-
-/* .SearchBarResults .SearchBarResults-result .more.active:hover + .expanded-container {
-  display: inline-block;
-} */
-
-/* .SearchBarResults .info {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 15px;
-  height: 15px;
-  text-align: center;
-  line-height: 17px;
-  border-radius: 50%;
-  background-color: #fff;
-} */
-
-.SearchBarResults-result .elipses {
-  display: inline-block;
-  position: absolute;
-  right: 2px;
-  bottom: 0px;
-}
-
-.SearchBarResults .department {
-  font-weight: bold;
-}
-
-.SearchBarResults .number {
-  top: 15px;
-  font-weight: bold;
-  margin-left: 2px;
-}
-
 @media (max-width: 1200px) {
   .SearchBarResults {
     margin: 10px 0px;
@@ -170,18 +51,6 @@
   .SearchBarResults .search-bar-welcome {
     margin-top: 45px;
   }
-  .SearchBarResults-result {
-    width: 32%;
-    height: 31%;
-    margin: 1px;
-  }
-  .SearchBarResults-result .name {
-    max-height: 49px;
-  }
-  .SearchBarResults .SearchBarResults-result .expanded-container {
-    left: unset;
-    right: 0px;
-  }
   .SearchBarResults .drag-prompt {
     position: absolute;
     top: calc(100% - 7px);
@@ -192,6 +61,18 @@
     background: white;
     padding: 4px 6px;
     border-radius: 4px;
+  }
+  .SearchBarResults .SearchBarResult {
+    width: 32%;
+    height: 31%;
+    margin: 1px;
+  }
+  .SearchBarResults .SearchBarResult .name {
+    max-height: 49px;
+  }
+  .SearchBarResults .SearchBarResult .expanded-container {
+    left: unset;
+    right: 0px;
   }
 }
 
@@ -220,18 +101,6 @@
     box-sizing: border-box;
     padding: 6px 4px;
     line-height: 13px;
-  }
-  .SearchBarResults .SearchBarResults-result {
-    height: 35px;
-    margin: 0;
-  }
-  .SearchBarResults .SearchBarResults-result .name {
-    font-size: 10px;
-    margin: 1px;
-  }
-  .SearchBarResults .SearchBarResults-result .dept-num {
-    font-size: 12px;
-    padding: 0px;
   }
   .SearchBarResults .drag-prompt {
     left: 100%;

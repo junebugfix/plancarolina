@@ -94,7 +94,7 @@ export default class SearchBar extends React.Component {
         <div id="searchbar-search-group" >
           <h2>Search for courses</h2>
           <div className="loader-container">
-            {uiStore.searchPending && <Spinner />}
+            {uiStore.searchBarResultsPending && <Spinner />}
           </div>
           <div className="first-row-container">
             <div className="first-part">

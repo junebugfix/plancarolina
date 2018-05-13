@@ -5,7 +5,7 @@ import { uiStore } from '../UIStore'
 import { scheduleStore } from '../ScheduleStore'
 import { colorController } from '../ColorController'
 import Course, { CourseData } from './Course'
-import '../styles/SearchBarResults.css'
+import '../styles/SearchBarResult.css'
 import { dragController } from '../DragController';
 
 interface SearchBarResultData {
@@ -16,8 +16,15 @@ interface SearchBarResultData {
   id: number
 }
 
+interface Props {
+  data: CourseData,
+  index: number,
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void,
+  outlined?: boolean
+}
+
 @observer
-export default class SearchBarResult extends React.Component<{ data: CourseData, index: number }, {}> {
+export default class SearchBarResult extends React.Component<Props, {}> {
   nameEl: HTMLSpanElement
   elipsesEl: HTMLSpanElement
   moreTag: HTMLElement
@@ -67,7 +74,7 @@ export default class SearchBarResult extends React.Component<{ data: CourseData,
   }
 
   render() {
-    const { index } = this.props
+    const { index, outlined, onClick } = this.props
     const { department, courseNumber, modifier, name, geneds, description, credits } = this.props.data
     const colorStyle = { backgroundColor: `hsl(${colorController.getSearchResultHue(department)}, 80%, 80%)` }
     return (
@@ -81,7 +88,8 @@ export default class SearchBarResult extends React.Component<{ data: CourseData,
         ref={el => this.container = el}
         onMouseLeave={() => this.deactivateMoreTag()}
         onMouseDown={() => this.deactivateMoreTag()}
-        className="SearchBarResults-result"
+        onClick={onClick}
+        className={outlined ? 'SearchBarResult outlined' : 'SearchBarResult'}
       >
         <div className="dept-num" style={colorStyle}>
           <span>{department}<br />{courseNumber}{modifier}</span>

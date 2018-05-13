@@ -14,6 +14,7 @@
 
 .Semester .Semester-label {
   padding: 3px 0;
+  position: relative;
 }
 
 .Semester-courses {
@@ -38,7 +39,7 @@
   text-align: center;
 }
 
-.Semester .search-results {
+/* .Semester .search-results {
   position: absolute;
   z-index: 99999;
   background-color: #fff;
@@ -47,9 +48,9 @@
   flex-direction: column;
   text-align: left;
   top: 100%;
-}
+} */
 
-.Semester .search-results .result {
+/* .Semester .search-results .result {
   padding: 3px;
   border: 1px solid #bbb;
   border-bottom: none;
@@ -61,7 +62,7 @@
 
 .Semester .search-results .result:last-child {
   border-bottom: 1px solid #bbb;
-}
+} */
 
 .Semester .Semester-add-button, .Semester .Semester-add-background {
   width: 100%;
@@ -93,6 +94,65 @@
 .Schedule .Schedule-row.summers .container {
   width: 100%;
   margin: 0 13px;
+}
+
+.Semester.summer .Summer-x {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #bbb;
+  height: 13px;
+  width: 13px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity, transform 100ms ease-out;
+  line-height: 11px;
+}
+
+.Semester.summer .Semester-label:hover .Summer-x {
+  opacity: 1;
+}
+
+.Semester.summer .Summer-x img {
+  width: 7px;
+  position: relative;
+  top: 0px;
+}
+
+.Semester.summer .Summer-x:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.Semester.summer .confirm-delete-popup {
+  position: absolute;
+  right: 0px;
+  bottom: 27px;
+  background: #4A4F58;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+  font-size: 13px;
+  color: #fff;
+  line-height: 14px;
+  z-index: 99999;
+}
+
+.Semester.summer .confirm-delete-popup::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border: 6px solid transparent;
+  border-top: 6px solid #4A4F58;
+  top: 100%;
+  right: 5px;
+}
+
+.Semester .loading-courses {
+  font-size: 13.5px;
 }
 
 @media (max-width: 1200px) {

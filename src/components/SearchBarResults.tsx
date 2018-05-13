@@ -19,7 +19,7 @@ export default class SearchBarResults extends React.Component {
   }
 
   render() {
-    if (uiStore.searchPending) {
+    if (uiStore.searchBarResultsPending) {
       return (
         <div ref={el => this.divEl = el} style={{ justifyContent: 'center', alignItems: 'center', fontSize: 22, color: '#666' }} className="SearchBarResults undraggable">
           Loading courses...

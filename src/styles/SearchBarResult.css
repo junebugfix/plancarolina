@@ -1,0 +1,102 @@
+.SearchBarResult {
+  background-color: hsl(225, 100%, 96%);
+  position: relative;
+  display: flex;
+  border: 1px solid grey;
+  border-radius: 4px;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.SearchBarResult.outlined {
+  border: 3px solid #97cbe4;
+}
+
+.SearchBarResult .more {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding-right: 2px;
+  width: 15px;
+  height: 13px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 6px;
+  text-align: center;
+  background-color: #EBF0FE;
+  border-radius: 0 3px 0 3px;
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.SearchBarResult .more:hover {
+  cursor: default;
+}
+
+.SearchBarResult:hover .more.active {
+  opacity: 1;
+}
+
+.SearchBarResult .dept-num {
+  background: white;
+  border-radius: 4px 0 0 4px;
+  padding: 0 1px;
+  text-align: center;
+  display: flex;
+  line-height: 14px;
+  width: 30%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  font-size: 12px;  
+  position: relative;
+}
+
+.SearchBarResult .gened-tag {
+  padding: 1px;
+  background-color: #fff;
+  border-radius: 3px;
+  font-size: 10px;
+  margin: 0 1px;
+}
+
+.SearchBarResult .name {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  font-style: italic;
+  overflow: hidden;
+  height: 100%;
+  width: 75%;
+  margin: 1px 2px;
+}
+
+.SearchBarResult .department {
+  font-weight: bold;
+}
+
+.SearchBarResult .number {
+  top: 15px;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+.SearchBarResult .geneds {
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+  margin: auto;
+  right: 0px;
+  top: 1px;
+}
+
+.SearchBarResult .geneds span {
+  font-size: 10px;
+  background-color: #fff;
+  margin: 1px 0;
+  padding: 2px 2px 1px 2px;
+  border-radius: 3px;
+}

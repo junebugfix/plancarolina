@@ -1,4 +1,3 @@
-import { MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
 import { observable, action, computed, autorun } from 'mobx';
 import { Semesters, getObjectValues } from './utils';
 import { Departments } from './departments';
@@ -14,6 +13,8 @@ import './styles/AddMajorPopup.css';
 import Dialog, { DialogOptions } from './components/Dialog';
 import Snackbar, { SnackbarOptions } from './components/Snackbar';
 import SearchBar from './components/SearchBar';
+import Semester from './components/Semester';
+import QuickAddInput from './components/QuickAddInput';
 
 interface MajorData {
   name: string
@@ -35,6 +36,8 @@ export interface UserSettings {
 }
 
 class UIStore {
+  pendingQuickSearchComponent: QuickAddInput;
+  pendingQuickSearchEvent: React.FormEvent<HTMLInputElement>;
   @observable fall5Active = false
   @observable spring5Active = false
   @observable isSearchingDepartment = false
@@ -43,7 +46,7 @@ class UIStore {
   @observable addMajorPopupActive = false
   @observable loginPopupActive = false
   @observable expandedView = false
-  @observable searchPending = false
+  @observable searchBarResultsPending = false
   @observable hasSetScheduleLoadInterval = false
   @observable hasAddedACourse = false
   @observable yearEnteredPromptActive = false
@@ -139,7 +142,6 @@ class UIStore {
   majorNames: string[] = []
   majorData: MajorData[]
   fuzzysearch: Function
-  slip: any
 
   constructor() {
     this.departmentNames = Object.keys(Departments).filter(x => parseInt(x, 10) > 0).map(x => Departments[x])
@@ -148,7 +150,6 @@ class UIStore {
       this.majorNames.push(this.majorData[key].name)
     }
     this.fuzzysearch = require('fuzzysearch')
-    this.slip = require('./multislip.js')
     
     window.addEventListener('resize', e => {
       this.windowWidth = window.innerWidth
@@ -183,9 +184,9 @@ class UIStore {
     popup.classList.add('course-popup')
     popup.style.left = `${left}px`
     if (bottom) {
-      popup.style.bottom = `${window.innerHeight - bottom}px`
+      popup.style.bottom = `${window.innerHeight - bottom - 2}px`
     } else {
-      popup.style.top = `${top}px`
+      popup.style.top = `${top - 2}px`
     }
 
     const title = document.createElement('div')
@@ -210,6 +211,10 @@ class UIStore {
     stats.appendChild(credits)
     popup.appendChild(stats)
     popup.appendChild(description)
+
+    popup.onmouseleave = () => {
+      this.hideCoursePopup()
+    }
 
     this.coursePopup = popup
     this.currentPopupId = data.id
@@ -251,14 +256,14 @@ class UIStore {
     this.saveSettings()
   }
 
-  @action.bound handleAddMajorClicked(e: MouseEvent<HTMLDivElement>) {
+  @action.bound handleAddMajorClicked(e: React.MouseEvent<HTMLDivElement>) {
     if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
       this.addMajorPopupActive = !this.addMajorPopupActive
       this.alertAddMajor()
     }
   }
 
-  @action.bound handleLoginPopupClicked(e: MouseEvent<HTMLDivElement>) {
+  @action.bound handleLoginPopupClicked(e: React.MouseEvent<HTMLDivElement>) {
     if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
       this.loginPopupActive = !this.loginPopupActive
     }
@@ -272,7 +277,7 @@ class UIStore {
     }
   }
 
-  @action.bound handleRemoveCourse(e: MouseEvent<HTMLSpanElement>) {
+  @action.bound handleRemoveCourse(e: React.MouseEvent<HTMLSpanElement>) {
     let course = (e.target as HTMLDivElement).parentNode
     // get index of course in semester
     let semesterIndex = Semesters[course.parentElement.id]
@@ -399,17 +404,49 @@ class UIStore {
         this.getDescriptionsTimeout = setTimeout(() => this.updateDescriptions(), 300)
       }).catch(reason => {
         if (reason === coursesStore.COURSES_NOT_LOADED_ERROR) {
-          this.searchPending = true
+          this.searchBarResultsPending = true
         }
       })
     }
   }
 
   handleCoursesLoaded() {
-    if (this.searchPending) {
+    if (this.searchBarResultsPending) {
       this.updateSearchResults(this.searchBar.search)
-      this.searchPending = false
+      this.searchBarResultsPending = false
     }
+    if (this.pendingQuickSearchEvent) {
+      this.pendingQuickSearchComponent.handleSearch(this.pendingQuickSearchEvent)
+    }
+  }
+
+  registerQuickSearchPending(quickAddInput: QuickAddInput, event: React.FormEvent<HTMLInputElement>) {
+    this.pendingQuickSearchEvent = event
+    this.pendingQuickSearchComponent = quickAddInput
+  }
+
+  removeSummer(index: Semesters) {
+    switch (index) {
+      case Semesters.Summer1:
+        uiStore.summer1Active = false;
+        (scheduleStore.summer1 as any).clear()
+        break;
+      case Semesters.Summer2:
+        uiStore.summer2Active = false;
+        (scheduleStore.summer2 as any).clear()
+        break;
+      case Semesters.Summer3:
+        uiStore.summer3Active = false;
+        (scheduleStore.summer3 as any).clear()
+        break;
+      case Semesters.Summer4:
+        uiStore.summer4Active = false;
+        (scheduleStore.summer4 as any).clear()
+        break;
+      default:
+        throw new Error(`Tried to remove summer, invalid index: ${index}`)
+    }
+    scheduleStore.saveSchedule()
   }
 
   registerSearchBar(searchBar: SearchBar) {

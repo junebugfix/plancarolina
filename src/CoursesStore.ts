@@ -1,7 +1,6 @@
 import { Departments, DEPARTMENT_NAMES } from "./departments"
 import { uiStore } from "./UIStore"
 import CourseSearch, { ALL_DEPARTMENTS } from "./CourseSearch"
-import * as jaroWinkler from 'jaro-winkler'
 import { CourseData } from "./components/Course";
 
 class CoursesStore {
@@ -9,11 +8,6 @@ class CoursesStore {
   descriptions = []
 
   readonly COURSES_NOT_LOADED_ERROR = 'Courses not loaded'
-
-  constructor() {
-    (window as any).jaroWinkler = jaroWinkler;
-    (window as any).descriptions = this.descriptions;
-  }
 
   getDescriptions(ids: number[]) {
     const idsToGet = ids.filter(id => !(id in this.descriptions))
@@ -53,6 +47,8 @@ class CoursesStore {
         return c.courseNumber <= s.courseNumber
       case '>=':
         return c.courseNumber >= s.courseNumber
+      case 'begins':
+        return c.courseNumber.toString().startsWith(s.courseNumber.toString())
       default:
         throw new Error(`invalid operator: ${s.operator}`)
     }
@@ -90,6 +86,7 @@ class CoursesStore {
 
   search(s: CourseSearch) {
     return new Promise<CourseData[]>((resolve, reject) => {
+      console.time('search')
       if (!this._courses) {
         reject(this.COURSES_NOT_LOADED_ERROR)
       } else {
@@ -110,6 +107,7 @@ class CoursesStore {
         const sorted = matches.sort((a: any, b: any) => b.score - a.score)
         const finalResults = sorted.slice(0, uiStore.numberOfSearchResults).map(obj => obj.course)
         resolve(finalResults)
+        console.timeEnd('search')
       }
     })
   }
@@ -126,13 +124,11 @@ class CoursesStore {
   }
 
   private parseCourses(text: string) {
-    console.time('parse')
     if ((window as any).Worker) {
       this.parseWithWorker(text)
     } else {
       this.parseWithoutWorker(text)
     }
-    console.timeEnd('parse')
   }
 
   private parseWithWorker(text: string) {

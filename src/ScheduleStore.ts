@@ -10,6 +10,7 @@ import { Semesters, getClassElements, getChildren, getObjectValues } from './uti
 import difference from 'lodash-es/difference';
 // import flatten from 'lodash-es/flatten';
 import { flatten } from './utils'
+import { coursesStore } from './CoursesStore';
 
 class ScheduleStore {
 
@@ -269,7 +270,24 @@ class ScheduleStore {
 
   @action.bound initAllSemesters(semesters: ScheduleData) {
     for (const semesterName in semesters) {
-      this[semesterName] = semesters[semesterName]
+      const semester = semesters[semesterName] as CourseData[]
+      this[semesterName] = semester
+      if (semesterName === 'summer1' && semester.length > 0) {
+        uiStore.summer1Active = true
+      } else if (semesterName === 'summer2' && semester.length > 0) {
+        uiStore.summer2Active = true
+      } else if (semesterName === 'summer3' && semester.length > 0) {
+        uiStore.summer3Active = true
+      } else if (semesterName === 'summer4' && semester.length > 0) {
+        uiStore.summer4Active = true
+      } else if (semesterName === 'fall5' && semester.length > 0) {
+        uiStore.fall5Active = true
+      } else if (semesterName === 'spring5' && semester.length > 0) {
+        uiStore.spring5Active = true
+      }
+      for (const course of semester) {
+        coursesStore.descriptions[course.id] = course.description
+      }
     }
   }
 }
