@@ -7,7 +7,7 @@ import { CourseData } from './Course'
 import "../styles/AlertPopup.css"
 
 export default class AddClassPopup extends React.Component {
-  courseOffset: number = 0;
+  courseOffset: number = 0
 
   render() {
     return (
