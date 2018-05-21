@@ -1,16 +1,15 @@
-import * as React from 'react';
-import { observer } from 'mobx-react';
-import { scheduleStore } from '../ScheduleStore';
-import { uiStore } from '../UIStore';
-import Spinner from './Spinner';
-import difference from 'lodash-es/difference';
-import Icon from 'material-ui/Icon';
-import '../styles/Validators.css';
-import { loginStore } from '../LoginStore';
+import * as React from 'react'
+import { observer } from 'mobx-react'
+import { scheduleStore } from '../ScheduleStore'
+import { uiStore } from '../UIStore'
+import Spinner from './Spinner'
+import difference from 'lodash-es/difference'
+import Icon from 'material-ui/Icon'
+import '../styles/Validators.css'
+import { loginStore } from '../LoginStore'
 
 @observer
 export default class Validators extends React.Component {
-
   counter = 0
 
   componentDidMount() {

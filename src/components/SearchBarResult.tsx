@@ -6,7 +6,7 @@ import { scheduleStore } from '../ScheduleStore'
 import { colorController } from '../ColorController'
 import Course, { CourseData } from './Course'
 import '../styles/SearchBarResult.css'
-import { dragController } from '../DragController';
+import { dragController } from '../DragController'
 
 interface SearchBarResultData {
   department: string
@@ -89,7 +89,7 @@ export default class SearchBarResult extends React.Component<Props, {}> {
         onMouseLeave={() => this.deactivateMoreTag()}
         onMouseDown={() => this.deactivateMoreTag()}
         onClick={onClick}
-        className={outlined ? 'SearchBarResult outlined' : 'SearchBarResult'}
+        className={outlined ? 'SearchBarResult search-result outlined' : 'SearchBarResult search-result'}
       >
         <div className="dept-num" style={colorStyle}>
           <span>{department}<br />{courseNumber}{modifier}</span>

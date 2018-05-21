@@ -2,8 +2,8 @@ import * as React from 'react'
 import { observer } from 'mobx-react'
 import { observable } from 'mobx'
 import MUISnackbar from 'material-ui/Snackbar'
-import Button from 'material-ui/Button';
-import { uiStore } from '../UIStore';
+import Button from 'material-ui/Button'
+import { uiStore } from '../UIStore'
 
 export interface SnackbarOptions {
   message: string,

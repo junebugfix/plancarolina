@@ -9,10 +9,10 @@ import { Departments } from '../departments'
 import { Semesters } from '../utils'
 import { uiStore } from '../UIStore'
 import { CourseData } from './Course'
-import { dragController } from '../DragController';
-import CourseSearch from '../CourseSearch';
+import { dragController } from '../DragController'
+import CourseSearch from '../CourseSearch'
+import { coursesStore } from '../CoursesStore'
 import '../styles/Semester.css'
-import { coursesStore } from '../CoursesStore';
 
 @observer
 export default class Semester extends React.Component<{ label: string, index: Semesters, type: 'normal' | 'mobile', courses: CourseData[] }, { quickAddActive: boolean }> {

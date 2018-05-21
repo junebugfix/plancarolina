@@ -3,7 +3,7 @@ import MUIDialog, { DialogActions, DialogContent, DialogContentText, DialogTitle
 import Button from 'material-ui/Button'
 import { observer } from 'mobx-react'
 import { observable } from 'mobx'
-import { uiStore } from '../UIStore';
+import { uiStore } from '../UIStore'
 
 export interface DialogOptions {
   titleText: string

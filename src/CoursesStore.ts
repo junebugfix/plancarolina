@@ -2,10 +2,12 @@ import { Departments, DEPARTMENT_NAMES } from "./departments"
 import { uiStore } from "./UIStore"
 import CourseSearch, { ALL_DEPARTMENTS } from "./CourseSearch"
 import { CourseData } from "./components/Course";
+import SearchBarResults from "./components/SearchBarResults";
 
 class CoursesStore {
   _courses: CourseData[]
-  descriptions = []
+  descriptions: { [id: number]: string } = {}
+  searchBarResults: SearchBarResults
 
   readonly COURSES_NOT_LOADED_ERROR = 'Courses not loaded'
 
@@ -28,9 +30,9 @@ class CoursesStore {
     })
   }
 
-  getById(id: number) {
-    const course = this._courses
-    return course
+  makeCourseWithDescription(data: CourseData, description: string): CourseData {
+    data.description = description
+    return data
   }
 
   private matchesDepartment(c: CourseData, s: CourseSearch) {
@@ -92,7 +94,7 @@ class CoursesStore {
       } else {
         // if there are no keywords, just filter by match
         // these will already be sorted by department and number
-        if (!s.keywords) resolve(this._courses.filter(c => this.matchesSearch(c, s)).slice(0, uiStore.numberOfSearchResults))
+        if (!s.keywords) resolve(this._courses.filter(c => this.matchesSearch(c, s)).slice(0, 200))
         // else, filter by match and assign a score based on the keyword
         // sort by that score, and return the first n results
         const matches = []
@@ -105,7 +107,7 @@ class CoursesStore {
           }
         }
         const sorted = matches.sort((a: any, b: any) => b.score - a.score)
-        const finalResults = sorted.slice(0, uiStore.numberOfSearchResults).map(obj => obj.course)
+        const finalResults = sorted.slice(0, 200).map(obj => obj.course)
         resolve(finalResults)
         console.timeEnd('search')
       }

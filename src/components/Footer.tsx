@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from 'react'
 import { observer } from 'mobx-react'
 import { scheduleStore } from '../ScheduleStore'
 import '../styles/Footer.css'
-import { uiStore } from '../UIStore';
+import { uiStore } from '../UIStore'
 
 @observer
 export default class Footer extends React.Component {

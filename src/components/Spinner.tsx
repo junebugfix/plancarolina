@@ -1,6 +1,12 @@
-import * as React from 'react';
+import * as React from 'react'
 
-export default class Spinner extends React.Component<{ radius?: number, thickness?: number, style?: any }, {}> {
+interface Props {
+  radius?: number,
+  thickness?: number,
+  style?: any 
+}
+
+export default class Spinner extends React.Component<Props, {}> {
   render() {
     const size = this.props.radius ? this.props.radius * 2 : 20
     const thickness = this.props.thickness ? this.props.thickness : 2

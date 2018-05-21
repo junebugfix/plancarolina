@@ -25,6 +25,7 @@ interface MajorData {
 
 export interface UserSettings {
   expandedView: boolean
+  listView: boolean
   majors: string[]
   departmentHues: { [dept: string]: number }
   fall5Active: boolean
@@ -36,8 +37,9 @@ export interface UserSettings {
 }
 
 class UIStore {
-  pendingQuickSearchComponent: QuickAddInput;
-  pendingQuickSearchEvent: React.FormEvent<HTMLInputElement>;
+  searchResultsScrollEl: HTMLDivElement
+  pendingQuickSearchComponent: QuickAddInput
+  pendingQuickSearchEvent: React.FormEvent<HTMLInputElement>
   @observable fall5Active = false
   @observable spring5Active = false
   @observable isSearchingDepartment = false
@@ -46,6 +48,7 @@ class UIStore {
   @observable addMajorPopupActive = false
   @observable loginPopupActive = false
   @observable expandedView = false
+  @observable listView = false
   @observable searchBarResultsPending = false
   @observable hasSetScheduleLoadInterval = false
   @observable hasAddedACourse = false
@@ -81,8 +84,6 @@ class UIStore {
   snackbar: Snackbar
   coursePopup: HTMLElement
   majors: string[] = []
-  currentPopupDescEl: HTMLElement
-  currentPopupId: number
   getDescriptionsTimeout
   searchBar: SearchBar
 
@@ -123,6 +124,7 @@ class UIStore {
   @computed get userSettings(): UserSettings {
     return {
       expandedView: this.expandedView,
+      listView: this.listView,
       firstYearSummerActive: this.summer1Active,
       sophomoreSummerActive: this.summer2Active,
       juniorSummerActive: this.summer3Active,
@@ -142,6 +144,7 @@ class UIStore {
   majorNames: string[] = []
   majorData: MajorData[]
   fuzzysearch: Function
+  pendingDescriptions: { [id: number]: HTMLElement } = {}
 
   constructor() {
     this.departmentNames = Object.keys(Departments).filter(x => parseInt(x, 10) > 0).map(x => Departments[x])
@@ -151,16 +154,18 @@ class UIStore {
     }
     this.fuzzysearch = require('fuzzysearch')
     
-    window.addEventListener('resize', e => {
-      this.windowWidth = window.innerWidth
-      if (this.isWideView && this.numberOfSearchResults !== 10) {
-        this.numberOfSearchResults = 10
-      } else if (!this.isWideView && !this.isMobileView && this.numberOfSearchResults !== 9) {
-        this.numberOfSearchResults = 9
-      } else if (this.isMobileView) {
-        this.numberOfSearchResults = 6
-      }
-    })
+    window.addEventListener('resize', () => this.handleResize())
+  }
+
+  handleResize() {
+    this.windowWidth = window.innerWidth
+    if (this.isWideView && this.numberOfSearchResults !== 10) {
+      this.numberOfSearchResults = 10
+    } else if (!this.isWideView && !this.isMobileView && this.numberOfSearchResults !== 9) {
+      this.numberOfSearchResults = 9
+    } else if (this.isMobileView) {
+      this.numberOfSearchResults = 6
+    }
   }
 
   private isDuplicate(searchResultIndex: number) {
@@ -172,9 +177,14 @@ class UIStore {
     this.dialog.open = true
   }
 
+  registerDescriptionPending(courseId: number, textContainer: HTMLElement) {
+    this.pendingDescriptions[courseId] = textContainer
+  }
+
   handleDescriptionLoaded(id: number, description: string) {
-    if (this.currentPopupId === id) {
-      this.currentPopupDescEl.innerText = description
+    if (this.pendingDescriptions.hasOwnProperty(id) && this.pendingDescriptions[id]) {
+      this.pendingDescriptions[id].innerText = description
+      delete this.pendingDescriptions[id]
     }
   }
 
@@ -203,8 +213,13 @@ class UIStore {
     credits.innerText = `Credits: ${data.credits}`
 
     const description = document.createElement('div')
-    description.innerText = coursesStore.descriptions[data.id] || 'Loading description...'
-    this.currentPopupDescEl = description
+    const currentDescription = coursesStore.descriptions[data.id]
+    if (currentDescription) {
+      description.innerText = currentDescription
+    } else {
+      description.innerText = 'Loading description...'
+      this.registerDescriptionPending(data.id, description)
+    }
 
     popup.appendChild(title)
     stats.appendChild(geneds)
@@ -217,7 +232,6 @@ class UIStore {
     }
 
     this.coursePopup = popup
-    this.currentPopupId = data.id
     document.body.appendChild(popup)
   }
 
@@ -290,6 +304,7 @@ class UIStore {
 
   @action.bound loadSettings(settings: UserSettings) {
     this.expandedView = settings.expandedView
+    this.listView = settings.listView
     this.summer1Active = settings.firstYearSummerActive
     this.summer2Active = settings.sophomoreSummerActive
     this.summer3Active = settings.juniorSummerActive
@@ -392,16 +407,23 @@ class UIStore {
     }
   }
 
+  resetSearchResultsScroll() {
+    if (this.searchResultsScrollEl) {
+      this.searchResultsScrollEl.scrollTop = 0
+    }
+  }
+
   updateSearchResults(search: CourseSearch) {
     colorController.clearSearchResultHues()
     if (search.isEmpty()) {
       this.searchResults = []
+      this.resetSearchResultsScroll()
     } else {
-      console.log('not empty!')
       coursesStore.search(search).then(results => {
         this.searchResults = results
         clearTimeout(this.getDescriptionsTimeout)
         this.getDescriptionsTimeout = setTimeout(() => this.updateDescriptions(), 300)
+        this.resetSearchResultsScroll()
       }).catch(reason => {
         if (reason === coursesStore.COURSES_NOT_LOADED_ERROR) {
           this.searchBarResultsPending = true

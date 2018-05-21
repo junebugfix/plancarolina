@@ -47,9 +47,3 @@
 .Settings button#add-summer-button:active {
   background: lightgray;
 }
-
-/* @media (max-width: 983px) {
-  .Settings {
-    margin-bottom: -8px;
-  }
-} */

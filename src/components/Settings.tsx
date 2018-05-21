@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { observer } from 'mobx-react';
-import { observable } from 'mobx';
+import * as React from 'react'
+import { observer } from 'mobx-react'
+import { observable } from 'mobx'
+import { uiStore } from '../UIStore'
+import Switch from 'material-ui/Switch'
+import Menu, { MenuItem } from 'material-ui/Menu'
 import '../styles/Settings.css'
-import { uiStore } from '../UIStore';
-import Switch from 'material-ui/Switch';
-import Menu, { MenuItem } from 'material-ui/Menu';
 
 @observer
 export default class App extends React.Component {

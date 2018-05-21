@@ -5,8 +5,8 @@ import { uiStore } from '../UIStore'
 import { colorController } from '../ColorController'
 import { Departments } from '../departments'
 import '../styles/Course.css'
-import { dragController } from '../DragController';
-import { isBottomSemester } from '../utils';
+import { dragController } from '../DragController'
+import { isBottomSemester } from '../utils'
 
 export type CourseData = {
   id: number,
@@ -19,7 +19,7 @@ export type CourseData = {
   description: string,
 }
 
-interface CourseProps {
+interface Props {
   id: number
   department: string
   courseNumber: number
@@ -33,7 +33,7 @@ interface CourseProps {
 }
 
 @observer
-export default class Course extends React.Component<CourseProps, {}> {
+export default class Course extends React.Component<Props, {}> {
   counter = 0
   hasMounted = false
   elipsesEl: HTMLElement

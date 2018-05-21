@@ -86,6 +86,17 @@ export function isChildOfClass(className: string, child: HTMLElement) {
   return false
 }
 
+export function getParentWithClass(className: string, child: HTMLElement) {
+  let node = child
+  while (node !== null) {
+    if (node.classList.contains(className)) {
+      return node
+    }
+    node = node.parentElement
+  }
+  return null
+}
+
 // export function getPosition(el: HTMLElement) {
 //   var _x = 0;
 //   var _y = 0;

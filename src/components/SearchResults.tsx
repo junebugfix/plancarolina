@@ -5,7 +5,6 @@ import '../styles/SearchResults.css'
 
 @observer
 export default class SearchResults extends React.Component<{ label: string, items: string[] }, {}> {
-
   counter = 0
   divEl: HTMLDivElement
 

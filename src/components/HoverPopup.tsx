@@ -2,7 +2,7 @@ import * as React from 'react'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 import '../styles/HoverPopup.css'
-import { dragController } from '../DragController';
+import { dragController } from '../DragController'
 
 @observer
 export default class HoverPopup extends React.Component<{ hoverElement: HTMLElement }, {}> {

@@ -1,12 +1,16 @@
 .SearchBar {
   background: white;
-  height: 493px;
+  height: 505px;
   border-radius: 5px;
   padding: 10px;
   margin-left: 61px;
   z-index: 1;
   position: relative;
-  /* overflow: hidden; */
+  transition: height 150ms ease-in-out;
+}
+
+.SearchBar.collapsed {
+  height: min-content;
 }
 
 .SearchBar h2 {
@@ -14,6 +18,10 @@
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: normal;
+}
+
+.SearchBar.collapsed h2 {
+  margin: 0;
 }
 
 .SearchBar input {
@@ -27,6 +35,54 @@
 .SearchBar input:focus {
   border: 1px solid #7bc9ee;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
+}
+
+.SearchBar .arrow {
+  width: 20px;
+  position: absolute;
+  right: 0px;
+  top: -18px;
+  background-color: #fff;
+  height: 20px;
+  padding: 0 4px;
+  border-radius: 5px 5px 0px 0px;
+  transition: transform 150ms ease-in-out;
+}
+
+.SearchBar .arrow img {
+  width: 20px;
+  height: 20px;
+  transition: transform 150ms ease-in-out;
+}
+
+.SearchBar.collapsed .arrow {
+  transform: translateY(27px);
+}
+
+.SearchBar.collapsed .arrow img {
+  transform: rotate(90deg) scale(1.2) translateY(3px)
+}
+
+.SearchBar .arrow img:hover {
+  cursor: pointer;
+}
+
+.SearchBar .list-switch-container {
+  position: absolute;
+  right: 20px;
+  bottom: 3px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchBar .list-switch-container:hover {
+  cursor: pointer;
+}
+
+.SearchBar .list-switch-container img {
+  margin-right: 5px;
 }
 
 .SearchBar .TagsInput:focus-within {
@@ -141,9 +197,8 @@
   cursor: pointer;
   position: absolute;
   outline: none;
-  left: 50%;
-  bottom: 5px;
-  transform: translateX(-50%);
+  left: 15px;
+  bottom: 6px;
   width: 110px;
   z-index: 1;
 }
@@ -156,10 +211,6 @@
   position: absolute;
   left: 165px;
   top: 37px;
-}
-
-button#searchbar-add-class{
-  margin-top: 15px;
 }
 
 @media (max-width: 1200px) {
@@ -182,6 +233,9 @@ button#searchbar-add-class{
     height: 155px;
     margin: auto;
     margin-top: 10px;
+  }
+  .SearchBar.list {
+    height: 360px;
   }
   .SearchBar .first-row-container {
     display: inline-block;
@@ -221,8 +275,24 @@ button#searchbar-add-class{
   }
   .SearchBar button#searchbar-add-class {
     transform: none;
-    left: 8px;
+    left: 10px;
     bottom: 7px;
+    height: 28px;
+    padding: 0px;
+    width: 107px;
+  }
+  .SearchBar .list-switch-container {
+    width: 57px;
+    left: 125px;
+    bottom: 7px;
+    right: unset;
+    border: 1px solid #bbb;
+    font-size: 11px;
+    padding: 1px;
+    border-radius: 4px;
+  }
+  .SearchBar .list-switch-container:active {
+    background-color: lightgray;
   }
 }
 
@@ -232,6 +302,9 @@ button#searchbar-add-class{
   }
   .SearchBar .TagsInput {
     width: 148px;
+  }
+  .SearchBar .list-switch-container {
+    left: 120px;
   }
 }
 

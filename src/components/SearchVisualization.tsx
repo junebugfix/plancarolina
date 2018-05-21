@@ -2,8 +2,8 @@ import * as React from 'react'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 import '../styles/SearchVisualization.css'
-import CourseSearch from '../CourseSearch';
-import { Departments } from '../departments';
+import CourseSearch from '../CourseSearch'
+import { Departments } from '../departments'
 
 @observer
 export default class SearchVisualization extends React.Component<{ search: CourseSearch }, {}> {

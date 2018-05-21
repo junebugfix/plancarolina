@@ -1,12 +1,10 @@
 import * as React from 'react'
-// import { observable } from 'mobx'
-// import { observer } from 'mobx-react'
 import AutocompleteInput from 'react-autocomplete'
 import MUITooltip from 'material-ui/Tooltip'
 import Icon from 'material-ui/Icon'
-import { ALL_GENEDS } from '../CourseSearch';
+import { ALL_GENEDS } from '../CourseSearch'
 import '../styles/TagsInput.css'
-import { arrayEqual } from '../utils';
+import { arrayEqual } from '../utils'
 
 function Tooltip(props: any) {
   const { ...other } = props
@@ -15,7 +13,7 @@ function Tooltip(props: any) {
   )
 }
 
-interface TagsInputProps {
+interface Props {
   allTags: string[],
   expandedTabDict?: { [tag: string]: string },
   limit?: number,
@@ -23,15 +21,14 @@ interface TagsInputProps {
   onTagChange: (tags: string[]) => void
 }
 
-interface TagsInputState {
+interface State {
   tags: string[],
   value: string,
   highlighted: number,
   focused: boolean 
 }
 
-export default class TagsInput extends React.Component<TagsInputProps, TagsInputState> {
-
+export default class TagsInput extends React.Component<Props, State> {
   inputEl: HTMLInputElement  
   suggestionsEl: HTMLDivElement
   containerEl: HTMLDivElement
@@ -41,7 +38,7 @@ export default class TagsInput extends React.Component<TagsInputProps, TagsInput
   readonly ENTER_KEY = 13
   readonly DELETE_KEY = 8
 
-  constructor(props: TagsInputProps) {
+  constructor(props: Props) {
     super(props)
     this.state = { tags: [], value: '', highlighted: null, focused: false }
   }
@@ -204,11 +201,8 @@ export default class TagsInput extends React.Component<TagsInputProps, TagsInput
     const suggestions = this.getSuggestions()
     return (
       <div className="TagsInput" tabIndex={1} ref={el => this.containerEl = el} onKeyDown={e => this.handleBroadKeyDown(e)} onBlur={e => this.handleBlur(e)}>
-        {/* <div> */}
-          {tags.map((tag, i) => this.renderTag(tag, i))}
-          <input placeholder={this.props.placeholder} onKeyDown={e => this.handleKeyDown(e)} onChange={e => this.updateValue(e)} onFocus={e => this.handleFocus(e)} onBlur={e => this.handleBlur(e)} ref={el => this.inputEl = el} />
-          {/* <Icon className="hover" onClick={this.handleExpandClicked} style={{ fontSize: 20 }}>expand_more</Icon> */}
-        {/* </div> */}
+        {tags.map((tag, i) => this.renderTag(tag, i))}
+        <input placeholder={this.props.placeholder} onKeyDown={e => this.handleKeyDown(e)} onChange={e => this.updateValue(e)} onFocus={e => this.handleFocus(e)} onBlur={e => this.handleBlur(e)} ref={el => this.inputEl = el} />
         {focused && suggestions.length > 0 && <div ref={el => this.suggestionsEl = el} className="suggestions" onClick={e => e.preventDefault()}>
           {suggestions.map(s => this.renderSuggestion(s))}
         </div>}

@@ -2,14 +2,14 @@ import * as React from 'react'
 import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 import '../styles/QuickAddInput.css'
-import { CourseData } from './Course';
-import { dragController } from '../DragController';
-import CourseSearch from '../CourseSearch';
-import { coursesStore } from '../CoursesStore';
-import { uiStore } from '../UIStore';
-import SearchResults from './SearchResults';
-import SearchBarResult from './SearchBarResult';
-import { isChildOfClass, Semesters, isRightSemester, isBottomSemester } from '../utils';
+import { CourseData } from './Course'
+import { dragController } from '../DragController'
+import CourseSearch from '../CourseSearch'
+import { coursesStore } from '../CoursesStore'
+import { uiStore } from '../UIStore'
+import SearchResults from './SearchResults'
+import SearchBarResult from './SearchBarResult'
+import { Semesters, isRightSemester, isBottomSemester, isChildOfClass } from '../utils'
 
 interface Props {
   semesterIndex: Semesters
@@ -31,7 +31,6 @@ const ESCAPE_KEY = 27
 
 @observer
 export default class QuickAddInput extends React.Component<Props, State> {
-
   counter = 0
   inputEl: HTMLInputElement
   maxLeft: number
@@ -68,12 +67,13 @@ export default class QuickAddInput extends React.Component<Props, State> {
        })
     } else {
       coursesStore.search(search).then(results => {
+        const quickResults = results.slice(0, 10)
         this.setState({
           isLoadingCourses: false,
-          searchResults: results,
+          searchResults: quickResults,
           highlightedIndex: 0
         })
-        coursesStore.getDescriptions(results.map(c => c.id))
+        coursesStore.getDescriptions(quickResults.map(c => c.id))
           .catch(err => console.log(err))
       }).catch(err => {
         if (err === coursesStore.COURSES_NOT_LOADED_ERROR) {

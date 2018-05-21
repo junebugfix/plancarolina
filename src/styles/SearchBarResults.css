@@ -37,6 +37,85 @@
   font-size: 14px;
 }
 
+.SearchBarResults.list {
+  height: 370px;
+  overflow-y: scroll;
+}
+
+.SearchBarResults.list .list-result {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background-color: #EBF0FE;
+  margin: 2px 0;
+  width: 100%;
+  height: fit-content;
+  position: relative;
+}
+
+.SearchBarResults .list-result.shrink .desc {
+  display: none;
+}
+
+.SearchBarResults .list-result.shrink {
+  width: 200px;
+}
+
+.SearchBarResults.list .list-result:hover {
+  cursor: move;
+}
+
+.SearchBarResults .list-result .top .dept-num, .SearchBarResults .list-result .top .name {
+  padding: 5px;
+}
+
+.SearchBarResults .list-result .top {
+  display: flex;
+  margin-bottom: 2px;
+}
+
+.SearchBarResults .list-result .mid {
+  padding: 4px;
+  padding-bottom: 0;
+}
+
+.SearchBarResults .list-result .mid .geneds {
+  margin-right: 8px;
+}
+
+.SearchBarResults .list-result .mid .geneds .gened-block {
+  background-color: white;
+  font-size: 12px;
+  padding: 3px;
+}
+
+.SearchBarResults .list-result .top .dept-num {
+  border-radius: 4px 0 4px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 27%;
+  box-sizing: border-box;
+}
+
+.SearchBarResults .list-result .top .name {
+  font-size: 13.5px;
+  width: 73%;
+  box-sizing: border-box;
+}
+
+.SearchBarResults .list-result .bottom .geneds-credits {
+  display: flex;
+  flex-direction: column;
+  width: 26%;
+}
+
+.SearchBarResults .list-result .desc {
+  padding: 4px;
+}
+
 @media (max-width: 1200px) {
   .SearchBarResults {
     margin: 10px 0px;

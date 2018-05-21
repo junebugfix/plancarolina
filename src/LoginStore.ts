@@ -29,7 +29,7 @@ class LoginStore {
   _auth2: any
   _googleyolo: any
 
-  offline = false
+  offline = true
 
   resetLoginAttempts() {
     this.loginAttempts = 0

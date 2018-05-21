@@ -1,20 +1,15 @@
-import * as React from 'react';
-import { observer } from 'mobx-react';
-import { observable } from 'mobx';
-import Semester from './Semester';
-import Summer from './Summer'
-import { Semesters } from '../utils';
-import { CourseData } from './Course';
-import { scheduleStore } from '../ScheduleStore';
-import { uiStore } from '../UIStore';
+import * as React from 'react'
+import { observer } from 'mobx-react'
+import { observable } from 'mobx'
+import Semester from './Semester'
+import { Semesters } from '../utils'
+import { CourseData } from './Course'
+import { scheduleStore } from '../ScheduleStore'
+import { uiStore } from '../UIStore'
 import Icon from 'material-ui/Icon'
 import { CircularProgress } from 'material-ui/Progress'
 import Spinner from './Spinner'
-import '../styles/Schedule.css';
-
-interface ScheduleState {
-  semesters: CourseData[][]
-}
+import '../styles/Schedule.css'
 
 export interface ScheduleData {
   fall1: CourseData[]

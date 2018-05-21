@@ -1,31 +1,31 @@
-import * as React from 'react';
-import Toolbar from './Toolbar';
-import SearchBar from './SearchBar';
-import MobileSearchBar from './MobileSearchBar';
-import '../styles/App.css';
-import Schedule from './Schedule';
-import LoginPopup from './LoginPopup';
-import Validators from './Validators';
-import Footer from './Footer';
+import * as React from 'react'
+import Toolbar from './Toolbar'
+import SearchBar from './SearchBar'
+import MobileSearchBar from './MobileSearchBar'
+import '../styles/App.css'
+import Schedule from './Schedule'
+import LoginPopup from './LoginPopup'
+import Validators from './Validators'
+import Footer from './Footer'
 import Dialog from './Dialog'
 import Snackbar from './Snackbar'
-import Settings from './Settings';
-import Spinner from './Spinner';
-import HandleConflictPopup from './HandleConflictPopup';
-import { observer } from 'mobx-react';
-import { uiStore } from '../UIStore';
-import { loginStore } from '../LoginStore';
-import Icon from 'material-ui/Icon';
+import Settings from './Settings'
+import Spinner from './Spinner'
+import HandleConflictPopup from './HandleConflictPopup'
+import { observer } from 'mobx-react'
+import { uiStore } from '../UIStore'
+import { loginStore } from '../LoginStore'
+import Icon from 'material-ui/Icon'
 import Button from 'material-ui/Button'
 import { AlertPopup } from './AlertPopup'
-import { scheduleStore } from '../ScheduleStore';
-import { coursesStore } from '../CoursesStore';
+import { scheduleStore } from '../ScheduleStore'
+import { coursesStore } from '../CoursesStore'
 
 @observer
 export default class App extends React.Component {
-
   componentDidMount() {
     loginStore.tryAutoLogin()
+    uiStore.handleResize()
     coursesStore.downloadCoursesWithoutDescriptions()
   }
 

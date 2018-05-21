@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { observer } from 'mobx-react'
 import { uiStore } from '../UIStore'
-import Popover from 'material-ui/Popover';
+import Popover from 'material-ui/Popover'
+import Menu, { MenuItem } from 'material-ui/Menu'
+import { Button } from 'material-ui'
 import '../styles/YearEnteredPrompt.css'
-import Menu, { MenuItem } from 'material-ui/Menu';
-import { Button } from 'material-ui';
 
 @observer
 export default class YearEnteredPrompt extends React.Component {

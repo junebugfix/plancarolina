@@ -8,7 +8,6 @@ import '../styles/LoginPopup.css'
 
 @observer
 export default class LoginPopup extends React.Component {
-
   renderGoogleSignInButton() {
     return (
       <button id="google-button" onClick={() => loginStore.loginWithGoogle()}>

@@ -1,9 +1,11 @@
+import * as React from 'react'
 import { observable } from 'mobx'
 import { isOverlapping, isOverlappingAndByOverHalfX, isAboveByCenter, isBelowByCenter, separate, transformDown, transformUp, getCenterPoint, Point, getOffset, Semesters } from "./utils";
 import { difference } from "lodash-es";
 import { scheduleStore } from "./ScheduleStore";
 import { setMaxListeners, listenerCount } from "cluster";
 import { uiStore } from './UIStore';
+import Course from './components/Course'
 
 class DragController {
   @observable draggingSemester: Semesters = null
@@ -41,6 +43,10 @@ class DragController {
       this.lists.push(listEl)
     }
     this.mutationObserver.observe(listEl, { childList: true })
+  }
+
+  addList(listEl: HTMLElement) {
+    this.lists.push(listEl)
   }
 
   private handleMousemove(e: MouseEvent | TouchEvent) {
@@ -153,28 +159,40 @@ class DragController {
   }
 
   private handleMousedown(e: MouseEvent | TouchEvent, item: HTMLElement) {
-    if ((e.target as any).classList.contains('Course-x') || (e.target as HTMLElement).tagName === 'IMG') return
+    const target = e.target as HTMLElement
+    if (target.classList.contains('Course-x') || target.tagName === 'IMG') return
     const { clientX, clientY } = this.getClientPos(e)
     e.preventDefault()
     this.isDragging = true
     this.draggingEl = item
     this.dragStartPos = { x: clientX, y: clientY }
+
+    if (item.classList.contains('list-result')) {
+      item.classList.add('shrink')
+      const startY = item.getBoundingClientRect().top
+      item.style.position = 'absolute'
+      const secondY = item.getBoundingClientRect().top
+      this.dragStartPos.y -= startY - secondY
+      const shrinkOffset = clientY - startY - 30
+      this.dragStartPos.y -= shrinkOffset
+    }
+    
+    this.updateDraggingElPosition(e)
     const itemCenter = getCenterPoint(item)
     this.draggingElCenterOffset = { x: clientX - itemCenter.x, y: clientY - itemCenter.y }
     this.updateDraggingList()
-    this.updateDraggingElPosition(e)
     this.dragStartSemester = this.draggingSemester
-
     const itemBounds = this.draggingEl.getBoundingClientRect()
     this.draggingElHeight = itemBounds.height
     this.draggingEl.style.zIndex = '99998'
+
     if (this.draggingList !== null) {
       this.draggingListBounds = this.draggingList.getBoundingClientRect()
       this.draggingEl.style.position = 'absolute'
       this.draggingEl.style.width = itemBounds.width + 'px'
       this.draggingEl.style.top = (itemBounds.top - this.draggingListBounds.top) + 'px'
     }
-    
+
     this.updateGhostPosition()
     this.dragStartIndex = this.ghostIndex; // SEMICOLON NECESSARY
     (document.addEventListener as any)('mouseup', evt => this.handleMouseup(evt), { once: true });
@@ -191,10 +209,11 @@ class DragController {
     const el = this.draggingEl
 
     setTimeout(() => {
-      el.style.position = 'relative'
+      el.style.position = ''
       el.style.width = ''
       el.style.top = ''
-      if (el.classList.contains('SearchBarResults-result')) {
+      el.classList.remove('shrink')
+      if (el.classList.contains('search-result')) {
         el.style.zIndex = '9997'
       } else {
         el.style.zIndex = ''
@@ -210,7 +229,7 @@ class DragController {
       if (this.draggingEl.classList.contains('Course')) {
         const courseId = parseInt(this.draggingEl.id.substring(7), 10)
         scheduleStore.moveCourse(this.dragStartSemester, this.dragStartIndex, this.draggingSemester, this.ghostIndex)
-      } else if (this.draggingEl.classList.contains('SearchBarResults-result')) {
+      } else if (this.draggingEl.classList.contains('search-result')) {
         const searchResultIndex = parseInt(this.draggingEl.id.substring(14), 10)
         scheduleStore.insertSearchResult(searchResultIndex, this.draggingSemester, this.ghostIndex)
       }
@@ -222,6 +241,7 @@ class DragController {
     this.draggingEl.style.position = ''
     this.draggingEl.style.width = ''
     this.draggingEl.style.top = ''
+    this.draggingEl.classList.remove('shrink')
     if (this.draggingEl.classList.contains('Course')) {
       this.draggingEl.style.zIndex = '9997'
     } else {

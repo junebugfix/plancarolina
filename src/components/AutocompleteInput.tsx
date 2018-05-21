@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Autosuggest from 'react-autosuggest'
 import '../styles/AutocompleteInput.css'
-import { ALL_DEPARTMENTS } from '../CourseSearch';
+import { ALL_DEPARTMENTS } from '../CourseSearch'
 
 const DOWN_KEY = 40
 const UP_KEY = 38
@@ -9,11 +9,25 @@ const ENTER_KEY = 13
 const TAB_KEY = 9
 const ESCAPE_KEY = 27
 
-export default class AutocompleteInput extends React.Component<{ allSuggestions: string[], expandedDict?: { [key: string]: string }, onChange?: (val: string) => void, placeholder?: string }, { highlightedIndex: number, value: string, focused: boolean, suggestions: string[] }> {
+interface Props {
+  allSuggestions: string[],
+  expandedDict?: { [key: string]: string },
+  onChange?: (val: string) => void,
+  placeholder?: string 
+}
+
+interface State {
+  highlightedIndex: number,
+  value: string,
+  focused: boolean,
+  suggestions: string[] 
+}
+
+export default class AutocompleteInput extends React.Component<Props, State> {
   inputEl: HTMLInputElement
   counter = 0
 
-  constructor(props: any) {
+  constructor(props: Props) {
     super(props)
     this.state = { highlightedIndex: 0, value: '', focused: false, suggestions: [] }
   }
