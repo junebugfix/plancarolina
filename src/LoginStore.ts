@@ -82,10 +82,10 @@ class LoginStore {
       switch (result.type) {
         case 'success':
           this.handleLogin(result.name, result.email, result.imageUrl)
-          break;
+          break
         case 'noCredentialsAvailable':
           this.gapiLogin()
-          break;
+          break
         case 'userCanceled':
           const canceledSnackbarOptions = {
             message: 'Didn\'t see your account?',
@@ -93,17 +93,10 @@ class LoginStore {
             actionLabel: 'Login'
           }
           uiStore.snackbarAlert(canceledSnackbarOptions)
-          break;
-        case 'requestFailed':
-          const failedSnackbarOptions = {
-            message: 'Could not connect to internet',
-            action: () => this.loginWithGoogle(),
-            actionLabel: 'Retry'
-          }
-          uiStore.snackbarAlert(failedSnackbarOptions)
-          break;
+          break
         default:
-          break;
+          this.gapiLogin()
+          break
       }
     })
   }
