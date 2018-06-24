@@ -1,6 +1,12 @@
-import * as React from 'react';
+import * as React from 'react'
 
-export default class Spinner extends React.Component<{ radius?: number, thickness?: number }, {}> {
+interface Props {
+  radius?: number,
+  thickness?: number,
+  style?: any 
+}
+
+export default class Spinner extends React.Component<Props, {}> {
   render() {
     const size = this.props.radius ? this.props.radius * 2 : 20
     const thickness = this.props.thickness ? this.props.thickness : 2
@@ -25,8 +31,10 @@ export default class Spinner extends React.Component<{ radius?: number, thicknes
       height: size
     }
 
+    Object.assign(style, this.props.style)
+
     return (
-      <span style={{ position: 'relative', display: 'inline-block', width: size, height: size }}>
+      <span className="undraggable" style={{ position: 'relative', display: 'inline-block', width: size, height: size }}>
         <div style={style}></div>
         <div style={afterStyle}></div>
       </span>

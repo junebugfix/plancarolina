@@ -55,7 +55,6 @@
       "no-switch-case-fall-through": true,
       "no-trailing-whitespace": false,
       "no-unused-expression": true,
-      "no-unexpected-multiline": true,
       "jsx-self-close": false,
       "no-use-before-declare": true,
       "one-line": [

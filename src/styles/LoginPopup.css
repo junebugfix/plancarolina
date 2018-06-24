@@ -2,7 +2,6 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 55px;
   right: 10px;
   padding: 5px;
   display: flex;
@@ -29,21 +28,65 @@
   transform: translateX(-50%)
 }
 
-.LoginPopup button {
-    color: #757575;
-    font-size: 13px;
-    height: 36px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
-    border: 1px solid hsl(0, 0%, 100%);
-    cursor: pointer;
-    display: block;
-    background: url("../google-logo.png") no-repeat left;
-    background-size: contain;
-    text-align: right;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    user-select: none;
-    white-space: nowrap;
-    width: 120px;
+#google-button {
+  width: fit-content;
+  height: 40px;
+  background-color: #fff;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 1px 8px 1px 1px;
+  display: flex;
+  align-items: center;
+  border: none;
+  transition: box-shadow 100ms ease-in-out;
+  outline: transparent;
+}
+
+#google-button:hover {
+  cursor: pointer;
+}
+
+#google-button:active {
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+#google-button #g-svg-container {
+  background: #fff;
+  padding: 1px 8px;
+  position: relative;
+  top: 2px;
+  border-radius: inherit;
+}
+
+#google-button #g-svg-container svg {
+  position: relative;
+  top: -1px;
+}
+
+#google-button #g-text {
+  font-family: Roboto, sans-serif;
+  width: 100%;
+  text-align: center;
+  color: #888;
+  text-transform: none !important;
+  font-weight: normal;
+  font-size: 14px;
+  margin-left: 7px;
+}
+
+#signout-button {
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  white-space: nowrap;
+  outline: transparent;
+  cursor: pointer;
+  border: none;
+  transition: box-shadow 100ms ease-in-out;
+}
+
+#signout-button:active {
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
 }

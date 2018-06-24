@@ -4,11 +4,13 @@ import Course, { CourseData } from './components/Course';
 import { uiStore } from './UIStore';
 import { loginStore } from './LoginStore';
 import { colorController } from './ColorController';
-import Schedule from './components/Schedule';
+import Schedule, { ScheduleData } from './components/Schedule';
 import Semester from './components/Semester';
-import { Semesters, getClassElements, getChildren } from './utils';
+import { Semesters, getClassElements, getChildren, getObjectValues } from './utils';
 import difference from 'lodash-es/difference';
-import flatten from 'lodash-es/flatten';
+// import flatten from 'lodash-es/flatten';
+import { flatten } from './utils'
+import { coursesStore } from './CoursesStore';
 
 class ScheduleStore {
 
@@ -27,30 +29,22 @@ class ScheduleStore {
   @observable summer3: CourseData[] = []
   @observable summer4: CourseData[] = []
 
+  @observable saveStatus: 'saved' | 'saving' | 'waiting'
+
   @observable majorCoursesNeeded: string[] = ['hi', 'hello', 'merhaba']
   readonly GENEDS_NEEDED = ["CR", "FL", "QR", "LF", "PX", "PX", "PL", "HS", "SS", "SS", "VP", "LA", "PH", "BN", "CI", "EE", "GL", "NA", "QI", "US", "WB"]
   readonly CREDITS_NEEDED = 120
   readonly PROMPT_LOGIN_THRESHOLD = 3
 
-  slipLists: any[] = []
-
   getCourseData(id: number): CourseData {
     return this.allCourses.filter((course: CourseData) => course.id === id)[0]
   }
 
-  getSemesterData(index: number): CourseData[] {
-    return this.allSemesters[index]
-  }
-
-  findSemesterWithCourse(courseId: number): CourseData[] | null {
-    for (let i = 0; i < this.allSemesters.length; i++) {
-      for (let j = 0; j < this.allSemesters[i].length; j++) {
-        if (this.allSemesters[i][j].id === courseId) {
-          return this.allSemesters[i]
-        }
-      }
-    }
-    throw new Error(`Invalid course id: ${courseId}`)
+  findSemesterWithCourse(courseId: number): CourseData[] {
+    const semestersWithCourse = this.semestersArray.filter(s => s.filter(c => c.id === courseId).length > 0)
+    if (semestersWithCourse.length === 0) throw new Error(`Invalid course id: ${courseId}`)
+    if (semestersWithCourse.length > 1) throw new Error(`Course id exists twice in schedule! - ${courseId}`)
+    return semestersWithCourse[0]
   }
 
   addCourses(rawCourses: CourseData[]) {
@@ -74,7 +68,7 @@ class ScheduleStore {
   }
 
   @computed get allCourses(): CourseData[] {
-    return [].concat(...this.allSemesters.map(s => s.slice()))
+    return [].concat(...this.semestersArray.map(s => s.slice()))
   }
 
   @computed get semestersToAutomaticallyAddTo(): CourseData[][] {
@@ -87,16 +81,42 @@ class ScheduleStore {
     return result
   }
 
-  @computed get allSemesters(): CourseData[][] {
+  @computed get scheduleObject(): ScheduleData {
+    return {
+      fall1: this.fall1,
+      fall2: this.fall2,
+      fall3: this.fall3,
+      fall4: this.fall4,
+      fall5: this.fall5,
+      spring1: this.spring1,
+      spring2: this.spring2,
+      spring3: this.spring3,
+      spring4: this.spring4,
+      spring5: this.spring4,
+      summer1: this.summer1,
+      summer2: this.summer2,
+      summer3: this.summer3,
+      summer4: this.summer4
+    }
+  }
+
+  @computed get idScheduleObject(): ScheduleData {
+    const schedule = this.scheduleObject
+    for (const key in schedule) {
+      schedule[key] = schedule[key].map(course => course.id)
+    }
+    return schedule
+  }
+
+  @computed get semestersArray(): CourseData[][] {
     return [
-      this.fall1, this.fall2, this.fall3, this.fall4,
-      this.spring1, this.spring2, this.spring3, this.spring4, 
-      this.fall5, this.spring5,
+      this.fall1, this.fall2, this.fall3, this.fall4, this.fall5,
+      this.spring1, this.spring2, this.spring3, this.spring4, this.spring5,
       this.summer1, this.summer2, this.summer3, this.summer4
     ]
   }
 
-  @computed get allSummers(): CourseData[][] {
+  @computed get summersArray(): CourseData[][] {
     return [this.summer1, this.summer2, this.summer3, this.summer4]
   }
 
@@ -124,25 +144,46 @@ class ScheduleStore {
     return this.allCourses.reduce((prev, curr) => prev + (Number.isInteger(curr.credits) ? curr.credits : 0), 0)
   }
 
+  @action.bound moveCourse(fromSemester: Semesters, fromIndex: number, toSemester: Semesters, toIndex: number) {
+    if (fromSemester === toSemester) {
+      const semester = this.getSemester(fromSemester).slice()
+      const [course] = semester.splice(fromIndex, 1)
+      semester.splice(toIndex, 0, course)
+      this[Semesters[fromSemester].toLowerCase()].replace(semester)
+    } else {
+      const newFromSemester = this.getSemester(fromSemester).slice()
+      const newToSemester = this.getSemester(toSemester).slice()
+      const [course] = newFromSemester.splice(fromIndex, 1)
+      newToSemester.splice(toIndex, 0, course)
+      this[Semesters[fromSemester].toLowerCase()].replace(newFromSemester)
+      this[Semesters[toSemester].toLowerCase()].replace(newToSemester)
+    }
+    this.saveSchedule();
+  }
+
   @action.bound reorderInList(el: HTMLElement, startIndex: number, endIndex: number) {
-    let semesterData = this.findSemesterWithCourse(parseInt(el.id.substring(7), 10)) as CourseData[]
+    const semesterData = this.findSemesterWithCourse(parseInt(el.id.substring(7), 10)) as CourseData[]
     semesterData.splice(endIndex, 0, semesterData.splice(startIndex, 1)[0])
     this.saveSchedule()
   }
 
   @action.bound changeLists(fromList: HTMLElement, fromIndex: number, toList: HTMLElement, toIndex: number) {
-    let fromSemesterData = this.getSemester(Semesters[fromList.id])
-    let toSemesterData = this.getSemester(Semesters[toList.id])
+    const fromSemesterData = this.getSemester(Semesters[fromList.id])
+    const toSemesterData = this.getSemester(Semesters[toList.id])
     toSemesterData.splice(toIndex, 0, fromSemesterData.splice(fromIndex, 1)[0])
     this.saveSchedule()
   }
 
-  @action.bound insertSearchResult(resultIndex: number, semesterIndex: number, toIndex: number) {
+  @action.bound insertSearchResult(resultIndex: number, toSemester: Semesters, toIndex: number) {
     if (!uiStore.hasAddedACourse) uiStore.hasAddedACourse = true
-    const department = uiStore.searchResults[resultIndex].department
-    colorController.ensureScheduleHue(department)
-    this.getSemester(semesterIndex).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
-    this.saveSchedule()
+    const courseToAdd = uiStore.searchResults[resultIndex]
+    if (this.isInSchedule(courseToAdd)) {
+      uiStore.snackbarAlert({ message: 'That course is already in your schedule' })
+    } else {
+      colorController.ensureScheduleHue(courseToAdd.department)
+      this.getSemester(toSemester).splice(toIndex, 0, uiStore.searchResults.splice(resultIndex, 1)[0])
+      this.saveSchedule()
+    }
   }
 
   @action.bound removeCourseFromSemester(courseIndex: number, semesterIndex: Semesters) {
@@ -151,17 +192,11 @@ class ScheduleStore {
     this.saveSchedule()
   }
 
-  connectSlipList(newSlipList: any) {
-    this.slipLists.forEach((list: any) => {
-      list.crossLists.push(newSlipList)
-      newSlipList.crossLists.push(list)
-    })
-    this.slipLists.push(newSlipList)
-  }
-
   saveSchedule() {
+    if (loginStore.offline) return
+    const alertNetworkErrorWithRetry = () => uiStore.alertNetworkError(() => this.saveSchedule())
     if (!loginStore.isLoggedIn) return
-    uiStore.isSavingSchedule = true
+    this.saveStatus = 'saving'
     let isGoogle: boolean = true; // Gives room later to sync to facebook instead.
     if (isGoogle) {
       if (loginStore.isLoggedIn) {
@@ -174,10 +209,17 @@ class ScheduleStore {
           }
         } as any).then(res => {
           res.json().then(r => {
-            console.log('synced schedule!')
-            uiStore.isSavingSchedule = false
+            this.saveStatus = 'saved'
+          }).catch(err => {
+            alertNetworkErrorWithRetry()
+            this.saveStatus = 'waiting'
+            console.log(err)
           })
-        }).catch(err => console.log(err))
+        }).catch(err => {
+          alertNetworkErrorWithRetry()
+          this.saveStatus = 'waiting'
+          console.log(err)
+        })
       } else {
         if (this.allCourses.length >= this.PROMPT_LOGIN_THRESHOLD) {
           uiStore.promptUserLogin()
@@ -187,18 +229,10 @@ class ScheduleStore {
     uiStore.saveSettings()
   }
 
-  get saveScheduleBody() {
+  @computed get saveScheduleBody() {
     return {
       email: loginStore.email,
-      schedule: JSON.stringify(this.compactScheduleJson)
-    }
-  }
-
-  get compactScheduleJson() {
-    return {
-      schedule: this.allSemesters.map(semester => {
-        return semester.map(course => course.id)
-      })
+      schedule: JSON.stringify(this.idScheduleObject)
     }
   }
 
@@ -237,17 +271,27 @@ class ScheduleStore {
     }
   }
 
-  @action.bound initAllSemesters(semesters: CourseData[][]) {
-    this.fall1 = semesters[0]
-    this.fall2 = semesters[1]
-    this.fall3 = semesters[2]
-    this.fall4 = semesters[3]
-    this.spring1 = semesters[4]
-    this.spring2 = semesters[5]
-    this.spring3 = semesters[6]
-    this.spring4 = semesters[7]
-    this.fall5 = semesters[8]
-    this.spring5 = semesters[9]
+  @action.bound initAllSemesters(semesters: ScheduleData) {
+    for (const semesterName in semesters) {
+      const semester = semesters[semesterName] as CourseData[]
+      this[semesterName] = semester
+      if (semesterName === 'summer1' && semester.length > 0) {
+        uiStore.summer1Active = true
+      } else if (semesterName === 'summer2' && semester.length > 0) {
+        uiStore.summer2Active = true
+      } else if (semesterName === 'summer3' && semester.length > 0) {
+        uiStore.summer3Active = true
+      } else if (semesterName === 'summer4' && semester.length > 0) {
+        uiStore.summer4Active = true
+      } else if (semesterName === 'fall5' && semester.length > 0) {
+        uiStore.fall5Active = true
+      } else if (semesterName === 'spring5' && semester.length > 0) {
+        uiStore.spring5Active = true
+      }
+      for (const course of semester) {
+        coursesStore.descriptions[course.id] = course.description
+      }
+    }
   }
 }
 

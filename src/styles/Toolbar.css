@@ -8,23 +8,25 @@
 
 .Toolbar .toolbar-content {
   display: flex;
-  flex-flow: row wrap;
   position: absolute;
-  width: 40%;
+  width: 45%;
   right: 0px;
   height: 100%;
+  justify-content: flex-end;
 }
 
 .Toolbar-item {
   cursor: pointer;
   border-left: none;
   padding: 0px;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   position: relative;
   user-select: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: fit-content;
+  margin-right: 30px;
 }
 
 .Toolbar-text {
@@ -59,12 +61,22 @@ h1.Toolbar-text {
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .Toolbar {
     height: fit-content;
     font-size: 14px;
+    top: 15px;
   }
   .Toolbar .toolbar-content {
     margin-right: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .Toolbar {
+    font-size: 12px;
+  }
+  .Toolbar .toolbar-content {
+    width: 50%;
   }
 }

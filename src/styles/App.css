@@ -24,7 +24,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -42,12 +42,17 @@ table {
 	border-spacing: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background: #D1EEFF;
   /* background: #78B0D0; */
-  font-family: 'Work Sans', 'Avenir', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   margin: 0;
   transition: all 150ms ease-in-out;
+  height: 100%;
 }
 
 ul {
@@ -60,8 +65,14 @@ ul {
   overflow: hidden;
 }
 
+#root {
+  height: 100%;
+}
+
 .App {
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .App .box-shadow {
@@ -78,11 +89,17 @@ ul {
 
 .App .content-container {
   display: flex;
-  height: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  /* height: calc(100vh - 30px); */
 }
 
-.App .persistent-snackbar {
-  width: 480px;
+.App .hover:hover {
+  cursor: pointer;
+}
+
+.App #snackbar {
+  width: fit-content;
 }
 
 .App .content-left {
@@ -123,6 +140,7 @@ ul {
   border-radius: 5px;
   position: relative;
   display: flex;
+  /* flex-wrap: wrap; */
 }
 
 @media (max-width: 1110px) {
@@ -167,13 +185,21 @@ ul {
 .gened-block {
   border: 1px solid rgba(0,0,0,0.5);
   font-size: 10px;
-  background: hsl(224, 90%, 90%);
+  /* background: hsl(224, 90%, 90%); */
+  background-color: #d0effd;
   color: black;
   border-radius: 3px;
   padding: 3px 2px 2px 2px;
   display: inline-block;
   line-height: 8px;
   margin: 1px;
+}
+
+.App .footer-container {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
 }
 
 @-webkit-keyframes load8 {
@@ -218,7 +244,43 @@ ul {
   border-radius: 2px;
 }
 
-@media (max-width: 650px) {
+.course-popup {
+  position: absolute;
+  padding: 5px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  /* background-color: #D0EFFD; */
+  background-color: #EBF0FE;
+  font-size: 14px;
+  width: 250px;
+  z-index: 99999;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  animation: fadein 100ms ease-out forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.course-popup .title {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.course-popup .stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
   .App .main-title {
     font-size: 20px;
     margin-top: 7px;
@@ -226,5 +288,11 @@ ul {
   .App .validators-settings {
     width: 100%;
     margin: 0 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .App #snackbar {
+    width: 100%
   }
 }

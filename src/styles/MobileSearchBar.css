@@ -1,6 +1,23 @@
+.mobile-search-bar-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .MobileSearchBar {
-  width: 80%;
-  height: 30px;
-  margin: 10px auto 0 auto;
+  width: 94%;
+  height: 35px;
+  margin: 5px auto;
   background: #fff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.MobileSearchBar button {
+  font-size: 13px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 8px;
+  outline: transparent;
 }

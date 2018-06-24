@@ -1,7 +1,7 @@
 .Settings {
   display: flex;
   justify-content: center;
-  width: 70%;
+  width: fit-content;
   margin: auto;
   font-size: 12px;
   flex-shrink: 2;
@@ -16,11 +16,21 @@
 
 .Settings .expandedView {
   position: relative;
-  top: 4px;
+  top: 3px;
+  margin-right: 5px;
 }
 
 .Settings .settings-label.expandedView {
   margin-bottom: -8px;
+  margin-top: -8px;
+  text-align: center;
+  position: relative;
+  top: 8px;
+}
+
+.Settings .switchContainer {
+  position: relative;
+  top: 9px;
 }
 
 .Settings button#add-summer-button {
@@ -37,9 +47,3 @@
 .Settings button#add-summer-button:active {
   background: lightgray;
 }
-
-/* @media (max-width: 983px) {
-  .Settings {
-    margin-bottom: -8px;
-  }
-} */

@@ -10,6 +10,7 @@
   position: relative;
   background: transparent;
   user-select: none;
+  z-index: 0;
 }
 
 .Schedule-row {
@@ -27,19 +28,10 @@
   justify-content: space-around;
 }
 
-.Schedule .Summer {
-  background: white;
-  border-radius: 5px;
-  padding: 5px;
+.Schedule .Schedule-row.summers .Semester.summer {
   width: 100%;
-  margin: 6px;
-  height: 50px;
+  margin: 0;
 }
-
-.Schedule .Summer .Summer-courses {
-  height: 100%;
-}
-
 
 @media (max-width: 1200px) {
   .Schedule {
@@ -61,7 +53,8 @@
 
 @media (max-width: 950px) {
   .Schedule {
-    margin: 0 10px;
+    margin: 0 auto 10px auto;
+    max-width: 700px;
   }
 }
 
@@ -71,13 +64,61 @@
   margin: 10px;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .Schedule {
     margin: 0;
-    margin-top: -10px;
+    margin-top: -15px;
+  }
+  .Schedule .tap-prompt {
+    margin-top: 5px;
   }
   .Schedule-year-labels {
     font-size: 13px;
     margin-bottom: 3px;
   }
 }
+
+.Schedule .initial-spinner-container {
+  position: absolute;
+  z-index: 99999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-100%, -50%);
+}
+
+.ball-loader {
+  position: fixed;
+  top: 23%;
+  z-index: 99999;
+  /* background-color: rgba(0,0,0,0.15); */
+  border-radius: 4px;
+  padding: 3px;
+}
+
+@keyframes ball-loader {
+  0% {
+    opacity: 0.4;
+            transform: scale(0.75); }
+  25% {
+    opacity: 0.7;
+            transform: scale(1); }
+  50% {
+    opacity: 0.4;
+            transform: scale(0.75); }
+  100% {
+    opacity: 0.4;
+            transform: scale(0.75); } }
+
+.ball-loader > div {
+  background-color: #000;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin: 2px;
+          animation-fill-mode: both;
+  display: inline-block;
+          animation: ball-loader 1s 0s infinite linear; }
+  .ball-loader > div:nth-child(2) {
+            animation-delay: -0.13s !important; }
+  .ball-loader > div:nth-child(1) {
+            animation-delay: -0.26s !important; }

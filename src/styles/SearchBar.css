@@ -1,11 +1,16 @@
 .SearchBar {
   background: white;
-  height: 493px;
+  height: 505px;
   border-radius: 5px;
   padding: 10px;
   margin-left: 61px;
   z-index: 1;
   position: relative;
+  transition: height 150ms ease-in-out;
+}
+
+.SearchBar.collapsed {
+  height: min-content;
 }
 
 .SearchBar h2 {
@@ -15,12 +20,74 @@
   font-weight: normal;
 }
 
+.SearchBar.collapsed h2 {
+  margin: 0;
+}
+
 .SearchBar input {
   border-radius: 3px;
   border: 1px solid rgba(170, 177, 197, 0.7);
   padding: 5px;
   font-size: 14px;
   outline: none;
+}
+
+.SearchBar input:focus {
+  border: 1px solid #7bc9ee;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
+}
+
+.SearchBar .arrow {
+  width: 20px;
+  position: absolute;
+  right: 0px;
+  top: -18px;
+  background-color: #fff;
+  height: 20px;
+  padding: 0 4px;
+  border-radius: 5px 5px 0px 0px;
+  transition: transform 150ms ease-in-out;
+}
+
+.SearchBar .arrow img {
+  width: 20px;
+  height: 20px;
+  transition: transform 150ms ease-in-out;
+}
+
+.SearchBar.collapsed .arrow {
+  transform: translateY(27px);
+}
+
+.SearchBar.collapsed .arrow img {
+  transform: rotate(90deg) scale(1.2) translateY(3px)
+}
+
+.SearchBar .arrow img:hover {
+  cursor: pointer;
+}
+
+.SearchBar .list-switch-container {
+  position: absolute;
+  right: 20px;
+  bottom: 3px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchBar .list-switch-container:hover {
+  cursor: pointer;
+}
+
+.SearchBar .list-switch-container img {
+  margin-right: 5px;
+}
+
+.SearchBar .TagsInput:focus-within {
+  border: 1px solid #7bc9ee;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
 }
 
 .SearchBar #searchbar-search-group {
@@ -33,37 +100,55 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
+}
+
+.SearchBar .first-row-container .first-part {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
 }
 
 .SearchBar #custom-select {
   display: inline-block;
-  position: relative;
   border: 1px solid rgba(170, 177, 197, 0.7);
   margin-right: 5px;
-  width: 30px;
-  top: 6px;
+  width: 34px;
   border-radius: 4px;
   overflow: hidden;
-  background: #ffffff url("../arrow.png") no-repeat 80% 60%;
-  background-size: 25% 24%;
+  padding: 2px 0;
+  background: #ffffff url("../arrow.svg") no-repeat 95% 55%;
+  background-size: 45% 35%;
 }
 
-.SearchBar .first-row-container select {
-  width: 130%;
+.SearchBar #custom-select select {
   appearance: none;
+  width: 130%;
   border: none;
   background: transparent;
   background-image: none;
   box-shadow: none;
+  outline: transparent;
+  padding: 0 0 1px 5px;
+}
+
+.SearchBar #custom-select select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.SearchBar #custom-select:focus-within {
+  border: 1px solid #7bc9ee
 }
 
 .SearchBar input#department-input {
   width: 45px;
+  margin-right: 5px;
 }
 
 .SearchBar input#number-input {
   width: 30px;
+  margin-right: 5px;
 }
 
 .SearchBar select {
@@ -112,10 +197,10 @@
   cursor: pointer;
   position: absolute;
   outline: none;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
-  width: fit-content;
+  left: 15px;
+  bottom: 6px;
+  width: 110px;
+  z-index: 1;
 }
 
 .SearchBar button#searchbar-add-class:active {
@@ -126,10 +211,6 @@
   position: absolute;
   left: 165px;
   top: 37px;
-}
-
-button#searchbar-add-class{
-  margin-top: 15px;
 }
 
 @media (max-width: 1200px) {
@@ -153,9 +234,13 @@ button#searchbar-add-class{
     margin: auto;
     margin-top: 10px;
   }
+  .SearchBar.list {
+    height: 360px;
+  }
   .SearchBar .first-row-container {
     display: inline-block;
     margin: 0;
+    margin-top: 5px;
   }
   .SearchBar .tags-input {
     width: 170px;
@@ -164,9 +249,13 @@ button#searchbar-add-class{
   .SearchBar #name-input {
     width: 164px;
   }
+  .SearchBar #search-input {
+    width: 176px;
+    box-sizing: border-box;
+  }
   .SearchBar h2 {
     width: 175px;
-    margin: -3px 0 10px 0;
+    margin: -3px 0 4px 0;
   }
   .SearchBar #searchbar-search-group {
     width: 25%;
@@ -186,12 +275,40 @@ button#searchbar-add-class{
   }
   .SearchBar button#searchbar-add-class {
     transform: none;
-    left: 8px;
+    left: 10px;
     bottom: 7px;
+    height: 28px;
+    padding: 0px;
+    width: 107px;
+  }
+  .SearchBar .list-switch-container {
+    width: 57px;
+    left: 125px;
+    bottom: 7px;
+    right: unset;
+    border: 1px solid #bbb;
+    font-size: 11px;
+    padding: 1px;
+    border-radius: 4px;
+  }
+  .SearchBar .list-switch-container:active {
+    background-color: lightgray;
   }
 }
 
 @media (max-width: 650px) {
+  .SearchBar #search-input {
+    width: 150px;
+  }
+  .SearchBar .TagsInput {
+    width: 148px;
+  }
+  .SearchBar .list-switch-container {
+    left: 120px;
+  }
+}
+
+@media (max-width: 600px) {
   .SearchBar {
     margin-top: 12px;
     padding: 5px;
@@ -214,9 +331,6 @@ button#searchbar-add-class{
   }
   .SearchBar .first-row-container {
     width: 100%;
-  }
-  .tags-input {
-    display: none !important;
   }
   .SearchBar input#name-input {
     margin-left: 5px;

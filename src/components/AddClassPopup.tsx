@@ -7,7 +7,7 @@ import { CourseData } from './Course'
 import "../styles/AlertPopup.css"
 
 export default class AddClassPopup extends React.Component {
-  courseOffset: number = 0;
+  courseOffset: number = 0
 
   render() {
     return (
@@ -42,7 +42,7 @@ export default class AddClassPopup extends React.Component {
 
     let course: CourseData = {
       department: department.value,
-      number: Number(classNumber.value),
+      courseNumber: Number(classNumber.value),
       modifier: "",
       name: name.value, 
       credits: +hours.value,
@@ -54,7 +54,7 @@ export default class AddClassPopup extends React.Component {
     let userId: number
     let uidString: string = 'uid'
 
-    fetch('api/api.cgi/getUserId/' + loginStore.email, {
+    fetch('api/api2.cgi/getUserId/' + loginStore.email, {
       method: 'get',
       headers: {
         'Content-Type': 'text'
@@ -75,7 +75,7 @@ export default class AddClassPopup extends React.Component {
       uid: userId
     }
 
-    fetch('/api/api.cgi/addUserDefinedCourse', {
+    fetch('/api/api2.cgi/addUserDefinedCourse', {
       method: 'put',
       body: JSON.stringify(userDefinedCourse),
       headers: {
@@ -84,7 +84,6 @@ export default class AddClassPopup extends React.Component {
     } as any).then(raw => raw.json().then(res => {
       scheduleStore.addCourses([course])
       this.courseOffset++
-      console.log(res)
     }).then().catch(err => console.log(err)))
     uiStore.addClassPopupActive = false
   }

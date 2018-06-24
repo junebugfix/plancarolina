@@ -1,14 +1,20 @@
-import { MouseEvent, ChangeEvent, KeyboardEvent } from 'react';
 import { observable, action, computed, autorun } from 'mobx';
-import { Semesters } from './utils';
+import { Semesters, getObjectValues } from './utils';
 import { Departments } from './departments';
 import { CourseData } from './components/Course';
 import { scheduleStore } from './ScheduleStore';
+import { coursesStore } from './CoursesStore';
 import { loginStore, HandleConflictResult } from './LoginStore';
 import { colorController } from './ColorController';
+import CourseSearch, { ALL_GENEDS } from './CourseSearch'
 import * as Cookies from 'js-cookie';
 import difference from 'lodash-es/difference';
 import './styles/AddMajorPopup.css';
+import Dialog, { DialogOptions } from './components/Dialog';
+import Snackbar, { SnackbarOptions } from './components/Snackbar';
+import SearchBar from './components/SearchBar';
+import Semester from './components/Semester';
+import QuickAddInput from './components/QuickAddInput';
 
 interface MajorData {
   name: string
@@ -17,8 +23,9 @@ interface MajorData {
   urls: string[]
 }
 
-interface UserSettings {
+export interface UserSettings {
   expandedView: boolean
+  listView: boolean
   majors: string[]
   departmentHues: { [dept: string]: number }
   fall5Active: boolean
@@ -30,6 +37,9 @@ interface UserSettings {
 }
 
 class UIStore {
+  searchResultsScrollEl: HTMLDivElement
+  pendingQuickSearchComponent: QuickAddInput
+  pendingQuickSearchEvent: React.FormEvent<HTMLInputElement>
   @observable fall5Active = false
   @observable spring5Active = false
   @observable isSearchingDepartment = false
@@ -38,12 +48,9 @@ class UIStore {
   @observable addMajorPopupActive = false
   @observable loginPopupActive = false
   @observable expandedView = false
-  @observable isLoadingSearchResults = false
-  @observable isLoadingSchedule = false
-  @observable alertOpen = false
-  @observable alertMessage = ''
-  @observable alertAction: Function
-  @observable alertActionLabel = ''
+  @observable listView = false
+  @observable searchBarResultsPending = false
+  @observable hasSetScheduleLoadInterval = false
   @observable hasAddedACourse = false
   @observable yearEnteredPromptActive = false
   @observable addClassPopupActive = false
@@ -52,54 +59,64 @@ class UIStore {
   @observable addMajorAlertActive = false
   @observable shouldPromptAddMajor = true
   @observable promptHandleConflictPopup = false
-  @observable isSavingSchedule = false
-  shouldPromptForLogin = true
-
-  majors: string[] = []
+  @observable shouldPromptForLogin = true
 
   @observable majorResults: string[] = []
   @observable departmentResults: string[] = []
+  @observable currentSearch: CourseSearch = new CourseSearch()
 
-  @observable firstYearSummerActive = false
-  @observable sophomoreSummerActive = false
-  @observable juniorSummerActive = false
-  @observable seniorSummerActive = false
+  @observable summer1Active = false
+  @observable summer2Active = false
+  @observable summer3Active = false
+  @observable summer4Active = false
 
   @observable searchDepartment = ""
   @observable searchNumber: number
   @observable searchNumberOperator = 'eq'
   @observable searchKeywords = ""
   @observable searchGeneds: string[] = []
-
   @observable searchResults: CourseData[] = []
   @observable numberOfSearchResults = this.isWideView ? 10 : 9
-
   @observable windowWidth = window.innerWidth
 
   yearEnteredCallback: Function
+  dialog: Dialog
+  snackbar: Snackbar
+  coursePopup: HTMLElement
+  majors: string[] = []
+  getDescriptionsTimeout
+  searchBar: SearchBar
+
+  readonly SEARCH_UPDATE_INTERVAL_MS = 150
 
   @computed get isWideView() {
     return this.windowWidth > 950
   }
 
   @computed get isMobileView() {
-    return this.windowWidth <= 650
+    return this.windowWidth <= 600
   }
 
   @computed get courseHeight() {
-    return this.expandedView ? 44 : 28
+    if (this.expandedView) {
+      return 30
+    } else if (this.isMobileView) {
+      return 21
+    }
+    return 26
   }
 
   @computed get semesterHeight() {
-    return (Math.max(...scheduleStore.allSemesters.map(s => s.length)) * this.courseHeight) + 30
+    const longestSemesterLength = Math.max(...scheduleStore.semestersArray.map(s => s.length))
+    return Math.max((longestSemesterLength * this.courseHeight) + 30, 30)
   }
 
   @computed get isAnySummerActive() {
-    return this.firstYearSummerActive || this.sophomoreSummerActive || this.juniorSummerActive || this.seniorSummerActive
+    return this.summer1Active || this.summer2Active || this.summer3Active || this.summer4Active
   }
 
   @computed get summerHeight() {
-    return scheduleStore.allSummers.reduce((memo: number, summer: CourseData[]) => {
+    return scheduleStore.summersArray.reduce((memo: number, summer: CourseData[]) => {
       return summer.length > memo ? summer.length : memo
     }, 0) * 20 + 40
   }
@@ -107,10 +124,11 @@ class UIStore {
   @computed get userSettings(): UserSettings {
     return {
       expandedView: this.expandedView,
-      firstYearSummerActive: this.firstYearSummerActive,
-      sophomoreSummerActive: this.sophomoreSummerActive,
-      juniorSummerActive: this.juniorSummerActive,
-      seniorSummerActive: this.seniorSummerActive,
+      listView: this.listView,
+      firstYearSummerActive: this.summer1Active,
+      sophomoreSummerActive: this.summer2Active,
+      juniorSummerActive: this.summer3Active,
+      seniorSummerActive: this.summer4Active,
       fall5Active: this.fall5Active,
       spring5Active: this.spring5Active,
       majors: this.majors,
@@ -121,14 +139,12 @@ class UIStore {
   readonly MAJOR_LABEL = "major-res"
   readonly DEPARTMENT_LABEL = "dept-res"
 
-  lastKeywordUpdate = Date.now()
   yearEntered: number;
   departmentNames: string[]
   majorNames: string[] = []
   majorData: MajorData[]
-  departmentInput: HTMLInputElement
   fuzzysearch: Function
-  slip: any
+  pendingDescriptions: { [id: number]: HTMLElement } = {}
 
   constructor() {
     this.departmentNames = Object.keys(Departments).filter(x => parseInt(x, 10) > 0).map(x => Departments[x])
@@ -137,162 +153,145 @@ class UIStore {
       this.majorNames.push(this.majorData[key].name)
     }
     this.fuzzysearch = require('fuzzysearch')
-    this.slip = require('./slip.js')
     
-    window.addEventListener('resize', e => {
-      this.windowWidth = window.innerWidth
-      if (this.isWideView && this.numberOfSearchResults !== 10) {
-        this.numberOfSearchResults = 10
-      } else if (!this.isWideView && this.numberOfSearchResults !== 9) {
-        this.numberOfSearchResults = 9
-      }
-    })
+    window.addEventListener('resize', () => this.handleResize())
   }
 
-  @action.bound registerDepartmentInput(input: HTMLInputElement) {
-    this.departmentInput = input
-  }
-
-  private isReorderWithinList(e: Event): boolean {
-    return (e.target as HTMLDivElement).classList.contains('Course')
+  handleResize() {
+    this.windowWidth = window.innerWidth
+    if (this.isWideView && this.numberOfSearchResults !== 10) {
+      this.numberOfSearchResults = 10
+    } else if (!this.isWideView && !this.isMobileView && this.numberOfSearchResults !== 9) {
+      this.numberOfSearchResults = 9
+    } else if (this.isMobileView) {
+      this.numberOfSearchResults = 6
+    }
   }
 
   private isDuplicate(searchResultIndex: number) {
     return scheduleStore.allCourses.map(c => c.id).indexOf(this.searchResults.map(r => r.id)[searchResultIndex]) !== -1
   }
 
-  @action.bound registerSlipList(el: HTMLDivElement) {
-    let slipList = new this.slip(el)
-    el.addEventListener('slip:reorder', (e: any) => {
-      if (e.detail.origin.container.classList.contains('SearchBarResults')) {
-        const searchResultIndex = e.detail.originalIndex
-        const semesterIndex = Semesters[e.target.id as string]
-        let toIndex = e.detail.spliceIndex
-        if (this.isDuplicate(searchResultIndex)) {
-          e.preventDefault()
-          this.snackbarAlert('That course is already in your schedule.')
-          return
-        }
-        scheduleStore.insertSearchResult(searchResultIndex, semesterIndex, toIndex)
-        this.searchResults.splice(searchResultIndex, 1)
-      } else if (this.isReorderWithinList(e)) {
-        scheduleStore.reorderInList(e.target, e.detail.originalIndex, e.detail.spliceIndex)
-      } else { // course was dragged to a different list
-        const toList = e.target
-        const fromList = e.detail.origin.container
-        const toIndex = e.detail.spliceIndex
-        const fromIndex = e.detail.originalIndex
-        scheduleStore.changeLists(fromList, fromIndex, toList, toIndex)
-      }
-    })
-    scheduleStore.connectSlipList(slipList)
+  showDialog(options: DialogOptions) {
+    this.dialog.options = options
+    this.dialog.open = true
   }
 
-  @action.bound registerSearchBarResults(el: HTMLDivElement) {
-    let slipList = new this.slip(el)
-    // prevent dragging the welcome text
-    el.addEventListener('slip:beforeswipe', (e) => {
-      if ((e.target as HTMLElement).classList.contains('undraggable')) {
-        e.preventDefault()
-      }
-    })
-    el.addEventListener('slip:beforereorder', (e) => {
-      if ((e.target as HTMLElement).classList.contains('undraggable')) {
-        e.preventDefault()
-      }
-    })
-    scheduleStore.connectSlipList(slipList)
+  registerDescriptionPending(courseId: number, textContainer: HTMLElement) {
+    this.pendingDescriptions[courseId] = textContainer
+  }
+
+  handleDescriptionLoaded(id: number, description: string) {
+    if (this.pendingDescriptions.hasOwnProperty(id) && this.pendingDescriptions[id]) {
+      this.pendingDescriptions[id].innerText = description
+      delete this.pendingDescriptions[id]
+    }
+  }
+
+  showCoursePopup(data: CourseData, left: number, top: number, bottom?: number) {
+    if (top && bottom) throw new Error('defined both top and bottom')
+    const popup = document.createElement('div')
+    popup.classList.add('course-popup')
+    popup.style.left = `${left}px`
+    if (bottom) {
+      popup.style.bottom = `${window.innerHeight - bottom - 2}px`
+    } else {
+      popup.style.top = `${top - 2}px`
+    }
+
+    const title = document.createElement('div')
+    title.classList.add('title')
+    title.innerText = `${data.department} ${data.courseNumber}: ${data.name}`
+
+    const stats = document.createElement('div')
+    stats.classList.add('stats')
+
+    const geneds = document.createElement('span')
+    geneds.innerText = `Geneds: ${data.geneds.join(' ')}`
+
+    const credits = document.createElement('span')
+    credits.innerText = `Credits: ${data.credits}`
+
+    const description = document.createElement('div')
+    const currentDescription = coursesStore.descriptions[data.id]
+    if (currentDescription) {
+      description.innerText = currentDescription
+    } else {
+      description.innerText = 'Loading description...'
+      this.registerDescriptionPending(data.id, description)
+    }
+
+    popup.appendChild(title)
+    stats.appendChild(geneds)
+    stats.appendChild(credits)
+    popup.appendChild(stats)
+    popup.appendChild(description)
+
+    popup.onmouseleave = () => {
+      this.hideCoursePopup()
+    }
+
+    this.coursePopup = popup
+    document.body.appendChild(popup)
+  }
+
+  hideCoursePopup() {
+    if (this.coursePopup) {
+      this.coursePopup.remove()
+    }
+  }
+
+  alertNetworkError(retryFn?: (e: any) => void) {
+    const options: SnackbarOptions = { message: 'Could not connect to internet' }
+    if (retryFn) {
+      options.actionLabel = 'Retry'
+      options.action = retryFn
+    }
+    this.snackbarAlert(options)
   }
 
   @action.bound deactivateSummer(index: number) {
     switch (index) {
       case Semesters.Summer1:
-        this.firstYearSummerActive = false
+        this.summer1Active = false
         break;
       case Semesters.Summer2:
-        this.sophomoreSummerActive = false
+        this.summer2Active = false
         break;
       case Semesters.Summer3:
-        this.juniorSummerActive = false
+        this.summer3Active = false
         break;
       case Semesters.Summer4:
-        this.seniorSummerActive = false
+        this.summer4Active = false
         break;
       default:
         break;
     }
+    this.saveSettings()
   }
 
-  @action.bound handleAddMajorClicked(e: MouseEvent<HTMLDivElement>) {
+  @action.bound handleAddMajorClicked(e: React.MouseEvent<HTMLDivElement>) {
     if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
       this.addMajorPopupActive = !this.addMajorPopupActive
       this.alertAddMajor()
     }
   }
 
-  @action.bound handleLoginPopupClicked(e: MouseEvent<HTMLDivElement>) {
+  @action.bound handleLoginPopupClicked(e: React.MouseEvent<HTMLDivElement>) {
     if ((e.target as HTMLElement).classList.contains('Toolbar-item') || (e.target as HTMLElement).classList.contains('Toolbar-text')) {
       this.loginPopupActive = !this.loginPopupActive
     }
-  }
-
-  @action.bound handleNumberOperatorChange(e: ChangeEvent<HTMLSelectElement>) {
-    this.searchNumberOperator = e.target.value
-    this.updateSearchResults()
-  }
-
-  @action.bound handleSearchingNumber(e: ChangeEvent<HTMLInputElement>) {
-    let val = parseInt(e.target.value, 10)
-    if (val > 0) {
-      this.searchNumber = val
-    } else {
-      this.searchNumber = null
-    }
-    this.updateSearchResults()
-  }
-
-  @action.bound handleSearchingKeywords(e: ChangeEvent<HTMLInputElement>) {
-    this.searchKeywords = e.target.value
-    if (Date.now() - this.lastKeywordUpdate > 500) {
-      this.updateSearchResults()
-      this.lastKeywordUpdate = Date.now()
-    }
-  }
-
-  @action.bound handleSearchingMajor(e: ChangeEvent<HTMLInputElement>) {
-    this.addMajorAlertActive = false;
-    this.shouldPromptAddMajor = false;
-    this.majorResults = this.majorNames.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
-  }
-
-  @action.bound handleSearchingDepartmentChange(e: ChangeEvent<HTMLInputElement>) {
-    this.departmentResults = this.departmentNames.filter(x => this.fuzzysearch(e.target.value.toLowerCase(), x.toLowerCase()))
-    if (e.target.value === '') {
-      this.isSearchingDepartment = false
-      this.searchDepartment = ''
-    } else {
-      this.isSearchingDepartment = true
-    }
-  }
-
-  @action.bound handleGenedChanged(e: Event) {
-    if ((e.target as HTMLInputElement).value === '') {
-      this.searchGeneds = []
-    } else {
-      this.searchGeneds = (e.target as HTMLInputElement).value.split(',')
-    }
-    this.updateSearchResults()
   }
 
   @action.bound handleSearchResultChosen(label: string, result: string) {
     if (label === this.MAJOR_LABEL) {
       this.handleMajorResultChosen(result)
     } else if (label === this.DEPARTMENT_LABEL) {
-      this.handleDepartmentResultChosen(result)
+      // this.handleDepartmentResultChosen(result)
     }
   }
 
-  @action.bound handleRemoveCourse(e: MouseEvent<HTMLSpanElement>) {
+  @action.bound handleRemoveCourse(e: React.MouseEvent<HTMLSpanElement>) {
     let course = (e.target as HTMLDivElement).parentNode
     // get index of course in semester
     let semesterIndex = Semesters[course.parentElement.id]
@@ -304,14 +303,15 @@ class UIStore {
   }
 
   @action.bound loadSettings(settings: UserSettings) {
-    this.expandedView = settings.expandedView || this.expandedView
-    this.firstYearSummerActive = settings.firstYearSummerActive || this.firstYearSummerActive
-    this.sophomoreSummerActive = settings.sophomoreSummerActive || this.sophomoreSummerActive
-    this.juniorSummerActive = settings.juniorSummerActive || this.juniorSummerActive
-    this.seniorSummerActive = settings.seniorSummerActive || this.seniorSummerActive
-    this.fall5Active = settings.fall5Active || this.fall5Active
-    this.spring5Active = settings.spring5Active || this.spring5Active
-    this.majors = settings.majors || this.majors
+    this.expandedView = settings.expandedView
+    this.listView = settings.listView
+    this.summer1Active = settings.firstYearSummerActive
+    this.summer2Active = settings.sophomoreSummerActive
+    this.summer3Active = settings.juniorSummerActive
+    this.summer4Active = settings.seniorSummerActive
+    this.fall5Active = settings.fall5Active
+    this.spring5Active = settings.spring5Active
+    this.majors = settings.majors
     colorController.loadDepartmentHues(settings.departmentHues)
     this.forceUpdateSchedule()
   }
@@ -323,30 +323,22 @@ class UIStore {
 
   saveSettings() {
     if (!loginStore.isLoggedIn) return
-    console.log(this.userSettings)
     const requestBody = {
       settings: JSON.stringify(this.userSettings),
       email: loginStore.email
     }
-    console.log(JSON.stringify(requestBody))
-    fetch('/api/api.cgi/saveUserSettings', {
+    fetch('/api/api2.cgi/saveUserSettings', {
       method: 'put',
       body: JSON.stringify(requestBody),
       headers: {
         'Content-Type': 'application/json'
       }
-    } as any).then(res => {
-      res.json().then(r => {
-        console.log('saved user settings')
-      }).catch(err => console.log(err))
-    }).catch(err => console.log(err))
+    })
   }
 
-  snackbarAlert(message: string, snackbarAction?: Function, snackbarActionLabel?: string) {
-    this.alertMessage = message
-    this.alertAction = snackbarAction
-    this.alertActionLabel = snackbarActionLabel
-    this.alertOpen = true
+  snackbarAlert(options: SnackbarOptions) {
+    this.snackbar.options = options
+    this.snackbar.open = true
   }
 
   private handleMajorResultChosen(majorName: string) { 
@@ -392,7 +384,7 @@ class UIStore {
       num = Number(numStr)
     }
     return new Promise((resolve, reject) => {
-      fetch(`/api/api.cgi/courses/${dept}/${num}/${mod}`).then(res => {
+      fetch(`/api/api2.cgi/courses/${dept}/${num}/${mod}`).then(res => {
         if (res.ok) {
           res.json().then(resolve).catch(reject)
         } else {
@@ -402,32 +394,85 @@ class UIStore {
     })
   }
 
-  private handleDepartmentResultChosen(result: string) {
-    this.searchDepartment = result
-    this.departmentInput.value = result
-    this.departmentResults = []
-    this.updateSearchResults()
-  }
-
   @computed get searchGenedsString() {
     return this.searchGeneds.join(',')
   }
 
-  updateSearchResults() {
-    this.isLoadingSearchResults = true
+  updateDescriptions() {
+    console.log('updating descriptions...')
+    if (this.searchResults.length > 0) {
+      coursesStore.getDescriptions(this.searchResults.map(c => c.id)).then(res => {
+        console.log('updated descriptions')
+      }).catch(err => console.log(err))
+    }
+  }
+
+  resetSearchResultsScroll() {
+    if (this.searchResultsScrollEl) {
+      this.searchResultsScrollEl.scrollTop = 0
+    }
+  }
+
+  updateSearchResults(search: CourseSearch) {
     colorController.clearSearchResultHues()
-    let dept = this.searchDepartment || 'none'
-    let op = this.searchNumberOperator || 'eq'
-    let num = this.searchNumber || 'none'
-    let keywords = this.searchKeywords || 'none'
-    let geneds = this.searchGeneds.length > 0 ? this.searchGeneds.join(',') : 'none'
-    let url = `/api/api.cgi/search/${dept}/${op}/${num}/${keywords}/${geneds}`
-    fetch(url).then(res => {
-      res.json().then(data => {
-        this.searchResults = data.results
-        this.isLoadingSearchResults = false
+    if (search.isEmpty()) {
+      this.searchResults = []
+      this.resetSearchResultsScroll()
+    } else {
+      coursesStore.search(search).then(results => {
+        this.searchResults = results
+        clearTimeout(this.getDescriptionsTimeout)
+        this.getDescriptionsTimeout = setTimeout(() => this.updateDescriptions(), 300)
+        this.resetSearchResultsScroll()
+      }).catch(reason => {
+        if (reason === coursesStore.COURSES_NOT_LOADED_ERROR) {
+          this.searchBarResultsPending = true
+        }
       })
-    })
+    }
+  }
+
+  handleCoursesLoaded() {
+    if (this.searchBarResultsPending) {
+      this.updateSearchResults(this.searchBar.search)
+      this.searchBarResultsPending = false
+    }
+    if (this.pendingQuickSearchEvent) {
+      this.pendingQuickSearchComponent.handleSearch(this.pendingQuickSearchEvent)
+    }
+  }
+
+  registerQuickSearchPending(quickAddInput: QuickAddInput, event: React.FormEvent<HTMLInputElement>) {
+    this.pendingQuickSearchEvent = event
+    this.pendingQuickSearchComponent = quickAddInput
+  }
+
+  removeSummer(index: Semesters) {
+    switch (index) {
+      case Semesters.Summer1:
+        uiStore.summer1Active = false;
+        (scheduleStore.summer1 as any).clear()
+        break;
+      case Semesters.Summer2:
+        uiStore.summer2Active = false;
+        (scheduleStore.summer2 as any).clear()
+        break;
+      case Semesters.Summer3:
+        uiStore.summer3Active = false;
+        (scheduleStore.summer3 as any).clear()
+        break;
+      case Semesters.Summer4:
+        uiStore.summer4Active = false;
+        (scheduleStore.summer4 as any).clear()
+        break;
+      default:
+        throw new Error(`Tried to remove summer, invalid index: ${index}`)
+    }
+    scheduleStore.saveSchedule()
+  }
+
+  registerSearchBar(searchBar: SearchBar) {
+    this.searchBar = searchBar
   }
 
   promptUserLogin() {
@@ -447,7 +492,7 @@ class UIStore {
     window.open(url)
   }
 
-getSemesterLabel(index: Semesters) {
+  getSemesterLabel(index: Semesters) {
     if ([Semesters.Fall1, Semesters.Fall2, Semesters.Fall3, Semesters.Fall4, Semesters.Fall5].indexOf(index) !== -1) {
       return 'Fall'
     } else {

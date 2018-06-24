@@ -2,8 +2,15 @@
   user-select: none;
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 10px;
+  margin: 10px 10px;
   justify-content: flex-start;
+}
+
+.SearchBarResults .SearchBarResult {
+  margin: 5px;
+  width: 45.5%;
+  height: 62px;
+  cursor: move;
 }
 
 .SearchBarResults .search-bar-welcome {
@@ -30,69 +37,88 @@
   font-size: 14px;
 }
 
-.SearchBarResults-result {
-  background: lightgray;
-  position: relative;
+.SearchBarResults.list {
+  height: 370px;
+  overflow-y: scroll;
+}
+
+.SearchBarResults.list .list-result {
   display: flex;
-  border: 1px solid grey;
+  flex-direction: column;
+  font-size: 14px;
+  border: 1px solid #bbb;
   border-radius: 4px;
-  width: 45.5%;
-  height: 60px;
-  font-size: 12px;
-  overflow: hidden;
-  margin: 5px;
+  background-color: #EBF0FE;
+  margin: 2px 0;
+  width: 100%;
+  height: fit-content;
+  position: relative;
+}
+
+.SearchBarResults .list-result.shrink .desc {
+  display: none;
+}
+
+.SearchBarResults .list-result.shrink {
+  width: 200px;
+}
+
+.SearchBarResults.list .list-result:hover {
   cursor: move;
 }
 
-.SearchBarResults .dept-num {
-  background: white;
-  border-radius: 4px;
-  text-align: center;
-  display: inline-block;
-  width: 42px;
-  padding: 2px;
-  font-size: 13px;  
-  position: relative;
+.SearchBarResults .list-result .top .dept-num, .SearchBarResults .list-result .top .name {
+  padding: 5px;
 }
 
-.SearchBarResults .dept-num span {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.SearchBarResults .list-result .top {
+  display: flex;
+  margin-bottom: 2px;
 }
 
-.SearchBarResults .name {
-  display: inline-block;
-  font-style: italic;
-  height: fit-content;
-  max-height: 48px;
-  overflow: hidden;
+.SearchBarResults .list-result .mid {
+  padding: 4px;
+  padding-bottom: 0;
+}
+
+.SearchBarResults .list-result .mid .geneds {
+  margin-right: 8px;
+}
+
+.SearchBarResults .list-result .mid .geneds .gened-block {
+  background-color: white;
+  font-size: 12px;
+  padding: 3px;
+}
+
+.SearchBarResults .list-result .top .dept-num {
+  border-radius: 4px 0 4px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 27%;
+  box-sizing: border-box;
+}
+
+.SearchBarResults .list-result .top .name {
+  font-size: 13.5px;
   width: 73%;
-  margin: auto 4px;
+  box-sizing: border-box;
 }
 
-.SearchBarResults-result .elipses {
-  display: inline-block;
-  position: absolute;
-  right: 2px;
-  bottom: 0px;
+.SearchBarResults .list-result .bottom .geneds-credits {
+  display: flex;
+  flex-direction: column;
+  width: 26%;
 }
 
-.SearchBarResults .department {
-  font-weight: bold;
-}
-
-.SearchBarResults .number {
-  top: 15px;
-  font-weight: bold;
-  margin-left: 2px;
+.SearchBarResults .list-result .desc {
+  padding: 4px;
 }
 
 @media (max-width: 1200px) {
   .SearchBarResults {
-    margin: 20px 0px;
+    margin: 10px 0px;
   }
 }
 
@@ -103,11 +129,6 @@
   }
   .SearchBarResults .search-bar-welcome {
     margin-top: 45px;
-  }
-  .SearchBarResults-result {
-    width: 32%;
-    height: 31%;
-    margin: 1px;
   }
   .SearchBarResults .drag-prompt {
     position: absolute;
@@ -120,28 +141,45 @@
     padding: 4px 6px;
     border-radius: 4px;
   }
-}
-
-@media (max-width: 650px) {
-  .SearchBarResults {
-    width: 100%;
-  }
-  .SearchBar .search-bar-welcome {
-    margin-top: 10px;
-  }
-  .SearchBarResults .search-bar-welcome h3 {
-    font-size: 18px;
-  }
-  .SearchBarResults .search-bar-welcome p {
-    font-size: 13px;
-  }
-  .SearchBarResults .SearchBarResults-result .name {
-    font-size: 10px;
+  .SearchBarResults .SearchBarResult {
+    width: 32%;
+    height: 31%;
     margin: 1px;
   }
-  .SearchBarResults .SearchBarResults-result .dept-num {
+  .SearchBarResults .SearchBarResult .name {
+    max-height: 49px;
+  }
+  .SearchBarResults .SearchBarResult .expanded-container {
+    left: unset;
+    right: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .SearchBarResults {
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 6px;
+    justify-content: space-evenly 
+  }
+  .SearchBarResults .search-bar-welcome {
+    margin: 0 auto;
+    background-color: #fff;
+    width: 95%;
+    display: flex;
+    min-height: 50px;
+    border-radius: 4px;
+  }
+  .SearchBarResults .search-bar-welcome h3 {
+    font-size: 15px;
+  }
+  .SearchBarResults .search-bar-welcome p {
     font-size: 12px;
-    padding: 0px;
+    margin: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 4px;
+    line-height: 13px;
   }
   .SearchBarResults .drag-prompt {
     left: 100%;
